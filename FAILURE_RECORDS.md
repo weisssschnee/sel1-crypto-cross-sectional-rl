@@ -126,14 +126,14 @@
 ## 12. ARMS v1：六种搜索同场比（10-16）
 
 - 做法：世界 = NULL + P1 + 第二个植入 P2。P2 是 BASIN5 冻结名单里 T3 的第 1 名，`CS_DEMEAN(TS_MEAN(NEG(TS_MEAN(CS_RANK(ABS(TS_STD(CS_RANK(CS_DEMEAN(CS_ZSCORE(premium_high))),24))),504)),6))`，组合 72/all/both。6 个臂各跑 3 h，其余设置和 V2 链路相同。排名先看找回几个植入，再看用时（相差 20% 以内算平），最后看名人堂合成书的 B 半 t。
-- 最终排名要等 POOL 跑完才写进 `XS_SEL1/SEL1_ARMS_RESULT.json`；仓库里这份是 16:34 的中间版，只有前三臂。
+- 最终排名（10-16 23:02，`XS_SEL1/SEL1_ARMS_RESULT.json`）：V2 RL > GA > GFN > POOL > DEDUP > FROZEN，赢家 V2 RL。只有 RL 和 GA 找回了 P1，没有哪个臂找回 P2。排名按找到植入用的秒数算，RL 用了 4601 s，GA 用了 6474 s；但 GA 3 h 内只做了 13,345 次求值，RL 做了 31,104 次，按"找到时已用的求值次数"比，名次未必一样。
 - 各臂情况：
   - RL（V2 训练器原样）：第 4601 秒找回 P1（DELTA(EMA(log_quote_volume,168),168)，相关 0.843），之后又命中 2 个（0.838、0.788）；P2 没找回。31,104 次求值，合成书 t_B 2.56（72/all/both）。后半程照样塌：T2 83% 是 CS_ZSCORE(taker_buy_share)，T3 85% 是 NEG(mark_index_basis_bps)。
   - DEDUP（同一公式或同一选股行为再次出现记 −1）：没找到。没塌，但每次更新约 110 s，3 h 只有 12,672 次求值；合成书 t_B 3.09。
   - GFN（trajectory balance，β 4）：没找到。公式越写越长，从 25 个 token 涨到 47 个，97% ≥ 40，而 P1 很短。按 exp(βR) 采样时，长公式的数量多几个数量级、奖励又差不多平，目标分布本身就压在长公式上。合成书 t_B 5.42（4/all/both），但去掉最有利的 1% 时段后 A 半只剩 0.25（RL、DEDUP 是 14.7、16.5），收益很集中。
-  - GA（三岛 GP + 60 格 MAP-Elites）：正常跑满，8 代、13,345 次求值；找没找到等排名。
+  - GA（三岛 GP + 60 格 MAP-Elites）：正常跑满，8 代、13,345 次求值；第 6474 秒找回 P1（1 个命中），合成书 t_B 3.75。
   - FROZEN（策略不更新，当随机基线）：显存从 9.4 涨到 12.5 GiB，溢出到共享内存，VM 每个公式 2.82 s，是其他臂的 10–25 倍；3 h 只评了 3,456 次，按时间比对它不公平。为什么只有这个臂涨显存，没查。
   - POOL（奖励 = 公式加入 20 成员合成书的边际 t_dd）：每批有效公式从 108 个掉到 11–19 个；约第 70–80 次更新起有效数 < 20，更新被跳过，策略从此不再变。从日志和代码看，原因在优势设计：池子填满后，抽查的批次从第 5 次更新起几乎没有边际收益为正的；优势 = 边际收益 / 标准差、不减基线，于是有效公式的优势全为负，差一些的比非法公式的固定 −1 还低，策略就往非法公式上走。这个臂的结果反映的是这个设计问题，不是池子奖励这个方法。
 - 三个搜索器的实现复查都只评到"中"：PG 是普通 REINFORCE + 均值基线，没开风险寻求、批内去重、优先队列；GFN 三族共用一个 log Z，没有探索；GA 种群大、3 h 只跑了 8 代，没有简约压力。所以 v1 只代表这一版实现。修过的 PG / GFN / GA（ARMS v2）排在 v1 排名之后自动跑。
-- 回执：`logs/SEL1_ARMS.log`、`XS_SEL1/SEL1_ARMS_RULE.json`、`XS_SEL1/SEL1_ARMS_*/`、`XS_SEL1/SEL1_ARMS_RESULT.json`（中间版）。
+- 回执：`logs/SEL1_ARMS.log`、`XS_SEL1/SEL1_ARMS_RULE.json`、`XS_SEL1/SEL1_ARMS_*/`、`XS_SEL1/SEL1_ARMS_RESULT.json`。
 

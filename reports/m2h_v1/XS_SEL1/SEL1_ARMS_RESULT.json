@@ -1476,13 +1476,19 @@
   "seconds": 3112.8,
   "written": "2026-10-15T22:12:34+0800"
  },
- "missing": [
-  "SEL1_ARMS_GA",
-  "SEL1_ARMS_FROZEN",
-  "SEL1_ARMS_POOL"
- ],
+ "missing": [],
  "dev_read": false,
  "oos_read": false,
+ "ranking": [
+  "V2 RL",
+  "GA",
+  "V2 + --gfn 1",
+  "V2 + --pool 20",
+  "V2 + --dedup",
+  "V2 + --frozen"
+ ],
+ "winner": "V2 RL",
+ "winner_run": "SEL1_ARMS_RL",
  "arms": [
   {
    "arm": "V2 RL",
@@ -1530,39 +1536,47 @@
      "first_s": 4600.9
     }
    ],
-   "p2_hits": []
+   "p2_hits": [],
+   "rank": 1
   },
   {
-   "arm": "V2 + --dedup",
-   "run": "SEL1_ARMS_DEDUP",
-   "p1_found": false,
+   "arm": "GA",
+   "run": "SEL1_ARMS_GA",
+   "p1_found": true,
    "p2_found": false,
-   "plants": 0,
-   "time_s": Infinity,
+   "plants": 1,
+   "time_s": 6474.5,
    "first_s": [
-    Infinity,
+    6474.5,
     Infinity
    ],
-   "composite_tB": 3.091417736663057,
+   "composite_tB": 3.7520721736552014,
    "composite": {
-    "h": 72,
+    "h": 24,
     "state": "all",
     "dir": "both",
-    "t_A": 5.633639132623415,
-    "t_B": 3.091417736663057,
-    "trim_A": 16.5061899772531,
-    "trim_B": 3.460086480863261,
+    "t_A": 6.141519150030101,
+    "t_B": 3.7520721736552014,
+    "trim_A": 17.552496611925342,
+    "trim_B": 7.307891692144478,
     "years_against": 0
    },
    "composite_members": 20,
    "pool_composite_tB": null,
    "behav_tA_above_3": 500,
    "hall": 500,
-   "n_eval": 12672,
-   "n_behav": null,
-   "compute_s": 10869.0,
-   "p1_hits": [],
-   "p2_hits": []
+   "n_eval": 13345,
+   "n_behav": 11690,
+   "compute_s": 10865.6,
+   "p1_hits": [
+    {
+     "expr": "TS_MAX(TS_ZSCORE(ADD(EMA(ABS(NEG(log_quote_volume)), w=24), NEG(NEG(NEG(NEG(NEG(ABS(NEG(ABS(NEG(TS_STD(log_quote_volume, w=504))))))))))), w=336), w=72)",
+     "corr": 0.8001,
+     "first_s": 6474.5
+    }
+   ],
+   "p2_hits": [],
+   "rank": 2
   },
   {
    "arm": "V2 + --gfn 1",
@@ -1594,9 +1608,109 @@
    "n_behav": null,
    "compute_s": 10899.6,
    "p1_hits": [],
-   "p2_hits": []
+   "p2_hits": [],
+   "rank": 3
+  },
+  {
+   "arm": "V2 + --pool 20",
+   "run": "SEL1_ARMS_POOL",
+   "p1_found": false,
+   "p2_found": false,
+   "plants": 0,
+   "time_s": Infinity,
+   "first_s": [
+    Infinity,
+    Infinity
+   ],
+   "composite_tB": 3.853013960523841,
+   "composite": {
+    "h": 4,
+    "state": "all",
+    "dir": "both",
+    "t_A": 5.341750942731352,
+    "t_B": 3.853013960523841,
+    "trim_A": 6.932637460492909,
+    "trim_B": 5.45357811285499,
+    "years_against": 0
+   },
+   "composite_members": 20,
+   "pool_composite_tB": 3.1561945983025828,
+   "behav_tA_above_3": 367,
+   "hall": 500,
+   "n_eval": 21376,
+   "n_behav": null,
+   "compute_s": 10921.8,
+   "p1_hits": [],
+   "p2_hits": [],
+   "rank": 4
+  },
+  {
+   "arm": "V2 + --dedup",
+   "run": "SEL1_ARMS_DEDUP",
+   "p1_found": false,
+   "p2_found": false,
+   "plants": 0,
+   "time_s": Infinity,
+   "first_s": [
+    Infinity,
+    Infinity
+   ],
+   "composite_tB": 3.091417736663057,
+   "composite": {
+    "h": 72,
+    "state": "all",
+    "dir": "both",
+    "t_A": 5.633639132623415,
+    "t_B": 3.091417736663057,
+    "trim_A": 16.5061899772531,
+    "trim_B": 3.460086480863261,
+    "years_against": 0
+   },
+   "composite_members": 20,
+   "pool_composite_tB": null,
+   "behav_tA_above_3": 500,
+   "hall": 500,
+   "n_eval": 12672,
+   "n_behav": null,
+   "compute_s": 10869.0,
+   "p1_hits": [],
+   "p2_hits": [],
+   "rank": 5
+  },
+  {
+   "arm": "V2 + --frozen",
+   "run": "SEL1_ARMS_FROZEN",
+   "p1_found": false,
+   "p2_found": false,
+   "plants": 0,
+   "time_s": Infinity,
+   "first_s": [
+    Infinity,
+    Infinity
+   ],
+   "composite_tB": 2.463720742231403,
+   "composite": {
+    "h": 4,
+    "state": "all",
+    "dir": "both",
+    "t_A": 6.376020182961528,
+    "t_B": 2.463720742231403,
+    "trim_A": -0.24144289459756021,
+    "trim_B": -11.415333036057374,
+    "years_against": 0
+   },
+   "composite_members": 20,
+   "pool_composite_tB": null,
+   "behav_tA_above_3": 178,
+   "hall": 500,
+   "n_eval": 3456,
+   "n_behav": null,
+   "compute_s": 11077.2,
+   "p1_hits": [],
+   "p2_hits": [],
+   "rank": 6
   }
  ],
- "seconds": 2601.5,
- "written": "2026-10-16T16:34:39+0800"
+ "seconds": 1200.2,
+ "written": "2026-10-16T23:02:34+0800"
 }

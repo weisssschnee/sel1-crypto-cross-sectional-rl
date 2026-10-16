@@ -124,3 +124,20 @@ upd   95  33.5s {'sample': 0.82, 'vm': 19.81, 'book': 6.07, 'pool': 6.83, 'updat
 upd  111  45.4s {'sample': 1.31, 'vm': 31.5, 'book': 5.94, 'pool': 6.61, 'update': 6.61, 'log': 0.01} valid 11 uniq 11 vm 127 book 10 | T1 r13.847 eNone T2 r8.0065 eNone T3 r8.5003 eNone | ent None coef 0.030 eta 54:28:31
 upd  127  42.8s {'sample': 1.31, 'vm': 27.63, 'book': 6.32, 'pool': 7.56, 'update': 7.56, 'log': 0.0} valid 15 uniq 15 vm 127 book 14 | T1 r6.956 eNone T2 r8.9845 eNone T3 r5.5257 eNone | ent None coef 0.030 eta 52:00:24
   [64] distinct 0.990 body 0.990 | T1 0.00 TS_ZSCORE(log_low, w=168) H168 up_highvol both | T2 0.00 taker_buy_share H72 up_lowvol short | T3 0.01 premium_close_bps H4 up_lowvol short | hof100 {'24/up_lowvol/short': 18, '4/up_lowvol/short': 14, '72/up_lowvol/short': 13, '4/all/both': 11, '168/up_lowvol/short': 8, '72/all/both': 6, '24/all/both': 6, '4/down_highvol/both': 4}
+upd  143  47.1s {'sample': 1.28, 'vm': 33.93, 'book': 5.47, 'pool': 6.37, 'update': 6.37, 'log': 0.01} valid 11 uniq 11 vm 127 book 10 | T1 r6.4001 eNone T2 r4.3272 eNone T3 r4.8558 eNone | ent None coef 0.030 eta 50:11:16
+upd  159 179.9s {'sample': 1.21, 'vm': 159.83, 'book': 8.02, 'pool': 10.81, 'update': 10.81, 'log': 0.01} valid 17 uniq 17 vm 128 book 17 | T1 r3.9859 eNone T2 r7.2847 eNone T3 r5.1773 eNone | ent None coef 0.030 eta 50:04:33
+max_hours reached after update 166; checkpointed, stopping
+done updates 3122 n_eval 21376 seconds 10922
+=== POOL rc=0 2026/10/16 周五 22:42:32.52 
+=== RANKING 
+SEL1 world pcnull: 632 coins x 45288 h, 60 months, 94 delistings, alpha 6.908190339580098e-05, 9s
+SEL1 world + P2 CS_DEMEAN(TS_MEAN(NEG(TS_MEAN(CS_RANK(ABS(TS_STD(CS_RANK(CS_DEMEAN(CS_ZSCORE(premium_high))), w=24))), w=504)), w=6)) alpha2 5.6456e-05
+V2 RL            plants 1 (P1 True P2 False) time 4601s composite t_B 2.564 pool None behav t_A>3 386
+V2 + --dedup     plants 0 (P1 False P2 False) time - composite t_B 3.091 pool None behav t_A>3 500
+V2 + --gfn 1     plants 0 (P1 False P2 False) time - composite t_B 5.425 pool None behav t_A>3 500
+GA               plants 1 (P1 True P2 False) time 6474s composite t_B 3.752 pool None behav t_A>3 500
+V2 + --frozen    plants 0 (P1 False P2 False) time - composite t_B 2.464 pool None behav t_A>3 178
+V2 + --pool 20   plants 0 (P1 False P2 False) time - composite t_B 3.853 pool 3.1561945983025828 behav t_A>3 367
+ranking: V2 RL > GA > V2 + --gfn 1 > V2 + --pool 20 > V2 + --dedup > V2 + --frozen -> winner V2 RL
+=== RANK rc=0 2026/10/16 周五 23:02:35.04 
+=== WINNER = V2 RL, resume NULL with module sha check 
