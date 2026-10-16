@@ -1,0 +1,127 @@
+{
+ "schema": "M1_TRAIN_RECEIPT_V1",
+ "created": "2026-10-04T01:05:15+0800",
+ "months": [
+  "2024-01",
+  "2024-02",
+  "2024-03",
+  "2024-04",
+  "2024-05",
+  "2024-06",
+  "2024-07",
+  "2024-08",
+  "2024-09",
+  "2024-10",
+  "2024-11",
+  "2024-12",
+  "2025-01",
+  "2025-02",
+  "2025-03",
+  "2025-04",
+  "2025-05",
+  "2025-06",
+  "2025-07",
+  "2025-08",
+  "2025-09",
+  "2025-10",
+  "2025-11",
+  "2025-12"
+ ],
+ "config": {
+  "out_name": "M1_TRAIN_SEED2_20261003",
+  "shard_dir": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\m1_staging\\m1_shards",
+  "updates": 128,
+  "batch": 256,
+  "seed": 20261005,
+  "device": "cuda",
+  "persist": 1,
+  "manifest_only": false
+ },
+ "reward_definition": "mean of 8 x 360-min episode log NAVs (6bp + funding, 2-min lag, per-formula HOLD)",
+ "invalid_reasons": {
+  "WINDOW_BELOW_OPERATOR_MINIMUM": 2345
+ },
+ "uniform_null_at_start": {
+  "roots": {
+   "n_distinct_roots": 13,
+   "top_root": "OP:GATE",
+   "top_root_share_pct": 94.1,
+   "top5": [
+    {
+     "root": "OP:GATE",
+     "share_pct": 94.1
+    },
+    {
+     "root": "OP:TS_MEAN",
+     "share_pct": 0.8
+    },
+    {
+     "root": "OP:DIV",
+     "share_pct": 0.8
+    },
+    {
+     "root": "OP:CS_DEMEAN",
+     "share_pct": 0.8
+    },
+    {
+     "root": "TERM:1",
+     "share_pct": 0.4
+    }
+   ]
+  },
+  "len": {
+   "p10": 48,
+   "p50": 48,
+   "p90": 48
+  },
+  "hold_hist": {
+   "1": 31,
+   "5": 26,
+   "15": 31,
+   "30": 49,
+   "60": 34,
+   "240": 48,
+   "1440": 37
+  }
+ },
+ "trained_policy_final": {
+  "roots": {
+   "n_distinct_roots": 24,
+   "top_root": "OP:GATE",
+   "top_root_share_pct": 39.1,
+   "top5": [
+    {
+     "root": "OP:GATE",
+     "share_pct": 39.1
+    },
+    {
+     "root": "OP:DIV",
+     "share_pct": 11.3
+    },
+    {
+     "root": "OP:CS_RANK",
+     "share_pct": 9.8
+    },
+    {
+     "root": "OP:MUL",
+     "share_pct": 7.8
+    },
+    {
+     "root": "OP:ADD",
+     "share_pct": 4.7
+    }
+   ]
+  },
+  "hold_hist": {
+   "1": 1,
+   "5": 2,
+   "15": 1,
+   "30": 0,
+   "60": 1,
+   "240": 1,
+   "1440": 250
+  }
+ },
+ "compute_seconds": 23164.1,
+ "oos_read": false
+}

@@ -1,0 +1,144 @@
+{
+ "schema": "M2H_TRAIN_RECEIPT_V1",
+ "run": "B5_PC_P8",
+ "b5": {
+  "order": "BASIN5_ORDER s1/s2/s6",
+  "copied_from": "m2h_dense_trainer_v2.py",
+  "reward_def": "gross_t = mean/sd(ddof 1) of per-tile cost0 log NAV over the drawn tiles, full TOP100 pool; sd==0 -> invalid ZEROSD",
+  "grammar": {
+   "file": "m2h_b5_grammar.py",
+   "selftest_ok": true,
+   "selftest": [
+    [
+     "DELTA(log_close, w=168)",
+     true,
+     null
+    ],
+    [
+     "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)",
+     true,
+     null
+    ],
+    [
+     "log_low",
+     false,
+     "LEVEL_AT_ROOT"
+    ],
+    [
+     "CS_RANK(log_quote_volume)",
+     false,
+     "LEVEL_INTO_CS_RANK"
+    ],
+    [
+     "SIGN(log_high)",
+     false,
+     "LEVEL_AT_ROOT"
+    ],
+    [
+     "SUB(log_close, EMA(log_close, w=168))",
+     true,
+     null
+    ],
+    [
+     "DIV(EMA(log_quote_volume, w=24), log_quote_volume)",
+     true,
+     null
+    ],
+    [
+     "CS_RANK(TS_ZSCORE(log_quote_volume, w=168))",
+     true,
+     null
+    ],
+    [
+     "CS_ZSCORE(ADD(TS_RANK(log_close, w=24), DELTA(log_high, w=24)))",
+     true,
+     null
+    ],
+    [
+     "CS_RANK(TS_MEAN(log_close, w=168))",
+     false,
+     "LEVEL_INTO_CS_RANK"
+    ],
+    [
+     "SUB(log_close, EMA(log_high, w=168))",
+     false,
+     "LEVEL_AT_ROOT"
+    ],
+    [
+     "NEG(TS_MEAN(funding_level, w=168))",
+     false,
+     "LEVEL_AT_ROOT"
+    ],
+    [
+     "GATE(SIGN(DELTA(log_close, w=24)), log_low, DELTA(log_close, w=24))",
+     false,
+     "LEVEL_AT_ROOT"
+    ],
+    [
+     "CS_RANK(TS_SLOPE(CS_DEMEAN(ABS(ADD(log_quote_volume, log_close))), w=336))",
+     false,
+     "LEVEL_INTO_CS_DEMEAN"
+    ]
+   ]
+  },
+  "corr_s": {
+   "s_file": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\artifacts\\m2h_v1\\TV1_20261010\\TV1_S.npy",
+   "tiles": 4,
+   "note": "CS Spearman with the TV1 plant s; meaningful only in the plant world"
+  },
+  "progress_every": 16
+ },
+ "created": "2026-10-12T16:24:52+0800",
+ "config": {
+  "out_name": "B5_PC_P8",
+  "panel": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\train2024_2025_panel_v1\\TRAIN2024JAN_2025DEC_HOURLY54_TARGET_LONG_V1.parquet",
+  "updates": 256,
+  "batch": 128,
+  "reward": "gross_t",
+  "select": "full",
+  "seed": 20261009,
+  "tiles": 16,
+  "device": "cuda",
+  "persist": 1,
+  "cost": "flat6",
+  "band": 0.5,
+  "nav_usd": 100000.0,
+  "checkpoint_every": 16,
+  "vm_block_elems": 33554432,
+  "ema_cache_max": 1,
+  "resume": null,
+  "max_hours": 10.0,
+  "manifest_only": false,
+  "ent_coef": 0.03,
+  "adv_deadband": 0.0
+ },
+ "n_tiles": 50,
+ "invalid_reasons": {
+  "LEVEL": 5426,
+  "ZERO": 216,
+  "ZEROSD": 142
+ },
+ "elite_pool_final_size": 200,
+ "trained_policy_final": {
+  "hold_hist": {
+   "4": 0,
+   "24": 0,
+   "72": 0,
+   "168": 128
+  },
+  "exprs": [
+   "TS_RANK(log_quote_volume, w=336)",
+   "TS_RANK(log_quote_volume, w=336)",
+   "TS_RANK(log_quote_volume, w=336)",
+   "TS_RANK(log_quote_volume, w=336)",
+   "TS_RANK(log_quote_volume, w=336)",
+   "TS_RANK(log_quote_volume, w=336)",
+   "TS_RANK(log_quote_volume, w=336)",
+   "TS_RANK(log_quote_volume, w=336)"
+  ]
+ },
+ "peak_vram_alloc_gib": 5.676,
+ "compute_seconds": 10316.7,
+ "oos_read": false,
+ "dev_read": false
+}

@@ -1,0 +1,139 @@
+{
+ "schema": "M2_TRAIN_RECEIPT_V1",
+ "created": "2026-10-08T23:31:43+0800",
+ "months": [
+  "2024-01",
+  "2024-02",
+  "2024-03",
+  "2024-04",
+  "2024-05",
+  "2024-06",
+  "2024-07",
+  "2024-08",
+  "2024-09",
+  "2024-10",
+  "2024-11",
+  "2024-12",
+  "2025-01",
+  "2025-02",
+  "2025-03",
+  "2025-04",
+  "2025-05",
+  "2025-06",
+  "2025-07",
+  "2025-08",
+  "2025-09",
+  "2025-10",
+  "2025-11",
+  "2025-12"
+ ],
+ "config": {
+  "out_name": "S1_STAGE1_20261008",
+  "shard_dir": "D:\\ChengboRemote\\data\\m1_shards_v2",
+  "updates": 128,
+  "batch": 256,
+  "seed": 20261004,
+  "device": "cuda",
+  "persist": 1,
+  "aggregate": "mean",
+  "windows": 4,
+  "elite_recheck": 32,
+  "cost": "flat6",
+  "band": 0.5,
+  "nav_usd": 100000.0,
+  "depth_dir": null,
+  "winsor_pct": 1.0,
+  "min_live_frac": 0.5,
+  "vm_block_elems": 33554432,
+  "ema_cache_max": 1,
+  "manifest_only": false,
+  "checkpoint_every": 16,
+  "resume": null,
+  "max_hours": 9.0
+ },
+ "reward_definition": "mean of the HOLDOUT windows' net log NAV (flat6, raw-ms funding, lag 2, per-formula HOLD, 1/99 winsorised forward returns); SELECT windows are diagnostic only and never enter the gradient",
+ "invalid_reasons": {
+  "ZERO_VM": 5882,
+  "WINDOW_VM": 2105
+ },
+ "elite_pool_final_size": 4741,
+ "behaviour_dedup": {
+  "tol": 1e-05,
+  "n_behaviours_cum_upper_bound": 22172,
+  "note": "sum over updates of within-update distinct HOLDOUT-vector behaviours; same behaviour recurring in a later update is counted again"
+ },
+ "resumed_from": null,
+ "trained_policy_final": {
+  "roots": {
+   "n_distinct_roots": 31,
+   "top_root": "OP:PER_ASSET_THRESH",
+   "top_root_share_pct": 49.2,
+   "top5": [
+    {
+     "root": "OP:PER_ASSET_THRESH",
+     "share_pct": 49.2
+    },
+    {
+     "root": "OP:GATE",
+     "share_pct": 15.2
+    },
+    {
+     "root": "OP:ADD",
+     "share_pct": 4.7
+    },
+    {
+     "root": "OP:NEG",
+     "share_pct": 4.3
+    },
+    {
+     "root": "OP:SIGN",
+     "share_pct": 3.5
+    }
+   ]
+  },
+  "hold_hist": {
+   "1": 1,
+   "5": 1,
+   "15": 2,
+   "30": 1,
+   "60": 1,
+   "240": 0,
+   "1440": 9,
+   "2880": 7,
+   "10080": 234
+  }
+ },
+ "peak_vram_alloc_gib": 14.296,
+ "compute_seconds": 30261.7,
+ "oos_read": false,
+ "search_accounting": {
+  "updates": 128,
+  "batch": 256,
+  "formulas_evaluated": 32768,
+  "reward_variance_V": 0.09656631535573047,
+  "reward_variance_n": 128,
+  "n_columns_screened": 0,
+  "notes": "N counts scored formulas; elite re-scores excluded",
+  "SR_0": 1.2457315857554532,
+  "hurdle_breakdown": {
+   "N": 32768,
+   "V_used": 0.09656631535573047,
+   "unit_variance_floor": false,
+   "gamma": 0.5772156649015329,
+   "Z_inv_1_minus_1_over_N": 4.008772593070846,
+   "Z_inv_exp_minus_1_over_N_upper": 4.008776196955488,
+   "sqrt_2_ln_N": 4.560089408860133,
+   "sqrt_V": 0.3107512113503831,
+   "inner": 4.0087746732895155
+  },
+  "N": 32768,
+  "ln_N": 10.39720770839918,
+  "budget_fraction_rule_of_thumb": 0.37,
+  "budget_fraction_blp": 0.22749109039292376,
+  "stop_after_formulas_rule_of_thumb": 12124,
+  "stop_after_formulas_blp": 7454,
+  "elite_pool_size": 4741,
+  "test_statistic": null,
+  "test_statistic_note": "not measured by the trainer; a DEV-window scorer must supply it together with the N=1 baseline"
+ }
+}

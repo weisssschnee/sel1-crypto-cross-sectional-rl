@@ -1,0 +1,3798 @@
+{
+ "schema": "B5_ROUND_REPORT_V1",
+ "variant": "BASIN5_PC_ENT",
+ "run": "B5_PC_P8_ENT",
+ "trainer": "m2h_b5_trainer_ent",
+ "mode": "p8",
+ "ended_by": [
+  "TRAIN_RECEIPT_V1.json"
+ ],
+ "last_update": 255,
+ "checkpoint": "checkpoint_0255.pt",
+ "checkpoint_update": 255,
+ "found": false,
+ "t1_batch_corr_max": 0.3421,
+ "frozen_corr_max": 0.5086,
+ "rule": "found = T1 batch mean corr with s > 0.3 at a logged update AND a frozen top-5 corr > 0.7 (ADR-0008); batch mean over grammar-legal valid T1 formulas",
+ "收敛到了什么": {
+  "T1": [
+   {
+    "rank": 1,
+    "expr": "DELTA(log_close, w=168)",
+    "n_tokens": 3,
+    "explain": "每小时按「收盘价过去168小时的变化」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 14.235,
+    "corr_s": 0.4454
+   },
+   {
+    "rank": 2,
+    "expr": "TS_RANK(log_close, w=336)",
+    "n_tokens": 3,
+    "explain": "每小时按「收盘价在自身过去336小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 13.64,
+    "corr_s": 0.3608
+   },
+   {
+    "rank": 3,
+    "expr": "TS_ZSCORE(ABS(log_quote_volume), w=336)",
+    "n_tokens": 4,
+    "explain": "每小时按「|成交额|相对自身336小时均值的标准分」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 13.635,
+    "corr_s": 0.4177
+   },
+   {
+    "rank": 4,
+    "expr": "TS_RANK(log_low, w=168)",
+    "n_tokens": 3,
+    "explain": "每小时按「最低价在自身过去168小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 13.382,
+    "corr_s": 0.2131
+   },
+   {
+    "rank": 5,
+    "expr": "TS_RANK(log_low, w=336)",
+    "n_tokens": 3,
+    "explain": "每小时按「最低价在自身过去336小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 13.346,
+    "corr_s": 0.3638
+   }
+  ],
+  "T2": [
+   {
+    "rank": 1,
+    "expr": "TS_RANK(log_oi_value, w=336)",
+    "n_tokens": 3,
+    "explain": "每小时按「持仓额在自身过去336小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 11.699,
+    "corr_s": 0.3987
+   },
+   {
+    "rank": 2,
+    "expr": "TS_RANK(log_oi_value, w=168)",
+    "n_tokens": 3,
+    "explain": "每小时按「持仓额在自身过去168小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 11.111,
+    "corr_s": 0.183
+   },
+   {
+    "rank": 3,
+    "expr": "TS_ZSCORE(log_oi_value, w=336)",
+    "n_tokens": 3,
+    "explain": "每小时按「持仓额相对自身336小时均值的标准分」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 8.943,
+    "corr_s": 0.4138
+   },
+   {
+    "rank": 4,
+    "expr": "DELTA(log_oi_value, w=336)",
+    "n_tokens": 3,
+    "explain": "每小时按「持仓额过去336小时的变化」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 7.556,
+    "corr_s": 0.5086
+   },
+   {
+    "rank": 5,
+    "expr": "TS_RANK(TS_STD(log_oi_value, w=336), w=336)",
+    "n_tokens": 5,
+    "explain": "每小时按「持仓额的336小时波动在自身过去336小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 6.272,
+    "corr_s": 0.3485
+   }
+  ],
+  "T3": [
+   {
+    "rank": 1,
+    "expr": "TS_MIN(premium_close_bps, w=672)",
+    "n_tokens": 3,
+    "explain": "每小时按「合约溢价的672小时最低值」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 17.199,
+    "corr_s": 0.1315
+   },
+   {
+    "rank": 2,
+    "expr": "TS_MIN(premium_close_bps, w=504)",
+    "n_tokens": 3,
+    "explain": "每小时按「合约溢价的504小时最低值」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 16.193,
+    "corr_s": 0.1109
+   },
+   {
+    "rank": 3,
+    "expr": "TS_MIN(CS_DEMEAN(TS_MIN(mark_index_basis_bps, w=336)), w=336)",
+    "n_tokens": 6,
+    "explain": "每小时按「标记-指数基差的336小时最低值减去全池均值的336小时最低值」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 13.051,
+    "corr_s": 0.1341
+   },
+   {
+    "rank": 4,
+    "expr": "TS_MIN(TS_MIN(premium_close_bps, w=336), w=72)",
+    "n_tokens": 5,
+    "explain": "每小时按「合约溢价的336小时最低值的72小时最低值」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 12.822,
+    "corr_s": 0.087
+   },
+   {
+    "rank": 5,
+    "expr": "TS_MIN(TS_MIN(mark_index_basis_bps, w=336), w=672)",
+    "n_tokens": 5,
+    "explain": "每小时按「标记-指数基差的336小时最低值的672小时最低值」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 12.345,
+    "corr_s": 0.1252
+   }
+  ]
+ },
+ "history_top5_by_train_reward": {
+  "note": "NOT in the verdict; logged gross_t rank, 50-tile rescore",
+  "this": {
+   "T1": {
+    "distinct_valid": 1102,
+    "logged_corr_gt07_n": 8,
+    "logged_corr_gt07_ranks": [
+     10,
+     11,
+     19,
+     45,
+     58,
+     102,
+     235,
+     507
+    ],
+    "top20_corr50_gt07_n": 3,
+    "top20_corr50_max": 0.8029,
+    "top5": [
+     {
+      "rank": 1,
+      "expr": "CS_RANK(CS_DEMEAN(TS_RANK(log_quote_volume, w=336)))",
+      "n_seen": 1,
+      "first_update": 149,
+      "last_update": 149,
+      "gross_t_logged": 1.664,
+      "corr_s_logged": 0.429,
+      "corr_s_50": 0.4026,
+      "conc_k10_train_net_bpd": 12.993,
+      "explain": "每小时按「成交额在自身过去336小时里的分位」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 2,
+      "expr": "TS_MAX(TS_ZSCORE(log_quote_volume, w=336), w=72)",
+      "n_seen": 1,
+      "first_update": 239,
+      "last_update": 239,
+      "gross_t_logged": 1.4056,
+      "corr_s_logged": 0.533,
+      "corr_s_50": 0.4606,
+      "conc_k10_train_net_bpd": 16.489,
+      "explain": "每小时按「成交额相对自身336小时均值的标准分的72小时最高值」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 3,
+      "expr": "TS_RANK(MUL(log_quote_volume, log_quote_volume), w=168)",
+      "n_seen": 1,
+      "first_update": 231,
+      "last_update": 231,
+      "gross_t_logged": 1.3936,
+      "corr_s_logged": 0.0264,
+      "corr_s_50": 0.0499,
+      "conc_k10_train_net_bpd": 6.748,
+      "explain": "每小时按「（成交额 × 成交额）在自身过去168小时里的分位」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 4,
+      "expr": "TS_ZSCORE(TS_ZSCORE(log_quote_volume, w=336), w=672)",
+      "n_seen": 1,
+      "first_update": 149,
+      "last_update": 149,
+      "gross_t_logged": 1.3712,
+      "corr_s_logged": 0.343,
+      "corr_s_50": 0.2771,
+      "conc_k10_train_net_bpd": 8.079,
+      "explain": "每小时按「成交额相对自身336小时均值的标准分相对自身672小时均值的标准分」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 5,
+      "expr": "ADD(TS_RANK(log_quote_volume, w=336), SIGN(TS_RANK(log_low, w=336)))",
+      "n_seen": 1,
+      "first_update": 157,
+      "last_update": 157,
+      "gross_t_logged": 1.1894,
+      "corr_s_logged": 0.4851,
+      "corr_s_50": 0.4548,
+      "conc_k10_train_net_bpd": 16.208,
+      "explain": "每小时按「（成交额在自身过去336小时里的分位 + 最低价在自身过去336小时里的分位的正负号）」排序，做多最高的、做空最低的。"
+     }
+    ]
+   },
+   "T2": {
+    "distinct_valid": 1121,
+    "logged_corr_gt07_n": 0,
+    "logged_corr_gt07_ranks": [],
+    "top20_corr50_gt07_n": 0,
+    "top20_corr50_max": 0.5266,
+    "top5": [
+     {
+      "rank": 1,
+      "expr": "CS_ZSCORE(CS_ZSCORE(TS_RANK(log_oi_value, w=336)))",
+      "n_seen": 1,
+      "first_update": 215,
+      "last_update": 215,
+      "gross_t_logged": 1.2604,
+      "corr_s_logged": 0.441,
+      "corr_s_50": 0.3987,
+      "conc_k10_train_net_bpd": 11.699,
+      "explain": "每小时按「持仓额在自身过去336小时里的分位」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 2,
+      "expr": "TS_MEAN(ABS(NEG(NEG(taker_buy_share))), w=672)",
+      "n_seen": 1,
+      "first_update": 23,
+      "last_update": 23,
+      "gross_t_logged": 1.0899,
+      "corr_s_logged": 0.0339,
+      "corr_s_50": 0.0067,
+      "conc_k10_train_net_bpd": 4.155,
+      "explain": "每小时按「|负的负的主动买占比|的672小时均值」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 3,
+      "expr": "TS_MEAN(TS_ZSCORE(log_oi_value, w=336), w=72)",
+      "n_seen": 1,
+      "first_update": 243,
+      "last_update": 243,
+      "gross_t_logged": 1.0424,
+      "corr_s_logged": 0.561,
+      "corr_s_50": 0.5138,
+      "conc_k10_train_net_bpd": 10.159,
+      "explain": "每小时按「持仓额相对自身336小时均值的标准分的72小时均值」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 4,
+      "expr": "CS_RANK(CS_ZSCORE(CS_DEMEAN(TS_ZSCORE(log_oi_value, w=336))))",
+      "n_seen": 1,
+      "first_update": 243,
+      "last_update": 243,
+      "gross_t_logged": 1.0194,
+      "corr_s_logged": 0.457,
+      "corr_s_50": 0.4138,
+      "conc_k10_train_net_bpd": 8.943,
+      "explain": "每小时按「持仓额相对自身336小时均值的标准分」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 5,
+      "expr": "CS_RANK(TS_MAX(taker_buy_share, w=336))",
+      "n_seen": 1,
+      "first_update": 149,
+      "last_update": 149,
+      "gross_t_logged": 0.9638,
+      "corr_s_logged": 0.1179,
+      "corr_s_50": 0.0703,
+      "conc_k10_train_net_bpd": -1.02,
+      "explain": "每小时按「主动买占比的336小时最高值」排序，做多最高的、做空最低的。"
+     }
+    ]
+   },
+   "T3": {
+    "distinct_valid": 2067,
+    "logged_corr_gt07_n": 0,
+    "logged_corr_gt07_ranks": [],
+    "top20_corr50_gt07_n": 0,
+    "top20_corr50_max": 0.1103,
+    "top5": [
+     {
+      "rank": 1,
+      "expr": "TS_MIN(NEG(MUL(mark_index_basis_bps, mark_index_basis_bps)), w=336)",
+      "n_seen": 1,
+      "first_update": 137,
+      "last_update": 137,
+      "gross_t_logged": 1.809,
+      "corr_s_logged": 0.0177,
+      "corr_s_50": 0.0694,
+      "conc_k10_train_net_bpd": 10.23,
+      "explain": "每小时按「负的（标记-指数基差 × 标记-指数基差）的336小时最低值」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 2,
+      "expr": "NEG(TS_STD(premium_close_bps, w=168))",
+      "n_seen": 1,
+      "first_update": 26,
+      "last_update": 26,
+      "gross_t_logged": 1.4569,
+      "corr_s_logged": -0.0769,
+      "corr_s_50": -0.0549,
+      "conc_k10_train_net_bpd": 9.166,
+      "explain": "每小时按「合约溢价的168小时波动」排序，做多最低的、做空最高的。"
+     },
+     {
+      "rank": 3,
+      "expr": "TS_MIN(CS_RANK(TS_MIN(mark_index_basis_bps, w=336)), w=24)",
+      "n_seen": 1,
+      "first_update": 237,
+      "last_update": 237,
+      "gross_t_logged": 1.4489,
+      "corr_s_logged": 0.0532,
+      "corr_s_50": 0.077,
+      "conc_k10_train_net_bpd": 10.927,
+      "explain": "每小时按「标记-指数基差的336小时最低值的截面排名的24小时最低值」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 4,
+      "expr": "CS_ZSCORE(TS_MIN(mark_index_basis_bps, w=504))",
+      "n_seen": 1,
+      "first_update": 35,
+      "last_update": 35,
+      "gross_t_logged": 1.4026,
+      "corr_s_logged": 0.0298,
+      "corr_s_50": 0.1098,
+      "conc_k10_train_net_bpd": 11.322,
+      "explain": "每小时按「标记-指数基差的504小时最低值」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 5,
+      "expr": "TS_MIN(CS_DEMEAN(CS_RANK(mark_index_basis_bps)), w=336)",
+      "n_seen": 1,
+      "first_update": 229,
+      "last_update": 229,
+      "gross_t_logged": 1.3848,
+      "corr_s_logged": 0.0285,
+      "corr_s_50": 0.0536,
+      "conc_k10_train_net_bpd": 7.313,
+      "explain": "每小时按「标记-指数基差的截面排名减去全池均值的336小时最低值」排序，做多最高的、做空最低的。"
+     }
+    ]
+   }
+  },
+  "ref": "B5_PC_P8",
+  "ref_run": {
+   "T1": {
+    "distinct_valid": 757,
+    "logged_corr_gt07_n": 4,
+    "logged_corr_gt07_ranks": [
+     10,
+     16,
+     19,
+     40
+    ],
+    "top20_corr50_gt07_n": 2,
+    "top20_corr50_max": 0.8513,
+    "top5": [
+     {
+      "rank": 1,
+      "expr": "TS_SLOPE(CS_DEMEAN(TS_MEAN(CS_RANK(TS_MEAN(TS_RANK(log_quote_volume, w=168), w=24)), w=672)), w=168)",
+      "n_seen": 1,
+      "first_update": 27,
+      "last_update": 27,
+      "gross_t_logged": 1.1545,
+      "corr_s_logged": 0.6938,
+      "corr_s_50": 0.6439,
+      "conc_k10_train_net_bpd": 16.909,
+      "explain": "每小时按「成交额在自身过去168小时里的分位的24小时均值的截面排名的672小时均值减去全池均值的168小时趋势斜率」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 2,
+      "expr": "TS_RANK(ABS(ABS(log_quote_volume)), w=336)",
+      "n_seen": 1,
+      "first_update": 131,
+      "last_update": 131,
+      "gross_t_logged": 1.151,
+      "corr_s_logged": 0.4142,
+      "corr_s_50": 0.4028,
+      "conc_k10_train_net_bpd": 12.993,
+      "explain": "每小时按「||成交额||在自身过去336小时里的分位」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 3,
+      "expr": "CS_ZSCORE(TS_ZSCORE(EMA(log_quote_volume, w=24), w=336))",
+      "n_seen": 1,
+      "first_update": 146,
+      "last_update": 146,
+      "gross_t_logged": 1.1223,
+      "corr_s_logged": 0.6965,
+      "corr_s_50": 0.6625,
+      "conc_k10_train_net_bpd": 14.91,
+      "explain": "每小时按「成交额的24小时均线相对自身336小时均值的标准分」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 4,
+      "expr": "CS_RANK(TS_ZSCORE(ABS(ADD(log_quote_volume, log_quote_volume)), w=336))",
+      "n_seen": 1,
+      "first_update": 147,
+      "last_update": 147,
+      "gross_t_logged": 1.1048,
+      "corr_s_logged": 0.4638,
+      "corr_s_50": 0.4177,
+      "conc_k10_train_net_bpd": 13.635,
+      "explain": "每小时按「|（成交额 + 成交额）|相对自身336小时均值的标准分」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 5,
+      "expr": "EMA(TS_MIN(CS_RANK(ABS(CS_ZSCORE(TS_ZSCORE(ABS(ABS(log_high)), w=72)))), w=72), w=336)",
+      "n_seen": 1,
+      "first_update": 102,
+      "last_update": 102,
+      "gross_t_logged": 1.0723,
+      "corr_s_logged": -0.0046,
+      "corr_s_50": 0.1006,
+      "conc_k10_train_net_bpd": 6.962,
+      "explain": "每小时按「|||最高价||相对自身72小时均值的标准分的截面标准分|的截面排名的72小时最低值的336小时均线」排序，做多最高的、做空最低的。"
+     }
+    ]
+   },
+   "T2": {
+    "distinct_valid": 624,
+    "logged_corr_gt07_n": 0,
+    "logged_corr_gt07_ranks": [],
+    "top20_corr50_gt07_n": 0,
+    "top20_corr50_max": 0.5051,
+    "top5": [
+     {
+      "rank": 1,
+      "expr": "TS_MEAN(ABS(NEG(NEG(taker_buy_share))), w=672)",
+      "n_seen": 1,
+      "first_update": 23,
+      "last_update": 23,
+      "gross_t_logged": 1.0899,
+      "corr_s_logged": 0.0339,
+      "corr_s_50": 0.0067,
+      "conc_k10_train_net_bpd": 4.155,
+      "explain": "每小时按「|负的负的主动买占比|的672小时均值」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 2,
+      "expr": "ADD(taker_buy_share, CS_ZSCORE(ABS(ABS(LAG(EMA(taker_buy_share, w=504), w=336)))))",
+      "n_seen": 1,
+      "first_update": 26,
+      "last_update": 26,
+      "gross_t_logged": 0.9578,
+      "corr_s_logged": -0.0005,
+      "corr_s_50": -0.0708,
+      "conc_k10_train_net_bpd": 4.121,
+      "explain": "每小时按「（主动买占比 + ||336小时前的主动买占比的504小时均线||的截面标准分）」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 3,
+      "expr": "ADD(SIGN(DIV(CS_ZSCORE(taker_buy_share), EMA(taker_buy_share, w=24))), SIGN(EMA(CS_DEMEAN(taker_buy_share), w=504)))",
+      "n_seen": 1,
+      "first_update": 27,
+      "last_update": 27,
+      "gross_t_logged": 0.9043,
+      "corr_s_logged": 0.0011,
+      "corr_s_50": 0.0355,
+      "conc_k10_train_net_bpd": 4.967,
+      "explain": "每小时按「（（主动买占比的截面标准分 ÷ 主动买占比的24小时均线）的正负号 + 主动买占比减去全池均值的504小时均线的正负号）」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 4,
+      "expr": "NEG(NEG(TS_MIN(DELTA(EMA(log_oi_value, w=6), w=168), w=168)))",
+      "n_seen": 1,
+      "first_update": 40,
+      "last_update": 40,
+      "gross_t_logged": 0.8263,
+      "corr_s_logged": 0.44,
+      "corr_s_50": 0.5051,
+      "conc_k10_train_net_bpd": 20.098,
+      "explain": "每小时按「持仓额的6小时均线过去168小时的变化的168小时最低值」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 5,
+      "expr": "TS_MEAN(CS_ZSCORE(CS_ZSCORE(CS_DEMEAN(taker_buy_share))), w=672)",
+      "n_seen": 1,
+      "first_update": 38,
+      "last_update": 38,
+      "gross_t_logged": 0.8152,
+      "corr_s_logged": 0.0603,
+      "corr_s_50": 0.0062,
+      "conc_k10_train_net_bpd": 3.542,
+      "explain": "每小时按「主动买占比减去全池均值的截面标准分的截面标准分的672小时均值」排序，做多最高的、做空最低的。"
+     }
+    ]
+   },
+   "T3": {
+    "distinct_valid": 1267,
+    "logged_corr_gt07_n": 0,
+    "logged_corr_gt07_ranks": [],
+    "top20_corr50_gt07_n": 0,
+    "top20_corr50_max": 0.1401,
+    "top5": [
+     {
+      "rank": 1,
+      "expr": "TS_MIN(mark_index_basis_bps, w=168)",
+      "n_seen": 1,
+      "first_update": 35,
+      "last_update": 35,
+      "gross_t_logged": 1.4763,
+      "corr_s_logged": -0.0297,
+      "corr_s_50": -0.0135,
+      "conc_k10_train_net_bpd": 3.864,
+      "explain": "每小时按「标记-指数基差的168小时最低值」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 2,
+      "expr": "NEG(TS_STD(premium_close_bps, w=168))",
+      "n_seen": 1,
+      "first_update": 26,
+      "last_update": 26,
+      "gross_t_logged": 1.4569,
+      "corr_s_logged": -0.0769,
+      "corr_s_50": -0.0549,
+      "conc_k10_train_net_bpd": 9.166,
+      "explain": "每小时按「合约溢价的168小时波动」排序，做多最低的、做空最高的。"
+     },
+     {
+      "rank": 3,
+      "expr": "CS_ZSCORE(TS_MIN(mark_index_basis_bps, w=504))",
+      "n_seen": 1,
+      "first_update": 35,
+      "last_update": 35,
+      "gross_t_logged": 1.4026,
+      "corr_s_logged": 0.0298,
+      "corr_s_50": 0.1098,
+      "conc_k10_train_net_bpd": 11.322,
+      "explain": "每小时按「标记-指数基差的504小时最低值」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 4,
+      "expr": "EMA(NEG(CS_DEMEAN(CS_ZSCORE(ABS(SUB(mark_index_basis_bps, ADD(mark_index_basis_bps, CS_DEMEAN(premium_close_bps))))))), w=72)",
+      "n_seen": 1,
+      "first_update": 30,
+      "last_update": 30,
+      "gross_t_logged": 1.3257,
+      "corr_s_logged": -0.0425,
+      "corr_s_50": -0.0083,
+      "conc_k10_train_net_bpd": 5.346,
+      "explain": "每小时按「负的|（标记-指数基差 − （标记-指数基差 + 合约溢价减去全池均值））|的截面标准分减去全池均值的72小时均线」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 5,
+      "expr": "EMA(NEG(NEG(SUB(TS_MIN(CS_ZSCORE(mark_index_basis_bps), w=24), premium_high))), w=504)",
+      "n_seen": 1,
+      "first_update": 45,
+      "last_update": 45,
+      "gross_t_logged": 1.2837,
+      "corr_s_logged": 0.0925,
+      "corr_s_50": 0.0984,
+      "conc_k10_train_net_bpd": 9.956,
+      "explain": "每小时按「负的负的（标记-指数基差的截面标准分的24小时最低值 − 小时内最高溢价）的504小时均线」排序，做多最高的、做空最低的。"
+     }
+    ]
+   }
+  }
+ },
+ "ent_blocks": [
+  {
+   "block": 0,
+   "updates": [
+    0,
+    15
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 5.5613,
+    "alpha_end": 0.03,
+    "corr_s": 0.0635,
+    "gross_bpd": 3.0465,
+    "ic": 0.0182,
+    "n_valid": 31,
+    "rejected": 652
+   },
+   "T2": {
+    "H": 5.1244,
+    "alpha_end": 0.03,
+    "corr_s": -0.0036,
+    "gross_bpd": 1.6939,
+    "ic": 0.0149,
+    "n_valid": 461,
+    "rejected": 175
+   },
+   "T3": {
+    "H": 5.71,
+    "alpha_end": 0.03,
+    "corr_s": -0.0129,
+    "gross_bpd": -1.0819,
+    "ic": -0.0144,
+    "n_valid": 502,
+    "rejected": 126
+   }
+  },
+  {
+   "block": 1,
+   "updates": [
+    16,
+    31
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 5.4306,
+    "alpha_end": 0.03,
+    "corr_s": 0.1165,
+    "gross_bpd": 3.2452,
+    "ic": -0.0016,
+    "n_valid": 36,
+    "rejected": 644
+   },
+   "T2": {
+    "H": 3.3033,
+    "alpha_end": 0.03,
+    "corr_s": 0.0122,
+    "gross_bpd": 2.3481,
+    "ic": 0.0089,
+    "n_valid": 593,
+    "rejected": 60
+   },
+   "T3": {
+    "H": 4.3341,
+    "alpha_end": 0.03,
+    "corr_s": -0.0155,
+    "gross_bpd": -0.4334,
+    "ic": -0.0075,
+    "n_valid": 610,
+    "rejected": 45
+   }
+  },
+  {
+   "block": 2,
+   "updates": [
+    32,
+    47
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 5.4582,
+    "alpha_end": 0.03,
+    "corr_s": 0.1032,
+    "gross_bpd": 1.6096,
+    "ic": 0.0007,
+    "n_valid": 51,
+    "rejected": 632
+   },
+   "T2": {
+    "H": 2.175,
+    "alpha_end": 0.030044,
+    "corr_s": 0.0101,
+    "gross_bpd": 3.4494,
+    "ic": 0.0097,
+    "n_valid": 618,
+    "rejected": 43
+   },
+   "T3": {
+    "H": 3.3114,
+    "alpha_end": 0.03,
+    "corr_s": -0.0308,
+    "gross_bpd": -0.871,
+    "ic": -0.0026,
+    "n_valid": 631,
+    "rejected": 30
+   }
+  },
+  {
+   "block": 3,
+   "updates": [
+    48,
+    63
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 5.1119,
+    "alpha_end": 0.03,
+    "corr_s": 0.1785,
+    "gross_bpd": 4.2207,
+    "ic": 0.0235,
+    "n_valid": 82,
+    "rejected": 603
+   },
+   "T2": {
+    "H": 1.4371,
+    "alpha_end": 0.047133,
+    "corr_s": 0.0184,
+    "gross_bpd": 4.5971,
+    "ic": 0.0092,
+    "n_valid": 656,
+    "rejected": 25
+   },
+   "T3": {
+    "H": 2.3101,
+    "alpha_end": 0.03,
+    "corr_s": -0.0315,
+    "gross_bpd": 0.4971,
+    "ic": 0.0003,
+    "n_valid": 648,
+    "rejected": 18
+   }
+  },
+  {
+   "block": 4,
+   "updates": [
+    64,
+    79
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 5.214,
+    "alpha_end": 0.03,
+    "corr_s": 0.1359,
+    "gross_bpd": 4.0412,
+    "ic": 0.0143,
+    "n_valid": 112,
+    "rejected": 566
+   },
+   "T2": {
+    "H": 1.0604,
+    "alpha_end": 0.099952,
+    "corr_s": 0.0235,
+    "gross_bpd": 6.452,
+    "ic": 0.009,
+    "n_valid": 664,
+    "rejected": 18
+   },
+   "T3": {
+    "H": 1.7543,
+    "alpha_end": 0.037547,
+    "corr_s": -0.0326,
+    "gross_bpd": 0.038,
+    "ic": 0.0106,
+    "n_valid": 653,
+    "rejected": 14
+   }
+  },
+  {
+   "block": 5,
+   "updates": [
+    80,
+    95
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 5.3012,
+    "alpha_end": 0.03,
+    "corr_s": 0.1501,
+    "gross_bpd": 3.3671,
+    "ic": 0.0136,
+    "n_valid": 173,
+    "rejected": 504
+   },
+   "T2": {
+    "H": 0.8725,
+    "alpha_end": 0.246331,
+    "corr_s": 0.0278,
+    "gross_bpd": 3.5045,
+    "ic": 0.0067,
+    "n_valid": 667,
+    "rejected": 17
+   },
+   "T3": {
+    "H": 1.3779,
+    "alpha_end": 0.061763,
+    "corr_s": -0.0322,
+    "gross_bpd": -0.3801,
+    "ic": 0.0094,
+    "n_valid": 661,
+    "rejected": 7
+   }
+  },
+  {
+   "block": 6,
+   "updates": [
+    96,
+    111
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 5.2001,
+    "alpha_end": 0.03,
+    "corr_s": 0.1948,
+    "gross_bpd": 6.2643,
+    "ic": 0.0275,
+    "n_valid": 251,
+    "rejected": 425
+   },
+   "T2": {
+    "H": 0.8801,
+    "alpha_end": 0.603414,
+    "corr_s": 0.0176,
+    "gross_bpd": 4.9247,
+    "ic": 0.0081,
+    "n_valid": 679,
+    "rejected": 7
+   },
+   "T3": {
+    "H": 1.2356,
+    "alpha_end": 0.113843,
+    "corr_s": -0.0362,
+    "gross_bpd": -0.7811,
+    "ic": 0.0098,
+    "n_valid": 661,
+    "rejected": 10
+   }
+  },
+  {
+   "block": 7,
+   "updates": [
+    112,
+    127
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 4.5473,
+    "alpha_end": 0.03,
+    "corr_s": 0.2606,
+    "gross_bpd": 7.6245,
+    "ic": 0.0315,
+    "n_valid": 374,
+    "rejected": 304
+   },
+   "T2": {
+    "H": 2.151,
+    "alpha_end": 0.534751,
+    "corr_s": 0.0063,
+    "gross_bpd": 3.5262,
+    "ic": 0.0186,
+    "n_valid": 573,
+    "rejected": 107
+   },
+   "T3": {
+    "H": 1.5618,
+    "alpha_end": 0.161637,
+    "corr_s": -0.0282,
+    "gross_bpd": -0.2742,
+    "ic": 0.0076,
+    "n_valid": 652,
+    "rejected": 18
+   }
+  },
+  {
+   "block": 8,
+   "updates": [
+    128,
+    143
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 3.6483,
+    "alpha_end": 0.03,
+    "corr_s": 0.3075,
+    "gross_bpd": 8.9877,
+    "ic": 0.0384,
+    "n_valid": 493,
+    "rejected": 182
+   },
+   "T2": {
+    "H": 4.3873,
+    "alpha_end": 0.079196,
+    "corr_s": -0.0297,
+    "gross_bpd": 1.8294,
+    "ic": 0.0299,
+    "n_valid": 494,
+    "rejected": 160
+   },
+   "T3": {
+    "H": 2.7204,
+    "alpha_end": 0.090834,
+    "corr_s": -0.0303,
+    "gross_bpd": -0.5181,
+    "ic": 0.0084,
+    "n_valid": 651,
+    "rejected": 9
+   }
+  },
+  {
+   "block": 9,
+   "updates": [
+    144,
+    159
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 2.3735,
+    "alpha_end": 0.030746,
+    "corr_s": 0.3682,
+    "gross_bpd": 10.7156,
+    "ic": 0.0514,
+    "n_valid": 578,
+    "rejected": 104
+   },
+   "T2": {
+    "H": 2.8561,
+    "alpha_end": 0.039926,
+    "corr_s": -0.0024,
+    "gross_bpd": 3.5512,
+    "ic": 0.0195,
+    "n_valid": 646,
+    "rejected": 28
+   },
+   "T3": {
+    "H": 3.3707,
+    "alpha_end": 0.030339,
+    "corr_s": -0.0266,
+    "gross_bpd": -0.1446,
+    "ic": 0.0046,
+    "n_valid": 637,
+    "rejected": 14
+   }
+  },
+  {
+   "block": 10,
+   "updates": [
+    160,
+    175
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 1.3902,
+    "alpha_end": 0.05008,
+    "corr_s": 0.3953,
+    "gross_bpd": 11.0236,
+    "ic": 0.0645,
+    "n_valid": 612,
+    "rejected": 74
+   },
+   "T2": {
+    "H": 1.3504,
+    "alpha_end": 0.067136,
+    "corr_s": 0.0211,
+    "gross_bpd": 5.1141,
+    "ic": 0.0147,
+    "n_valid": 673,
+    "rejected": 12
+   },
+   "T3": {
+    "H": 2.5068,
+    "alpha_end": 0.03,
+    "corr_s": -0.0275,
+    "gross_bpd": 0.7886,
+    "ic": 0.0128,
+    "n_valid": 655,
+    "rejected": 12
+   }
+  },
+  {
+   "block": 11,
+   "updates": [
+    176,
+    191
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 0.9976,
+    "alpha_end": 0.11167,
+    "corr_s": 0.3991,
+    "gross_bpd": 11.7216,
+    "ic": 0.0623,
+    "n_valid": 645,
+    "rejected": 41
+   },
+   "T2": {
+    "H": 0.8895,
+    "alpha_end": 0.16322,
+    "corr_s": 0.026,
+    "gross_bpd": 4.6516,
+    "ic": 0.0125,
+    "n_valid": 680,
+    "rejected": 7
+   },
+   "T3": {
+    "H": 2.6117,
+    "alpha_end": 0.03,
+    "corr_s": -0.0173,
+    "gross_bpd": 2.9362,
+    "ic": 0.0468,
+    "n_valid": 651,
+    "rejected": 17
+   }
+  },
+  {
+   "block": 12,
+   "updates": [
+    192,
+    207
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 0.814,
+    "alpha_end": 0.288408,
+    "corr_s": 0.4045,
+    "gross_bpd": 12.0734,
+    "ic": 0.0687,
+    "n_valid": 649,
+    "rejected": 39
+   },
+   "T2": {
+    "H": 1.1273,
+    "alpha_end": 0.328084,
+    "corr_s": 0.0706,
+    "gross_bpd": 5.8143,
+    "ic": 0.018,
+    "n_valid": 670,
+    "rejected": 16
+   },
+   "T3": {
+    "H": 1.5455,
+    "alpha_end": 0.04631,
+    "corr_s": 0.0017,
+    "gross_bpd": 11.0789,
+    "ic": 0.1561,
+    "n_valid": 653,
+    "rejected": 13
+   }
+  },
+  {
+   "block": 13,
+   "updates": [
+    208,
+    223
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 0.706,
+    "alpha_end": 0.812056,
+    "corr_s": 0.4035,
+    "gross_bpd": 12.774,
+    "ic": 0.0693,
+    "n_valid": 666,
+    "rejected": 22
+   },
+   "T2": {
+    "H": 1.2702,
+    "alpha_end": 0.588244,
+    "corr_s": 0.3315,
+    "gross_bpd": 9.9534,
+    "ic": 0.0422,
+    "n_valid": 624,
+    "rejected": 62
+   },
+   "T3": {
+    "H": 0.5488,
+    "alpha_end": 0.147862,
+    "corr_s": 0.0169,
+    "gross_bpd": 12.2106,
+    "ic": 0.1819,
+    "n_valid": 667,
+    "rejected": 3
+   }
+  },
+  {
+   "block": 14,
+   "updates": [
+    224,
+    239
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 3.5097,
+    "alpha_end": 0.242687,
+    "corr_s": 0.2808,
+    "gross_bpd": 8.351,
+    "ic": 0.0416,
+    "n_valid": 411,
+    "rejected": 271
+   },
+   "T2": {
+    "H": 2.8254,
+    "alpha_end": 0.303945,
+    "corr_s": 0.3019,
+    "gross_bpd": 8.7714,
+    "ic": 0.0427,
+    "n_valid": 368,
+    "rejected": 315
+   },
+   "T3": {
+    "H": 0.4857,
+    "alpha_end": 0.496573,
+    "corr_s": 0.013,
+    "gross_bpd": 11.6204,
+    "ic": 0.1797,
+    "n_valid": 669,
+    "rejected": 1
+   }
+  },
+  {
+   "block": 15,
+   "updates": [
+    240,
+    255
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 4.549,
+    "alpha_end": 0.031582,
+    "corr_s": 0.2494,
+    "gross_bpd": 7.8299,
+    "ic": 0.026,
+    "n_valid": 417,
+    "rejected": 263
+   },
+   "T2": {
+    "H": 2.1111,
+    "alpha_end": 0.278093,
+    "corr_s": 0.3284,
+    "gross_bpd": 8.0036,
+    "ic": 0.0431,
+    "n_valid": 579,
+    "rejected": 103
+   },
+   "T3": {
+    "H": 1.1013,
+    "alpha_end": 0.995968,
+    "corr_s": 0.0156,
+    "gross_bpd": 12.0419,
+    "ic": 0.1703,
+    "n_valid": 658,
+    "rejected": 11
+   }
+  }
+ ],
+ "progress_16": [
+  {
+   "update": 15,
+   "entropy_all": 4.983262062072754,
+   "gradient_norm": 2.0326240062713623,
+   "n_valid": 71,
+   "families": {
+    "T1": {
+     "n_valid": 3,
+     "grammar_reject": 40,
+     "entropy": 5.3802,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": -0.0277,
+     "gross_t": -0.2309,
+     "gross_bpd": -3.156,
+     "net_bpd": -4.002,
+     "ic": 0.00245,
+     "top": {
+      "expr": "EMA(TS_RANK(log_quote_volume, w=336), w=336)",
+      "n_tokens": 5,
+      "reward": 0.52442,
+      "corr_s": 0.4991,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "log_high",
+      "n_tokens": 1,
+      "share": 0.093,
+      "level_flag": false,
+      "grammar_blocks": true,
+      "grammar_reason": "LEVEL_AT_ROOT"
+     }
+    },
+    "T2": {
+     "n_valid": 36,
+     "grammar_reject": 3,
+     "entropy": 4.1969,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": 0.0178,
+     "gross_t": 0.04,
+     "gross_bpd": 0.828,
+     "net_bpd": -0.008,
+     "ic": 0.01017,
+     "top": {
+      "expr": "TS_MAX(ABS(taker_buy_share), w=336)",
+      "n_tokens": 4,
+      "reward": 0.41281,
+      "corr_s": 0.0584,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.2326,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 32,
+     "grammar_reject": 8,
+     "entropy": 5.3819,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": -0.0256,
+     "gross_t": 0.0864,
+     "gross_bpd": 1.698,
+     "net_bpd": 0.82,
+     "ic": 0.00734,
+     "top": {
+      "expr": "TS_MIN(mark_index_basis_bps, w=336)",
+      "n_tokens": 3,
+      "reward": 0.59275,
+      "corr_s": -0.0023,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "premium_close_bps",
+      "n_tokens": 1,
+      "share": 0.0952,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-12T22:56:47+0800"
+  },
+  {
+   "update": 31,
+   "entropy_all": 3.7601723670959473,
+   "gradient_norm": 1.75801420211792,
+   "n_valid": 80,
+   "families": {
+    "T1": {
+     "n_valid": 1,
+     "grammar_reject": 42,
+     "entropy": 5.1471,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": 0.0212,
+     "gross_t": -0.0482,
+     "gross_bpd": -0.586,
+     "net_bpd": -1.028,
+     "ic": -0.01131,
+     "top": {
+      "expr": "ABS(CS_ZSCORE(NEG(CS_RANK(CS_DEMEAN(CS_RANK(SIGN(TS_MEAN(ABS(TS_SLOPE(ABS(TS_RANK(MUL(TS_ZSCORE(log_quote_volume, w=504), log_low), w=504)), w=168)), w=336))))))))",
+      "n_tokens": 20,
+      "reward": -0.04825,
+      "corr_s": 0.0212,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "log_high",
+      "n_tokens": 1,
+      "share": 0.1163,
+      "level_flag": false,
+      "grammar_blocks": true,
+      "grammar_reason": "LEVEL_AT_ROOT"
+     }
+    },
+    "T2": {
+     "n_valid": 41,
+     "grammar_reject": 1,
+     "entropy": 2.4525,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": 0.0397,
+     "gross_t": 0.0682,
+     "gross_bpd": 1.504,
+     "net_bpd": 0.539,
+     "ic": 0.00247,
+     "top": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "reward": 0.13318,
+      "corr_s": 0.0536,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.5814,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 38,
+     "grammar_reject": 4,
+     "entropy": 3.6791,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": -0.0351,
+     "gross_t": 0.2991,
+     "gross_bpd": 4.122,
+     "net_bpd": 3.207,
+     "ic": 0.0096,
+     "top": {
+      "expr": "TS_MIN(mark_index_basis_bps, w=6)",
+      "n_tokens": 3,
+      "reward": 0.74033,
+      "corr_s": -0.042,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "mark_index_basis_bps",
+      "n_tokens": 1,
+      "share": 0.3333,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-12T23:05:42+0800"
+  },
+  {
+   "update": 47,
+   "entropy_all": 3.5330426692962646,
+   "gradient_norm": 1.658711552619934,
+   "n_valid": 80,
+   "families": {
+    "T1": {
+     "n_valid": 3,
+     "grammar_reject": 40,
+     "entropy": 5.5642,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": 0.0734,
+     "gross_t": 0.1097,
+     "gross_bpd": 1.396,
+     "net_bpd": 0.54,
+     "ic": 0.01855,
+     "top": {
+      "expr": "DELTA(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "reward": 0.74826,
+      "corr_s": 0.5618,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "log_high",
+      "n_tokens": 1,
+      "share": 0.093,
+      "level_flag": false,
+      "grammar_blocks": true,
+      "grammar_reason": "LEVEL_AT_ROOT"
+     }
+    },
+    "T2": {
+     "n_valid": 37,
+     "grammar_reject": 4,
+     "entropy": 2.0198,
+     "ent_alpha": 0.030074,
+     "ent_alpha_next": 0.030044,
+     "corr_s": -0.0224,
+     "gross_t": 0.2689,
+     "gross_bpd": 5.329,
+     "net_bpd": 4.354,
+     "ic": 0.0054,
+     "top": {
+      "expr": "TS_SLOPE(taker_buy_share, w=72)",
+      "n_tokens": 3,
+      "reward": 0.33404,
+      "corr_s": -0.0133,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.6047,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 40,
+     "grammar_reject": 1,
+     "entropy": 3.0028,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": -0.0181,
+     "gross_t": 0.0351,
+     "gross_bpd": 0.554,
+     "net_bpd": -0.344,
+     "ic": -0.00426,
+     "top": {
+      "expr": "CS_ZSCORE(TS_MIN(premium_close_bps, w=72))",
+      "n_tokens": 4,
+      "reward": 0.54092,
+      "corr_s": -0.0517,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "mark_index_basis_bps",
+      "n_tokens": 1,
+      "share": 0.5714,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-12T23:13:32+0800"
+  },
+  {
+   "update": 63,
+   "entropy_all": 2.9805078506469727,
+   "gradient_norm": 1.5760480165481567,
+   "n_valid": 82,
+   "families": {
+    "T1": {
+     "n_valid": 5,
+     "grammar_reject": 38,
+     "entropy": 5.3742,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": 0.1004,
+     "gross_t": -0.018,
+     "gross_bpd": -0.037,
+     "net_bpd": -1.026,
+     "ic": 0.02825,
+     "top": {
+      "expr": "DELTA(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "reward": 0.20765,
+      "corr_s": 0.5535,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "log_low",
+      "n_tokens": 1,
+      "share": 0.093,
+      "level_flag": false,
+      "grammar_blocks": true,
+      "grammar_reason": "LEVEL_AT_ROOT"
+     }
+    },
+    "T2": {
+     "n_valid": 38,
+     "grammar_reject": 4,
+     "entropy": 1.3566,
+     "ent_alpha": 0.045641,
+     "ent_alpha_next": 0.047133,
+     "corr_s": 0.0235,
+     "gross_t": -0.018,
+     "gross_bpd": -0.217,
+     "net_bpd": -1.219,
+     "ic": 0.00615,
+     "top": {
+      "expr": "DELTA(CS_ZSCORE(SUB(TS_MEAN(taker_buy_share, w=72), taker_buy_share)), w=336)",
+      "n_tokens": 8,
+      "reward": 0.3141,
+      "corr_s": 0.0042,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.7442,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 39,
+     "grammar_reject": 2,
+     "entropy": 2.1925,
+     "ent_alpha": 0.030113,
+     "ent_alpha_next": 0.03,
+     "corr_s": -0.0624,
+     "gross_t": 0.0711,
+     "gross_bpd": 1.237,
+     "net_bpd": 0.333,
+     "ic": -0.00905,
+     "top": {
+      "expr": "CS_ZSCORE(EMA(CS_DEMEAN(NEG(premium_high)), w=672))",
+      "n_tokens": 6,
+      "reward": 0.6341,
+      "corr_s": 0.1146,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "mark_index_basis_bps",
+      "n_tokens": 1,
+      "share": 0.6905,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-12T23:21:36+0800"
+  },
+  {
+   "update": 79,
+   "entropy_all": 2.5500149726867676,
+   "gradient_norm": 1.4826375246047974,
+   "n_valid": 86,
+   "families": {
+    "T1": {
+     "n_valid": 4,
+     "grammar_reject": 39,
+     "entropy": 5.2561,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": 0.018,
+     "gross_t": 0.204,
+     "gross_bpd": 2.66,
+     "net_bpd": 1.667,
+     "ic": 0.00363,
+     "top": {
+      "expr": "TS_MIN(TS_ZSCORE(log_close, w=72), w=6)",
+      "n_tokens": 5,
+      "reward": 0.6888,
+      "corr_s": 0.1021,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "log_quote_volume",
+      "n_tokens": 1,
+      "share": 0.1163,
+      "level_flag": false,
+      "grammar_blocks": true,
+      "grammar_reason": "LEVEL_AT_ROOT"
+     }
+    },
+    "T2": {
+     "n_valid": 41,
+     "grammar_reject": 2,
+     "entropy": 1.0375,
+     "ent_alpha": 0.095255,
+     "ent_alpha_next": 0.099952,
+     "corr_s": 0.017,
+     "gross_t": 0.5338,
+     "gross_bpd": 9.063,
+     "net_bpd": 8.072,
+     "ic": 0.00703,
+     "top": {
+      "expr": "CS_RANK(ADD(TS_MEAN(taker_buy_share, w=336), CS_DEMEAN(CS_ZSCORE(taker_buy_share))))",
+      "n_tokens": 8,
+      "reward": 0.58908,
+      "corr_s": 0.0217,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.7907,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 41,
+     "grammar_reject": 0,
+     "entropy": 1.328,
+     "ent_alpha": 0.036307,
+     "ent_alpha_next": 0.037547,
+     "corr_s": -0.0317,
+     "gross_t": 0.1401,
+     "gross_bpd": 2.25,
+     "net_bpd": 1.34,
+     "ic": 0.03461,
+     "top": {
+      "expr": "CS_RANK(CS_ZSCORE(mark_index_basis_bps))",
+      "n_tokens": 3,
+      "reward": 0.16692,
+      "corr_s": -0.0375,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "mark_index_basis_bps",
+      "n_tokens": 1,
+      "share": 0.8095,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-12T23:29:51+0800"
+  },
+  {
+   "update": 95,
+   "entropy_all": 2.442176580429077,
+   "gradient_norm": 1.2420017719268799,
+   "n_valid": 100,
+   "families": {
+    "T1": {
+     "n_valid": 16,
+     "grammar_reject": 25,
+     "entropy": 5.0971,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": 0.2898,
+     "gross_t": 0.3036,
+     "gross_bpd": 6.107,
+     "net_bpd": 5.139,
+     "ic": 0.03386,
+     "top": {
+      "expr": "TS_ZSCORE(log_high, w=168)",
+      "n_tokens": 3,
+      "reward": 0.68191,
+      "corr_s": 0.209,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_close, w=336)",
+      "n_tokens": 3,
+      "share": 0.0465,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T2": {
+     "n_valid": 42,
+     "grammar_reject": 1,
+     "entropy": 0.8141,
+     "ent_alpha": 0.23215,
+     "ent_alpha_next": 0.246331,
+     "corr_s": 0.0442,
+     "gross_t": 0.4681,
+     "gross_bpd": 7.55,
+     "net_bpd": 6.552,
+     "ic": 0.00892,
+     "top": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "reward": 0.47893,
+      "corr_s": 0.0472,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.907,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 42,
+     "grammar_reject": 0,
+     "entropy": 1.3908,
+     "ent_alpha": 0.05991,
+     "ent_alpha_next": 0.061763,
+     "corr_s": -0.047,
+     "gross_t": -0.0426,
+     "gross_bpd": -0.534,
+     "net_bpd": -1.458,
+     "ic": 0.00571,
+     "top": {
+      "expr": "LAG(mark_index_basis_bps, w=336)",
+      "n_tokens": 3,
+      "reward": 0.37813,
+      "corr_s": 0.0351,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "mark_index_basis_bps",
+      "n_tokens": 1,
+      "share": 0.7381,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-12T23:38:43+0800"
+  },
+  {
+   "update": 111,
+   "entropy_all": 2.3480238914489746,
+   "gradient_norm": 1.3023022413253784,
+   "n_valid": 100,
+   "families": {
+    "T1": {
+     "n_valid": 17,
+     "grammar_reject": 25,
+     "entropy": 4.9665,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": 0.2667,
+     "gross_t": 0.4734,
+     "gross_bpd": 9.868,
+     "net_bpd": 8.929,
+     "ic": 0.05006,
+     "top": {
+      "expr": "TS_ZSCORE(TS_RANK(log_quote_volume, w=504), w=336)",
+      "n_tokens": 5,
+      "reward": 0.74774,
+      "corr_s": 0.2983,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "share": 0.093,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T2": {
+     "n_valid": 42,
+     "grammar_reject": 1,
+     "entropy": 1.0016,
+     "ent_alpha": 0.574032,
+     "ent_alpha_next": 0.603414,
+     "corr_s": 0.0253,
+     "gross_t": 0.5053,
+     "gross_bpd": 8.636,
+     "net_bpd": 7.657,
+     "ic": 0.00846,
+     "top": {
+      "expr": "LAG(taker_buy_share, w=336)",
+      "n_tokens": 3,
+      "reward": 0.94908,
+      "corr_s": -0.0536,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.7907,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 41,
+     "grammar_reject": 1,
+     "entropy": 1.0456,
+     "ent_alpha": 0.108538,
+     "ent_alpha_next": 0.113843,
+     "corr_s": -0.073,
+     "gross_t": -0.0867,
+     "gross_bpd": -1.341,
+     "net_bpd": -2.271,
+     "ic": 0.02912,
+     "top": {
+      "expr": "CS_DEMEAN(CS_DEMEAN(mark_index_basis_bps))",
+      "n_tokens": 3,
+      "reward": -0.07896,
+      "corr_s": -0.0729,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "mark_index_basis_bps",
+      "n_tokens": 1,
+      "share": 0.881,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-12T23:48:21+0800"
+  },
+  {
+   "update": 127,
+   "entropy_all": 3.501917600631714,
+   "gradient_norm": 2.1173605918884277,
+   "n_valid": 91,
+   "families": {
+    "T1": {
+     "n_valid": 30,
+     "grammar_reject": 12,
+     "entropy": 4.1658,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": 0.3242,
+     "gross_t": 0.3944,
+     "gross_bpd": 7.158,
+     "net_bpd": 6.172,
+     "ic": 0.01942,
+     "top": {
+      "expr": "TS_RANK(TS_ZSCORE(log_quote_volume, w=336), w=336)",
+      "n_tokens": 5,
+      "reward": 0.80528,
+      "corr_s": 0.1546,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "share": 0.1395,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T2": {
+     "n_valid": 22,
+     "grammar_reject": 21,
+     "entropy": 4.1012,
+     "ent_alpha": 0.59399,
+     "ent_alpha_next": 0.534751,
+     "corr_s": -0.0053,
+     "gross_t": -0.064,
+     "gross_bpd": -0.84,
+     "net_bpd": -1.577,
+     "ic": 0.0283,
+     "top": {
+      "expr": "TS_MAX(taker_buy_share, w=72)",
+      "n_tokens": 3,
+      "reward": 0.12586,
+      "corr_s": -0.1073,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "log_oi_value",
+      "n_tokens": 1,
+      "share": 0.1395,
+      "level_flag": false,
+      "grammar_blocks": true,
+      "grammar_reason": "LEVEL_AT_ROOT"
+     }
+    },
+    "T3": {
+     "n_valid": 39,
+     "grammar_reject": 2,
+     "entropy": 2.2087,
+     "ent_alpha": 0.163333,
+     "ent_alpha_next": 0.161637,
+     "corr_s": -0.0343,
+     "gross_t": -0.0507,
+     "gross_bpd": -0.375,
+     "net_bpd": -1.274,
+     "ic": -0.01509,
+     "top": {
+      "expr": "DIV(SUB(CS_RANK(mark_index_basis_bps), CS_DEMEAN(mark_index_basis_bps)), TS_RANK(TS_STD(premium_high, w=6), w=672))",
+      "n_tokens": 11,
+      "reward": 0.59903,
+      "corr_s": -0.0188,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "mark_index_basis_bps",
+      "n_tokens": 1,
+      "share": 0.6667,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-12T23:58:42+0800"
+  },
+  {
+   "update": 143,
+   "entropy_all": 3.399080276489258,
+   "gradient_norm": 2.0212771892547607,
+   "n_valid": 110,
+   "families": {
+    "T1": {
+     "n_valid": 33,
+     "grammar_reject": 10,
+     "entropy": 3.0066,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": 0.3174,
+     "gross_t": 0.4292,
+     "gross_bpd": 8.23,
+     "net_bpd": 7.249,
+     "ic": 0.05579,
+     "top": {
+      "expr": "TS_ZSCORE(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "reward": 0.6521,
+      "corr_s": 0.4356,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "share": 0.2093,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T2": {
+     "n_valid": 37,
+     "grammar_reject": 4,
+     "entropy": 3.8742,
+     "ent_alpha": 0.086976,
+     "ent_alpha_next": 0.079196,
+     "corr_s": -0.0193,
+     "gross_t": -0.0721,
+     "gross_bpd": -1.378,
+     "net_bpd": -2.219,
+     "ic": 0.02008,
+     "top": {
+      "expr": "TS_ZSCORE(log_oi_value, w=336)",
+      "n_tokens": 3,
+      "reward": 0.87957,
+      "corr_s": 0.5066,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.186,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 40,
+     "grammar_reject": 0,
+     "entropy": 3.3144,
+     "ent_alpha": 0.097005,
+     "ent_alpha_next": 0.090834,
+     "corr_s": -0.0473,
+     "gross_t": 0.0476,
+     "gross_bpd": 0.757,
+     "net_bpd": -0.153,
+     "ic": 0.01465,
+     "top": {
+      "expr": "TS_MIN(NEG(ABS(mark_index_basis_bps)), w=72)",
+      "n_tokens": 5,
+      "reward": 0.25055,
+      "corr_s": -0.0539,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "mark_index_basis_bps",
+      "n_tokens": 1,
+      "share": 0.4762,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-13T00:11:08+0800"
+  },
+  {
+   "update": 159,
+   "entropy_all": 2.243328809738159,
+   "gradient_norm": 1.775009036064148,
+   "n_valid": 122,
+   "families": {
+    "T1": {
+     "n_valid": 42,
+     "grammar_reject": 1,
+     "entropy": 1.6986,
+     "ent_alpha": 0.030286,
+     "ent_alpha_next": 0.030746,
+     "corr_s": 0.396,
+     "gross_t": 0.3501,
+     "gross_bpd": 6.337,
+     "net_bpd": 5.353,
+     "ic": 0.06532,
+     "top": {
+      "expr": "TS_RANK(log_close, w=336)",
+      "n_tokens": 3,
+      "reward": 0.5983,
+      "corr_s": 0.3701,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "share": 0.5116,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T2": {
+     "n_valid": 40,
+     "grammar_reject": 3,
+     "entropy": 1.9135,
+     "ent_alpha": 0.039754,
+     "ent_alpha_next": 0.039926,
+     "corr_s": 0.0081,
+     "gross_t": 0.2109,
+     "gross_bpd": 4.378,
+     "net_bpd": 3.416,
+     "ic": 0.01738,
+     "top": {
+      "expr": "global_ls_account_ratio",
+      "n_tokens": 1,
+      "reward": 0.36228,
+      "corr_s": -0.0843,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.6047,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 40,
+     "grammar_reject": 1,
+     "entropy": 3.1387,
+     "ent_alpha": 0.032116,
+     "ent_alpha_next": 0.030339,
+     "corr_s": -0.0306,
+     "gross_t": -0.0136,
+     "gross_bpd": -0.667,
+     "net_bpd": -1.58,
+     "ic": 0.0096,
+     "top": {
+      "expr": "TS_MIN(mark_index_basis_bps, w=72)",
+      "n_tokens": 3,
+      "reward": 1.07095,
+      "corr_s": -0.0668,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "mark_index_basis_bps",
+      "n_tokens": 1,
+      "share": 0.4048,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-13T00:24:41+0800"
+  },
+  {
+   "update": 175,
+   "entropy_all": 1.4907615184783936,
+   "gradient_norm": 1.0038548707962036,
+   "n_valid": 122,
+   "families": {
+    "T1": {
+     "n_valid": 38,
+     "grammar_reject": 5,
+     "entropy": 1.2508,
+     "ent_alpha": 0.048238,
+     "ent_alpha_next": 0.05008,
+     "corr_s": 0.3946,
+     "gross_t": 0.7087,
+     "gross_bpd": 13.467,
+     "net_bpd": 12.505,
+     "ic": 0.06178,
+     "top": {
+      "expr": "TS_ZSCORE(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "reward": 0.78466,
+      "corr_s": 0.4323,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "share": 0.6047,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T2": {
+     "n_valid": 42,
+     "grammar_reject": 1,
+     "entropy": 0.9712,
+     "ent_alpha": 0.06377,
+     "ent_alpha_next": 0.067136,
+     "corr_s": 0.0122,
+     "gross_t": 0.3741,
+     "gross_bpd": 7.676,
+     "net_bpd": 6.688,
+     "ic": 0.01478,
+     "top": {
+      "expr": "TS_RANK(log_oi_value, w=336)",
+      "n_tokens": 3,
+      "reward": 0.46812,
+      "corr_s": 0.3614,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.8372,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 42,
+     "grammar_reject": 0,
+     "entropy": 2.2684,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": -0.0194,
+     "gross_t": 0.0292,
+     "gross_bpd": 0.517,
+     "net_bpd": -0.358,
+     "ic": 0.01378,
+     "top": {
+      "expr": "TS_MIN(mark_index_basis_bps, w=672)",
+      "n_tokens": 3,
+      "reward": 1.22636,
+      "corr_s": 0.0593,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "mark_index_basis_bps",
+      "n_tokens": 1,
+      "share": 0.5,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-13T00:37:58+0800"
+  },
+  {
+   "update": 191,
+   "entropy_all": 1.5185041427612305,
+   "gradient_norm": 1.7287254333496094,
+   "n_valid": 123,
+   "families": {
+    "T1": {
+     "n_valid": 40,
+     "grammar_reject": 3,
+     "entropy": 1.0215,
+     "ent_alpha": 0.106338,
+     "ent_alpha_next": 0.11167,
+     "corr_s": 0.4159,
+     "gross_t": 0.5806,
+     "gross_bpd": 11.003,
+     "net_bpd": 10.014,
+     "ic": 0.0649,
+     "top": {
+      "expr": "TS_ZSCORE(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "reward": 0.64013,
+      "corr_s": 0.4506,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "share": 0.6744,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T2": {
+     "n_valid": 43,
+     "grammar_reject": 0,
+     "entropy": 0.8299,
+     "ent_alpha": 0.153945,
+     "ent_alpha_next": 0.16322,
+     "corr_s": 0.0151,
+     "gross_t": 0.0931,
+     "gross_bpd": 1.402,
+     "net_bpd": 0.419,
+     "ic": 0.00679,
+     "top": {
+      "expr": "DELTA(taker_buy_share, w=672)",
+      "n_tokens": 3,
+      "reward": 0.54076,
+      "corr_s": 0.012,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.814,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 40,
+     "grammar_reject": 2,
+     "entropy": 2.7324,
+     "ent_alpha": 0.03,
+     "ent_alpha_next": 0.03,
+     "corr_s": -0.0168,
+     "gross_t": 0.3455,
+     "gross_bpd": 5.089,
+     "net_bpd": 4.43,
+     "ic": 0.10319,
+     "top": {
+      "expr": "CS_DEMEAN(SUB(ABS(premium_high), NEG(TS_MIN(premium_close_bps, w=336))))",
+      "n_tokens": 8,
+      "reward": 0.97411,
+      "corr_s": 0.0351,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_MIN(mark_index_basis_bps, w=336)",
+      "n_tokens": 3,
+      "share": 0.4286,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-13T00:52:05+0800"
+  },
+  {
+   "update": 207,
+   "entropy_all": 1.1036659479141235,
+   "gradient_norm": 2.5464894771575928,
+   "n_valid": 125,
+   "families": {
+    "T1": {
+     "n_valid": 42,
+     "grammar_reject": 1,
+     "entropy": 0.7225,
+     "ent_alpha": 0.270562,
+     "ent_alpha_next": 0.288408,
+     "corr_s": 0.4097,
+     "gross_t": 0.4712,
+     "gross_bpd": 8.829,
+     "net_bpd": 7.833,
+     "ic": 0.07023,
+     "top": {
+      "expr": "TS_RANK(ABS(TS_RANK(log_quote_volume, w=336)), w=336)",
+      "n_tokens": 6,
+      "reward": 0.67116,
+      "corr_s": -0.0146,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "share": 0.8372,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T2": {
+     "n_valid": 42,
+     "grammar_reject": 1,
+     "entropy": 1.6903,
+     "ent_alpha": 0.323042,
+     "ent_alpha_next": 0.328084,
+     "corr_s": 0.2461,
+     "gross_t": 0.4261,
+     "gross_bpd": 6.435,
+     "net_bpd": 5.494,
+     "ic": 0.02922,
+     "top": {
+      "expr": "TS_RANK(log_oi_value, w=336)",
+      "n_tokens": 3,
+      "reward": 0.54252,
+      "corr_s": 0.378,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_oi_value, w=336)",
+      "n_tokens": 3,
+      "share": 0.5116,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 41,
+     "grammar_reject": 1,
+     "entropy": 0.8934,
+     "ent_alpha": 0.043817,
+     "ent_alpha_next": 0.04631,
+     "corr_s": -0.0222,
+     "gross_t": 0.5986,
+     "gross_bpd": 10.383,
+     "net_bpd": 9.771,
+     "ic": 0.1678,
+     "top": {
+      "expr": "TS_MIN(premium_close_bps, w=336)",
+      "n_tokens": 3,
+      "reward": 0.69316,
+      "corr_s": -0.0248,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_MIN(mark_index_basis_bps, w=336)",
+      "n_tokens": 3,
+      "share": 0.7381,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-13T01:07:58+0800"
+  },
+  {
+   "update": 223,
+   "entropy_all": 0.9263198375701904,
+   "gradient_norm": 2.5773181915283203,
+   "n_valid": 121,
+   "families": {
+    "T1": {
+     "n_valid": 43,
+     "grammar_reject": 0,
+     "entropy": 0.8372,
+     "ent_alpha": 0.766189,
+     "ent_alpha_next": 0.812056,
+     "corr_s": 0.4293,
+     "gross_t": 0.4208,
+     "gross_bpd": 8.499,
+     "net_bpd": 7.511,
+     "ic": 0.05736,
+     "top": {
+      "expr": "TS_RANK(log_close, w=336)",
+      "n_tokens": 3,
+      "reward": 0.51496,
+      "corr_s": 0.392,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "share": 0.7209,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T2": {
+     "n_valid": 36,
+     "grammar_reject": 7,
+     "entropy": 1.3805,
+     "ent_alpha": 0.570302,
+     "ent_alpha_next": 0.588244,
+     "corr_s": 0.3817,
+     "gross_t": 0.5359,
+     "gross_bpd": 6.776,
+     "net_bpd": 5.793,
+     "ic": 0.02347,
+     "top": {
+      "expr": "TS_RANK(log_oi_value, w=336)",
+      "n_tokens": 3,
+      "reward": 0.59387,
+      "corr_s": 0.4175,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_oi_value, w=336)",
+      "n_tokens": 3,
+      "share": 0.6977,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 42,
+     "grammar_reject": 0,
+     "entropy": 0.5526,
+     "ent_alpha": 0.13754,
+     "ent_alpha_next": 0.147862,
+     "corr_s": -0.0049,
+     "gross_t": 0.7498,
+     "gross_bpd": 9.707,
+     "net_bpd": 9.123,
+     "ic": 0.15862,
+     "top": {
+      "expr": "TS_MIN(mark_index_basis_bps, w=336)",
+      "n_tokens": 3,
+      "reward": 0.8572,
+      "corr_s": -0.0054,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_MIN(mark_index_basis_bps, w=336)",
+      "n_tokens": 3,
+      "share": 0.8095,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-13T01:25:32+0800"
+  },
+  {
+   "update": 239,
+   "entropy_all": 2.9552345275878906,
+   "gradient_norm": 2.211963415145874,
+   "n_valid": 90,
+   "families": {
+    "T1": {
+     "n_valid": 12,
+     "grammar_reject": 31,
+     "entropy": 5.4229,
+     "ent_alpha": 0.287989,
+     "ent_alpha_next": 0.242687,
+     "corr_s": 0.2094,
+     "gross_t": 0.4056,
+     "gross_bpd": 6.9,
+     "net_bpd": 5.956,
+     "ic": 0.02653,
+     "top": {
+      "expr": "TS_MAX(TS_ZSCORE(log_quote_volume, w=336), w=72)",
+      "n_tokens": 5,
+      "reward": 1.40557,
+      "corr_s": 0.533,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "log_quote_volume",
+      "n_tokens": 1,
+      "share": 0.0698,
+      "level_flag": false,
+      "grammar_blocks": true,
+      "grammar_reason": "LEVEL_AT_ROOT"
+     }
+    },
+    "T2": {
+     "n_valid": 36,
+     "grammar_reject": 7,
+     "entropy": 2.7738,
+     "ent_alpha": 0.315935,
+     "ent_alpha_next": 0.303945,
+     "corr_s": 0.3575,
+     "gross_t": 0.7059,
+     "gross_bpd": 13.257,
+     "net_bpd": 12.309,
+     "ic": 0.06298,
+     "top": {
+      "expr": "TS_ZSCORE(log_oi_value, w=336)",
+      "n_tokens": 3,
+      "reward": 0.89201,
+      "corr_s": 0.4949,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_oi_value, w=336)",
+      "n_tokens": 3,
+      "share": 0.3721,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 42,
+     "grammar_reject": 0,
+     "entropy": 0.6145,
+     "ent_alpha": 0.463337,
+     "ent_alpha_next": 0.496573,
+     "corr_s": 0.0489,
+     "gross_t": 0.63,
+     "gross_bpd": 14.635,
+     "net_bpd": 14.082,
+     "ic": 0.21051,
+     "top": {
+      "expr": "TS_MIN(CS_RANK(TS_MIN(mark_index_basis_bps, w=336)), w=672)",
+      "n_tokens": 6,
+      "reward": 0.68035,
+      "corr_s": 0.1363,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_MIN(mark_index_basis_bps, w=336)",
+      "n_tokens": 3,
+      "share": 0.8571,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-13T01:38:52+0800"
+  },
+  {
+   "update": 255,
+   "entropy_all": 2.1423745155334473,
+   "gradient_norm": 2.295285701751709,
+   "n_valid": 112,
+   "families": {
+    "T1": {
+     "n_valid": 38,
+     "grammar_reject": 5,
+     "entropy": 2.9115,
+     "ent_alpha": 0.033055,
+     "ent_alpha_next": 0.031582,
+     "corr_s": 0.3659,
+     "gross_t": 0.4449,
+     "gross_bpd": 9.721,
+     "net_bpd": 8.765,
+     "ic": 0.02237,
+     "top": {
+      "expr": "TS_RANK(CS_ZSCORE(DELTA(log_quote_volume, w=336)), w=336)",
+      "n_tokens": 6,
+      "reward": 0.6482,
+      "corr_s": 0.4013,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_quote_volume, w=336)",
+      "n_tokens": 3,
+      "share": 0.1628,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T2": {
+     "n_valid": 35,
+     "grammar_reject": 8,
+     "entropy": 1.4334,
+     "ent_alpha": 0.270325,
+     "ent_alpha_next": 0.278093,
+     "corr_s": 0.3962,
+     "gross_t": 0.5092,
+     "gross_bpd": 8.195,
+     "net_bpd": 7.213,
+     "ic": 0.0245,
+     "top": {
+      "expr": "CS_RANK(TS_RANK(log_oi_value, w=336))",
+      "n_tokens": 4,
+      "reward": 0.57446,
+      "corr_s": 0.424,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_RANK(log_oi_value, w=336)",
+      "n_tokens": 3,
+      "share": 0.4884,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 39,
+     "grammar_reject": 2,
+     "entropy": 2.0808,
+     "ent_alpha": 1.0,
+     "ent_alpha_next": 0.995968,
+     "corr_s": 0.0348,
+     "gross_t": 0.4081,
+     "gross_bpd": 9.382,
+     "net_bpd": 8.787,
+     "ic": 0.15549,
+     "top": {
+      "expr": "TS_MIN(premium_close_bps, w=336)",
+      "n_tokens": 3,
+      "reward": 0.62768,
+      "corr_s": 0.0676,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "TS_MIN(mark_index_basis_bps, w=336)",
+      "n_tokens": 3,
+      "share": 0.4762,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-13T01:54:26+0800"
+  }
+ ],
+ "prereg": {
+  "run_T1_H": {
+   "rule": "T1: every 16-update block mean of H for updates >= 128 is >= H* - 0.5 = 1.5",
+   "block_min": 0.706,
+   "update_min": 0.6401,
+   "passed": false
+  },
+  "run_alpha_not_pinned": {
+   "rule": "alpha not stuck at 1.0: for every family the longest run of updates with alpha_next = 1.0 is < 64 (a quarter of the run)",
+   "per_family": {
+    "T1": {
+     "updates_at_max": 0,
+     "longest_run": 0
+    },
+    "T2": {
+     "updates_at_max": 0,
+     "longest_run": 0
+    },
+    "T3": {
+     "updates_at_max": 2,
+     "longest_run": 2
+    }
+   },
+   "passed": true
+  },
+  "learn_T1_corr": {
+   "rule": "T1 batch mean corr max > 0.3 (curve)",
+   "value": 0.3421,
+   "passed": true
+  },
+  "learn_T1_distinct": {
+   "rule": "T1 distinct (body, hold) in the frozen 256 >= 28 (4x the old 7)",
+   "value": 76,
+   "ref": 7,
+   "passed": true
+  },
+  "verdict_prediction": {
+   "predict": "没找到",
+   "confidence": 0.6,
+   "why": "the entropy floor should fix diversity (T1 distinct >> 7, H ~2 after u150), and T1 batch corr should still pass 0.3. But found also needs a frozen top-5 corr > 0.7, and the top 5 are ranked by conc K10 TRAIN net, not corr. In B5_PC_P8's own history the corr>0.7 T1 formulas rank 10th/16th/19th/40th of 757 by logged reward, and the near relative ranks 69th of 1261 by gross in the RGP P8 log; a more diverse frozen pool will mostly put moderate-corr volume formulas (corr ~0.4-0.6) on top. 40% for found: with H held at 2 the u80/u236 kind (EMA/TS_RANK of log_quote_volume at 168-336, corr ~0.8) stays in the sampled mass and one may make the top 5",
+   "would_change_my_mind": "history column top-20 contains several corr50 > 0.7 formulas with conc net in the frozen top-5 range"
+  }
+ },
+ "step3": {
+  "question": "how grammar-rejected samples enter the gradient",
+  "answer": "m2h_b5_grammar.check runs before scoring; a reject raises CandidateLocalInvalid, so the formula keeps REWARD_FLOOR and valid_mask False. select full: adv = zfam(rewards, valid, counts) = within-family z over the VALID formulas only (mean/sd exclude rejects; one valid formula -> z 0), clipped +-3; then adv[rejected] = -1.0. dense_update runs on all 128 rows: pg_loss = mean over 128 of adv*neglogp, so rejects ARE in the loss denominator and each pushes its own tokens down with weight 1; the entropy term also averages over all 128. The whole step is skipped if batch n_valid < 20",
+  "consequence": "early T1 (u15: 3 valid, 40 rejected) gets ~40 rows of -1 vs ~3 rows of z in [-3, 3] whose mean is 0: the T1 gradient is mostly 'move away from rejected shapes', which favours short legal formulas (order's hypothesis; consistent with the T1 collapse onto 2-3 token log_quote_volume formulas)",
+  "this_round": "reported only, not changed (one variable per round)"
+ },
+ "config_diff": {
+  "args": {
+   "ent_alpha_max": [
+    null,
+    1.0
+   ],
+   "ent_eta": [
+    null,
+    0.05
+   ],
+   "ent_target": [
+    null,
+    2.0
+   ],
+   "out_name": [
+    "B5_PC_P8",
+    "B5_PC_P8_ENT"
+   ]
+  },
+  "modules": {
+   "trainer": [
+    "fa34d41b41ea",
+    "be18eafe1b04"
+   ]
+  },
+  "vocab_size": [
+   49,
+   49
+  ],
+  "model_params": [
+   101498,
+   101498
+  ],
+  "code_diff_changed_lines": 75,
+  "code_diff": [
+   "--- m2h_b5_trainer.py",
+   "+++ m2h_b5_trainer_ent.py",
+   "@@ -1 +1,14 @@",
+   "-\"\"\"BASIN5 trainer (BASIN5_ORDER s1/s2/s6, 2026-10-12). Copy of m2h_dense_trainer_v2.py (sha12 in",
+   "+\"\"\"BASIN5_PC_ENT trainer (BASIN5_PC_ENT_ORDER, 2026-10-12). Copy of m2h_b5_trainer.py (sha12",
+   "+fa34d41b41ea, NOT modified) with one change, the entropy weight:",
+   "+",
+   "+  ent         the fixed -0.03 * mean(entropy) becomes -mean(alpha_f(i) * entropy_i), one alpha per",
+   "+              family. alpha_f starts at --ent-coef (0.03); after every parameter step",
+   "+              log alpha_f += --ent-eta * (--ent-target - H_f), clipped to [--ent-coef, --ent-alpha-max].",
+   "+              H_f = the family's mean of sequence_neglogp_entropy's entropy (gamma-0.7 decayed sum",
+   "+              over the token steps, nats) over the rows that entered the gradient = BATCH_LOG /",
+   "+              PROGRESS_16 families.<f>.entropy. A skipped step leaves alpha unchanged. alpha is in",
+   "+              the checkpoint. At alpha_f == 0.03 for every family the loss is m2h_b5_trainer's.",
+   "+",
+   "+m2h_b5_trainer header follows.",
+   "+",
+   "+BASIN5 trainer (BASIN5_ORDER s1/s2/s6, 2026-10-12). Copy of m2h_dense_trainer_v2.py (sha12 in",
+   "@@ -341 +354 @@",
+   "-def dense_update(model, optimizer, batch, idx_np, adv_np, groups, device, ent_coef=0.03):",
+   "+def dense_update(model, optimizer, batch, idx_np, adv_np, groups, device, ent_alpha):",
+   "@@ -343 +356 @@",
+   "-    (novelty weights 1, gamma-0.7 entropy at ent_coef, clip 5.0), on an explicit index set and",
+   "+    (novelty weights 1, gamma-0.7 entropy, clip 5.0), on an explicit index set and",
+   "@@ -344,0 +358 @@",
+   "+    ent: each row's entropy is weighted by its family's alpha (ent_alpha[k]).",
+   "@@ -345,0 +360,2 @@",
+   "+    fam_all = np.concatenate([[k] * int(n) for k, (_, n) in enumerate(groups)])",
+   "+    fam_of = fam_all[np.asarray(idx_np)]",
+   "@@ -354 +370,3 @@",
+   "-    entropy_loss = -ent_coef * torch.mean(entropy)",
+   "+    alpha_rows = torch.as_tensor([float(ent_alpha[k]) for k in fam_of], dtype=torch.float32,",
+   "+                                 device=device)",
+   "+    entropy_loss = -torch.mean(alpha_rows * entropy)",
+   "@@ -367,2 +384,0 @@",
+   "-    fam_all = np.concatenate([[k] * int(n) for k, (_, n) in enumerate(groups)])",
+   "-    fam_of = fam_all[np.asarray(idx_np)]",
+   "@@ -464,0 +481,6 @@",
+   "+    ap.add_argument(\"--ent-target\", type=float, default=2.0,",
+   "+                    help=\"ent: per-family entropy floor H* (nats, gamma-0.7 sequence entropy)\")",
+   "+    ap.add_argument(\"--ent-eta\", type=float, default=0.05,",
+   "+                    help=\"ent: log alpha_f += eta * (H* - H_f) after every parameter step\")",
+   "+    ap.add_argument(\"--ent-alpha-max\", type=float, default=1.0,",
+   "+                    help=\"ent: alpha_f upper clip; the lower clip is --ent-coef\")",
+   "@@ -575,0 +598,11 @@",
+   "+    manifest[\"ent\"] = dict(",
+   "+        order=\"BASIN5_PC_ENT_ORDER\", copied_from=\"m2h_b5_trainer.py\",",
+   "+        alpha_init=args.ent_coef, alpha_min=args.ent_coef, alpha_max=args.ent_alpha_max,",
+   "+        eta=args.ent_eta, target=args.ent_target,",
+   "+        rule=\"after every parameter step: log a_f += eta*(H* - H_f), clip [alpha_min, alpha_max]; \"",
+   "+             \"skipped step -> a_f unchanged; loss entropy term = -mean_i(a_f(i) * H_i)\",",
+   "+        entropy_def=\"sequence_neglogp_entropy(gamma 0.7): per formula, sum over token steps \"",
+   "+                    \"t < MAX_PROGRAM_LEN of gamma^t * H(softmax(effective_logits_t)), nats; \"",
+   "+                    \"post-END steps are one-hot (H 0). H_f = family mean over rows in the gradient\",",
+   "+        vocab_size=fvocab.size, log_vocab=round(math.log(fvocab.size), 4),",
+   "+        per_step_max_sum=round(math.log(fvocab.size) / (1 - 0.7), 4))",
+   "@@ -579,0 +613,4 @@",
+   "+    if not 0.0 < args.ent_coef <= args.ent_alpha_max or args.ent_eta < 0.0:",
+   "+        raise SystemExit(\"ent: need 0 < --ent-coef <= --ent-alpha-max and --ent-eta >= 0\")",
+   "+    if args.select == \"famq95\":",
+   "+        raise SystemExit(\"ent: famq95 goes through basin_risk_update's fixed 0.03; not wired\")",
+   "@@ -607,0 +645 @@",
+   "+    ent_alpha = [float(args.ent_coef)] * len(groups)          # ent: one alpha per family",
+   "@@ -608,0 +647 @@",
+   "+        ent_alpha = [float(x) for x in ck[\"ent_alpha\"]]",
+   "@@ -761 +800 @@",
+   "-                                        groups, device, ent_coef=args.ent_coef)",
+   "+                                        groups, device, ent_alpha)",
+   "@@ -775 +814 @@",
+   "-                                            groups, device, ent_coef=args.ent_coef)",
+   "+                                            groups, device, ent_alpha)",
+   "@@ -776,0 +816,7 @@",
+   "+        # ent: the alpha used by this step is logged; the step then moves alpha towards H*",
+   "+        alpha_used = list(ent_alpha)",
+   "+        if skip_reason is None and not upd.get(\"skipped_nonfinite_update\"):",
+   "+            for k in range(len(groups)):",
+   "+                if fam_ent[k] is not None:",
+   "+                    a_ = math.exp(math.log(ent_alpha[k]) + args.ent_eta * (args.ent_target - fam_ent[k]))",
+   "+                    ent_alpha[k] = min(max(a_, args.ent_coef), args.ent_alpha_max)",
+   "@@ -789,0 +836,2 @@",
+   "+            p[\"ent_alpha\"] = round(alpha_used[k], 6)              # ent: alpha this step used",
+   "+            p[\"ent_alpha_next\"] = round(ent_alpha[k], 6)",
+   "@@ -864 +912,2 @@",
+   "-                            \"n_valid\", \"grammar_reject\", \"entropy\", \"corr_s\", \"gross_t\",",
+   "+                            \"n_valid\", \"grammar_reject\", \"entropy\", \"ent_alpha\", \"ent_alpha_next\",",
+   "+                            \"corr_s\", \"gross_t\",",
+   "@@ -871,2 +920,3 @@",
+   "-                print(\"P16 u%d %s ent %s corr %s rej %s | top[%s tok lf%d] %s | mode[%.2f %s tok blk%d] %s\"",
+   "-                      % (update, p[\"basin\"], p.get(\"entropy\"), p.get(\"corr_s\"), p.get(\"grammar_reject\"),",
+   "+                print(\"P16 u%d %s ent %s a %s corr %s rej %s | top[%s tok lf%d] %s | mode[%.2f %s tok blk%d] %s\"",
+   "+                      % (update, p[\"basin\"], p.get(\"entropy\"), p.get(\"ent_alpha\"), p.get(\"corr_s\"),",
+   "+                         p.get(\"grammar_reject\"),",
+   "@@ -898 +948 @@",
+   "-                             elapsed_s=time.time() - t0)",
+   "+                             elapsed_s=time.time() - t0, ent_alpha=list(ent_alpha))",
+   "@@ -918,0 +969 @@",
+   "+                   ent=dict(manifest[\"ent\"], alpha_final=list(ent_alpha)),"
+  ]
+ },
+ "curve": [
+  {
+   "update": 0,
+   "n": 3,
+   "corr_mean": -0.1253,
+   "corr_max": 0.0052,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 16,
+   "n": 2,
+   "corr_mean": 0.0526,
+   "corr_max": 0.105,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 32,
+   "n": 2,
+   "corr_mean": 0.0429,
+   "corr_max": 0.0877,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 48,
+   "n": 4,
+   "corr_mean": 0.0552,
+   "corr_max": 0.3066,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 64,
+   "n": 11,
+   "corr_mean": 0.1471,
+   "corr_max": 0.3928,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 80,
+   "n": 7,
+   "corr_mean": 0.256,
+   "corr_max": 0.5294,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 96,
+   "n": 15,
+   "corr_mean": 0.0486,
+   "corr_max": 0.4496,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 112,
+   "n": 21,
+   "corr_mean": 0.2337,
+   "corr_max": 0.4012,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 128,
+   "n": 20,
+   "corr_mean": 0.2291,
+   "corr_max": 0.5294,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 144,
+   "n": 32,
+   "corr_mean": 0.2758,
+   "corr_max": 0.5294,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 160,
+   "n": 34,
+   "corr_mean": 0.3154,
+   "corr_max": 0.5179,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 176,
+   "n": 41,
+   "corr_mean": 0.3316,
+   "corr_max": 0.5999,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 192,
+   "n": 40,
+   "corr_mean": 0.3401,
+   "corr_max": 0.5294,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 208,
+   "n": 37,
+   "corr_mean": 0.3071,
+   "corr_max": 0.3978,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 224,
+   "n": 43,
+   "corr_mean": 0.3421,
+   "corr_max": 0.3804,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 240,
+   "n": 12,
+   "corr_mean": 0.163,
+   "corr_max": 0.3928,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 255,
+   "n": 38,
+   "corr_mean": 0.3397,
+   "corr_max": 0.405,
+   "frac_gt_07": 0.0
+  }
+ ],
+ "curve_tiles": [
+  672,
+  4704,
+  9072,
+  13104
+ ],
+ "blocks": [
+  {
+   "block": 0,
+   "updates": [
+    0,
+    15
+   ],
+   "gnorm": 2.2297,
+   "clip_pct": 0.0,
+   "seconds": 28.2581,
+   "T1": {
+    "gross_bpd": 1.6704,
+    "ic": 0.0108,
+    "turnover": 0.1482,
+    "entropy": 5.5613,
+    "n_valid": 31
+   },
+   "T2": {
+    "gross_bpd": 2.1452,
+    "ic": 0.0144,
+    "turnover": 0.143,
+    "entropy": 5.1244,
+    "n_valid": 461
+   },
+   "T3": {
+    "gross_bpd": 0.3349,
+    "ic": -0.0146,
+    "turnover": 0.1416,
+    "entropy": 5.71,
+    "n_valid": 502
+   }
+  },
+  {
+   "block": 1,
+   "updates": [
+    16,
+    31
+   ],
+   "gnorm": 1.8186,
+   "clip_pct": 0.0,
+   "seconds": 33.4181,
+   "T1": {
+    "gross_bpd": 3.3671,
+    "ic": 0.0018,
+    "turnover": 0.1483,
+    "entropy": 5.4306,
+    "n_valid": 36
+   },
+   "T2": {
+    "gross_bpd": 2.592,
+    "ic": 0.0087,
+    "turnover": 0.1566,
+    "entropy": 3.3033,
+    "n_valid": 593
+   },
+   "T3": {
+    "gross_bpd": 1.936,
+    "ic": -0.0074,
+    "turnover": 0.1465,
+    "entropy": 4.3341,
+    "n_valid": 610
+   }
+  },
+  {
+   "block": 2,
+   "updates": [
+    32,
+    47
+   ],
+   "gnorm": 1.6702,
+   "clip_pct": 0.0,
+   "seconds": 29.3681,
+   "T1": {
+    "gross_bpd": 1.5312,
+    "ic": 0.0049,
+    "turnover": 0.1472,
+    "entropy": 5.4582,
+    "n_valid": 51
+   },
+   "T2": {
+    "gross_bpd": 3.329,
+    "ic": 0.0098,
+    "turnover": 0.1597,
+    "entropy": 2.175,
+    "n_valid": 618
+   },
+   "T3": {
+    "gross_bpd": 1.9526,
+    "ic": -0.0027,
+    "turnover": 0.1493,
+    "entropy": 3.3114,
+    "n_valid": 631
+   }
+  },
+  {
+   "block": 3,
+   "updates": [
+    48,
+    63
+   ],
+   "gnorm": 1.4785,
+   "clip_pct": 0.0,
+   "seconds": 30.2525,
+   "T1": {
+    "gross_bpd": 3.9152,
+    "ic": 0.0232,
+    "turnover": 0.1519,
+    "entropy": 5.1119,
+    "n_valid": 82
+   },
+   "T2": {
+    "gross_bpd": 4.2509,
+    "ic": 0.0093,
+    "turnover": 0.1632,
+    "entropy": 1.4371,
+    "n_valid": 656
+   },
+   "T3": {
+    "gross_bpd": 4.3659,
+    "ic": 0.0002,
+    "turnover": 0.1509,
+    "entropy": 2.3101,
+    "n_valid": 648
+   }
+  },
+  {
+   "block": 4,
+   "updates": [
+    64,
+    79
+   ],
+   "gnorm": 1.4525,
+   "clip_pct": 0.0,
+   "seconds": 30.9537,
+   "T1": {
+    "gross_bpd": 3.8468,
+    "ic": 0.0138,
+    "turnover": 0.1569,
+    "entropy": 5.214,
+    "n_valid": 112
+   },
+   "T2": {
+    "gross_bpd": 5.9162,
+    "ic": 0.0089,
+    "turnover": 0.1645,
+    "entropy": 1.0604,
+    "n_valid": 664
+   },
+   "T3": {
+    "gross_bpd": 4.5926,
+    "ic": 0.0105,
+    "turnover": 0.1507,
+    "entropy": 1.7543,
+    "n_valid": 653
+   }
+  },
+  {
+   "block": 5,
+   "updates": [
+    80,
+    95
+   ],
+   "gnorm": 1.4191,
+   "clip_pct": 0.0,
+   "seconds": 33.225,
+   "T1": {
+    "gross_bpd": 3.0483,
+    "ic": 0.0143,
+    "turnover": 0.1587,
+    "entropy": 5.3012,
+    "n_valid": 173
+   },
+   "T2": {
+    "gross_bpd": 3.0982,
+    "ic": 0.0067,
+    "turnover": 0.1665,
+    "entropy": 0.8725,
+    "n_valid": 667
+   },
+   "T3": {
+    "gross_bpd": 4.0676,
+    "ic": 0.0094,
+    "turnover": 0.1526,
+    "entropy": 1.3779,
+    "n_valid": 661
+   }
+  },
+  {
+   "block": 6,
+   "updates": [
+    96,
+    111
+   ],
+   "gnorm": 1.4204,
+   "clip_pct": 0.0,
+   "seconds": 36.105,
+   "T1": {
+    "gross_bpd": 5.7914,
+    "ic": 0.0271,
+    "turnover": 0.1599,
+    "entropy": 5.2001,
+    "n_valid": 251
+   },
+   "T2": {
+    "gross_bpd": 4.8424,
+    "ic": 0.0081,
+    "turnover": 0.1656,
+    "entropy": 0.8801,
+    "n_valid": 679
+   },
+   "T3": {
+    "gross_bpd": 3.4621,
+    "ic": 0.0099,
+    "turnover": 0.1545,
+    "entropy": 1.2356,
+    "n_valid": 661
+   }
+  },
+  {
+   "block": 7,
+   "updates": [
+    112,
+    127
+   ],
+   "gnorm": 1.8265,
+   "clip_pct": 0.0,
+   "seconds": 38.8475,
+   "T1": {
+    "gross_bpd": 6.9069,
+    "ic": 0.0311,
+    "turnover": 0.1608,
+    "entropy": 4.5473,
+    "n_valid": 374
+   },
+   "T2": {
+    "gross_bpd": 3.8174,
+    "ic": 0.0165,
+    "turnover": 0.1545,
+    "entropy": 2.151,
+    "n_valid": 573
+   },
+   "T3": {
+    "gross_bpd": 4.2572,
+    "ic": 0.0077,
+    "turnover": 0.1533,
+    "entropy": 1.5618,
+    "n_valid": 652
+   }
+  },
+  {
+   "block": 8,
+   "updates": [
+    128,
+    143
+   ],
+   "gnorm": 2.1839,
+   "clip_pct": 0.0,
+   "seconds": 46.5906,
+   "T1": {
+    "gross_bpd": 8.4065,
+    "ic": 0.0388,
+    "turnover": 0.1611,
+    "entropy": 3.6483,
+    "n_valid": 493
+   },
+   "T2": {
+    "gross_bpd": 2.8645,
+    "ic": 0.0288,
+    "turnover": 0.1343,
+    "entropy": 4.3873,
+    "n_valid": 494
+   },
+   "T3": {
+    "gross_bpd": 3.2415,
+    "ic": 0.0084,
+    "turnover": 0.1515,
+    "entropy": 2.7204,
+    "n_valid": 651
+   }
+  },
+  {
+   "block": 9,
+   "updates": [
+    144,
+    159
+   ],
+   "gnorm": 2.0733,
+   "clip_pct": 0.0,
+   "seconds": 50.8375,
+   "T1": {
+    "gross_bpd": 10.2688,
+    "ic": 0.0516,
+    "turnover": 0.1635,
+    "entropy": 2.3735,
+    "n_valid": 578
+   },
+   "T2": {
+    "gross_bpd": 3.9266,
+    "ic": 0.0194,
+    "turnover": 0.1505,
+    "entropy": 2.8561,
+    "n_valid": 646
+   },
+   "T3": {
+    "gross_bpd": 2.6481,
+    "ic": 0.0048,
+    "turnover": 0.1502,
+    "entropy": 3.3707,
+    "n_valid": 637
+   }
+  },
+  {
+   "block": 10,
+   "updates": [
+    160,
+    175
+   ],
+   "gnorm": 1.6086,
+   "clip_pct": 0.0,
+   "seconds": 49.8281,
+   "T1": {
+    "gross_bpd": 10.4585,
+    "ic": 0.0647,
+    "turnover": 0.1639,
+    "entropy": 1.3902,
+    "n_valid": 612
+   },
+   "T2": {
+    "gross_bpd": 5.0097,
+    "ic": 0.0147,
+    "turnover": 0.1592,
+    "entropy": 1.3504,
+    "n_valid": 673
+   },
+   "T3": {
+    "gross_bpd": 4.4553,
+    "ic": 0.0127,
+    "turnover": 0.1484,
+    "entropy": 2.5068,
+    "n_valid": 655
+   }
+  },
+  {
+   "block": 11,
+   "updates": [
+    176,
+    191
+   ],
+   "gnorm": 1.7075,
+   "clip_pct": 0.0,
+   "seconds": 52.885,
+   "T1": {
+    "gross_bpd": 11.2992,
+    "ic": 0.0622,
+    "turnover": 0.1634,
+    "entropy": 0.9976,
+    "n_valid": 645
+   },
+   "T2": {
+    "gross_bpd": 4.4998,
+    "ic": 0.0125,
+    "turnover": 0.1623,
+    "entropy": 0.8895,
+    "n_valid": 680
+   },
+   "T3": {
+    "gross_bpd": 6.8443,
+    "ic": 0.0469,
+    "turnover": 0.1375,
+    "entropy": 2.6117,
+    "n_valid": 651
+   }
+  },
+  {
+   "block": 12,
+   "updates": [
+    192,
+    207
+   ],
+   "gnorm": 2.0584,
+   "clip_pct": 0.0,
+   "seconds": 59.5981,
+   "T1": {
+    "gross_bpd": 11.5692,
+    "ic": 0.0688,
+    "turnover": 0.1641,
+    "entropy": 0.814,
+    "n_valid": 649
+   },
+   "T2": {
+    "gross_bpd": 5.7431,
+    "ic": 0.018,
+    "turnover": 0.1619,
+    "entropy": 1.1273,
+    "n_valid": 670
+   },
+   "T3": {
+    "gross_bpd": 16.0132,
+    "ic": 0.1563,
+    "turnover": 0.1018,
+    "entropy": 1.5455,
+    "n_valid": 653
+   }
+  },
+  {
+   "block": 13,
+   "updates": [
+    208,
+    223
+   ],
+   "gnorm": 1.6298,
+   "clip_pct": 0.0,
+   "seconds": 65.8406,
+   "T1": {
+    "gross_bpd": 12.0996,
+    "ic": 0.0692,
+    "turnover": 0.1642,
+    "entropy": 0.706,
+    "n_valid": 666
+   },
+   "T2": {
+    "gross_bpd": 9.0702,
+    "ic": 0.0423,
+    "turnover": 0.1594,
+    "entropy": 1.2702,
+    "n_valid": 624
+   },
+   "T3": {
+    "gross_bpd": 18.1062,
+    "ic": 0.1819,
+    "turnover": 0.0962,
+    "entropy": 0.5488,
+    "n_valid": 667
+   }
+  },
+  {
+   "block": 14,
+   "updates": [
+    224,
+    239
+   ],
+   "gnorm": 2.2736,
+   "clip_pct": 0.0,
+   "seconds": 50.0081,
+   "T1": {
+    "gross_bpd": 9.1842,
+    "ic": 0.053,
+    "turnover": 0.1625,
+    "entropy": 3.5097,
+    "n_valid": 411
+   },
+   "T2": {
+    "gross_bpd": 8.3564,
+    "ic": 0.0437,
+    "turnover": 0.1582,
+    "entropy": 2.8254,
+    "n_valid": 368
+   },
+   "T3": {
+    "gross_bpd": 17.1769,
+    "ic": 0.1798,
+    "turnover": 0.0957,
+    "entropy": 0.4857,
+    "n_valid": 669
+   }
+  },
+  {
+   "block": 15,
+   "updates": [
+    240,
+    255
+   ],
+   "gnorm": 2.2686,
+   "clip_pct": 0.0,
+   "seconds": 58.375,
+   "T1": {
+    "gross_bpd": 7.5393,
+    "ic": 0.0275,
+    "turnover": 0.1599,
+    "entropy": 4.549,
+    "n_valid": 417
+   },
+   "T2": {
+    "gross_bpd": 6.9719,
+    "ic": 0.0435,
+    "turnover": 0.1581,
+    "entropy": 2.1111,
+    "n_valid": 579
+   },
+   "T3": {
+    "gross_bpd": 17.1564,
+    "ic": 0.1703,
+    "turnover": 0.0968,
+    "entropy": 1.1013,
+    "n_valid": 658
+   }
+  }
+ ],
+ "frozen": {
+  "T1": [
+   {
+    "rank": 1,
+    "body": [
+     0,
+     37,
+     21,
+     41
+    ],
+    "hold": 168,
+    "expr": "DELTA(log_close, w=168)",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「收盘价过去168小时的变化」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 14.235,
+    "conc_k10_train_gross_bpd": 15.341,
+    "conc_k10_turnover_per_day": 0.184,
+    "full_train_net_bpd": 13.818,
+    "full_train_gross_bpd": 14.809,
+    "corr_s": 0.4454
+   },
+   {
+    "rank": 2,
+    "body": [
+     0,
+     38,
+     27,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_RANK(log_close, w=336)",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「收盘价在自身过去336小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 13.64,
+    "conc_k10_train_gross_bpd": 14.739,
+    "conc_k10_turnover_per_day": 0.183,
+    "full_train_net_bpd": 11.352,
+    "full_train_gross_bpd": 12.302,
+    "corr_s": 0.3608
+   },
+   {
+    "rank": 3,
+    "body": [
+     3,
+     16,
+     38,
+     26,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_ZSCORE(ABS(log_quote_volume), w=336)",
+    "n_tokens": 4,
+    "level_flag": false,
+    "explain": "每小时按「|成交额|相对自身336小时均值的标准分」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 13.635,
+    "conc_k10_train_gross_bpd": 14.771,
+    "conc_k10_turnover_per_day": 0.189,
+    "full_train_net_bpd": 11.463,
+    "full_train_gross_bpd": 12.448,
+    "corr_s": 0.4177
+   },
+   {
+    "rank": 4,
+    "body": [
+     2,
+     37,
+     27,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_RANK(log_low, w=168)",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「最低价在自身过去168小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 13.382,
+    "conc_k10_train_gross_bpd": 14.526,
+    "conc_k10_turnover_per_day": 0.191,
+    "full_train_net_bpd": 9.266,
+    "full_train_gross_bpd": 10.275,
+    "corr_s": 0.2131
+   },
+   {
+    "rank": 5,
+    "body": [
+     2,
+     38,
+     27,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_RANK(log_low, w=336)",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「最低价在自身过去336小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 13.346,
+    "conc_k10_train_gross_bpd": 14.436,
+    "conc_k10_turnover_per_day": 0.182,
+    "full_train_net_bpd": 11.447,
+    "full_train_gross_bpd": 12.395,
+    "corr_s": 0.3638
+   }
+  ],
+  "T2": [
+   {
+    "rank": 1,
+    "body": [
+     5,
+     38,
+     27,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_RANK(log_oi_value, w=336)",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「持仓额在自身过去336小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 11.699,
+    "conc_k10_train_gross_bpd": 12.82,
+    "conc_k10_turnover_per_day": 0.187,
+    "full_train_net_bpd": 9.084,
+    "full_train_gross_bpd": 10.061,
+    "corr_s": 0.3987
+   },
+   {
+    "rank": 2,
+    "body": [
+     5,
+     37,
+     27,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_RANK(log_oi_value, w=168)",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「持仓额在自身过去168小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 11.111,
+    "conc_k10_train_gross_bpd": 12.258,
+    "conc_k10_turnover_per_day": 0.191,
+    "full_train_net_bpd": 7.049,
+    "full_train_gross_bpd": 8.071,
+    "corr_s": 0.183
+   },
+   {
+    "rank": 3,
+    "body": [
+     5,
+     38,
+     26,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_ZSCORE(log_oi_value, w=336)",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「持仓额相对自身336小时均值的标准分」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 8.943,
+    "conc_k10_train_gross_bpd": 10.053,
+    "conc_k10_turnover_per_day": 0.185,
+    "full_train_net_bpd": 7.836,
+    "full_train_gross_bpd": 8.799,
+    "corr_s": 0.4138
+   },
+   {
+    "rank": 4,
+    "body": [
+     5,
+     38,
+     21,
+     41
+    ],
+    "hold": 168,
+    "expr": "DELTA(log_oi_value, w=336)",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「持仓额过去336小时的变化」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 7.556,
+    "conc_k10_train_gross_bpd": 8.537,
+    "conc_k10_turnover_per_day": 0.163,
+    "full_train_net_bpd": 5.757,
+    "full_train_gross_bpd": 6.59,
+    "corr_s": 0.5086
+   },
+   {
+    "rank": 5,
+    "body": [
+     5,
+     38,
+     23,
+     38,
+     27,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_RANK(TS_STD(log_oi_value, w=336), w=336)",
+    "n_tokens": 5,
+    "level_flag": false,
+    "explain": "每小时按「持仓额的336小时波动在自身过去336小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 6.272,
+    "conc_k10_train_gross_bpd": 7.444,
+    "conc_k10_turnover_per_day": 0.195,
+    "full_train_net_bpd": 4.256,
+    "full_train_gross_bpd": 5.273,
+    "corr_s": 0.3485
+   }
+  ],
+  "T3": [
+   {
+    "rank": 1,
+    "body": [
+     8,
+     40,
+     25,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_MIN(premium_close_bps, w=672)",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「合约溢价的672小时最低值」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 17.199,
+    "conc_k10_train_gross_bpd": 17.816,
+    "conc_k10_turnover_per_day": 0.103,
+    "full_train_net_bpd": 15.63,
+    "full_train_gross_bpd": 16.176,
+    "corr_s": 0.1315
+   },
+   {
+    "rank": 2,
+    "body": [
+     8,
+     39,
+     25,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_MIN(premium_close_bps, w=504)",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「合约溢价的504小时最低值」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 16.193,
+    "conc_k10_train_gross_bpd": 16.835,
+    "conc_k10_turnover_per_day": 0.107,
+    "full_train_net_bpd": 15.897,
+    "full_train_gross_bpd": 16.451,
+    "corr_s": 0.1109
+   },
+   {
+    "rank": 3,
+    "body": [
+     9,
+     38,
+     25,
+     31,
+     38,
+     25,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_MIN(CS_DEMEAN(TS_MIN(mark_index_basis_bps, w=336)), w=336)",
+    "n_tokens": 6,
+    "level_flag": false,
+    "explain": "每小时按「标记-指数基差的336小时最低值减去全池均值的336小时最低值」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 13.051,
+    "conc_k10_train_gross_bpd": 13.622,
+    "conc_k10_turnover_per_day": 0.095,
+    "full_train_net_bpd": 12.635,
+    "full_train_gross_bpd": 13.171,
+    "corr_s": 0.1341
+   },
+   {
+    "rank": 4,
+    "body": [
+     8,
+     38,
+     25,
+     36,
+     25,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_MIN(TS_MIN(premium_close_bps, w=336), w=72)",
+    "n_tokens": 5,
+    "level_flag": false,
+    "explain": "每小时按「合约溢价的336小时最低值的72小时最低值」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 12.822,
+    "conc_k10_train_gross_bpd": 13.501,
+    "conc_k10_turnover_per_day": 0.113,
+    "full_train_net_bpd": 15.109,
+    "full_train_gross_bpd": 15.672,
+    "corr_s": 0.087
+   },
+   {
+    "rank": 5,
+    "body": [
+     9,
+     38,
+     25,
+     40,
+     25,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_MIN(TS_MIN(mark_index_basis_bps, w=336), w=672)",
+    "n_tokens": 5,
+    "level_flag": false,
+    "explain": "每小时按「标记-指数基差的336小时最低值的672小时最低值」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 12.345,
+    "conc_k10_train_gross_bpd": 12.885,
+    "conc_k10_turnover_per_day": 0.09,
+    "full_train_net_bpd": 12.19,
+    "full_train_gross_bpd": 12.663,
+    "corr_s": 0.1252
+   }
+  ]
+ },
+ "frozen_sha256": "715279b2f063d2d234c1516672eb288c91274efa181395d899454e8ed1334e67",
+ "freeze_stats": {
+  "T1": {
+   "sampled": 256,
+   "distinct": 76,
+   "grammar_illegal": 13,
+   "valid": 62,
+   "seconds": 164.5
+  },
+  "T2": {
+   "sampled": 256,
+   "distinct": 44,
+   "grammar_illegal": 14,
+   "valid": 30,
+   "seconds": 72.0
+  },
+  "T3": {
+   "sampled": 256,
+   "distinct": 87,
+   "grammar_illegal": 22,
+   "valid": 65,
+   "seconds": 163.3
+  }
+ },
+ "freeze_rule": {
+  "seed": 20261108,
+  "per_family": 256,
+  "mode": "train",
+  "tiles": 50,
+  "grammar": "m2h_b5_grammar.check, illegal dropped",
+  "rank": "conc book K=10 flat6 TRAIN net, H168",
+  "dedup": "identical 50-tile conc net vector",
+  "world": "p8",
+  "conc_pool": 205
+ },
+ "seconds": 722.8,
+ "written": "2026-10-13T02:06:31+0800",
+ "dev_read": false,
+ "oos_read": false
+}

@@ -1,0 +1,99 @@
+{
+ "schema": "ENR1_PREREG_V1",
+ "order": "runtime\\strategy_survey_v1\\ENR1_ORDER.txt (QuantMind 训练特征构筑会话 10-14 下发；新执行会话执行)",
+ "adr": "okx_alpha\\docs\\adr\\0012-sparse-conditional-book-enr1.md",
+ "written": "2026-10-14 (77o UTC+8)，在计算任何收益、IC、排名之前写盘",
+ "disclosure": "写本文件前只在 V4 TRAIN grid 上查过各列在 TOP100 里的逐年覆盖率（有没有值，不涉及收益）：OI 2021 0.10、多空比 2021 0.09，其余列 ≥0.99；资金费原始列 0.12–0.23（8h 结算，前向填充后可用）。没有算过任何收益、IC 或排名。",
+ "data": {
+  "grid": "ROOT\\runtime\\xs_v4_panel_v1\\V4_TRAIN_GRID.npz（grid sha16 8f39608e6951572a），合同 XS_BASIN_TIME_CONTRACT_V4_20261013（sha12 6d1e44e04493）",
+  "span": "触发小时 2021-01-01 00:00 .. 2025-12-31；2020-11/12 只做回看",
+  "pool": "panel 自带的逐小时 TOP100（univ，含后来下架的币），不重算",
+  "ruler_world": "v4_world.world(feats=False)：fwd = close[t+1]/close[t]-1，fwd_w = 逐小时 1/99 截面缩尾（m1_ruler.prepare_shard），fwd_wx = fwd_w 加下架层（最后真实小时 L 的 fwd 为 0，L 之后 NaN），资金费 fr·fi",
+  "dev_oos": "第 1、2 步不读 DEV，也不读 OOS"
+ },
+ "signals_12": {
+  "source_1_8": "m2h_verdict_dense.handwritten(g, ts)（sha12 e0df9e60f9a3），它是 h1_handwritten_baselines.py 第 76–154 行公式逐字移植到任意小时网格；按工单定义照 h1",
+  "1": "T1_mom_168h = log close − lag168",
+  "2": "CTREND_lite_17（日频 17 指标截面秩等权，日值放在当天 23:00 行并前向填充 ≤24h）",
+  "3": "T2_neg_funding_7d = −roll_mean168(前向填充的资金费)",
+  "4": "T2_neg_retail_LS_24h = −roll_mean24(global_long_short_account_ratio_last)",
+  "5": "T2_neg_dlogOI_7d = −(log OI − lag168)",
+  "6": "T3_neg_premium_24h = −roll_mean24(premium_close_bps)",
+  "7": "T3_neg_mark_index_24h = −roll_mean24(mark_index_basis_bps)",
+  "8": "T3_abs_premium_high_1h = |premium_high|",
+  "9": "S9_ret_24h = log close − lag24",
+  "10": "S10_qv24_over_720mean = roll_sum24(quote_volume)（满 24）÷ roll_mean720(quote_volume)（≥360）",
+  "11": "S11_taker_share_24h = roll_sum24(taker_buy_quote_volume) ÷ roll_sum24(quote_volume)（都满 24）",
+  "12": "S12_dlogOI_24h = log OI − lag24",
+  "rolling": "窗口都包含当前小时 t；滚动均值/和要求窗口满（S10 分母除外）；只用 t 及以前的数据",
+  "oi_ls_signals": "4、5、12（2021 年 OI/LS 覆盖约 10%）"
+ },
+ "conditions_4_per_signal": {
+  "CS_hi": "当小时 TOP100 内、信号有值的币（≥20 个）里平均秩分位 q=(rank−1)/(n−1) ≥ 0.95",
+  "CS_lo": "同上 q ≤ 0.05",
+  "TS_hi": "本币过去 2160h 窗口（含当前小时）里当前值的平均秩分位 q=(rank−1)/(n−1) ≥ 0.95，窗口内至少 1080 个有效值；只用过去",
+  "TS_lo": "同上 q ≤ 0.05",
+  "pool": "TS 分位用本币全部历史计算，但只有当小时在 TOP100 里才算触发"
+ },
+ "states_5": {
+  "all": "全部",
+  "up_lowvol/up_highvol/down_lowvol/down_highvol": "BTC 720h log 收益 > 0 为 up；BTC 小时 log 收益 720h 滚动标准差（≥360）> 0.005196 为 highvol（diag_d1d2.btc_state 口径，阈值不重定）；取触发小时 t 的状态"
+ },
+ "holds_h": [4, 24, 72, 168],
+ "cells": "12 信号 × 4 条件 × 5 状态 × 4 持有期 = 960 格",
+ "event": {
+  "trigger": "第 t 小时收盘后条件成立 → 第 t+1..t+h 行持仓（滞后 1 根 bar），第 t+h+1 行平仓",
+  "eligible": "币在 t 时属于 TOP100；不是 BTCUSDT（对冲腿本身）；β_i(t) 有值；fwd_wx[i, t+1] 有值；下架币要求 t+1 < L；t ≥ 2021-01-01",
+  "position": "单币方向 d（±1，NAV 的 100%）+ BTC 对冲腿 −d·β_i(t)；权重在持有期内不变（尺子的定权语义）",
+  "beta": "β_i(t) = 过去 720h（含 t）币的小时 log 收益对 BTC 小时 log 收益的 OLS 斜率，两者同时有值 ≥ 360 小时；不截断",
+  "main_return": "β 对冲后的超额，按 m1_ruler.settle_multi 的记账：每小时 x = d·(fwd_wx_i − β·fwd_wx_BTC) − d·fund_i + d·β·fund_BTC，缺 bar 那小时该币收益记 0、仓位冻结（Rule 0）；事件 log 收益 = Σ log1p(x)",
+  "cost": "flat6：入场行 log1p(x_1 − c)，平仓行 log1p(−c)，c = 6bp·(1+|β|)，即单币开平 12bp + 对冲腿 12bp·|β|",
+  "cost0": "同上但 c = 0（扣资金费、不扣交易成本），用于 t 值、方向和逐年符号",
+  "delisting": "币在持有期内下架（L ≤ t+h）：两条腿都从 L 行起归零，L 行付平仓成本（v4_world 下架层语义）",
+  "winsor": "主口径用尺子同款 1/99 缩尾的 fwd_wx，这样和 m1_ruler 结算逐位可比；不缩尾版（fwd_x）只报告",
+  "raw_report_only": "原始收益：不对冲、不缩尾（fwd_x）的 d 方向 cost0 log 收益，只报告，不进门槛"
+ },
+ "dedup": "按 (信号, 条件, 持有期) 在全状态的触发序列上逐币贪心去重：一个事件从 t 开始后，t+1..t+h−1 的再次触发不另计，下一事件最早在 t+h；事件的状态取它触发小时的状态。也就是先去重，再按状态分格",
+ "halves": "按 V4 合同：A = 从 2021-01 起的奇数月（1、3、5、7、9、11 月），B = 偶数月。事件的 t..t+h+1 必须都在触发小时的同一个月里，否则在去重前丢弃",
+ "t_stat": "每格每半：cost0 多头方向 log 收益 G 的均值 / 按日历周（周一 00:00 起，按触发小时）聚类的标准误，SE = sqrt(G/(G−1)·Σ_g s_g²)/n",
+ "direction": "d = sign(A 半 G 均值)；B 半只做确认",
+ "null": {
+  "shift": "每个 NULL 世界给每个币一个随机偏移，在该币的合格小时序列（TOP100、β 有值、下一根可交易、非 BTC、2021 起）上把 48 条条件序列一起循环平移；合格小时 n ≥ 1440 的币偏移取 [720, n−720] 均匀，n < 1440 的取 [1, n−1]。收益、状态、月份不平移；之后照真实管线做月份过滤、去重、分格",
+  "replicates": 200,
+  "seed": 20261014,
+  "stat": "每个 NULL 世界取 A 半 n_A ≥ 30 的格里 |t_A| 的最大值；T_null = 200 个最大值的 95 分位。另报不限 n 的最大值，只报告"
+ },
+ "gate_all_five": {
+  "1": "|t_A| > T_null",
+  "2": "d·t_B > 2（B 半同号，单侧）",
+  "3": "A、B 两半 flat6 净值（d 方向事件 log 收益均值）都 > 0",
+  "4": "2021–25 每年（按触发小时，A+B 合并）d·G 均值 > 0 的年数 ≥ 4；信号 4、5、12 的 2021 年记缺，改为 2022–25 里 ≥ 3 年；某年 0 个事件算不同号",
+  "5": "n_A ≥ 30 且 n_B ≥ 30（去重后独立事件）"
+ },
+ "liquidity_tiers_report_only": "触发小时在 TOP100 里按过去 720h 成交额（≥360h）排名，第 1–30 / 31–100；每格每档报事件数和净值，不进门槛",
+ "nearest_10": "未过门的格按没过的条数从少到多排，同条数按 |t_A|/T_null 从大到小",
+ "mechanism": "每个过门的格写一句对手盘是谁、为什么会亏；写不出来的标「无机理」",
+ "selftests": {
+  "plant": "另取一个 NULL 世界（种子 20261014+999，不在 200 个里）：先算不植入时的过门格数；再选 h=4、非 all 状态、min(n_A,n_B) 最大的一格，给它每个事件的多头 log 收益 +50bp（d=−1 的净值相应 −50bp），用真实的 T_null 过门。通过 = 植入格过门，且除了包含同一批事件的父格（同信号、同条件、同持有期、状态 all）外没有别的格过门；父格是否过门单独报告",
+  "ab_disjoint": "断言：每个事件的 t..t+h+1 在同一个月；A、B 两半的事件小时集合不相交",
+  "ruler_20": "随机抽 20 个真实事件（不同格、两个方向都有），held = (h+1)×2 的矩阵 [币, BTC]，前 h 行 [d, −dβ]，最后一行 0；fwd 取 fwd_wx 的同两列，断言 held 和 fwd 列数相等；用 m1_ruler.settle_multi（flat6 与 cost0）结算，和表里的净值、cost0 相差 ≤ 1bp。抽样时要求平仓行该币可交易（平仓行缺 bar 时尺子会把平仓推到窗口外，表里照常在 t+h+1 计成本，这类事件的个数单独报告）"
+ },
+ "stop_rules": {
+  "timing": "先跑 TEST（NULL 世界替代真实世界、4 个 NULL）测一次完整计算的耗时，外推超过 1 小时就停下报告",
+  "zero_pass": "0 格过门：停，一屏报告，不换定义重试；是否换数据（强平流、盘口、上下架事件）由用户定"
+ },
+ "step3_rule_book": "至少 1 格过门才做：每个过门格一条规则（触发→按方向开该币，持有 h，BTC 按 β 对冲），所有规则一本书，同时持仓上限 5 个、等权；新权重层新文件，m1_ruler 不改；flat6、资金费、滞后 1 根、Rule 0、V4 下架层；断言 held 和 fwd 列数相等。V4 TRAIN 上报 A/B、逐年净值、Sharpe、换手、平均持仓数、平均净敞口、β。门槛：B 半净值 > 0 且五年 ≥ 4 年为正 → 写 FROZEN_RB1.json，冻结后读一次 DEV；没过就停。OOS 不读",
+ "predictions": {
+  "executor": {
+   "n_pass": "期望 1 格，区间 0–3",
+   "likely_class": "截面极端的 24h 收益或溢价/基差（对冲后 24–72h 反转），其次是资金费极端；动量类（T1_mom_168h、CTREND）0 格",
+   "p_zero_pass": 0.5,
+   "why": "五条全要满足，其中两半都要在每次约 24bp 的开平+对冲成本后为正，还要 ≥4/5 年同号；T_null 是几百个相关格里的最大值，估计在 4 左右"
+  },
+  "order_issuer": {
+   "n_pass": "0–3",
+   "likely_class": "资金费或溢价的极端；动量类 0 格",
+   "p_zero_pass": 0.4
+  }
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "schema": "SEL1_REWARD_RULE_V1",
+ "reward": "t_dd",
+ "trainer_flags": "--reward t_dd --dd-max DD_MAX[K] --k K",
+ "t": "A half, 30 odd months: mean / (sd ddof 1 / sqrt 30) of the monthly cost0 beta-hedged log NAV; a month holding nothing is 0 and counts; sd 0 -> 0 (S.reward 't')",
+ "dd": "A-half max drawdown: the 30 A months' cost0 log NAV joined in order, cumulative from 0, marked at month ends, largest fall from the running peak (S.max_dd)",
+ "t_dd": "0 when dd > DD_MAX[K], else t (S.reward 't_dd')",
+ "dd_max": {
+  "5": 2.283547812033886,
+  "10": 2.155393246755923,
+  "20": 2.163250079756716
+ },
+ "calibration": {
+  "world": "NULL (no plant), NULL_SEED 20261015",
+  "pool": "sel1_calib's pool, NULL-valid",
+  "bodies": 139,
+  "combos": 60,
+  "quantile": 0.95,
+  "method": "numpy linear",
+  "invalid_in_null": {},
+  "per_k": {
+   "5": {
+    "n": 8340,
+    "zeros": 0,
+    "median": 0.42592526917556384,
+    "q95": 2.283547812033886
+   },
+   "10": {
+    "n": 8340,
+    "zeros": 0,
+    "median": 0.35468645388574904,
+    "q95": 2.155393246755923
+   },
+   "20": {
+    "n": 8340,
+    "zeros": 0,
+    "median": 0.30356550581819663,
+    "q95": 2.163250079756716
+   }
+  }
+ },
+ "combo_rule": "every check and the trainer's combo token use the same t_dd score",
+ "batch_norm": "trainer in-batch standardisation (D.zfam) unchanged",
+ "written": "2026-10-15T06:12:09+0800"
+}

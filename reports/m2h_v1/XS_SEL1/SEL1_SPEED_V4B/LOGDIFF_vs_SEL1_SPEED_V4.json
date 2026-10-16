@@ -1,0 +1,20 @@
+{
+ "a": "SEL1_SPEED_V4",
+ "b": "SEL1_SPEED_V4B",
+ "from_update": 3,
+ "files": {
+  "BATCH_LOG.jsonl": {
+   "n_a": 3,
+   "n_b": 3,
+   "n_diff": 0,
+   "first": null
+  },
+  "FORMULAS.jsonl": {
+   "n_a": 384,
+   "n_b": 384,
+   "n_diff": 0,
+   "first": null
+  }
+ },
+ "zero_diff": true
+}

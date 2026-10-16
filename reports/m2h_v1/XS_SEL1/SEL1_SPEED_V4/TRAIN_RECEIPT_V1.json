@@ -1,0 +1,48 @@
+{
+ "schema": "SEL1_TRAIN_RECEIPT_V1",
+ "run": "SEL1_SPEED_V4",
+ "mode": "null",
+ "args": {
+  "out_name": "SEL1_SPEED_V4",
+  "mode": "null",
+  "updates": 6,
+  "batch": 128,
+  "seed": 20261015,
+  "workers": 8,
+  "gpu_workers": 0,
+  "memo": "global",
+  "cse_gb": 0.0,
+  "speed_resume": true,
+  "fastts": true,
+  "gpu_select": true,
+  "ent_coef": 0.03,
+  "ent_floor_frac": 0.35,
+  "device": "cuda",
+  "checkpoint_every": 3,
+  "resume": "auto",
+  "max_hours": 0.0
+ },
+ "modules": {
+  "sel1_trainer": "16ccde050c6a",
+  "sel1_common": "4a09e3c9a241",
+  "sel1_cse": "3a5a0c077cfe",
+  "sel1_fastts": "9889ef397bbf",
+  "v4_world": "783c56d176d5",
+  "m1_ruler": "acba81d92c64",
+  "m2h_common": "cbc2ab8b98df",
+  "m2h_dense_common": "15cb08d237cb",
+  "m2h_b5_grammar": "a8970f2f1bcb",
+  "dbg_memo": "f42fb246b1f4",
+  "cr1_common": "0c70912b99f6"
+ },
+ "n_eval": 768,
+ "invalid": {
+  "LOW": 108
+ },
+ "hof_size": 657,
+ "peak_vram_gib": 10.256,
+ "compute_seconds": 1027.0,
+ "dev_read": false,
+ "oos_read": false,
+ "created": "2026-10-15T04:03:08+0800"
+}

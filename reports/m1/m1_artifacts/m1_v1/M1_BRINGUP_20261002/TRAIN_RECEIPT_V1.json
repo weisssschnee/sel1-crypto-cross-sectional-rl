@@ -1,0 +1,23 @@
+{
+ "schema": "M1_TRAIN_RECEIPT_V1",
+ "created": "2026-10-02T22:11:02+0800",
+ "months": [
+  "2024-01"
+ ],
+ "config": {
+  "out_name": "M1_BRINGUP_20261002",
+  "shard_dir": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\m1_staging\\m1_shards",
+  "updates": 2,
+  "batch": 64,
+  "seed": 20261002,
+  "device": "cuda",
+  "persist": 1,
+  "manifest_only": false
+ },
+ "reward_definition": "mean of 8 x 360-min episode log NAVs (6bp + funding, 2-min lag, per-formula HOLD)",
+ "invalid_reasons": {
+  "WINDOW_BELOW_OPERATOR_MINIMUM": 14
+ },
+ "compute_seconds": 10.9,
+ "oos_read": false
+}

@@ -1,0 +1,53 @@
+{
+ "schema": "M2H_TRAIN_RECEIPT_V1",
+ "run": "TV1_SMOKE_DENSE_123516",
+ "created": "2026-10-10T12:35:55+0800",
+ "config": {
+  "out_name": "TV1_SMOKE_DENSE_123516",
+  "panel": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\train2024_2025_panel_v1\\TRAIN2024JAN_2025DEC_HOURLY54_TARGET_LONG_V1.parquet",
+  "updates": 2,
+  "batch": 32,
+  "reward": "ic",
+  "select": "full",
+  "seed": 20261009,
+  "tiles": 16,
+  "device": "cuda",
+  "persist": 1,
+  "cost": "flat6",
+  "band": 0.5,
+  "nav_usd": 100000.0,
+  "checkpoint_every": 1,
+  "vm_block_elems": 33554432,
+  "ema_cache_max": 1,
+  "resume": null,
+  "max_hours": 0.0,
+  "manifest_only": false
+ },
+ "n_tiles": 50,
+ "invalid_reasons": {
+  "ZERO": 5
+ },
+ "elite_pool_final_size": 52,
+ "trained_policy_final": {
+  "hold_hist": {
+   "4": 0,
+   "24": 0,
+   "72": 0,
+   "168": 32
+  },
+  "exprs": [
+   "ABS(CS_DEMEAN(CS_DEMEAN(LAG(ABS(CS_RANK(NEG(log_high))), w=672))))",
+   "CS_ZSCORE(CS_RANK(TS_MIN(log_close, w=504)))",
+   "TS_MAX(log_close, w=168)",
+   "EMA(TS_STD(LAG(ABS(log_quote_volume), w=336), w=672), w=672)",
+   "SIGN(NEG(log_low))",
+   "log_high",
+   "SIGN(DIV(CS_ZSCORE(ABS(CS_ZSCORE(DIV(log_low, log_quote_volume)))), SIGN(log_high)))",
+   "SIGN(log_high)"
+  ]
+ },
+ "peak_vram_alloc_gib": 1.581,
+ "compute_seconds": 32.0,
+ "oos_read": false,
+ "dev_read": false
+}

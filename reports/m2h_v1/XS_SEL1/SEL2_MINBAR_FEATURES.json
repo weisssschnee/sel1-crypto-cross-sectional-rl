@@ -1,0 +1,111 @@
+{
+ "out": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\artifacts\\m2h_v1\\XS_SEL1\\SEL2_MINBAR_FEATURES.npz",
+ "shape": [
+  632,
+  16,
+  45288
+ ],
+ "cols": [
+  "close_price",
+  "vwap",
+  "price_std",
+  "price_range_bps",
+  "close_to_open_bps",
+  "notional",
+  "quantity",
+  "agg_trade_count",
+  "buy_notional",
+  "sell_notional",
+  "signed_aggressor_notional",
+  "volume_imbalance",
+  "buy_sell_notional_ratio",
+  "large_notional_ratio_100k_plus",
+  "avg_agg_trade_notional",
+  "max_trade_notional"
+ ],
+ "rules": {
+  "close_price": "last",
+  "vwap": "last",
+  "price_std": "wmean",
+  "price_range_bps": "wmean",
+  "close_to_open_bps": "wmean",
+  "notional": "sum",
+  "quantity": "sum",
+  "agg_trade_count": "sum",
+  "buy_notional": "sum",
+  "sell_notional": "sum",
+  "signed_aggressor_notional": "sum",
+  "volume_imbalance": "wmean",
+  "buy_sell_notional_ratio": "wmean",
+  "large_notional_ratio_100k_plus": "wmean",
+  "avg_agg_trade_notional": "wmean",
+  "max_trade_notional": "max"
+ },
+ "months": [
+  "2024-01",
+  "2024-02",
+  "2024-03",
+  "2024-04",
+  "2024-05",
+  "2024-06",
+  "2024-07",
+  "2024-08",
+  "2024-09",
+  "2024-10",
+  "2024-11",
+  "2024-12",
+  "2025-01",
+  "2025-02",
+  "2025-03",
+  "2025-04",
+  "2025-05",
+  "2025-06",
+  "2025-07",
+  "2025-08",
+  "2025-09",
+  "2025-10",
+  "2025-11",
+  "2025-12"
+ ],
+ "covered_coin_hours": 1401597,
+ "coins_covered": 100,
+ "align_median_abs_rel": {
+  "-1": 0.005542754025712582,
+  "0": 2.0762547681130172e-08,
+  "1": 0.005543531921024858
+ },
+ "align_ok": true,
+ "corr_vs_v4_taker_buy_share": {
+  "buy_notional": {
+   "r": 0.022001596359155648,
+   "n": 1400039
+  },
+  "sell_notional": {
+   "r": -0.0027921890090756496,
+   "n": 1400039
+  },
+  "signed_aggressor_notional": {
+   "r": 0.15288721071327213,
+   "n": 1400039
+  },
+  "volume_imbalance": {
+   "r": 0.9999896967098777,
+   "n": 1400039
+  },
+  "buy_sell_notional_ratio": {
+   "r": 0.0043368616495287095,
+   "n": 1400039
+  },
+  "buy_notional/notional": {
+   "r": 0.9999896967096311,
+   "n": 1400039
+  }
+ },
+ "corr_log_notional_vs_log_quote_volume": {
+  "r": 0.9999983384186151,
+  "n": 1400039
+ },
+ "seconds": 87.1,
+ "dev_read": false,
+ "oos_read": false
+}

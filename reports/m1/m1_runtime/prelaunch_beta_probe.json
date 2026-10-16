@@ -1,0 +1,110 @@
+{
+ "2026-03": {
+  "role": "DEV",
+  "windows": 4,
+  "n_assets": 100,
+  "symbols_first": [
+   "0GUSDT",
+   "1000BONKUSDT",
+   "1000FLOKIUSDT"
+  ],
+  "symbols_last": [
+   "XPLUSDT",
+   "XRPUSDT",
+   "ZROUSDT"
+  ],
+  "market_ew_bp_day": -19.67069131055071,
+  "const_tiefix": {
+   "max_abs_weight": 0.0,
+   "current_max_abs_weight": 0.020833333333333332,
+   "gross_weight_current": 1.0
+  },
+  "const_h60": {
+   "net": -1.1551497665590036,
+   "cost0": -0.3027816198725013,
+   "gross": -1.220494994123265,
+   "turn_day": 0.14201183431952663,
+   "net_exposure": 3.4687626428901126e-18,
+   "gross_exposure": 0.9998027613412229,
+   "max_abs_sum_desired": 5.551115123125783e-17
+  },
+  "const_h1440": {
+   "net": -1.1551497665590036,
+   "cost0": -0.3027816198725013,
+   "gross": -1.220494994123265,
+   "turn_day": 0.14201183431952663,
+   "net_exposure": 3.4687626428901126e-18,
+   "gross_exposure": 0.9998027613412229,
+   "max_abs_sum_desired": 5.551115123125783e-17
+  },
+  "ones_tiefix": {
+   "max_abs_weight": 0.0,
+   "current_max_abs_weight": 0.020833333333333332,
+   "gross_weight_current": 1.0
+  },
+  "ones_h60": {
+   "net": -1.1551497665590036,
+   "cost0": -0.3027816198725013,
+   "gross": -1.220494994123265,
+   "turn_day": 0.14201183431952663,
+   "net_exposure": 3.4687626428901126e-18,
+   "gross_exposure": 0.9998027613412229,
+   "max_abs_sum_desired": 5.551115123125783e-17
+  },
+  "ones_h1440": {
+   "net": -1.1551497665590036,
+   "cost0": -0.3027816198725013,
+   "gross": -1.220494994123265,
+   "turn_day": 0.14201183431952663,
+   "net_exposure": 3.4687626428901126e-18,
+   "gross_exposure": 0.9998027613412229,
+   "max_abs_sum_desired": 5.551115123125783e-17
+  },
+  "signs_tiefix": {
+   "max_abs_weight": 0.016666666666666666,
+   "current_max_abs_weight": 0.020833333333333332,
+   "gross_weight_current": 1.0000000000000002
+  },
+  "signs_h60": {
+   "net": -132.9298650220949,
+   "cost0": -3.292030333784017,
+   "gross": -4.084085826184817,
+   "turn_day": 21.599672303000983,
+   "net_exposure": 4.823202741484085e-19,
+   "gross_exposure": 0.9242833622507913,
+   "max_abs_sum_desired": 7.316670598382646e-17
+  },
+  "signs_h1440": {
+   "net": -18.61743509542688,
+   "cost0": -11.963914546377788,
+   "gross": -12.635059710257686,
+   "turn_day": 1.1085472044439078,
+   "net_exposure": 3.362027135748093e-18,
+   "gross_exposure": 0.9548516369550779,
+   "max_abs_sum_desired": 7.407811343507209e-17
+  },
+  "tiefix_identical_without_ties": true,
+  "random_h60": {
+   "net": -193.23517913323823,
+   "cost0": -4.027872054668051,
+   "gross": -3.60767619003925,
+   "turn_day": 31.52191453068125,
+   "net_exposure": 2.716142293470243e-19,
+   "gross_exposure": 0.9998027613412229,
+   "max_abs_sum_desired": 7.215365457891032e-17,
+   "gross_se": 6.736978186285093,
+   "n_draws": 8
+  },
+  "random_h1440": {
+   "net": -12.558092775098476,
+   "cost0": -3.631992306259738,
+   "gross": -4.002109729857233,
+   "turn_day": 1.4870890955198646,
+   "net_exposure": 2.6078223168071657e-19,
+   "gross_exposure": 0.9998027613412229,
+   "max_abs_sum_desired": 7.269575566515307e-17,
+   "gross_se": 5.6826788523229865,
+   "n_draws": 8
+  }
+ }
+}

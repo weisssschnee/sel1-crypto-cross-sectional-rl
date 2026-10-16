@@ -1,0 +1,69 @@
+{
+ "schema": "SEL1_NULLPLANT_PIPE_V1",
+ "alpha": 0.0,
+ "K": 5,
+ "pcnull0_eq_null": {
+  "fwd_wx": true,
+  "fi": true,
+  "fr": true,
+  "zp": true
+ },
+ "gain_alpha0": 0.0,
+ "pool": 139,
+ "invalid_in_null": {},
+ "cell": {
+  "K": 5,
+  "plant": {
+   "score_A": 1.5566192530313767,
+   "t_A": 1.5566192530313767,
+   "dd_A": 0.13677107715849152,
+   "h": 24,
+   "state": "up_lowvol",
+   "dir": "short",
+   "t_B": 2.2850630756349712,
+   "B_cost0_bpd": 9.759791627265413,
+   "fixed": {
+    "t_B": -1.396190648399421,
+    "B_cost0_bpd": -19.67515624455268
+   }
+  },
+  "plant_rank": 4,
+  "pool": 139,
+  "visible": true,
+  "rankable": true,
+  "fixed": {
+   "t_B": -1.396190648399421,
+   "B_cost0_bpd": -19.67515624455268,
+   "rank": 127
+  },
+  "top3": [
+   {
+    "expr": "TS_MIN(CS_RANK(LAG(CS_RANK(mark_index_basis_bps), w=72)), w=504)",
+    "t_B": 2.7123102650071327,
+    "h": 4,
+    "state": "up_lowvol",
+    "dir": "short"
+   },
+   {
+    "expr": "TS_MIN(CS_DEMEAN(mark_index_basis_bps), w=504)",
+    "t_B": 2.5776132944871555,
+    "h": 4,
+    "state": "up_lowvol",
+    "dir": "both"
+   },
+   {
+    "expr": "CS_DEMEAN(NEG(ABS(NEG(premium_high))))",
+    "t_B": 2.3952478462735445,
+    "h": 4,
+    "state": "up_lowvol",
+    "dir": "short"
+   }
+  ],
+  "passed": true
+ },
+ "passed": true,
+ "note": "pipeline only, not read",
+ "seconds": 307.3,
+ "dev_read": false,
+ "oos_read": false
+}

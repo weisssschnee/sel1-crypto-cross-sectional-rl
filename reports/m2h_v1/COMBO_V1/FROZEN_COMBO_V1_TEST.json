@@ -1,0 +1,139 @@
+{
+ "schema": "FROZEN_COMBO_V1",
+ "contract": "XS_BASIN_TIME_CONTRACT_V4_20261013",
+ "test": true,
+ "cells": [
+  "T1_mom_168h",
+  "CTREND_lite_17",
+  "T2_neg_funding_7d",
+  "T2_neg_retail_LS_24h",
+  "T2_neg_dlogOI_7d",
+  "T3_neg_premium_24h",
+  "T3_neg_mark_index_24h",
+  "T3_abs_premium_high_1h"
+ ],
+ "fit": "rank IC, TOP100, signal hours 2021-01-01 .. 2025-12-31 (forward window ends before 2026-01-01), 1819 sample hours",
+ "ic": {
+  "T1_mom_168h": {
+   "ic": -0.037,
+   "ir": -0.2009,
+   "t": -8.57,
+   "n": 1819,
+   "cov": 1.0
+  },
+  "CTREND_lite_17": {
+   "ic": -0.03054,
+   "ir": -0.1594,
+   "t": -6.8,
+   "n": 1819,
+   "cov": 1.0
+  },
+  "T2_neg_funding_7d": {
+   "ic": -0.02945,
+   "ir": -0.2054,
+   "t": -8.76,
+   "n": 1819,
+   "cov": 1.0
+  },
+  "T2_neg_retail_LS_24h": {
+   "ic": -0.03615,
+   "ir": -0.2172,
+   "t": -8.3,
+   "n": 1462,
+   "cov": 0.8037
+  },
+  "T2_neg_dlogOI_7d": {
+   "ic": 0.01853,
+   "ir": 0.1282,
+   "t": 4.92,
+   "n": 1474,
+   "cov": 0.8103
+  },
+  "T3_neg_premium_24h": {
+   "ic": 0.02089,
+   "ir": 0.1463,
+   "t": 6.23,
+   "n": 1812,
+   "cov": 0.9962
+  },
+  "T3_neg_mark_index_24h": {
+   "ic": 0.01309,
+   "ir": 0.0864,
+   "t": 3.68,
+   "n": 1813,
+   "cov": 0.9967
+  },
+  "T3_abs_premium_high_1h": {
+   "ic": -0.11963,
+   "ir": -0.6847,
+   "t": -29.16,
+   "n": 1814,
+   "cov": 0.9973
+  }
+ },
+ "sign": {
+  "T1_mom_168h": -1,
+  "CTREND_lite_17": -1,
+  "T2_neg_funding_7d": -1,
+  "T2_neg_retail_LS_24h": -1,
+  "T2_neg_dlogOI_7d": 1,
+  "T3_neg_premium_24h": 1,
+  "T3_neg_mark_index_24h": 1,
+  "T3_abs_premium_high_1h": -1
+ },
+ "weights_main": {
+  "T1_mom_168h": -0.125,
+  "CTREND_lite_17": -0.125,
+  "T2_neg_funding_7d": -0.125,
+  "T2_neg_retail_LS_24h": -0.125,
+  "T2_neg_dlogOI_7d": 0.125,
+  "T3_neg_premium_24h": 0.125,
+  "T3_neg_mark_index_24h": 0.125,
+  "T3_abs_premium_high_1h": -0.125
+ },
+ "weights_sens": {
+  "T1_mom_168h": -0.117436,
+  "CTREND_lite_17": -0.106088,
+  "T2_neg_funding_7d": -0.118666,
+  "T2_neg_retail_LS_24h": -0.121893,
+  "T2_neg_dlogOI_7d": 0.097556,
+  "T3_neg_premium_24h": 0.102505,
+  "T3_neg_mark_index_24h": 0.086126,
+  "T3_abs_premium_high_1h": -0.24973
+ },
+ "active": [
+  "T1_mom_168h",
+  "CTREND_lite_17",
+  "T2_neg_funding_7d",
+  "T2_neg_retail_LS_24h",
+  "T2_neg_dlogOI_7d",
+  "T3_neg_premium_24h",
+  "T3_neg_mark_index_24h",
+  "T3_abs_premium_high_1h"
+ ],
+ "composite": "per hour: average rank -> z over TOP100 & finite (>= 20 coins); sum w z / sum |w| over finite active cells, >= min(5, n_active)",
+ "hold_h": 168,
+ "ruler": "m1_ruler flat6 / cost0, band 0.5, lag 1, delisting layer v4_world",
+ "code_sha16": "32f9eb5fc44a2ac3",
+ "grid_sha16": "8f39608e6951572a",
+ "train_2022_25_in_sample": {
+  "conc_k10": {
+   "net": 25.6063,
+   "gross": 26.7769,
+   "turn": 0.1951,
+   "beta": 0.0041,
+   "n": 8
+  },
+  "full": {
+   "net": 13.2713,
+   "gross": 14.25,
+   "turn": 0.1631,
+   "beta": -0.0068,
+   "n": 8
+  }
+ },
+ "dev_read": false,
+ "oos_read": false,
+ "sha256": "b6126721a9cc4b5865e716d61c75173bb248d97855c7c4f01c696109b9758416",
+ "written": "2026-10-14T04:15:38+0800"
+}

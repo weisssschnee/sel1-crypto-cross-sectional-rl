@@ -1,0 +1,96 @@
+{
+ "schema": "M1_DEV_ACCEPTANCE_V1",
+ "primary": {
+  "trained": {
+   "n": 1371,
+   "positive": 317,
+   "share": 0.2312,
+   "p50": -0.000617,
+   "p90": 0.000727,
+   "max": 0.00188
+  },
+  "uniform": {
+   "n": 647,
+   "positive": 2,
+   "share": 0.0031,
+   "p50": -0.009848,
+   "p90": -0.001291,
+   "max": 0.000346
+  },
+  "diff_pp": 22.8,
+  "z": 13.11,
+  "p_one_sided": 1.4354173193533713e-39,
+  "basis": "expr-deduped valid candidates, share with DEV score > 0, one-sided z"
+ },
+ "as_drawn": {
+  "trained": {
+   "n": 1379,
+   "share": 0.2299
+  },
+  "uniform": {
+   "n": 666,
+   "share": 0.003
+  }
+ },
+ "hold_joint_learning": {
+  "trained": {
+   "1": 1,
+   "5": 0,
+   "15": 6,
+   "30": 6,
+   "60": 5,
+   "240": 26,
+   "1440": 1391
+  },
+  "uniform": {
+   "1": 168,
+   "5": 137,
+   "15": 149,
+   "30": 139,
+   "60": 132,
+   "240": 150,
+   "1440": 149
+  },
+  "note": "HOLD distribution of sampled candidates; uniform is the null"
+ },
+ "handwritten": {
+  "score": -0.014349192592756188,
+  "per_month": {
+   "2026-01": -0.010434,
+   "2026-02": -0.013065,
+   "2026-03": -0.016607,
+   "2026-04": -0.021718,
+   "2026-05": -0.011697,
+   "2026-06": -0.012574
+  },
+  "trained_beat_it": 1377,
+  "trained_total": 1379,
+  "note": "CS_RANK(NEG(close_to_open_bps)) hold 60m -- yardstick per ruling, expected to lose to 6bp"
+ },
+ "monthly": {
+  "2026-01": {
+   "share_positive": 0.2567,
+   "median": -0.000264
+  },
+  "2026-02": {
+   "share_positive": 0.211,
+   "median": -0.000422
+  },
+  "2026-03": {
+   "share_positive": 0.2023,
+   "median": -0.000455
+  },
+  "2026-04": {
+   "share_positive": 0.116,
+   "median": -0.000272
+  },
+  "2026-05": {
+   "share_positive": 0.2872,
+   "median": -0.000167
+  },
+  "2026-06": {
+   "share_positive": 0.1617,
+   "median": -0.000252
+  }
+ }
+}

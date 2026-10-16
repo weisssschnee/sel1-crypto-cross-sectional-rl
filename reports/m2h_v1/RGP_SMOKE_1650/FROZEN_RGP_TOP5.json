@@ -1,0 +1,277 @@
+{
+ "schema": "TV1_RGP_FROZEN_V1",
+ "run": "RGP_SMOKE_1650",
+ "mode": "p8",
+ "rounds": 2,
+ "pop": 16,
+ "keep": 8,
+ "seed": 20261011,
+ "total_evaluated": 102,
+ "seed_run": "TV1_R2D_DENSE_P32",
+ "sha256": "b700b96a539b72b1891a4c9f5f9351ad498eacd721edbd417b06009ba5019a4a",
+ "max_net_corr_s": 0.229,
+ "families": {
+  "T1": [
+   {
+    "rank": 1,
+    "names": [
+     "log_close"
+    ],
+    "body": [
+     0
+    ],
+    "hold": 168,
+    "expr": "log_close",
+    "train50_gross_bpd": 10.362,
+    "train50_net_bpd": 9.926,
+    "ic": 0.12915,
+    "n_tokens": 1,
+    "corr_s": 0.1028,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "names": [
+     "log_low"
+    ],
+    "body": [
+     2
+    ],
+    "hold": 168,
+    "expr": "log_low",
+    "train50_gross_bpd": 10.316,
+    "train50_net_bpd": 9.881,
+    "ic": 0.12938,
+    "n_tokens": 1,
+    "corr_s": 0.1025,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "names": [
+     "log_high",
+     "log_low",
+     "ADD"
+    ],
+    "body": [
+     1,
+     2,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(log_high, log_low)",
+    "train50_gross_bpd": 10.303,
+    "train50_net_bpd": 9.868,
+    "ic": 0.12914,
+    "n_tokens": 3,
+    "corr_s": 0.1029,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "names": [
+     "log_high",
+     "CS_ZSCORE",
+     "CS_RANK"
+    ],
+    "body": [
+     1,
+     32,
+     33
+    ],
+    "hold": 168,
+    "expr": "CS_RANK(CS_ZSCORE(log_high))",
+    "train50_gross_bpd": 10.252,
+    "train50_net_bpd": 9.816,
+    "ic": 0.1289,
+    "n_tokens": 3,
+    "corr_s": 0.1032,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "names": [
+     "log_low",
+     "SIGN"
+    ],
+    "body": [
+     2,
+     17
+    ],
+    "hold": 168,
+    "expr": "SIGN(log_low)",
+    "train50_gross_bpd": 7.618,
+    "train50_net_bpd": 7.183,
+    "ic": 0.10218,
+    "n_tokens": 2,
+    "corr_s": 0.0906,
+    "level_flag": true
+   }
+  ],
+  "T2": [
+   {
+    "rank": 1,
+    "names": [
+     "log_oi_value"
+    ],
+    "body": [
+     5
+    ],
+    "hold": 168,
+    "expr": "log_oi_value",
+    "train50_gross_bpd": 13.615,
+    "train50_net_bpd": 13.096,
+    "ic": 0.17298,
+    "n_tokens": 1,
+    "corr_s": 0.229,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "names": [
+     "log_oi_value",
+     "global_ls_account_ratio",
+     "ADD"
+    ],
+    "body": [
+     5,
+     6,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(log_oi_value, global_ls_account_ratio)",
+    "train50_gross_bpd": 11.347,
+    "train50_net_bpd": 10.815,
+    "ic": 0.16221,
+    "n_tokens": 3,
+    "corr_s": 0.1766,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "names": [
+     "funding_level"
+    ],
+    "body": [
+     4
+    ],
+    "hold": 168,
+    "expr": "funding_level",
+    "train50_gross_bpd": 4.966,
+    "train50_net_bpd": 4.109,
+    "ic": 0.06729,
+    "n_tokens": 1,
+    "corr_s": -0.0155,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "names": [
+     "taker_buy_share"
+    ],
+    "body": [
+     7
+    ],
+    "hold": 168,
+    "expr": "taker_buy_share",
+    "train50_gross_bpd": 4.248,
+    "train50_net_bpd": 3.241,
+    "ic": 0.00689,
+    "n_tokens": 1,
+    "corr_s": 0.0249,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "names": [
+     "global_ls_account_ratio"
+    ],
+    "body": [
+     6
+    ],
+    "hold": 168,
+    "expr": "global_ls_account_ratio",
+    "train50_gross_bpd": 3.163,
+    "train50_net_bpd": 2.604,
+    "ic": 0.08208,
+    "n_tokens": 1,
+    "corr_s": 0.0644,
+    "level_flag": false
+   }
+  ],
+  "T3": [
+   {
+    "rank": 1,
+    "names": [
+     "funding_level"
+    ],
+    "body": [
+     4
+    ],
+    "hold": 168,
+    "expr": "funding_level",
+    "train50_gross_bpd": 4.966,
+    "train50_net_bpd": 4.109,
+    "ic": 0.06729,
+    "n_tokens": 1,
+    "corr_s": -0.0155,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "names": [
+     "mark_index_basis_bps"
+    ],
+    "body": [
+     9
+    ],
+    "hold": 168,
+    "expr": "mark_index_basis_bps",
+    "train50_gross_bpd": 0.901,
+    "train50_net_bpd": -0.025,
+    "ic": 0.01253,
+    "n_tokens": 1,
+    "corr_s": -0.0281,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "names": [
+     "premium_close_bps"
+    ],
+    "body": [
+     8
+    ],
+    "hold": 168,
+    "expr": "premium_close_bps",
+    "train50_gross_bpd": -1.381,
+    "train50_net_bpd": -2.329,
+    "ic": -0.01419,
+    "n_tokens": 1,
+    "corr_s": -0.0562,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "names": [
+     "premium_high"
+    ],
+    "body": [
+     10
+    ],
+    "hold": 168,
+    "expr": "premium_high",
+    "train50_gross_bpd": -9.242,
+    "train50_net_bpd": -9.888,
+    "ic": -0.11466,
+    "n_tokens": 1,
+    "corr_s": -0.001,
+    "level_flag": false
+   }
+  ]
+ },
+ "seconds": 42.3,
+ "written": "2026-10-11T16:14:47+0800",
+ "dev_read": false,
+ "oos_read": false
+}

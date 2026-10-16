@@ -1,0 +1,269 @@
+{
+ "schema": "B5_FROZEN_TOP5_V1",
+ "run": "B5_SMOKE_P8",
+ "pool": "final-checkpoint batch, 256 per family, seed 20261108, train mode, distinct (body, hold)",
+ "checkpoint": "checkpoint_0015.pt",
+ "checkpoint_update": 15,
+ "n_tiles": 50,
+ "rank": "conc book K=10 flat6 TRAIN net, H168",
+ "conc_pool_train": 205,
+ "tile_years": [
+  2024,
+  2024,
+  2024,
+  2024
+ ],
+ "families": {
+  "T1": [],
+  "T2": [
+   {
+    "rank": 1,
+    "body": [
+     7,
+     33,
+     36,
+     25,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_MIN(CS_RANK(taker_buy_share), w=72)",
+    "n_tokens": 4,
+    "level_flag": false,
+    "explain": "每小时按「主动买占比的截面排名的72小时最低值」排序，做多最高的、做空最低的。",
+    "train50_conc_k10_net": 21.1248,
+    "train50_conc_k10_gross": 22.1853,
+    "train50_conc_k5_net": 3.8861,
+    "train50_conc_k20_net": 8.9583,
+    "train50_full_net": 11.732,
+    "train50_full_gross": 12.6235,
+    "conc_turnover_per_day": 0.1768,
+    "flag_A": false,
+    "flag_B": false
+   },
+   {
+    "rank": 2,
+    "body": [
+     6,
+     41
+    ],
+    "hold": 168,
+    "expr": "global_ls_account_ratio",
+    "n_tokens": 1,
+    "level_flag": false,
+    "explain": "每小时按「散户多空账户比」排序，做多最高的、做空最低的。",
+    "train50_conc_k10_net": 16.0672,
+    "train50_conc_k10_gross": 16.8285,
+    "train50_conc_k5_net": -12.286,
+    "train50_conc_k20_net": 9.4768,
+    "train50_full_net": 6.0842,
+    "train50_full_gross": 6.6553,
+    "conc_turnover_per_day": 0.1268,
+    "flag_A": false,
+    "flag_B": false
+   },
+   {
+    "rank": 3,
+    "body": [
+     7,
+     41
+    ],
+    "hold": 168,
+    "expr": "taker_buy_share",
+    "n_tokens": 1,
+    "level_flag": false,
+    "explain": "每小时按「主动买占比」排序，做多最高的、做空最低的。",
+    "train50_conc_k10_net": -7.1175,
+    "train50_conc_k10_gross": -5.9383,
+    "train50_conc_k5_net": 12.5994,
+    "train50_conc_k20_net": 10.0607,
+    "train50_full_net": 5.9596,
+    "train50_full_gross": 7.0007,
+    "conc_turnover_per_day": 0.1964,
+    "flag_A": false,
+    "flag_B": false
+   },
+   {
+    "rank": 4,
+    "body": [
+     7,
+     16,
+     34,
+     23,
+     15,
+     17,
+     33,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_RANK(SIGN(NEG(TS_STD(ABS(taker_buy_share), w=6))))",
+    "n_tokens": 7,
+    "level_flag": false,
+    "explain": "每小时按「负的|主动买占比|的6小时波动的正负号」排序，做多最高的、做空最低的。",
+    "train50_conc_k10_net": -23.4453,
+    "train50_conc_k10_gross": -23.0163,
+    "train50_conc_k5_net": -13.6734,
+    "train50_conc_k20_net": -7.3632,
+    "train50_full_net": -9.2237,
+    "train50_full_gross": -8.7948,
+    "conc_turnover_per_day": 0.0714,
+    "flag_A": false,
+    "flag_B": false
+   }
+  ],
+  "T3": [
+   {
+    "rank": 1,
+    "body": [
+     9,
+     8,
+     36,
+     25,
+     12,
+     32,
+     16,
+     32,
+     32,
+     37,
+     24,
+     37,
+     21,
+     16,
+     41
+    ],
+    "hold": 168,
+    "expr": "ABS(DELTA(TS_MAX(CS_ZSCORE(CS_ZSCORE(ABS(CS_ZSCORE(SUB(mark_index_basis_bps, TS_MIN(premium_close_bps, w=72)))))), w=168), w=168))",
+    "n_tokens": 14,
+    "level_flag": false,
+    "explain": "每小时按「||（标记-指数基差 − 合约溢价的72小时最低值）的截面标准分|的截面标准分的截面标准分的168小时最高值过去168小时的变化|」排序，做多最高的、做空最低的。",
+    "train50_conc_k10_net": 9.4502,
+    "train50_conc_k10_gross": 10.5219,
+    "train50_conc_k5_net": -4.702,
+    "train50_conc_k20_net": 2.2037,
+    "train50_full_net": 1.7655,
+    "train50_full_gross": 2.6832,
+    "conc_turnover_per_day": 0.1786,
+    "flag_A": false,
+    "flag_B": false
+   },
+   {
+    "rank": 2,
+    "body": [
+     8,
+     41
+    ],
+    "hold": 168,
+    "expr": "premium_close_bps",
+    "n_tokens": 1,
+    "level_flag": false,
+    "explain": "每小时按「合约溢价」排序，做多最高的、做空最低的。",
+    "train50_conc_k10_net": 4.0844,
+    "train50_conc_k10_gross": 5.2516,
+    "train50_conc_k5_net": 7.8853,
+    "train50_conc_k20_net": 2.8381,
+    "train50_full_net": -4.7538,
+    "train50_full_gross": -3.7744,
+    "conc_turnover_per_day": 0.1946,
+    "flag_A": false,
+    "flag_B": false
+   },
+   {
+    "rank": 3,
+    "body": [
+     8,
+     15,
+     17,
+     38,
+     28,
+     32,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_ZSCORE(TS_SLOPE(SIGN(NEG(premium_close_bps)), w=336))",
+    "n_tokens": 6,
+    "level_flag": false,
+    "explain": "每小时按「负的合约溢价的正负号的336小时趋势斜率」排序，做多最高的、做空最低的。",
+    "train50_conc_k10_net": -0.2463,
+    "train50_conc_k10_gross": 0.9022,
+    "train50_conc_k5_net": 6.8996,
+    "train50_conc_k20_net": 7.4587,
+    "train50_full_net": 3.5494,
+    "train50_full_gross": 4.5519,
+    "conc_turnover_per_day": 0.1911,
+    "flag_A": false,
+    "flag_B": false
+   },
+   {
+    "rank": 4,
+    "body": [
+     10,
+     16,
+     9,
+     11,
+     33,
+     17,
+     33,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_RANK(SIGN(CS_RANK(ADD(ABS(premium_high), mark_index_basis_bps))))",
+    "n_tokens": 7,
+    "level_flag": false,
+    "explain": "每小时按「（|小时内最高溢价| + 标记-指数基差）的截面排名的正负号」排序，做多最高的、做空最低的。",
+    "train50_conc_k10_net": -10.5164,
+    "train50_conc_k10_gross": -9.7773,
+    "train50_conc_k5_net": -6.654,
+    "train50_conc_k20_net": -12.5016,
+    "train50_full_net": -8.2042,
+    "train50_full_gross": -7.5135,
+    "conc_turnover_per_day": 0.1232,
+    "flag_A": false,
+    "flag_B": false
+   },
+   {
+    "rank": 5,
+    "body": [
+     9,
+     41
+    ],
+    "hold": 168,
+    "expr": "mark_index_basis_bps",
+    "n_tokens": 1,
+    "level_flag": false,
+    "explain": "每小时按「标记-指数基差」排序，做多最高的、做空最低的。",
+    "train50_conc_k10_net": -11.7573,
+    "train50_conc_k10_gross": -10.6215,
+    "train50_conc_k5_net": -3.4584,
+    "train50_conc_k20_net": 6.7962,
+    "train50_full_net": -1.6425,
+    "train50_full_gross": -0.6727,
+    "conc_turnover_per_day": 0.1893,
+    "flag_A": false,
+    "flag_B": false
+   }
+  ]
+ },
+ "dropped": {
+  "T1": {
+   "distinct": 8,
+   "grammar_illegal": 8,
+   "level_flag": 0,
+   "valid": 0
+  },
+  "T2": {
+   "distinct": 5,
+   "grammar_illegal": 0,
+   "level_flag": 0,
+   "valid": 4
+  },
+  "T3": {
+   "distinct": 7,
+   "grammar_illegal": 0,
+   "level_flag": 0,
+   "valid": 7
+  }
+ },
+ "dev_read": false,
+ "oos_read": false,
+ "sha256": "2493ed7193aa69876c46ff1413394fe92366306ada9b6f2ec0bc1e0815789cc1",
+ "written": "2026-10-12T14:28:33+0800"
+}

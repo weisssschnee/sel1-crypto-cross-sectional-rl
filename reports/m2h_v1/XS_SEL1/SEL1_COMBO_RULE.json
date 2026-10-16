@@ -1,0 +1,19 @@
+{
+ "schema": "SEL1_COMBO_RULE_V1",
+ "order": "XS_SEL1 supplement 10-15 afternoon item 1 (sel1_combo)",
+ "written_before": "V2 REAL results (SEL1_REAL not started when written)",
+ "code": "sel1_combo.py",
+ "members": "the run's HOF.json in order (A-half t_dd high to low), re-scored with its own combo on the A months; greedy: joins when its A monthly cost0 Pearson corr is <= 0.7 with every chosen member (constant series = no evidence = allowed); at most 20; t_A 0 or invalid skipped",
+ "composite": "per signal hour, over the coins where each member is finite: average rank, demeaned, / std (ddof 0); sum of sign(t_A_j) * z_j, equal weight; a member not finite adds 0; no member finite -> not selectable",
+ "book": "K 5, beta hedge, the chain's book; combo = best of the 60 by A-half t_dd (dd_max of the run), ties to the first in sel1_sweep.COMBOS order; then A + B once with that combo",
+ "null": "T_combo_null = composite book t_B of the NULL hall through the same flow",
+ "gates": {
+  "g1": "t_B > max(2, T_combo_null)",
+  "g2": "t_A > 2 and sign(t_A) == sign(t_B)",
+  "g3": "A and B cost0 bp/day > 0 after removing the most favourable 1 % holding spells of each half (sel1_round.trimmed)",
+  "g4": "at most one calendar year (A + B months summed) of the opposite sign to t_B"
+ },
+ "selfcheck": "V2 PC hall (SEL1_PC): a member with |B-hour Spearman corr| > 0.7 with the plant formula, and composite t_B >= 2",
+ "dev_read": false,
+ "oos_read": false
+}

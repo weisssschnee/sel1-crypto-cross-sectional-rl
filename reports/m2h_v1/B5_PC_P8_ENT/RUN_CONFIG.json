@@ -1,0 +1,47 @@
+{
+ "schema": "B5_RUN_CONFIG_V1",
+ "run": "B5_PC_P8_ENT",
+ "order": "G:\\Chengbo\\runtime\\strategy_survey_v1\\BASIN5_PC_ENT_ORDER.txt",
+ "written_before_launch": "2026-10-12, before the smoke; not edited after the smoke starts",
+ "copies": "B5_PC_P8 (LAUNCH_MANIFEST args read from 77o)",
+ "trainer": "m2h_b5_trainer_ent.py (copy of m2h_b5_trainer.py sha12 fa34d41b41ea, original untouched); wrapper m2h_b5_plant_ent.py (= m2h_b5_plant.py, imports the ENT trainer)",
+ "command": "m2h_b5_plant_ent.py --mode p8 -- B5_PC_P8_ENT --updates 256 --max-hours 10 --ent-target 2.0 --batch 128 --tiles 16 --seed 20261009 --reward gross_t --select full --ent-eta 0.05 --ent-alpha-max 1.0",
+ "config_diff_expected": {
+  "args": {"out_name": ["B5_PC_P8", "B5_PC_P8_ENT"], "ent_target": [null, 2.0], "ent_eta": [null, 0.05], "ent_alpha_max": [null, 1.0]},
+  "modules": {"trainer": ["fa34d41b41ea", "be18eafe1b04"]},
+  "unchanged": "lr 5e-4, clip 5.0, Adam defaults, reward gross_t (b), 16 tiles, batch 128 (43/43/42), m2h_b5_grammar a8970f2f1bcb, CONC_POOL, seed 20261009, 256 updates, ent_coef 0.03 (now alpha init and floor), adv_deadband 0, freeze seed 20261108 x 256 per family, found rule and 0.7",
+  "check": "b5_round_ent.py recomputes the args / modules / code diff from both LAUNCH_MANIFESTs and the two .py files"
+ },
+ "ent": {
+  "rule": "after every non-skipped parameter step: log a_f += eta*(H* - H_f); a_f clipped to [0.03, 1.0]; loss entropy term = -mean_i(a_f(i) * H_i)",
+  "alpha_init": 0.03, "alpha_min": 0.03, "alpha_max": 1.0, "eta": 0.05, "target": {"T1": 2.0, "T2": 2.0, "T3": 2.0},
+  "entropy_def": "whole formula, NOT a per-token mean: dso_math.sequence_neglogp_entropy(gamma 0.7) = sum over the 48 token steps of 0.7^t * H(softmax(effective_logits_t)) in nats; effective_logits carry the legality mask, post-END steps are one-hot (H 0). H_f = mean over the family's 43/43/42 rows. Same number as PROGRESS_16 families.<f>.entropy",
+  "vocab_size": 49, "vocab": "11 terminals + 23 operators + 7 windows + END + 4 HOLD + 3 basin tokens (B5_PC_P8 manifest vocab_size 49)",
+  "log_vocab": 3.8918, "per_step_max_sum": 12.9727,
+  "observed_scale": "B5_PC_P8 at u0: T1 5.58 / T2 6.08 / T3 6.43; T1 5.3-5.9 through u104, 3.77 at u128, 0.30 at u248",
+  "H_star_2_rationale": "kept at 2.0. In B5_PC_P8 T1 crossed H 2 at ~u148 with mode share ~0.4 and batch corr ~0.45 (its best stretch, policy already on log_quote_volume but not yet collapsed; collapse = H 0.3 / mode .91). H* 3.0 would bind T1 earlier, while corr was ~0.2. Open-loop replay of the old entropies: T1 alpha stays 0.03 to ~u150; T2/T3 cross 2 at ~u40/u56 so their alpha rises first, and the shared model leaves the old trajectory from ~u40 (that is the entropy change itself, not a second variable). Risk: if alpha=1 cannot hold T2/T3 near 2, they pin at 1.0 (prereg check below)",
+  "smoke": "separate dir B5_SMOKE_P8_ENT, 16 updates, H* 7.0 = controller test only (every family starts below 7, so alpha must move); gates b5_smoke_gate.py + b5_ent_gate.py (rule reproduced, bounds, fields, ckpt ent_alpha, VRAM <= 14 GiB)"
+ },
+ "step3": {
+  "question": "how grammar-rejected samples enter the gradient",
+  "answer": "m2h_b5_grammar.check runs before scoring; a reject raises CandidateLocalInvalid, so the formula keeps REWARD_FLOOR and valid_mask False. select full: adv = zfam(rewards, valid, counts) = within-family z over the VALID formulas only (mean/sd exclude rejects; one valid formula -> z 0), clipped +-3; then adv[rejected] = -1.0. dense_update runs on all 128 rows: pg_loss = mean over 128 of adv*neglogp, so rejects ARE in the loss denominator and each pushes its own tokens down with weight 1; the entropy term also averages over all 128. The whole step is skipped if batch n_valid < 20",
+  "consequence": "early T1 (u15: 3 valid, 40 rejected) gets ~40 rows of -1 vs ~3 rows of z in [-3, 3] whose mean is 0: the T1 gradient is mostly 'move away from rejected shapes', which favours short legal formulas (order's hypothesis; consistent with the T1 collapse onto 2-3 token log_quote_volume formulas)",
+  "this_round": "reported only, not changed (one variable per round)"
+ },
+ "prereg": {
+  "run_H_rule": "T1: every 16-update block mean of H for updates >= 128 is >= H* - 0.5 = 1.5",
+  "run_H_from_update": 128, "run_H_floor": 1.5,
+  "pin_rule": "alpha not stuck at 1.0: for every family the longest run of updates with alpha_next = 1.0 is < 64 (a quarter of the run)",
+  "pin_max_run": 64,
+  "learn_corr_rule": "T1 batch mean corr with s (curve, 4 fixed tiles) > 0.3 at some logged point",
+  "distinct_rule": "T1 distinct (body, hold) in the frozen 256 >= 28 (4x the old 7)",
+  "distinct_ref": 7, "distinct_min": 28,
+  "verdict_prediction": {
+   "predict": "没找到",
+   "confidence": 0.6,
+   "why": "the entropy floor should fix diversity (T1 distinct >> 7, H ~2 after u150), and T1 batch corr should still pass 0.3. But found also needs a frozen top-5 corr > 0.7, and the top 5 are ranked by conc K10 TRAIN net, not corr. In B5_PC_P8's own history the corr>0.7 T1 formulas rank 10th/16th/19th/40th of 757 by logged reward, and the near relative ranks 69th of 1261 by gross in the RGP P8 log; a more diverse frozen pool will mostly put moderate-corr volume formulas (corr ~0.4-0.6) on top. 40% for found: with H held at 2 the u80/u236 kind (EMA/TS_RANK of log_quote_volume at 168-336, corr ~0.8) stays in the sampled mass and one may make the top 5",
+   "would_change_my_mind": "history column top-20 contains several corr50 > 0.7 formulas with conc net in the frozen top-5 range"
+  }
+ },
+ "red_lines": "no real-data round, no null, no DEV, no OOS after this run; B5_PC_P8 files read only; 77o: only own processes; m1cu128 only; schtasks /run only"
+}

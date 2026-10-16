@@ -1,0 +1,429 @@
+{
+ "schema": "TV1_ROUND_REPORT_V1",
+ "run": "TV1_SMOKE_OLD_123516",
+ "trainer": "old",
+ "mode": "p32",
+ "ended_by": [
+  "TRAIN_RECEIPT_V1.json"
+ ],
+ "last_update": 1,
+ "checkpoint": "checkpoint_0001.pt",
+ "checkpoint_update": 1,
+ "found": false,
+ "t1_batch_corr_max": 0.0781,
+ "frozen_corr_max": 0.3835,
+ "rule": "found = T1 batch mean corr with s > 0.3 at a logged update AND a frozen top-5 corr > 0.7",
+ "curve": [
+  {
+   "update": 0,
+   "n": 11,
+   "corr_mean": 0.0781,
+   "corr_max": 0.3306,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 1,
+   "n": 10,
+   "corr_mean": 0.0305,
+   "corr_max": 0.3306,
+   "frac_gt_07": 0.0
+  }
+ ],
+ "curve_tiles": [
+  672,
+  4704,
+  9072,
+  13104
+ ],
+ "blocks": [
+  {
+   "block": 0,
+   "updates": [
+    0,
+    15
+   ],
+   "gnorm": 0.0454,
+   "clip_pct": 0.0,
+   "seconds": 4.61,
+   "T1": {
+    "gross_bpd": 8.8464,
+    "ic": null,
+    "turnover": 0.1229,
+    "entropy": 6.1177,
+    "n_valid": 21
+   },
+   "T2": {
+    "gross_bpd": 3.5179,
+    "ic": null,
+    "turnover": 0.6386,
+    "entropy": 6.1177,
+    "n_valid": 20
+   },
+   "T3": {
+    "gross_bpd": -3.3384,
+    "ic": null,
+    "turnover": 0.7843,
+    "entropy": 6.1177,
+    "n_valid": 18
+   }
+  }
+ ],
+ "frozen": {
+  "T1": [
+   {
+    "rank": 1,
+    "body": [
+     1,
+     36,
+     21,
+     32,
+     3,
+     3,
+     39,
+     30,
+     12,
+     34,
+     22,
+     32,
+     32,
+     38,
+     28,
+     41
+    ],
+    "hold": 24,
+    "expr": "TS_SLOPE(CS_ZSCORE(CS_ZSCORE(TS_MEAN(SUB(CS_ZSCORE(DELTA(log_high, w=72)), TS_CORR(log_quote_volume, log_quote_volume, w=504)), w=6))), w=336)",
+    "train50_net_bpd": 18.696,
+    "train50_gross_bpd": 20.692,
+    "corr_s": 0.3835,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "body": [
+     3,
+     41
+    ],
+    "hold": 168,
+    "expr": "log_quote_volume",
+    "train50_net_bpd": 15.035,
+    "train50_gross_bpd": 15.61,
+    "corr_s": 0.3213,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "body": [
+     0,
+     32,
+     31,
+     41
+    ],
+    "hold": 4,
+    "expr": "CS_DEMEAN(CS_ZSCORE(log_close))",
+    "train50_net_bpd": 14.375,
+    "train50_gross_bpd": 14.811,
+    "corr_s": 0.1028,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "body": [
+     2,
+     41
+    ],
+    "hold": 24,
+    "expr": "log_low",
+    "train50_net_bpd": 14.327,
+    "train50_gross_bpd": 14.763,
+    "corr_s": 0.1025,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "body": [
+     1,
+     34,
+     20,
+     41
+    ],
+    "hold": 168,
+    "expr": "LAG(log_high, w=6)",
+    "train50_net_bpd": 14.115,
+    "train50_gross_bpd": 14.55,
+    "corr_s": 0.1031,
+    "level_flag": false
+   }
+  ],
+  "T2": [
+   {
+    "rank": 1,
+    "body": [
+     7,
+     16,
+     33,
+     36,
+     28,
+     15,
+     15,
+     7,
+     33,
+     12,
+     38,
+     28,
+     15,
+     33,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_RANK(NEG(TS_SLOPE(SUB(NEG(NEG(TS_SLOPE(CS_RANK(ABS(taker_buy_share)), w=72))), CS_RANK(taker_buy_share)), w=336)))",
+    "train50_net_bpd": 9.826,
+    "train50_gross_bpd": 10.893,
+    "corr_s": 0.2604,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "body": [
+     6,
+     41
+    ],
+    "hold": 24,
+    "expr": "global_ls_account_ratio",
+    "train50_net_bpd": 5.129,
+    "train50_gross_bpd": 5.948,
+    "corr_s": 0.0644,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "body": [
+     7,
+     41
+    ],
+    "hold": 168,
+    "expr": "taker_buy_share",
+    "train50_net_bpd": 4.787,
+    "train50_gross_bpd": 5.795,
+    "corr_s": 0.0249,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "body": [
+     7,
+     34,
+     20,
+     4,
+     15,
+     31,
+     34,
+     23,
+     33,
+     32,
+     5,
+     17,
+     15,
+     12,
+     31,
+     33,
+     14,
+     16,
+     37,
+     23,
+     32,
+     32,
+     31,
+     41
+    ],
+    "hold": 24,
+    "expr": "CS_DEMEAN(CS_ZSCORE(CS_ZSCORE(TS_STD(ABS(DIV(LAG(taker_buy_share, w=6), CS_RANK(CS_DEMEAN(SUB(CS_ZSCORE(CS_RANK(TS_STD(CS_DEMEAN(NEG(funding_level)), w=6))), NEG(SIGN(log_oi_value))))))), w=168))))",
+    "train50_net_bpd": 4.395,
+    "train50_gross_bpd": 5.919,
+    "corr_s": 0.0048,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "body": [
+     6,
+     16,
+     4,
+     11,
+     33,
+     17,
+     33,
+     32,
+     33,
+     33,
+     15,
+     31,
+     5,
+     31,
+     14,
+     5,
+     11,
+     32,
+     40,
+     23,
+     17,
+     41
+    ],
+    "hold": 4,
+    "expr": "SIGN(TS_STD(CS_ZSCORE(ADD(DIV(CS_DEMEAN(NEG(CS_RANK(CS_RANK(CS_ZSCORE(CS_RANK(SIGN(CS_RANK(ADD(ABS(global_ls_account_ratio), funding_level))))))))), CS_DEMEAN(log_oi_value)), log_oi_value)), w=672))",
+    "train50_net_bpd": 0.0,
+    "train50_gross_bpd": 0.0,
+    "corr_s": 0.0,
+    "level_flag": false
+   }
+  ],
+  "T3": [
+   {
+    "rank": 1,
+    "body": [
+     8,
+     15,
+     17,
+     40,
+     22,
+     32,
+     33,
+     41
+    ],
+    "hold": 72,
+    "expr": "CS_RANK(CS_ZSCORE(TS_MEAN(SIGN(NEG(premium_close_bps)), w=672)))",
+    "train50_net_bpd": 5.805,
+    "train50_gross_bpd": 6.337,
+    "corr_s": 0.0595,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "body": [
+     8,
+     15,
+     17,
+     38,
+     22,
+     32,
+     41
+    ],
+    "hold": 24,
+    "expr": "CS_ZSCORE(TS_MEAN(SIGN(NEG(premium_close_bps)), w=336))",
+    "train50_net_bpd": 5.035,
+    "train50_gross_bpd": 5.677,
+    "corr_s": 0.054,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "body": [
+     8,
+     4,
+     10,
+     34,
+     20,
+     19,
+     38,
+     28,
+     10,
+     38,
+     28,
+     33,
+     31,
+     40,
+     24,
+     12,
+     36,
+     23,
+     16,
+     33,
+     41
+    ],
+    "hold": 24,
+    "expr": "CS_RANK(ABS(TS_STD(SUB(TS_SLOPE(PER_ASSET_THRESH(premium_close_bps, funding_level, LAG(premium_high, w=6)), w=336), TS_MAX(CS_DEMEAN(CS_RANK(TS_SLOPE(premium_high, w=336))), w=672)), w=72)))",
+    "train50_net_bpd": 1.717,
+    "train50_gross_bpd": 4.427,
+    "corr_s": 0.0921,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "body": [
+     9,
+     8,
+     36,
+     25,
+     12,
+     32,
+     16,
+     32,
+     32,
+     16,
+     17,
+     37,
+     21,
+     16,
+     41
+    ],
+    "hold": 24,
+    "expr": "ABS(DELTA(SIGN(ABS(CS_ZSCORE(CS_ZSCORE(ABS(CS_ZSCORE(SUB(mark_index_basis_bps, TS_MIN(premium_close_bps, w=72)))))))), w=168))",
+    "train50_net_bpd": 0.0,
+    "train50_gross_bpd": 0.0,
+    "corr_s": 0.0,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "body": [
+     4,
+     9,
+     11,
+     41
+    ],
+    "hold": 168,
+    "expr": "ADD(funding_level, mark_index_basis_bps)",
+    "train50_net_bpd": -0.369,
+    "train50_gross_bpd": 0.556,
+    "corr_s": -0.0281,
+    "level_flag": false
+   }
+  ]
+ },
+ "frozen_sha256": "3f2eb5dc91d6401ac794516e543f535ea7208f3550b193a972e807e8aa153118",
+ "freeze_stats": {
+  "T1": {
+   "sampled": 16,
+   "distinct": 16,
+   "valid": 13,
+   "pool_mean_net_bpd": 0.833,
+   "seconds": 23.9
+  },
+  "T2": {
+   "sampled": 16,
+   "distinct": 16,
+   "valid": 12,
+   "pool_mean_net_bpd": -4.428,
+   "seconds": 16.8
+  },
+  "T3": {
+   "sampled": 16,
+   "distinct": 15,
+   "valid": 12,
+   "pool_mean_net_bpd": -2.487,
+   "seconds": 19.8
+  }
+ },
+ "freeze_rule": {
+  "seed": 20261108,
+  "per_family": 16,
+  "mode": "train",
+  "tiles": 50,
+  "rank": "flat6 net at own hold",
+  "dedup": "identical 50-tile net vector",
+  "world": "p32"
+ },
+ "seconds": 65.8,
+ "written": "2026-10-10T13:13:30+0800",
+ "dev_read": false,
+ "oos_read": false
+}

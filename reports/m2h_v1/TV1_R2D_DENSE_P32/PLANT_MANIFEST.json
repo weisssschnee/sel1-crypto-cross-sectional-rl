@@ -1,0 +1,19 @@
+{
+ "schema": "TV1_PLANT_MANIFEST_V1",
+ "mode": "p32",
+ "out_name": "TV1_R2D_DENSE_P32",
+ "trainer": "m2h_dense_trainer.py",
+ "shape": [
+  489,
+  17544
+ ],
+ "train_only": true,
+ "dev_read": false,
+ "oos_read": false,
+ "alpha": 0.00023030008582251718,
+ "target_bpd": 32.0,
+ "lift_bpd": 31.999,
+ "s_sha16": "fe33fa1b7d5c80e0",
+ "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)",
+ "written": "2026-10-11T03:08:34+0800"
+}

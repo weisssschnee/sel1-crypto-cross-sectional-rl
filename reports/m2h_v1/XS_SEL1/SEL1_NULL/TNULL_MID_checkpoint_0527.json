@@ -1,0 +1,21 @@
+{
+ "ckpt": "checkpoint_0527.pt",
+ "update": 527,
+ "hall": 500,
+ "rescored": 500,
+ "T_null_mid": 3.181260382673834,
+ "T_null_entry": [
+  "MUL(NEG(DIV(ABS(LAG(CS_ZSCORE(SIGN(CS_ZSCORE(CS_ZSCORE(mark_index_basis_bps)))), w=168)), EMA(TS_RANK(premium_high, w=24), w=6))), CS_DEMEAN(premium_high))",
+  4,
+  "all",
+  "both"
+ ],
+ "T_combo_null_mid": 1.9535040306653528,
+ "combo_members": 20,
+ "rescore_max_abs_diff": 4.126548387726531,
+ "combo_pc_tB": 3.3841369383718707,
+ "combo_pc_selfcheck": true,
+ "seconds": 48169.0,
+ "dev_read": false,
+ "oos_read": false
+}

@@ -1,0 +1,15 @@
+{
+ "schema": "B5_ENT_GATE_V1",
+ "run": "B5_SMOKE_P8_ENT",
+ "passed": true,
+ "fails": [],
+ "alpha_max_over_init": {
+  "T1": 3.1155,
+  "T2": 4.4021,
+  "T3": 2.8106
+ },
+ "rule_worst_rel_err": 1.567258654168617e-05,
+ "peak_vram_alloc_gib": 5.676,
+ "target": 7.0,
+ "written": "2026-10-12T22:49:09+0800"
+}

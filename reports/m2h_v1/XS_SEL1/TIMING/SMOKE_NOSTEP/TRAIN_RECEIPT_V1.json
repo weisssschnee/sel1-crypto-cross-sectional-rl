@@ -1,0 +1,33 @@
+{
+ "schema": "SEL1_TIMING_RECEIPT_V1",
+ "created": "2026-10-15T09:22:47+0800",
+ "config": {
+  "out_name": "SMOKE_NOSTEP",
+  "events": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\artifacts\\m2h_v1\\XS_SEL1\\TIMING\\SELFTEST_EVENTS_REAL.csv",
+  "shard_dir": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\m1_staging\\m1_shards",
+  "updates": 128,
+  "batch": 32,
+  "seed": 20261015,
+  "device": "cpu",
+  "dd_lambda": 1.0,
+  "elite_recheck": 32,
+  "threads": 4,
+  "max_events": 32,
+  "checkpoint_every": 16,
+  "resume": null,
+  "no_step": true,
+  "manifest_only": false
+ },
+ "months": [
+  "2024-03"
+ ],
+ "event_drops": {},
+ "invalid_reasons": {
+  "ZERO": 2,
+  "WINDOW": 1
+ },
+ "n_eval": 32,
+ "no_step": true,
+ "compute_seconds": 202.5,
+ "oos_read": false
+}

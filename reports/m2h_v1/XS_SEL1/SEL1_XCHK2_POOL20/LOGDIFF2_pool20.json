@@ -1,0 +1,39 @@
+{
+ "a": "SEL1_PC",
+ "b": "SEL1_XCHK2_POOL20",
+ "updates": [
+  16,
+  16
+ ],
+ "drop": [
+  "pg_loss",
+  "entropy_loss",
+  "gradient_norm",
+  "mean_entropy",
+  "gain"
+ ],
+ "near": [],
+ "rtol": 1e-06,
+ "files": {
+  "BATCH_LOG.jsonl": {
+   "n_a": 1,
+   "n_b": 1,
+   "n_diff": 0,
+   "near_max_rel": null,
+   "first": null
+  },
+  "FORMULAS.jsonl": {
+   "n_a": 128,
+   "n_b": 128,
+   "n_diff": 0,
+   "near_max_rel": null,
+   "first": null
+  },
+  "gain_eq_score": {
+   "n": 114,
+   "n_bad": 0,
+   "first": null
+  }
+ },
+ "zero_diff": true
+}

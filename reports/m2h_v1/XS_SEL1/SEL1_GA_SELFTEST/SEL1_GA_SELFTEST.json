@@ -1,0 +1,84 @@
+{
+ "schema": "SEL1_GA_SELFTEST_V1",
+ "islands": {
+  "T1": {
+   "u0_sampler_legal": 256,
+   "u0_legal": 256,
+   "u0_n": 256,
+   "children": 2000,
+   "illegal_children": 0,
+   "illegal_examples": [],
+   "kinds": {
+    "cx": 957,
+    "subtree": 464,
+    "point": 579
+   },
+   "raw_legal_rate": {
+    "cx": 0.673,
+    "point": 0.7751,
+    "subtree": 0.622
+   },
+   "mined": 0,
+   "distinct_children": null
+  },
+  "T2": {
+   "u0_sampler_legal": 256,
+   "u0_legal": 256,
+   "u0_n": 256,
+   "children": 2000,
+   "illegal_children": 0,
+   "illegal_examples": [],
+   "kinds": {
+    "cx": 997,
+    "point": 556,
+    "subtree": 447
+   },
+   "raw_legal_rate": {
+    "cx": 0.7111,
+    "point": 0.8141,
+    "subtree": 0.6804
+   },
+   "mined": 0,
+   "distinct_children": null
+  },
+  "T3": {
+   "u0_sampler_legal": 256,
+   "u0_legal": 256,
+   "u0_n": 256,
+   "children": 2000,
+   "illegal_children": 0,
+   "illegal_examples": [],
+   "kinds": {
+    "cx": 972,
+    "point": 582,
+    "subtree": 446
+   },
+   "raw_legal_rate": {
+    "cx": 0.8504,
+    "point": 0.9023,
+    "subtree": 0.7508
+   },
+   "mined": 0,
+   "distinct_children": null
+  }
+ },
+ "n_child": 2000,
+ "operators_ok": true,
+ "plant": {
+  "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)",
+  "h": 4,
+  "state": "all",
+  "dir": "both",
+  "score_A": 5.8818006095071755,
+  "sweep_score": 5.8818006095071755,
+  "t_A": 5.8818006095071755,
+  "bpd_A": 28.160263241801875,
+  "seconds": {
+   "vm": 37.19339942932129,
+   "book": 4.3181774616241455
+  }
+ },
+ "plant_ok": true,
+ "passed": true,
+ "written": "2026-10-15T20:39:55+0800"
+}

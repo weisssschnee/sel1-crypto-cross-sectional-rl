@@ -1,0 +1,30 @@
+{
+ "a": "SEL1_PC",
+ "b": "SEL1_XCHK2_POOL0",
+ "updates": [
+  16,
+  18
+ ],
+ "drop": [],
+ "near": [
+  "pg_loss"
+ ],
+ "rtol": 1e-06,
+ "files": {
+  "BATCH_LOG.jsonl": {
+   "n_a": 3,
+   "n_b": 3,
+   "n_diff": 0,
+   "near_max_rel": 0.0,
+   "first": null
+  },
+  "FORMULAS.jsonl": {
+   "n_a": 384,
+   "n_b": 384,
+   "n_diff": 0,
+   "near_max_rel": 0.0,
+   "first": null
+  }
+ },
+ "zero_diff": true
+}

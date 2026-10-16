@@ -1,0 +1,10 @@
+{
+ "mode": "p8",
+ "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)",
+ "gross": 16.676,
+ "net": 15.658,
+ "ic": 0.08499,
+ "corr_s": 1.0,
+ "expected_gross": 16.677,
+ "ok": true
+}

@@ -1,0 +1,30 @@
+{
+ "schema": "M1_DEV_SCORE_RECEIPT_V1",
+ "created": "2026-10-04T02:25:07+0800",
+ "months": [
+  "2026-01",
+  "2026-02",
+  "2026-03",
+  "2026-04",
+  "2026-05",
+  "2026-06"
+ ],
+ "episodes_per_month": 8,
+ "seed": 20261003,
+ "convention": "mean log NAV over 8 fixed 6h episodes per DEV month (48 total), training-identical path (VM float32 CPU + rank weights + HOLD policy + 6bp + raw-instant funding + 2min lag)",
+ "n_candidates": 2454,
+ "n_ok": 2068,
+ "n_invalid": 386,
+ "n_error": 0,
+ "workers": 1,
+ "device": "cuda",
+ "elapsed_seconds": 1681.8,
+ "candidates": {
+  "path": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\artifacts\\m1_v1\\M1_TRAIN_SEED2_20261003\\CANDIDATES.jsonl",
+  "sha256": "ecf07788c01fae9c385c274e6c16eb7f904d53e16081b59932b041acf93e8ba3"
+ },
+ "scores": {
+  "path": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\artifacts\\m1_v1\\M1_TRAIN_SEED2_20261003\\DEV_SCORES_DIR\\SCORES.jsonl"
+ },
+ "oos_read": false
+}

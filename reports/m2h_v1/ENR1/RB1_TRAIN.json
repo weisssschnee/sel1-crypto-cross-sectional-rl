@@ -1,0 +1,769 @@
+{
+ "schema": "RB1_TRAIN_V1",
+ "enr1_table_sha16": "cfcae2258faf1f2c",
+ "code_sha16": "1db5d1eb36d127f8",
+ "rules": [
+  {
+   "cell": "T2_neg_dlogOI_7d|CS_lo|all|H72",
+   "signal": "T2_neg_dlogOI_7d",
+   "cond": "CS_lo",
+   "hold_h": 72,
+   "d": -1
+  },
+  {
+   "cell": "S12_dlogOI_24h|CS_hi|all|H168",
+   "signal": "S12_dlogOI_24h",
+   "cond": "CS_hi",
+   "hold_h": 168,
+   "d": -1
+  },
+  {
+   "cell": "T2_neg_dlogOI_7d|CS_lo|all|H168",
+   "signal": "T2_neg_dlogOI_7d",
+   "cond": "CS_lo",
+   "hold_h": 168,
+   "d": -1
+  },
+  {
+   "cell": "S12_dlogOI_24h|CS_lo|all|H168",
+   "signal": "S12_dlogOI_24h",
+   "cond": "CS_lo",
+   "hold_h": 168,
+   "d": -1
+  },
+  {
+   "cell": "S12_dlogOI_24h|CS_hi|all|H72",
+   "signal": "S12_dlogOI_24h",
+   "cond": "CS_hi",
+   "hold_h": 72,
+   "d": -1
+  }
+ ],
+ "slots": 5,
+ "n_positions": 2337,
+ "positions_per_rule": {
+  "T2_neg_dlogOI_7d|CS_lo|all|H72": 2330,
+  "S12_dlogOI_24h|CS_hi|all|H168": 7,
+  "T2_neg_dlogOI_7d|CS_lo|all|H168": 0,
+  "S12_dlogOI_24h|CS_lo|all|H168": 0,
+  "S12_dlogOI_24h|CS_hi|all|H72": 0
+ },
+ "dev_read": false,
+ "oos_read": false,
+ "conventions": "RB1 rule book on V4 TRAIN (order ENR1 step 3; ADR-0012). CPU only, no DEV, no OOS. New weight layer; m1_ruler,\nv4_world and enr1 are imported, never modified. Rules = the cells that passed ENR1_TABLE.json.\n\n  rule      trigger of the cell's (signal, condition) at hour t on an eligible coin-hour whose t..t+h+1 stays in t's\n            month (enr1 V_h) -> coin at d / 5 NAV on rows t+1..t+h, BTC at -d beta_i(t) / 5 NAV, both 0 from the\n            delisting hour L on; exit row t+h+1.\n  book      5 fixed slots of 1/5 NAV (equal weight, no rebalancing between positions); one position per coin; a\n            trigger is taken only if a slot is free and the coin is not held. Same-hour ties: rules by |t_A|\n            (descending), then coin index. A slot frees once its exit row is reached (next trigger t' >= t + h).\n  settle    per calendar month (every position opens and closes inside one month, so each month starts and ends\n            flat) through m1_ruler.settle_multi, flat6 / cost0, Rule 0 freezing; held and fwd column counts asserted.\n            Two fwd grids: fwd_wx (ruler convention, 1/99 winsor + delisting layer) and fwd_x (no winsor) -- the\n            ENR1 table showed the passing cells turn negative without the winsor, so both are reported.\n  gate      (order) B net > 0 and >= 4 of 5 years net > 0, on fwd_wx. FROZEN_RB1 / DEV are NOT done here.\n",
+ "winsor_ruler": {
+  "all": {
+   "months": 60,
+   "net_bp_day": 29.724,
+   "gross_bp_day": 32.43,
+   "sharpe_monthly_ann": 1.378,
+   "months_pos": 35,
+   "turnover_day": 0.4511,
+   "avg_positions": 3.853,
+   "avg_net_exposure": 0.2528,
+   "avg_gross_exposure": 1.794,
+   "beta_btc": 0.0367,
+   "beta_ew_mean": -0.2678
+  },
+  "A": {
+   "months": 30,
+   "net_bp_day": 42.178,
+   "gross_bp_day": 44.875,
+   "sharpe_monthly_ann": 2.153,
+   "months_pos": 18,
+   "turnover_day": 0.4496,
+   "avg_positions": 3.777,
+   "avg_net_exposure": 0.2639,
+   "avg_gross_exposure": 1.7749,
+   "beta_btc": 0.0276,
+   "beta_ew_mean": -0.2753
+  },
+  "B": {
+   "months": 30,
+   "net_bp_day": 17.079,
+   "gross_bp_day": 19.792,
+   "sharpe_monthly_ann": 0.737,
+   "months_pos": 17,
+   "turnover_day": 0.4526,
+   "avg_positions": 3.929,
+   "avg_net_exposure": 0.2415,
+   "avg_gross_exposure": 1.8133,
+   "beta_btc": 0.0489,
+   "beta_ew_mean": -0.2603
+  },
+  "years": {
+   "2021": {
+    "months": 12,
+    "net_bp_day": 10.865,
+    "gross_bp_day": 11.136,
+    "sharpe_monthly_ann": 1.0,
+    "months_pos": 1,
+    "turnover_day": 0.0451,
+    "avg_positions": 0.384,
+    "avg_net_exposure": 0.0215,
+    "avg_gross_exposure": 0.1749,
+    "beta_btc": -0.0048,
+    "beta_ew_mean": -0.0226
+   },
+   "2022": {
+    "months": 12,
+    "net_bp_day": 43.931,
+    "gross_bp_day": 47.259,
+    "sharpe_monthly_ann": 2.092,
+    "months_pos": 9,
+    "turnover_day": 0.5552,
+    "avg_positions": 4.713,
+    "avg_net_exposure": 0.2395,
+    "avg_gross_exposure": 2.1247,
+    "beta_btc": 0.028,
+    "beta_ew_mean": -0.284
+   },
+   "2023": {
+    "months": 12,
+    "net_bp_day": 28.682,
+    "gross_bp_day": 31.854,
+    "sharpe_monthly_ann": 1.012,
+    "months_pos": 9,
+    "turnover_day": 0.5282,
+    "avg_positions": 4.726,
+    "avg_net_exposure": 0.2696,
+    "avg_gross_exposure": 2.16,
+    "beta_btc": 0.0435,
+    "beta_ew_mean": -0.4054
+   },
+   "2024": {
+    "months": 12,
+    "net_bp_day": 45.802,
+    "gross_bp_day": 49.049,
+    "sharpe_monthly_ann": 2.93,
+    "months_pos": 10,
+    "turnover_day": 0.5414,
+    "avg_positions": 4.713,
+    "avg_net_exposure": 0.2977,
+    "avg_gross_exposure": 2.183,
+    "beta_btc": 0.0197,
+    "beta_ew_mean": -0.348
+   },
+   "2025": {
+    "months": 12,
+    "net_bp_day": 19.297,
+    "gross_bp_day": 22.807,
+    "sharpe_monthly_ann": 0.679,
+    "months_pos": 6,
+    "turnover_day": 0.5853,
+    "avg_positions": 4.726,
+    "avg_net_exposure": 0.4357,
+    "avg_gross_exposure": 2.3261,
+    "beta_btc": 0.2294,
+    "beta_ew_mean": -0.2788
+   }
+  },
+  "per_month": [
+   {
+    "month": "2021-01",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-02",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-03",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-04",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-05",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-06",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-07",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-08",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-09",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-10",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-11",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-12",
+    "net_bp_day": 127.93
+   },
+   {
+    "month": "2022-01",
+    "net_bp_day": 111.41
+   },
+   {
+    "month": "2022-02",
+    "net_bp_day": 99.85
+   },
+   {
+    "month": "2022-03",
+    "net_bp_day": 66.28
+   },
+   {
+    "month": "2022-04",
+    "net_bp_day": 113.54
+   },
+   {
+    "month": "2022-05",
+    "net_bp_day": 82.85
+   },
+   {
+    "month": "2022-06",
+    "net_bp_day": -132.81
+   },
+   {
+    "month": "2022-07",
+    "net_bp_day": -44.46
+   },
+   {
+    "month": "2022-08",
+    "net_bp_day": 79.4
+   },
+   {
+    "month": "2022-09",
+    "net_bp_day": 58.43
+   },
+   {
+    "month": "2022-10",
+    "net_bp_day": 22.19
+   },
+   {
+    "month": "2022-11",
+    "net_bp_day": -5.59
+   },
+   {
+    "month": "2022-12",
+    "net_bp_day": 76.92
+   },
+   {
+    "month": "2023-01",
+    "net_bp_day": 21.5
+   },
+   {
+    "month": "2023-02",
+    "net_bp_day": 86.68
+   },
+   {
+    "month": "2023-03",
+    "net_bp_day": 202.87
+   },
+   {
+    "month": "2023-04",
+    "net_bp_day": 92.35
+   },
+   {
+    "month": "2023-05",
+    "net_bp_day": 42.54
+   },
+   {
+    "month": "2023-06",
+    "net_bp_day": 121.94
+   },
+   {
+    "month": "2023-07",
+    "net_bp_day": -2.66
+   },
+   {
+    "month": "2023-08",
+    "net_bp_day": -67.8
+   },
+   {
+    "month": "2023-09",
+    "net_bp_day": 2.91
+   },
+   {
+    "month": "2023-10",
+    "net_bp_day": 23.76
+   },
+   {
+    "month": "2023-11",
+    "net_bp_day": 15.91
+   },
+   {
+    "month": "2023-12",
+    "net_bp_day": -186.39
+   },
+   {
+    "month": "2024-01",
+    "net_bp_day": 64.05
+   },
+   {
+    "month": "2024-02",
+    "net_bp_day": 31.68
+   },
+   {
+    "month": "2024-03",
+    "net_bp_day": -65.59
+   },
+   {
+    "month": "2024-04",
+    "net_bp_day": 99.33
+   },
+   {
+    "month": "2024-05",
+    "net_bp_day": -28.75
+   },
+   {
+    "month": "2024-06",
+    "net_bp_day": 64.88
+   },
+   {
+    "month": "2024-07",
+    "net_bp_day": 123.84
+   },
+   {
+    "month": "2024-08",
+    "net_bp_day": 34.85
+   },
+   {
+    "month": "2024-09",
+    "net_bp_day": 12.24
+   },
+   {
+    "month": "2024-10",
+    "net_bp_day": 78.3
+   },
+   {
+    "month": "2024-11",
+    "net_bp_day": 52.09
+   },
+   {
+    "month": "2024-12",
+    "net_bp_day": 83.27
+   },
+   {
+    "month": "2025-01",
+    "net_bp_day": 183.46
+   },
+   {
+    "month": "2025-02",
+    "net_bp_day": 3.41
+   },
+   {
+    "month": "2025-03",
+    "net_bp_day": 122.63
+   },
+   {
+    "month": "2025-04",
+    "net_bp_day": -87.69
+   },
+   {
+    "month": "2025-05",
+    "net_bp_day": 38.94
+   },
+   {
+    "month": "2025-06",
+    "net_bp_day": -29.08
+   },
+   {
+    "month": "2025-07",
+    "net_bp_day": 150.12
+   },
+   {
+    "month": "2025-08",
+    "net_bp_day": -73.57
+   },
+   {
+    "month": "2025-09",
+    "net_bp_day": -43.3
+   },
+   {
+    "month": "2025-10",
+    "net_bp_day": -44.02
+   },
+   {
+    "month": "2025-11",
+    "net_bp_day": 96.12
+   },
+   {
+    "month": "2025-12",
+    "net_bp_day": -91.54
+   }
+  ],
+  "gate": {
+   "rule": "B net > 0 and >= 4/5 years net > 0",
+   "B_net": 17.079,
+   "years_pos": 5,
+   "passed": true
+  }
+ },
+ "no_winsor": {
+  "all": {
+   "months": 60,
+   "net_bp_day": -25.451,
+   "gross_bp_day": -22.745,
+   "sharpe_monthly_ann": -0.677,
+   "months_pos": 26,
+   "turnover_day": 0.4511,
+   "avg_positions": 3.853,
+   "avg_net_exposure": 0.2528,
+   "avg_gross_exposure": 1.794,
+   "beta_btc": 0.0217,
+   "beta_ew_mean": -0.3011
+  },
+  "A": {
+   "months": 30,
+   "net_bp_day": -1.803,
+   "gross_bp_day": 0.895,
+   "sharpe_monthly_ann": -0.07,
+   "months_pos": 12,
+   "turnover_day": 0.4496,
+   "avg_positions": 3.777,
+   "avg_net_exposure": 0.2639,
+   "avg_gross_exposure": 1.7749,
+   "beta_btc": 0.0126,
+   "beta_ew_mean": -0.3127
+  },
+  "B": {
+   "months": 30,
+   "net_bp_day": -49.465,
+   "gross_bp_day": -46.75,
+   "sharpe_monthly_ann": -1.067,
+   "months_pos": 14,
+   "turnover_day": 0.4526,
+   "avg_positions": 3.929,
+   "avg_net_exposure": 0.2415,
+   "avg_gross_exposure": 1.8133,
+   "beta_btc": 0.0338,
+   "beta_ew_mean": -0.2895
+  },
+  "years": {
+   "2021": {
+    "months": 12,
+    "net_bp_day": 8.955,
+    "gross_bp_day": 9.226,
+    "sharpe_monthly_ann": 1.0,
+    "months_pos": 1,
+    "turnover_day": 0.0451,
+    "avg_positions": 0.384,
+    "avg_net_exposure": 0.0215,
+    "avg_gross_exposure": 0.1749,
+    "beta_btc": -0.0042,
+    "beta_ew_mean": -0.0216
+   },
+   "2022": {
+    "months": 12,
+    "net_bp_day": -17.787,
+    "gross_bp_day": -14.46,
+    "sharpe_monthly_ann": -0.336,
+    "months_pos": 8,
+    "turnover_day": 0.5552,
+    "avg_positions": 4.713,
+    "avg_net_exposure": 0.2395,
+    "avg_gross_exposure": 2.1247,
+    "beta_btc": -0.0265,
+    "beta_ew_mean": -0.3385
+   },
+   "2023": {
+    "months": 12,
+    "net_bp_day": -18.311,
+    "gross_bp_day": -15.139,
+    "sharpe_monthly_ann": -0.447,
+    "months_pos": 6,
+    "turnover_day": 0.5282,
+    "avg_positions": 4.726,
+    "avg_net_exposure": 0.2696,
+    "avg_gross_exposure": 2.16,
+    "beta_btc": 0.0169,
+    "beta_ew_mean": -0.4609
+   },
+   "2024": {
+    "months": 12,
+    "net_bp_day": -11.923,
+    "gross_bp_day": -8.675,
+    "sharpe_monthly_ann": -0.566,
+    "months_pos": 6,
+    "turnover_day": 0.5414,
+    "avg_positions": 4.713,
+    "avg_net_exposure": 0.2977,
+    "avg_gross_exposure": 2.183,
+    "beta_btc": 0.0109,
+    "beta_ew_mean": -0.3747
+   },
+   "2025": {
+    "months": 12,
+    "net_bp_day": -88.227,
+    "gross_bp_day": -84.717,
+    "sharpe_monthly_ann": -1.922,
+    "months_pos": 5,
+    "turnover_day": 0.5853,
+    "avg_positions": 4.726,
+    "avg_net_exposure": 0.4357,
+    "avg_gross_exposure": 2.3261,
+    "beta_btc": 0.2384,
+    "beta_ew_mean": -0.3098
+   }
+  },
+  "per_month": [
+   {
+    "month": "2021-01",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-02",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-03",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-04",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-05",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-06",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-07",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-08",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-09",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-10",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-11",
+    "net_bp_day": 0.0
+   },
+   {
+    "month": "2021-12",
+    "net_bp_day": 105.44
+   },
+   {
+    "month": "2022-01",
+    "net_bp_day": 90.85
+   },
+   {
+    "month": "2022-02",
+    "net_bp_day": 63.26
+   },
+   {
+    "month": "2022-03",
+    "net_bp_day": 0.74
+   },
+   {
+    "month": "2022-04",
+    "net_bp_day": 62.24
+   },
+   {
+    "month": "2022-05",
+    "net_bp_day": 184.8
+   },
+   {
+    "month": "2022-06",
+    "net_bp_day": -561.22
+   },
+   {
+    "month": "2022-07",
+    "net_bp_day": -92.1
+   },
+   {
+    "month": "2022-08",
+    "net_bp_day": 35.51
+   },
+   {
+    "month": "2022-09",
+    "net_bp_day": 0.49
+   },
+   {
+    "month": "2022-10",
+    "net_bp_day": -50.83
+   },
+   {
+    "month": "2022-11",
+    "net_bp_day": -5.84
+   },
+   {
+    "month": "2022-12",
+    "net_bp_day": 52.53
+   },
+   {
+    "month": "2023-01",
+    "net_bp_day": -68.37
+   },
+   {
+    "month": "2023-02",
+    "net_bp_day": 42.07
+   },
+   {
+    "month": "2023-03",
+    "net_bp_day": 189.65
+   },
+   {
+    "month": "2023-04",
+    "net_bp_day": 20.55
+   },
+   {
+    "month": "2023-05",
+    "net_bp_day": 32.32
+   },
+   {
+    "month": "2023-06",
+    "net_bp_day": 140.25
+   },
+   {
+    "month": "2023-07",
+    "net_bp_day": -70.67
+   },
+   {
+    "month": "2023-08",
+    "net_bp_day": -154.62
+   },
+   {
+    "month": "2023-09",
+    "net_bp_day": -23.16
+   },
+   {
+    "month": "2023-10",
+    "net_bp_day": -61.11
+   },
+   {
+    "month": "2023-11",
+    "net_bp_day": 87.17
+   },
+   {
+    "month": "2023-12",
+    "net_bp_day": -338.36
+   },
+   {
+    "month": "2024-01",
+    "net_bp_day": -26.95
+   },
+   {
+    "month": "2024-02",
+    "net_bp_day": 2.93
+   },
+   {
+    "month": "2024-03",
+    "net_bp_day": -162.52
+   },
+   {
+    "month": "2024-04",
+    "net_bp_day": 49.37
+   },
+   {
+    "month": "2024-05",
+    "net_bp_day": -96.4
+   },
+   {
+    "month": "2024-06",
+    "net_bp_day": 51.13
+   },
+   {
+    "month": "2024-07",
+    "net_bp_day": 56.79
+   },
+   {
+    "month": "2024-08",
+    "net_bp_day": 32.98
+   },
+   {
+    "month": "2024-09",
+    "net_bp_day": -33.32
+   },
+   {
+    "month": "2024-10",
+    "net_bp_day": 81.05
+   },
+   {
+    "month": "2024-11",
+    "net_bp_day": -70.45
+   },
+   {
+    "month": "2024-12",
+    "net_bp_day": -25.3
+   },
+   {
+    "month": "2025-01",
+    "net_bp_day": 75.18
+   },
+   {
+    "month": "2025-02",
+    "net_bp_day": -95.14
+   },
+   {
+    "month": "2025-03",
+    "net_bp_day": 47.6
+   },
+   {
+    "month": "2025-04",
+    "net_bp_day": -281.92
+   },
+   {
+    "month": "2025-05",
+    "net_bp_day": -80.21
+   },
+   {
+    "month": "2025-06",
+    "net_bp_day": -42.17
+   },
+   {
+    "month": "2025-07",
+    "net_bp_day": 65.39
+   },
+   {
+    "month": "2025-08",
+    "net_bp_day": -300.69
+   },
+   {
+    "month": "2025-09",
+    "net_bp_day": -230.53
+   },
+   {
+    "month": "2025-10",
+    "net_bp_day": 39.89
+   },
+   {
+    "month": "2025-11",
+    "net_bp_day": 69.38
+   },
+   {
+    "month": "2025-12",
+    "net_bp_day": -330.44
+   }
+  ],
+  "gate": {
+   "rule": "B net > 0 and >= 4/5 years net > 0",
+   "B_net": -49.465,
+   "years_pos": 1,
+   "passed": false
+  }
+ },
+ "frozen_dev": "not done: waiting for the user's decision (the passing cells depend on the 1/99 winsor)",
+ "seconds": 142.4,
+ "written": "2026-10-14T18:45:07+0800"
+}

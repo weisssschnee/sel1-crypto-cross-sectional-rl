@@ -1,0 +1,1197 @@
+{
+ "schema": "SEL1_SWEEPCHECK_V1",
+ "world": {
+  "mode": "pcnull",
+  "alpha": 6.908190339580098e-05,
+  "K": 5,
+  "dd_max": 2.283547812033886
+ },
+ "tol": 1e-09,
+ "bodies": 60,
+ "invalid": {},
+ "checks": {
+  "n_bodies": true,
+  "max_abs_diff": true,
+  "nan_pattern": true,
+  "pick_same": true,
+  "rescore_exact": true,
+  "plant_combo": true,
+  "plant_t_A": true
+ },
+ "passed": true,
+ "max_abs_diff": 0.0,
+ "plant": {
+  "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)",
+  "plant": true,
+  "max_abs_diff": 0.0,
+  "nan_pattern_same": true,
+  "pick_old": [
+   4,
+   0,
+   0
+  ],
+  "pick_new": [
+   4,
+   0,
+   0
+  ],
+  "best_old": 5.883011980727551,
+  "best_rescored": 5.883011980727551,
+  "rescore_exact": true,
+  "nullplant_score_A": 5.883011980727551
+ },
+ "seconds_per_body": {
+  "old_60_score_sel": 5.113,
+  "sweep": 2.809
+ },
+ "rows": [
+  {
+   "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)",
+   "plant": true,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    0,
+    0
+   ],
+   "pick_new": [
+    4,
+    0,
+    0
+   ],
+   "best_old": 5.883011980727551,
+   "best_rescored": 5.883011980727551,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_ZSCORE(EMA(TS_RANK(ADD(log_low, log_close), w=504), w=336), w=336)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    2,
+    1
+   ],
+   "pick_new": [
+    4,
+    2,
+    1
+   ],
+   "best_old": 2.775405996326102,
+   "best_rescored": 2.775405996326102,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_ZSCORE(EMA(TS_RANK(ADD(log_close, log_low), w=504), w=336), w=336)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    2,
+    1
+   ],
+   "pick_new": [
+    4,
+    2,
+    1
+   ],
+   "best_old": 2.775405996326102,
+   "best_rescored": 2.775405996326102,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_ZSCORE(EMA(TS_RANK(log_low, w=504), w=336), w=336)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    0,
+    0
+   ],
+   "pick_new": [
+    72,
+    0,
+    0
+   ],
+   "best_old": 2.922008997979223,
+   "best_rescored": 2.922008997979223,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_ZSCORE(EMA(TS_RANK(log_high, w=504), w=336), w=336)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    0,
+    0
+   ],
+   "pick_new": [
+    72,
+    0,
+    0
+   ],
+   "best_old": 3.1553650738138774,
+   "best_rescored": 3.1553650738138774,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_ZSCORE(EMA(TS_RANK(log_close, w=504), w=336), w=336)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    0,
+    0
+   ],
+   "pick_new": [
+    72,
+    0,
+    0
+   ],
+   "best_old": 3.0045695528194942,
+   "best_rescored": 3.0045695528194942,
+   "rescore_exact": true
+  },
+  {
+   "expr": "CS_DEMEAN(DELTA(log_low, w=168))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    0,
+    0
+   ],
+   "pick_new": [
+    24,
+    0,
+    0
+   ],
+   "best_old": 3.1663487811016084,
+   "best_rescored": 3.1663487811016084,
+   "rescore_exact": true
+  },
+  {
+   "expr": "DELTA(ABS(global_ls_account_ratio), w=6)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    4,
+    0
+   ],
+   "pick_new": [
+    72,
+    4,
+    0
+   ],
+   "best_old": 2.59276205201907,
+   "best_rescored": 2.59276205201907,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_ZSCORE(log_quote_volume, w=672)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    4,
+    0
+   ],
+   "pick_new": [
+    72,
+    4,
+    0
+   ],
+   "best_old": 3.743499874700167,
+   "best_rescored": 3.743499874700167,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_ZSCORE(EMA(TS_MAX(TS_RANK(log_low, w=672), w=6), w=672), w=336)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    2,
+    0
+   ],
+   "pick_new": [
+    4,
+    2,
+    0
+   ],
+   "best_old": 3.1397428823074263,
+   "best_rescored": 3.1397428823074263,
+   "rescore_exact": true
+  },
+  {
+   "expr": "DELTA(DIV(CS_RANK(NEG(CS_ZSCORE(ABS(ABS(MUL(TS_RANK(TS_SLOPE(DIV(DIV(ABS(ADD(NEG(NEG(CS_ZSCORE(CS_ZSCORE(CS_DEMEAN(CS_RANK(CS_DEMEAN(CS_DEMEAN(TS_MIN(NEG(premium_close_bps), w=168))))))))), ABS(funding_level))), premium_high), ABS(DIV(MUL(mark_index_basis_bps, funding_level), funding_level))), w=504), w=504), CS_DEMEAN(CS_RANK(TS_MAX(SIGN(mark_index_basis_bps), w=672))))))))), NEG(NEG(funding_level))), w=24)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    1,
+    2
+   ],
+   "pick_new": [
+    24,
+    1,
+    2
+   ],
+   "best_old": 2.545620104907441,
+   "best_rescored": 2.545620104907441,
+   "rescore_exact": true
+  },
+  {
+   "expr": "DELTA(ADD(log_close, log_close), w=168)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    0,
+    0
+   ],
+   "pick_new": [
+    24,
+    0,
+    0
+   ],
+   "best_old": 2.409418931143978,
+   "best_rescored": 2.409418931143978,
+   "rescore_exact": true
+  },
+  {
+   "expr": "DELTA(log_low, w=168)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    0,
+    0
+   ],
+   "pick_new": [
+    4,
+    0,
+    0
+   ],
+   "best_old": 2.1980425474235,
+   "best_rescored": 2.1980425474235,
+   "rescore_exact": true
+  },
+  {
+   "expr": "CS_DEMEAN(NEG(ABS(NEG(premium_high))))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    3,
+    1
+   ],
+   "pick_new": [
+    72,
+    3,
+    1
+   ],
+   "best_old": 1.6324075545377115,
+   "best_rescored": 1.6324075545377115,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(SUB(premium_high, NEG(premium_high)))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    1,
+    0
+   ],
+   "pick_new": [
+    4,
+    1,
+    0
+   ],
+   "best_old": 1.7062281865584714,
+   "best_rescored": 1.7062281865584714,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(CS_RANK(CS_DEMEAN(CS_ZSCORE(TS_MAX(CS_RANK(CS_ZSCORE(premium_high)), w=504)))))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    0,
+    1
+   ],
+   "pick_new": [
+    168,
+    0,
+    1
+   ],
+   "best_old": 1.54956217076912,
+   "best_rescored": 1.54956217076912,
+   "rescore_exact": true
+  },
+  {
+   "expr": "CS_ZSCORE(TS_MEAN(SIGN(NEG(NEG(CS_RANK(CS_DEMEAN(NEG(CS_ZSCORE(premium_close_bps))))))), w=168))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    0,
+    1
+   ],
+   "pick_new": [
+    168,
+    0,
+    1
+   ],
+   "best_old": 2.2732526904974644,
+   "best_rescored": 2.2732526904974644,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_RANK(EMA(log_close, w=72), w=168)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    4,
+    0
+   ],
+   "pick_new": [
+    4,
+    4,
+    0
+   ],
+   "best_old": 3.31680170419903,
+   "best_rescored": 3.31680170419903,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_SLOPE(TS_ZSCORE(log_low, w=672), w=672)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    2,
+    1
+   ],
+   "pick_new": [
+    4,
+    2,
+    1
+   ],
+   "best_old": 1.9276800355456212,
+   "best_rescored": 1.9276800355456212,
+   "rescore_exact": true
+  },
+  {
+   "expr": "CS_DEMEAN(CS_DEMEAN(TS_RANK(log_close, w=504)))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    4,
+    0
+   ],
+   "pick_new": [
+    168,
+    4,
+    0
+   ],
+   "best_old": 2.6692861274081894,
+   "best_rescored": 2.6692861274081894,
+   "rescore_exact": true
+  },
+  {
+   "expr": "DELTA(ADD(log_close, log_low), w=168)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    0,
+    1
+   ],
+   "pick_new": [
+    24,
+    0,
+    1
+   ],
+   "best_old": 2.2290477883971955,
+   "best_rescored": 2.2290477883971955,
+   "rescore_exact": true
+  },
+  {
+   "expr": "CS_RANK(TS_ZSCORE(log_close, w=504))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    0,
+    0
+   ],
+   "pick_new": [
+    24,
+    0,
+    0
+   ],
+   "best_old": 2.896496932554219,
+   "best_rescored": 2.896496932554219,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(EMA(CS_ZSCORE(SIGN(mark_index_basis_bps)), w=168))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    0,
+    0
+   ],
+   "pick_new": [
+    4,
+    0,
+    0
+   ],
+   "best_old": 1.8380246746042,
+   "best_rescored": 1.8380246746042,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_RANK(GATE(TS_RANK(ADD(DIV(NEG(MUL(ABS(ABS(ABS(log_close))), log_close)), log_high), SIGN(log_close)), w=672), log_low, log_close), w=504)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    1,
+    0
+   ],
+   "pick_new": [
+    72,
+    1,
+    0
+   ],
+   "best_old": 2.029513254807181,
+   "best_rescored": 2.029513254807181,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(TS_MAX(premium_close_bps, w=504))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    2,
+    1
+   ],
+   "pick_new": [
+    72,
+    2,
+    1
+   ],
+   "best_old": 1.6910095822658573,
+   "best_rescored": 1.6910095822658573,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_MIN(CS_DEMEAN(CS_DEMEAN(CS_ZSCORE(NEG(premium_close_bps)))), w=6)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    2,
+    0
+   ],
+   "pick_new": [
+    72,
+    2,
+    0
+   ],
+   "best_old": 2.238889545750482,
+   "best_rescored": 2.238889545750482,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_RANK(GATE(LAG(TS_STD(log_quote_volume, w=168), w=6), log_high, log_low), w=504)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    2,
+    0
+   ],
+   "pick_new": [
+    24,
+    2,
+    0
+   ],
+   "best_old": 2.0930058151985365,
+   "best_rescored": 2.0930058151985365,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(CS_RANK(CS_DEMEAN(CS_RANK(premium_high))))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    1,
+    0
+   ],
+   "pick_new": [
+    168,
+    1,
+    0
+   ],
+   "best_old": 1.938584849965526,
+   "best_rescored": 1.938584849965526,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(CS_ZSCORE(TS_MAX(mark_index_basis_bps, w=6)))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    2,
+    1
+   ],
+   "pick_new": [
+    4,
+    2,
+    1
+   ],
+   "best_old": 1.7443384699919933,
+   "best_rescored": 1.7443384699919933,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_ZSCORE(ADD(ABS(NEG(TS_MEAN(NEG(TS_SLOPE(TS_STD(TS_MIN(ABS(SIGN(TS_STD(SUB(ABS(TS_MEAN(TS_STD(TS_MIN(NEG(SIGN(NEG(NEG(SIGN(NEG(log_close)))))), w=6), w=6), w=6)), log_low), w=168))), w=6), w=168), w=24)), w=24))), log_close), w=504)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    2,
+    0
+   ],
+   "pick_new": [
+    168,
+    2,
+    0
+   ],
+   "best_old": 2.2962324189841654,
+   "best_rescored": 2.2962324189841654,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_MIN(DELTA(log_close, w=6), w=168)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    2,
+    1
+   ],
+   "pick_new": [
+    168,
+    2,
+    1
+   ],
+   "best_old": 1.851075043939979,
+   "best_rescored": 1.851075043939979,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(CS_ZSCORE(CS_RANK(TS_MAX(premium_high, w=6))))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    2,
+    1
+   ],
+   "pick_new": [
+    4,
+    2,
+    1
+   ],
+   "best_old": 2.152197758747691,
+   "best_rescored": 2.152197758747691,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_RANK(GATE(SIGN(DIV(EMA(SIGN(log_close), w=24), log_close)), log_close, log_high), w=672)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    0,
+    1
+   ],
+   "pick_new": [
+    72,
+    0,
+    1
+   ],
+   "best_old": 1.7758277661990596,
+   "best_rescored": 1.7758277661990596,
+   "rescore_exact": true
+  },
+  {
+   "expr": "EMA(NEG(premium_high), w=672)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    2,
+    1
+   ],
+   "pick_new": [
+    168,
+    2,
+    1
+   ],
+   "best_old": 1.679561473390933,
+   "best_rescored": 1.679561473390933,
+   "rescore_exact": true
+  },
+  {
+   "expr": "CS_ZSCORE(CS_DEMEAN(TS_RANK(log_low, w=504)))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    0,
+    0
+   ],
+   "pick_new": [
+    24,
+    0,
+    0
+   ],
+   "best_old": 3.415452306481458,
+   "best_rescored": 3.415452306481458,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(EMA(premium_high, w=336))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    2,
+    1
+   ],
+   "pick_new": [
+    72,
+    2,
+    1
+   ],
+   "best_old": 1.6959428800127736,
+   "best_rescored": 1.6959428800127736,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_RANK(DIV(log_close, log_quote_volume), w=504)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    0,
+    0
+   ],
+   "pick_new": [
+    24,
+    0,
+    0
+   ],
+   "best_old": 1.7945906451330353,
+   "best_rescored": 1.7945906451330353,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(TS_RANK(NEG(log_low), w=336))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    0,
+    1
+   ],
+   "pick_new": [
+    24,
+    0,
+    1
+   ],
+   "best_old": 2.4112649558429653,
+   "best_rescored": 2.4112649558429653,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_RANK(EMA(NEG(ADD(NEG(ABS(MUL(funding_level, NEG(premium_high)))), premium_close_bps)), w=168), w=168)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    1,
+    0
+   ],
+   "pick_new": [
+    4,
+    1,
+    0
+   ],
+   "best_old": 1.354364573888448,
+   "best_rescored": 1.354364573888448,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(EMA(premium_high, w=6))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    1,
+    2
+   ],
+   "pick_new": [
+    4,
+    1,
+    2
+   ],
+   "best_old": 1.6112582106939701,
+   "best_rescored": 1.6112582106939701,
+   "rescore_exact": true
+  },
+  {
+   "expr": "DELTA(log_close, w=168)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    0,
+    0
+   ],
+   "pick_new": [
+    24,
+    0,
+    0
+   ],
+   "best_old": 2.409418931143978,
+   "best_rescored": 2.409418931143978,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(CS_ZSCORE(CS_DEMEAN(premium_high)))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    2,
+    1
+   ],
+   "pick_new": [
+    4,
+    2,
+    1
+   ],
+   "best_old": 2.2031714160232774,
+   "best_rescored": 2.2031714160232774,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_RANK(ADD(log_high, log_low), w=504)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    0,
+    1
+   ],
+   "pick_new": [
+    24,
+    0,
+    1
+   ],
+   "best_old": 1.8684280833717706,
+   "best_rescored": 1.8684280833717706,
+   "rescore_exact": true
+  },
+  {
+   "expr": "DELTA(SUB(log_high, SIGN(log_low)), w=168)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    3,
+    0
+   ],
+   "pick_new": [
+    24,
+    3,
+    0
+   ],
+   "best_old": 2.4697308571183823,
+   "best_rescored": 2.4697308571183823,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_RANK(EMA(log_high, w=24), w=504)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    0,
+    1
+   ],
+   "pick_new": [
+    4,
+    0,
+    1
+   ],
+   "best_old": 1.9666838977263157,
+   "best_rescored": 1.9666838977263157,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_MIN(premium_close_bps, w=672)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    1,
+    0
+   ],
+   "pick_new": [
+    168,
+    1,
+    0
+   ],
+   "best_old": 3.030115498958211,
+   "best_rescored": 3.030115498958211,
+   "rescore_exact": true
+  },
+  {
+   "expr": "CS_ZSCORE(EMA(TS_RANK(log_low, w=168), w=336))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    4,
+    0
+   ],
+   "pick_new": [
+    72,
+    4,
+    0
+   ],
+   "best_old": 1.9566733361861117,
+   "best_rescored": 1.9566733361861117,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_ZSCORE(EMA(log_close, w=24), w=672)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    1,
+    0
+   ],
+   "pick_new": [
+    168,
+    1,
+    0
+   ],
+   "best_old": 2.4957025829719677,
+   "best_rescored": 2.4957025829719677,
+   "rescore_exact": true
+  },
+  {
+   "expr": "CS_ZSCORE(MUL(premium_high, NEG(premium_high)))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    0,
+    1
+   ],
+   "pick_new": [
+    168,
+    0,
+    1
+   ],
+   "best_old": 1.2728364360759374,
+   "best_rescored": 1.2728364360759374,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(TS_MAX(CS_RANK(premium_high), w=672))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    3,
+    0
+   ],
+   "pick_new": [
+    24,
+    3,
+    0
+   ],
+   "best_old": 2.1643247621625714,
+   "best_rescored": 2.1643247621625714,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(ABS(ABS(premium_high)))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    2,
+    1
+   ],
+   "pick_new": [
+    4,
+    2,
+    1
+   ],
+   "best_old": 1.3164454410914566,
+   "best_rescored": 1.3164454410914566,
+   "rescore_exact": true
+  },
+  {
+   "expr": "CS_ZSCORE(TS_MIN(NEG(ABS(NEG(premium_close_bps))), w=504))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    1,
+    2
+   ],
+   "pick_new": [
+    4,
+    1,
+    2
+   ],
+   "best_old": 0.9788157567221817,
+   "best_rescored": 0.9788157567221817,
+   "rescore_exact": true
+  },
+  {
+   "expr": "CS_DEMEAN(DELTA(ADD(log_close, log_low), w=72))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    2,
+    0
+   ],
+   "pick_new": [
+    168,
+    2,
+    0
+   ],
+   "best_old": 3.336083386284848,
+   "best_rescored": 3.336083386284848,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_MEAN(CS_RANK(ADD(ADD(CS_RANK(NEG(ADD(CS_ZSCORE(premium_close_bps), CS_DEMEAN(premium_close_bps)))), CS_ZSCORE(mark_index_basis_bps)), NEG(NEG(NEG(SIGN(premium_close_bps)))))), w=672)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    3,
+    0
+   ],
+   "pick_new": [
+    168,
+    3,
+    0
+   ],
+   "best_old": 1.6790253683004188,
+   "best_rescored": 1.6790253683004188,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(CS_DEMEAN(SUB(premium_high, NEG(premium_high))))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    3,
+    1
+   ],
+   "pick_new": [
+    72,
+    3,
+    1
+   ],
+   "best_old": 1.711655811490285,
+   "best_rescored": 1.711655811490285,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_ZSCORE(ADD(log_close, log_close), w=504)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    168,
+    2,
+    0
+   ],
+   "pick_new": [
+    168,
+    2,
+    0
+   ],
+   "best_old": 2.2677879079591325,
+   "best_rescored": 2.2677879079591325,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(CS_DEMEAN(CS_DEMEAN(premium_high)))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    3,
+    1
+   ],
+   "pick_new": [
+    72,
+    3,
+    1
+   ],
+   "best_old": 1.711655811490285,
+   "best_rescored": 1.711655811490285,
+   "rescore_exact": true
+  },
+  {
+   "expr": "CS_ZSCORE(DELTA(EMA(TS_MAX(log_low, w=24), w=72), w=24))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    24,
+    2,
+    0
+   ],
+   "pick_new": [
+    24,
+    2,
+    0
+   ],
+   "best_old": 3.2971784795659587,
+   "best_rescored": 3.2971784795659587,
+   "rescore_exact": true
+  },
+  {
+   "expr": "TS_RANK(GATE(ABS(log_close), log_close, log_close), w=504)",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    4,
+    2,
+    1
+   ],
+   "pick_new": [
+    4,
+    2,
+    1
+   ],
+   "best_old": 2.028932085376797,
+   "best_rescored": 2.028932085376797,
+   "rescore_exact": true
+  },
+  {
+   "expr": "NEG(LAG(premium_high, w=72))",
+   "plant": false,
+   "max_abs_diff": 0.0,
+   "nan_pattern_same": true,
+   "pick_old": [
+    72,
+    2,
+    1
+   ],
+   "pick_new": [
+    72,
+    2,
+    1
+   ],
+   "best_old": 1.6139570567344308,
+   "best_rescored": 1.6139570567344308,
+   "rescore_exact": true
+  }
+ ],
+ "modules": {
+  "sel1_sweep": "eb2872ddd9969575",
+  "sel1_common": "7f5e326f37f715d0"
+ },
+ "dev_read": false,
+ "oos_read": false,
+ "seconds": 499.7,
+ "written": "2026-10-15T10:06:36+0800"
+}

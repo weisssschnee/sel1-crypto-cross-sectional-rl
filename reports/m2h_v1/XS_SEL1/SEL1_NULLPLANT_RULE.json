@@ -1,0 +1,30 @@
+{
+ "schema": "SEL1_NULLPLANT_RULE_V1",
+ "world": "NULL (per-coin circular roll, NULL_SEED) + plant fwd[:, t] += alpha zp[:, t-1], zp = plant formula TOP100 rank z in the NULL world (trainer --mode pcnull)",
+ "grid": {
+  "strength_bpd": [
+   20.0,
+   40.0
+  ],
+  "K": [
+   5,
+   10,
+   20
+  ],
+  "t": "monthly"
+ },
+ "strength": "alpha by one linear step from 1e-4: A-half cost0 bp/day gain of the plant book (plant formula, H72, all, long, K 5) pcnull vs null, within 10 %; the same alpha at every K",
+ "combo": "every body takes the combo of 60 with the highest A-half t_dd (SEL1_REWARD_RULE DD_MAX[K]); ties first in order",
+ "t": "mean / (sd ddof 1 / sqrt n) of monthly cost0 log NAV, months holding nothing count as 0",
+ "visible": "plant B-half t (its t_dd combo) >= 2",
+ "rankable": "plant B-half t rank <= 10 among the NULL-valid sel1_calib pool + plant",
+ "fixed": "plant book 72/all/long B-half t and rank reported, not judged",
+ "select": "cells passing both: smallest strength, then smallest K; PC uses that strength and K, NULL / REAL that K",
+ "none_pass": "no cell passes -> hand back, nothing re-tuned",
+ "dd_max": {
+  "5": 2.283547812033886,
+  "10": 2.155393246755923,
+  "20": 2.163250079756716
+ },
+ "written": "2026-10-15T06:20:40+0800"
+}

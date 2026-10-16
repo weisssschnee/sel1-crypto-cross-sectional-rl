@@ -1,0 +1,1694 @@
+{
+ "schema": "SEL1_ARMS_RESULT_V1",
+ "order": "XS_SEL1 supplement 10-15 evening",
+ "prefix": "SEL1_ARMSMOKE_",
+ "top": 20,
+ "rule": {
+  "schema": "SEL1_ARMS_RULE_V1",
+  "order": "XS_SEL1 supplement 10-15 evening (SEL1_ARMS)",
+  "rule": "XS_SEL1 SEL1_ARMS second plant P2, by rule (supplement 10-15 evening). TRAIN only (NULL world + P1); no DEV, no OOS.\nNew file; sel1_common / sel1_world2 / sel1_round are imported, not modified. Writes SEL1_ARMS_RULE.json (rule + choice).\n\n  pool      sel1_calib's real candidate pool (CR1_PC_P8 HOF top 50 + B5_DBG_REAL HOF_RANKED), basin T2 or T3 only\n            (CR1 entry 'basin'; B5 family), deduplicated, the P1 body excluded, valid on the V4 world.\n  order     |cross-sectional Spearman corr| with P1's score (sel1_round.spearman_rows, every 24th A-half hour) in the\n            ARMS world as the trainer sees it (pcnull: NULL roll + P1); smallest first.\n  book      P2's own book = P2 formula, hold 72, state all, direction both (the order: hold 72), K 5.\n  strength  alpha2 so that the P2 book's A-half cost0 gain over the P1-only world is 20 bp/day (one linear step from\n            ALPHA0, as sel1_calib; |gain - target| <= 10 % checked); P2 book B-half monthly t >= 2 in the two-plant world,\n            else 40 bp/day; else the next formula.\n    python -I sel1_p2pick.py [--device cpu|cuda]\n",
+  "world": {
+   "mode": "pcnull",
+   "alpha1": 6.908190339580098e-05,
+   "p1_body": [
+    3,
+    37,
+    22,
+    37,
+    21,
+    41
+   ],
+   "p1_combo": "4/all/both (V2 PC)"
+  },
+  "p2_combo": {
+   "h": 72,
+   "state": "all",
+   "dir": "both"
+  },
+  "candidates": [
+   {
+    "body": [
+     10,
+     32,
+     31,
+     33,
+     35,
+     23,
+     16,
+     33,
+     39,
+     22,
+     15,
+     34,
+     22,
+     31,
+     41
+    ],
+    "expr": "CS_DEMEAN(TS_MEAN(NEG(TS_MEAN(CS_RANK(ABS(TS_STD(CS_RANK(CS_DEMEAN(CS_ZSCORE(premium_high))), w=24))), w=504)), w=6))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.00027749073527018006
+   },
+   {
+    "body": [
+     9,
+     31,
+     39,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(CS_DEMEAN(mark_index_basis_bps), w=504)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.0005599404496719743
+   },
+   {
+    "body": [
+     10,
+     38,
+     29,
+     15,
+     41
+    ],
+    "expr": "NEG(EMA(premium_high, w=336))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": 0.0008508836229526637
+   },
+   {
+    "body": [
+     9,
+     37,
+     25,
+     38,
+     29,
+     36,
+     23,
+     16,
+     15,
+     9,
+     31,
+     33,
+     31,
+     15,
+     10,
+     33,
+     35,
+     27,
+     15,
+     37,
+     28,
+     14,
+     32,
+     12,
+     33,
+     41
+    ],
+    "expr": "CS_RANK(SUB(NEG(ABS(TS_STD(EMA(TS_MIN(mark_index_basis_bps, w=168), w=336), w=72))), CS_ZSCORE(DIV(NEG(CS_DEMEAN(CS_RANK(CS_DEMEAN(mark_index_basis_bps)))), TS_SLOPE(NEG(TS_RANK(CS_RANK(premium_high), w=24)), w=168)))))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.0014549901201867897
+   },
+   {
+    "body": [
+     7,
+     15,
+     16,
+     34,
+     28,
+     41
+    ],
+    "expr": "TS_SLOPE(ABS(NEG(taker_buy_share)), w=6)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.0018884730133823693
+   },
+   {
+    "body": [
+     6,
+     39,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(global_ls_account_ratio, w=504)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.0019182300077758366
+   },
+   {
+    "body": [
+     8,
+     15,
+     16,
+     15,
+     39,
+     25,
+     32,
+     41
+    ],
+    "expr": "CS_ZSCORE(TS_MIN(NEG(ABS(NEG(premium_close_bps))), w=504))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": 0.0019266309769370863
+   },
+   {
+    "body": [
+     8,
+     32,
+     15,
+     31,
+     33,
+     15,
+     15,
+     17,
+     37,
+     22,
+     32,
+     41
+    ],
+    "expr": "CS_ZSCORE(TS_MEAN(SIGN(NEG(NEG(CS_RANK(CS_DEMEAN(NEG(CS_ZSCORE(premium_close_bps))))))), w=168))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": 0.0021081329991719023
+   },
+   {
+    "body": [
+     7,
+     40,
+     29,
+     41
+    ],
+    "expr": "EMA(taker_buy_share, w=672)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.002196331857655418
+   },
+   {
+    "body": [
+     6,
+     33,
+     15,
+     36,
+     26,
+     16,
+     33,
+     16,
+     32,
+     33,
+     41
+    ],
+    "expr": "CS_RANK(CS_ZSCORE(ABS(CS_RANK(ABS(TS_ZSCORE(NEG(CS_RANK(global_ls_account_ratio)), w=72))))))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.0028375380623056503
+   },
+   {
+    "body": [
+     7,
+     36,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(taker_buy_share, w=72)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.0029012971185605955
+   },
+   {
+    "body": [
+     6,
+     6,
+     15,
+     31,
+     13,
+     34,
+     21,
+     41
+    ],
+    "expr": "DELTA(MUL(global_ls_account_ratio, CS_DEMEAN(NEG(global_ls_account_ratio))), w=6)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.003019569566306836
+   },
+   {
+    "body": [
+     9,
+     39,
+     25,
+     33,
+     41
+    ],
+    "expr": "CS_RANK(TS_MIN(mark_index_basis_bps, w=504))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.004133170187117141
+   },
+   {
+    "body": [
+     10,
+     10,
+     15,
+     13,
+     32,
+     41
+    ],
+    "expr": "CS_ZSCORE(MUL(premium_high, NEG(premium_high)))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.0046823370093231455
+   },
+   {
+    "body": [
+     7,
+     35,
+     21,
+     41
+    ],
+    "expr": "DELTA(taker_buy_share, w=24)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.004978807601393718
+   },
+   {
+    "body": [
+     6,
+     32,
+     17,
+     35,
+     21,
+     41
+    ],
+    "expr": "DELTA(SIGN(CS_ZSCORE(global_ls_account_ratio)), w=24)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.005119268152965355
+   },
+   {
+    "body": [
+     9,
+     33,
+     33,
+     33,
+     33,
+     40,
+     25,
+     33,
+     41
+    ],
+    "expr": "CS_RANK(TS_MIN(CS_RANK(CS_RANK(CS_RANK(CS_RANK(mark_index_basis_bps)))), w=672))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.005794492627013369
+   },
+   {
+    "body": [
+     10,
+     10,
+     15,
+     12,
+     31,
+     15,
+     41
+    ],
+    "expr": "NEG(CS_DEMEAN(SUB(premium_high, NEG(premium_high))))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.005961264326617676
+   },
+   {
+    "body": [
+     10,
+     31,
+     31,
+     15,
+     41
+    ],
+    "expr": "NEG(CS_DEMEAN(CS_DEMEAN(premium_high)))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.005961264326617676
+   },
+   {
+    "body": [
+     5,
+     7,
+     33,
+     33,
+     33,
+     33,
+     33,
+     14,
+     39,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(DIV(log_oi_value, CS_RANK(CS_RANK(CS_RANK(CS_RANK(CS_RANK(taker_buy_share)))))), w=504)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.006853898861479161
+   },
+   {
+    "body": [
+     4,
+     16,
+     15,
+     38,
+     21,
+     40,
+     27,
+     9,
+     14,
+     31,
+     33,
+     31,
+     41
+    ],
+    "expr": "CS_DEMEAN(CS_RANK(CS_DEMEAN(DIV(TS_RANK(DELTA(NEG(ABS(funding_level)), w=336), w=672), mark_index_basis_bps))))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.006889462003951774
+   },
+   {
+    "body": [
+     5,
+     7,
+     32,
+     33,
+     33,
+     14,
+     39,
+     22,
+     5,
+     14,
+     34,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(DIV(TS_MEAN(DIV(log_oi_value, CS_RANK(CS_RANK(CS_ZSCORE(taker_buy_share)))), w=504), log_oi_value), w=6)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.006916067177574488
+   },
+   {
+    "body": [
+     4,
+     17,
+     7,
+     38,
+     25,
+     15,
+     11,
+     16,
+     36,
+     21,
+     35,
+     20,
+     35,
+     26,
+     16,
+     41
+    ],
+    "expr": "ABS(TS_ZSCORE(LAG(DELTA(ABS(ADD(SIGN(funding_level), NEG(TS_MIN(taker_buy_share, w=336)))), w=72), w=24), w=24))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.00807257970322961
+   },
+   {
+    "body": [
+     8,
+     39,
+     24,
+     15,
+     41
+    ],
+    "expr": "NEG(TS_MAX(premium_close_bps, w=504))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.009096720100924034
+   },
+   {
+    "body": [
+     10,
+     32,
+     33,
+     39,
+     24,
+     32,
+     31,
+     33,
+     15,
+     41
+    ],
+    "expr": "NEG(CS_RANK(CS_DEMEAN(CS_ZSCORE(TS_MAX(CS_RANK(CS_ZSCORE(premium_high)), w=504)))))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": 0.009463377098016706
+   },
+   {
+    "body": [
+     8,
+     32,
+     8,
+     31,
+     11,
+     15,
+     33,
+     9,
+     32,
+     11,
+     8,
+     17,
+     15,
+     15,
+     15,
+     11,
+     33,
+     40,
+     22,
+     41
+    ],
+    "expr": "TS_MEAN(CS_RANK(ADD(ADD(CS_RANK(NEG(ADD(CS_ZSCORE(premium_close_bps), CS_DEMEAN(premium_close_bps)))), CS_ZSCORE(mark_index_basis_bps)), NEG(NEG(NEG(SIGN(premium_close_bps)))))), w=672)",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.010018770642728849
+   },
+   {
+    "body": [
+     10,
+     31,
+     8,
+     14,
+     16,
+     41
+    ],
+    "expr": "ABS(DIV(CS_DEMEAN(premium_high), premium_close_bps))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.011194802517158648
+   },
+   {
+    "body": [
+     8,
+     35,
+     25,
+     15,
+     31,
+     36,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(CS_DEMEAN(NEG(TS_MIN(premium_close_bps, w=24))), w=72)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.0112670922118164
+   },
+   {
+    "body": [
+     4,
+     16,
+     7,
+     31,
+     17,
+     32,
+     13,
+     37,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(MUL(ABS(funding_level), CS_ZSCORE(SIGN(CS_DEMEAN(taker_buy_share)))), w=168)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.011420507339241983
+   },
+   {
+    "body": [
+     8,
+     9,
+     10,
+     14,
+     13,
+     16,
+     10,
+     14,
+     41
+    ],
+    "expr": "DIV(ABS(MUL(premium_close_bps, DIV(mark_index_basis_bps, premium_high))), premium_high)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.011448702493068084
+   },
+   {
+    "body": [
+     9,
+     17,
+     32,
+     37,
+     29,
+     15,
+     41
+    ],
+    "expr": "NEG(EMA(CS_ZSCORE(SIGN(mark_index_basis_bps)), w=168))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.012410213111355439
+   },
+   {
+    "body": [
+     8,
+     17,
+     33,
+     16,
+     41
+    ],
+    "expr": "ABS(CS_RANK(SIGN(premium_close_bps)))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.012772166845525349
+   },
+   {
+    "body": [
+     10,
+     33,
+     33,
+     16,
+     37,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(ABS(CS_RANK(CS_RANK(premium_high))), w=168)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.01301086127666954
+   },
+   {
+    "body": [
+     4,
+     40,
+     29,
+     17,
+     5,
+     11,
+     6,
+     31,
+     31,
+     16,
+     15,
+     39,
+     30,
+     17,
+     17,
+     17,
+     4,
+     14,
+     15,
+     15,
+     4,
+     4,
+     16,
+     13,
+     13,
+     4,
+     12,
+     15,
+     4,
+     11,
+     35,
+     28,
+     7,
+     4,
+     12,
+     4,
+     12,
+     14,
+     4,
+     34,
+     28,
+     12,
+     39,
+     29,
+     38,
+     27,
+     31,
+     41
+    ],
+    "expr": "CS_DEMEAN(TS_RANK(EMA(SUB(DIV(TS_SLOPE(ADD(NEG(SUB(MUL(NEG(NEG(DIV(SIGN(SIGN(SIGN(TS_CORR(ADD(SIGN(EMA(funding_level, w=672)), log_oi_value), NEG(ABS(CS_DEMEAN(CS_DEMEAN(global_ls_account_ratio)))), w=504)))), funding_level))), MUL(funding_level, ABS(funding_level))), funding_level)), funding_level), w=24), SUB(SUB(taker_buy_share, funding_level), funding_level)), TS_SLOPE(funding_level, w=6)), w=504), w=336))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.013127750988202647
+   },
+   {
+    "body": [
+     7,
+     7,
+     32,
+     34,
+     27,
+     14,
+     41
+    ],
+    "expr": "DIV(taker_buy_share, TS_RANK(CS_ZSCORE(taker_buy_share), w=6))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.013297573784361182
+   },
+   {
+    "body": [
+     9,
+     34,
+     24,
+     32,
+     15,
+     41
+    ],
+    "expr": "NEG(CS_ZSCORE(TS_MAX(mark_index_basis_bps, w=6)))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": 0.013854911707403435
+   },
+   {
+    "body": [
+     10,
+     32,
+     16,
+     32,
+     32,
+     31,
+     41
+    ],
+    "expr": "CS_DEMEAN(CS_ZSCORE(CS_ZSCORE(ABS(CS_ZSCORE(premium_high)))))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.014438636909106366
+   },
+   {
+    "body": [
+     10,
+     15,
+     16,
+     15,
+     31,
+     41
+    ],
+    "expr": "CS_DEMEAN(NEG(ABS(NEG(premium_high))))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.015861419456788525
+   },
+   {
+    "body": [
+     10,
+     31,
+     16,
+     33,
+     31,
+     41
+    ],
+    "expr": "CS_DEMEAN(CS_RANK(ABS(CS_DEMEAN(premium_high))))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.017305844153250257
+   },
+   {
+    "body": [
+     8,
+     32,
+     16,
+     31,
+     9,
+     16,
+     33,
+     14,
+     16,
+     41
+    ],
+    "expr": "ABS(DIV(CS_DEMEAN(ABS(CS_ZSCORE(premium_close_bps))), CS_RANK(ABS(mark_index_basis_bps))))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.017768067389014458
+   },
+   {
+    "body": [
+     10,
+     33,
+     40,
+     24,
+     15,
+     41
+    ],
+    "expr": "NEG(TS_MAX(CS_RANK(premium_high), w=672))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": 0.01812016774412699
+   },
+   {
+    "body": [
+     10,
+     31,
+     32,
+     15,
+     41
+    ],
+    "expr": "NEG(CS_ZSCORE(CS_DEMEAN(premium_high)))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.019155180712143737
+   },
+   {
+    "body": [
+     10,
+     32,
+     31,
+     15,
+     41
+    ],
+    "expr": "NEG(CS_DEMEAN(CS_ZSCORE(premium_high)))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.019155180712143737
+   },
+   {
+    "body": [
+     7,
+     33,
+     33,
+     33,
+     33,
+     33,
+     33,
+     39,
+     29,
+     33,
+     33,
+     33,
+     33,
+     33,
+     33,
+     41
+    ],
+    "expr": "CS_RANK(CS_RANK(CS_RANK(CS_RANK(CS_RANK(CS_RANK(EMA(CS_RANK(CS_RANK(CS_RANK(CS_RANK(CS_RANK(CS_RANK(taker_buy_share)))))), w=504)))))))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.019386161055578634
+   },
+   {
+    "body": [
+     9,
+     38,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(mark_index_basis_bps, w=336)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.022222905568904702
+   },
+   {
+    "body": [
+     10,
+     33,
+     31,
+     31,
+     33,
+     15,
+     33,
+     41
+    ],
+    "expr": "CS_RANK(NEG(CS_RANK(CS_DEMEAN(CS_DEMEAN(CS_RANK(premium_high))))))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.02321300490884964
+   },
+   {
+    "body": [
+     7,
+     39,
+     23,
+     34,
+     22,
+     17,
+     7,
+     33,
+     15,
+     15,
+     39,
+     22,
+     32,
+     15,
+     12,
+     41
+    ],
+    "expr": "SUB(SIGN(TS_MEAN(TS_STD(taker_buy_share, w=504), w=6)), NEG(CS_ZSCORE(TS_MEAN(NEG(NEG(CS_RANK(taker_buy_share))), w=504))))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.023217113949370326
+   },
+   {
+    "body": [
+     10,
+     33,
+     31,
+     33,
+     15,
+     41
+    ],
+    "expr": "NEG(CS_RANK(CS_DEMEAN(CS_RANK(premium_high))))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.023441272365494453
+   },
+   {
+    "body": [
+     10,
+     15,
+     40,
+     29,
+     41
+    ],
+    "expr": "EMA(NEG(premium_high), w=672)",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": 0.025458751857460982
+   },
+   {
+    "body": [
+     8,
+     32,
+     38,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(CS_ZSCORE(premium_close_bps), w=336)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.025623484008846776
+   },
+   {
+    "body": [
+     5,
+     34,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(log_oi_value, w=6)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.0272199930192018
+   },
+   {
+    "body": [
+     10,
+     32,
+     15,
+     31,
+     9,
+     33,
+     17,
+     13,
+     16,
+     16,
+     41
+    ],
+    "expr": "ABS(ABS(MUL(CS_DEMEAN(NEG(CS_ZSCORE(premium_high))), SIGN(CS_RANK(mark_index_basis_bps)))))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.027694863394205915
+   },
+   {
+    "body": [
+     8,
+     38,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(premium_close_bps, w=336)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.02779939855562744
+   },
+   {
+    "body": [
+     9,
+     40,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(mark_index_basis_bps, w=672)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.028793683718052413
+   },
+   {
+    "body": [
+     7,
+     38,
+     29,
+     32,
+     31,
+     41
+    ],
+    "expr": "CS_DEMEAN(CS_ZSCORE(EMA(taker_buy_share, w=336)))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.030337747651434117
+   },
+   {
+    "body": [
+     5,
+     16,
+     16,
+     34,
+     26,
+     41
+    ],
+    "expr": "TS_ZSCORE(ABS(ABS(log_oi_value)), w=6)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.03154472478234099
+   },
+   {
+    "body": [
+     5,
+     35,
+     25,
+     6,
+     16,
+     12,
+     15,
+     35,
+     25,
+     4,
+     17,
+     14,
+     5,
+     16,
+     35,
+     24,
+     17,
+     14,
+     5,
+     14,
+     39,
+     21,
+     15,
+     17,
+     32,
+     33,
+     41
+    ],
+    "expr": "CS_RANK(CS_ZSCORE(SIGN(NEG(DELTA(DIV(DIV(DIV(TS_MIN(NEG(SUB(TS_MIN(log_oi_value, w=24), ABS(global_ls_account_ratio))), w=24), SIGN(funding_level)), SIGN(TS_MAX(ABS(log_oi_value), w=24))), log_oi_value), w=504)))))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.03156592268469037
+   },
+   {
+    "body": [
+     9,
+     33,
+     36,
+     20,
+     33,
+     39,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(CS_RANK(LAG(CS_RANK(mark_index_basis_bps), w=72)), w=504)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.034799556816644935
+   },
+   {
+    "body": [
+     8,
+     15,
+     32,
+     31,
+     31,
+     34,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(CS_DEMEAN(CS_DEMEAN(CS_ZSCORE(NEG(premium_close_bps)))), w=6)",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.03640318778715559
+   },
+   {
+    "body": [
+     8,
+     40,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(premium_close_bps, w=672)",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": 0.037126253839239565
+   },
+   {
+    "body": [
+     5,
+     34,
+     21,
+     41
+    ],
+    "expr": "DELTA(log_oi_value, w=6)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.03819901745145139
+   },
+   {
+    "body": [
+     4,
+     15,
+     38,
+     21,
+     41
+    ],
+    "expr": "DELTA(NEG(funding_level), w=336)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.040807939976645356
+   },
+   {
+    "body": [
+     8,
+     39,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(premium_close_bps, w=504)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.04086440562672693
+   },
+   {
+    "body": [
+     7,
+     37,
+     22,
+     41
+    ],
+    "expr": "TS_MEAN(taker_buy_share, w=168)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.04090841184417927
+   },
+   {
+    "body": [
+     10,
+     33,
+     8,
+     33,
+     13,
+     38,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(MUL(CS_RANK(premium_high), CS_RANK(premium_close_bps)), w=336)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.046103627058946
+   },
+   {
+    "body": [
+     10,
+     34,
+     24,
+     33,
+     32,
+     15,
+     41
+    ],
+    "expr": "NEG(CS_ZSCORE(CS_RANK(TS_MAX(premium_high, w=6))))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.04762640775669646
+   },
+   {
+    "body": [
+     10,
+     40,
+     26,
+     16,
+     41
+    ],
+    "expr": "ABS(TS_ZSCORE(premium_high, w=672))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.05014668628928156
+   },
+   {
+    "body": [
+     10,
+     16,
+     31,
+     32,
+     33,
+     17,
+     15,
+     32,
+     37,
+     22,
+     16,
+     9,
+     40,
+     25,
+     31,
+     17,
+     13,
+     16,
+     41
+    ],
+    "expr": "ABS(MUL(ABS(TS_MEAN(CS_ZSCORE(NEG(SIGN(CS_RANK(CS_ZSCORE(CS_DEMEAN(ABS(premium_high))))))), w=168)), SIGN(CS_DEMEAN(TS_MIN(mark_index_basis_bps, w=672)))))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.05648409003083778
+   },
+   {
+    "body": [
+     6,
+     32,
+     6,
+     11,
+     16,
+     33,
+     32,
+     41
+    ],
+    "expr": "CS_ZSCORE(CS_RANK(ABS(ADD(CS_ZSCORE(global_ls_account_ratio), global_ls_account_ratio))))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.05978472257076531
+   },
+   {
+    "body": [
+     7,
+     37,
+     29,
+     33,
+     41
+    ],
+    "expr": "CS_RANK(EMA(taker_buy_share, w=168))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.06227329930157704
+   },
+   {
+    "body": [
+     7,
+     6,
+     11,
+     32,
+     41
+    ],
+    "expr": "CS_ZSCORE(ADD(taker_buy_share, global_ls_account_ratio))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.06746675756271571
+   },
+   {
+    "body": [
+     6,
+     34,
+     22,
+     32,
+     41
+    ],
+    "expr": "CS_ZSCORE(TS_MEAN(global_ls_account_ratio, w=6))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.06828333096158652
+   },
+   {
+    "body": [
+     7,
+     7,
+     32,
+     38,
+     27,
+     35,
+     24,
+     14,
+     41
+    ],
+    "expr": "DIV(taker_buy_share, TS_MAX(TS_RANK(CS_ZSCORE(taker_buy_share), w=336), w=24))",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.07524658010074992
+   },
+   {
+    "body": [
+     4,
+     10,
+     15,
+     13,
+     16,
+     15,
+     8,
+     11,
+     15,
+     37,
+     29,
+     37,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(EMA(NEG(ADD(NEG(ABS(MUL(funding_level, NEG(premium_high)))), premium_close_bps)), w=168), w=168)",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.08836053778141635
+   },
+   {
+    "body": [
+     7,
+     6,
+     14,
+     32,
+     15,
+     40,
+     26,
+     35,
+     23,
+     41
+    ],
+    "expr": "TS_STD(TS_ZSCORE(NEG(CS_ZSCORE(DIV(taker_buy_share, global_ls_account_ratio))), w=672), w=24)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.10894999078642843
+   },
+   {
+    "body": [
+     8,
+     15,
+     40,
+     23,
+     34,
+     27,
+     34,
+     22,
+     41
+    ],
+    "expr": "TS_MEAN(TS_RANK(TS_STD(NEG(premium_close_bps), w=672), w=6), w=6)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.11439819565863288
+   },
+   {
+    "body": [
+     8,
+     31,
+     32,
+     37,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(CS_ZSCORE(CS_DEMEAN(premium_close_bps)), w=168)",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.12468441450193153
+   },
+   {
+    "body": [
+     10,
+     10,
+     15,
+     12,
+     15,
+     41
+    ],
+    "expr": "NEG(SUB(premium_high, NEG(premium_high)))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.1266275125085978
+   },
+   {
+    "body": [
+     10,
+     16,
+     16,
+     15,
+     41
+    ],
+    "expr": "NEG(ABS(ABS(premium_high)))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.13197109304779334
+   },
+   {
+    "body": [
+     10,
+     36,
+     20,
+     15,
+     41
+    ],
+    "expr": "NEG(LAG(premium_high, w=72))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.14030924865532515
+   },
+   {
+    "body": [
+     10,
+     40,
+     20,
+     15,
+     10,
+     14,
+     15,
+     41
+    ],
+    "expr": "NEG(DIV(NEG(LAG(premium_high, w=672)), premium_high))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.15095949496892375
+   },
+   {
+    "body": [
+     10,
+     34,
+     29,
+     15,
+     41
+    ],
+    "expr": "NEG(EMA(premium_high, w=6))",
+    "basin": "T3",
+    "src": "CR1_PC_P8",
+    "corr_p1": -0.16271684736278413
+   },
+   {
+    "body": [
+     5,
+     38,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(log_oi_value, w=336)",
+    "basin": "T2",
+    "src": "B5_DBG_REAL",
+    "corr_p1": 0.2717050085026116
+   }
+  ],
+  "invalid": {},
+  "tried": [
+   {
+    "body": [
+     10,
+     32,
+     31,
+     33,
+     35,
+     23,
+     16,
+     33,
+     39,
+     22,
+     15,
+     34,
+     22,
+     31,
+     41
+    ],
+    "expr": "CS_DEMEAN(TS_MEAN(NEG(TS_MEAN(CS_RANK(ABS(TS_STD(CS_RANK(CS_DEMEAN(CS_ZSCORE(premium_high))), w=24))), w=504)), w=6))",
+    "basin": "T3",
+    "src": "B5_DBG_REAL",
+    "corr_p1": -0.00027749073527018006,
+    "target": 20.0,
+    "alpha2": 5.645627930839096e-05,
+    "gain0": 35.425643072846725,
+    "gain": 20.000650074291798,
+    "tB": 5.868082834398237,
+    "B": {
+     "cost0_bpd": 30.201,
+     "net_bpd": 29.445,
+     "t_cost0": 5.868,
+     "turn_day": 0.1259,
+     "n_pos": 17.121,
+     "months": 30
+    },
+    "ok": true
+   }
+  ],
+  "p2": {
+   "body": [
+    10,
+    32,
+    31,
+    33,
+    35,
+    23,
+    16,
+    33,
+    39,
+    22,
+    15,
+    34,
+    22,
+    31,
+    41
+   ],
+   "expr": "CS_DEMEAN(TS_MEAN(NEG(TS_MEAN(CS_RANK(ABS(TS_STD(CS_RANK(CS_DEMEAN(CS_ZSCORE(premium_high))), w=24))), w=504)), w=6))",
+   "basin": "T3",
+   "alpha": 5.645627930839096e-05,
+   "target_bpd": 20.0,
+   "corr_p1": -0.00027749073527018006,
+   "tB": 5.868082834398237
+  },
+  "arms": {
+   "hours_each": 3.0,
+   "list": [
+    "V2 RL (--combo-sweep)",
+    "V2 + --dedup",
+    "V2 + --gfn 1",
+    "GA (sel1_ga)",
+    "frozen u0 (--frozen)",
+    "V2 + --pool 20"
+   ],
+   "rank": [
+    "plants recovered (hall or pool member with corr > 0.7 to P1 / P2, B-hour Spearman)",
+    "time to recover (within 20 % = tie)",
+    "composite book B t (sel1_combo)"
+   ],
+   "report_only": "behaviour-distinct formulas with A-half t > 3"
+  },
+  "dev_read": false,
+  "oos_read": false,
+  "seconds": 3112.8,
+  "written": "2026-10-15T22:12:34+0800"
+ },
+ "missing": [],
+ "dev_read": false,
+ "oos_read": false,
+ "ranking": [
+  "V2 RL",
+  "V2 + --dedup",
+  "V2 + --gfn 1",
+  "V2 + --frozen",
+  "V2 + --pool 20",
+  "GA"
+ ],
+ "winner": "V2 RL",
+ "winner_run": "SEL1_ARMSMOKE_RL",
+ "arms": [
+  {
+   "arm": "V2 RL",
+   "run": "SEL1_ARMSMOKE_RL",
+   "p1_found": false,
+   "p2_found": false,
+   "plants": 0,
+   "time_s": Infinity,
+   "first_s": [
+    Infinity,
+    Infinity
+   ],
+   "composite_tB": 1.7179944372932279,
+   "composite": {
+    "h": 24,
+    "state": "up_lowvol",
+    "dir": "short",
+    "t_A": 2.6978188636657134,
+    "t_B": 1.7179944372932279,
+    "trim_A": 3.4703326825544885,
+    "trim_B": 6.576415442504782,
+    "years_against": 0
+   },
+   "composite_members": 3,
+   "pool_composite_tB": null,
+   "behav_tA_above_3": 0,
+   "hall": 3,
+   "n_eval": 4,
+   "n_behav": null,
+   "compute_s": 25.0,
+   "p1_hits": [],
+   "p2_hits": [],
+   "rank": 1
+  },
+  {
+   "arm": "V2 + --dedup",
+   "run": "SEL1_ARMSMOKE_DEDUP",
+   "p1_found": false,
+   "p2_found": false,
+   "plants": 0,
+   "time_s": Infinity,
+   "first_s": [
+    Infinity,
+    Infinity
+   ],
+   "composite_tB": 1.7179944372932279,
+   "composite": {
+    "h": 24,
+    "state": "up_lowvol",
+    "dir": "short",
+    "t_A": 2.6978188636657134,
+    "t_B": 1.7179944372932279,
+    "trim_A": 3.4703326825544885,
+    "trim_B": 6.576415442504782,
+    "years_against": 0
+   },
+   "composite_members": 3,
+   "pool_composite_tB": null,
+   "behav_tA_above_3": 0,
+   "hall": 3,
+   "n_eval": 4,
+   "n_behav": null,
+   "compute_s": 24.8,
+   "p1_hits": [],
+   "p2_hits": [],
+   "rank": 2
+  },
+  {
+   "arm": "V2 + --gfn 1",
+   "run": "SEL1_ARMSMOKE_GFN",
+   "p1_found": false,
+   "p2_found": false,
+   "plants": 0,
+   "time_s": Infinity,
+   "first_s": [
+    Infinity,
+    Infinity
+   ],
+   "composite_tB": 1.7179944372932279,
+   "composite": {
+    "h": 24,
+    "state": "up_lowvol",
+    "dir": "short",
+    "t_A": 2.6978188636657134,
+    "t_B": 1.7179944372932279,
+    "trim_A": 3.4703326825544885,
+    "trim_B": 6.576415442504782,
+    "years_against": 0
+   },
+   "composite_members": 3,
+   "pool_composite_tB": null,
+   "behav_tA_above_3": 0,
+   "hall": 3,
+   "n_eval": 4,
+   "n_behav": null,
+   "compute_s": 25.2,
+   "p1_hits": [],
+   "p2_hits": [],
+   "rank": 3
+  },
+  {
+   "arm": "V2 + --frozen",
+   "run": "SEL1_ARMSMOKE_FROZEN",
+   "p1_found": false,
+   "p2_found": false,
+   "plants": 0,
+   "time_s": Infinity,
+   "first_s": [
+    Infinity,
+    Infinity
+   ],
+   "composite_tB": 1.7179944372932279,
+   "composite": {
+    "h": 24,
+    "state": "up_lowvol",
+    "dir": "short",
+    "t_A": 2.6978188636657134,
+    "t_B": 1.7179944372932279,
+    "trim_A": 3.4703326825544885,
+    "trim_B": 6.576415442504782,
+    "years_against": 0
+   },
+   "composite_members": 3,
+   "pool_composite_tB": null,
+   "behav_tA_above_3": 0,
+   "hall": 3,
+   "n_eval": 4,
+   "n_behav": null,
+   "compute_s": 29.0,
+   "p1_hits": [],
+   "p2_hits": [],
+   "rank": 4
+  },
+  {
+   "arm": "V2 + --pool 20",
+   "run": "SEL1_ARMSMOKE_POOL",
+   "p1_found": false,
+   "p2_found": false,
+   "plants": 0,
+   "time_s": Infinity,
+   "first_s": [
+    Infinity,
+    Infinity
+   ],
+   "composite_tB": 1.7179944372932279,
+   "composite": {
+    "h": 24,
+    "state": "up_lowvol",
+    "dir": "short",
+    "t_A": 2.6978188636657134,
+    "t_B": 1.7179944372932279,
+    "trim_A": 3.4703326825544885,
+    "trim_B": 6.576415442504782,
+    "years_against": 0
+   },
+   "composite_members": 3,
+   "pool_composite_tB": 0.9049002874657317,
+   "behav_tA_above_3": 0,
+   "hall": 3,
+   "n_eval": 4,
+   "n_behav": null,
+   "compute_s": 43.8,
+   "p1_hits": [],
+   "p2_hits": [],
+   "rank": 5
+  },
+  {
+   "arm": "GA",
+   "run": "SEL1_ARMSMOKE_GA",
+   "p1_found": false,
+   "p2_found": false,
+   "plants": 0,
+   "time_s": Infinity,
+   "first_s": [
+    Infinity,
+    Infinity
+   ],
+   "composite_tB": 0.9531618610221523,
+   "composite": {
+    "h": 24,
+    "state": "down_lowvol",
+    "dir": "both",
+    "t_A": 2.527187902095811,
+    "t_B": 0.9531618610221523,
+    "trim_A": -1.2285497591795733,
+    "trim_B": -2.408245744819458,
+    "years_against": 1
+   },
+   "composite_members": 14,
+   "pool_composite_tB": null,
+   "behav_tA_above_3": 3,
+   "hall": 20,
+   "n_eval": 76,
+   "n_behav": 60,
+   "compute_s": 344.5,
+   "p1_hits": [],
+   "p2_hits": [],
+   "rank": 6
+  }
+ ],
+ "seconds": 199.0,
+ "written": "2026-10-16T00:50:12+0800"
+}

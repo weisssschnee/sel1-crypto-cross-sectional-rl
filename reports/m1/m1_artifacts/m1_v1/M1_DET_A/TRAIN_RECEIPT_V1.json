@@ -1,0 +1,107 @@
+{
+ "schema": "M1_TRAIN_RECEIPT_V1",
+ "created": "2026-10-02T23:09:24+0800",
+ "months": [
+  "2024-01",
+  "2024-02",
+  "2024-03",
+  "2024-04"
+ ],
+ "config": {
+  "out_name": "M1_DET_A",
+  "shard_dir": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\m1_staging\\m1_shards",
+  "updates": 2,
+  "batch": 32,
+  "seed": 20261002,
+  "device": "cuda",
+  "persist": 1,
+  "manifest_only": false
+ },
+ "reward_definition": "mean of 8 x 360-min episode log NAVs (6bp + funding, 2-min lag, per-formula HOLD)",
+ "invalid_reasons": {
+  "WINDOW_BELOW_OPERATOR_MINIMUM": 5
+ },
+ "uniform_null_at_start": {
+  "roots": {
+   "n_distinct_roots": 7,
+   "top_root": "OP:GATE",
+   "top_root_share_pct": 81.2,
+   "top5": [
+    {
+     "root": "OP:GATE",
+     "share_pct": 81.2
+    },
+    {
+     "root": "TERM:4",
+     "share_pct": 3.1
+    },
+    {
+     "root": "OP:NEG",
+     "share_pct": 3.1
+    },
+    {
+     "root": "OP:TS_STD",
+     "share_pct": 3.1
+    },
+    {
+     "root": "TERM:1",
+     "share_pct": 3.1
+    }
+   ]
+  },
+  "len": {
+   "p10": 8,
+   "p50": 48,
+   "p90": 48
+  },
+  "hold_hist": {
+   "1": 4,
+   "5": 4,
+   "15": 4,
+   "30": 6,
+   "60": 6,
+   "240": 5,
+   "1440": 3
+  }
+ },
+ "trained_policy_final": {
+  "roots": {
+   "n_distinct_roots": 15,
+   "top_root": "OP:SIGN",
+   "top_root_share_pct": 18.8,
+   "top5": [
+    {
+     "root": "OP:SIGN",
+     "share_pct": 18.8
+    },
+    {
+     "root": "OP:NEG",
+     "share_pct": 18.8
+    },
+    {
+     "root": "OP:ABS",
+     "share_pct": 12.5
+    },
+    {
+     "root": "OP:SUB",
+     "share_pct": 6.2
+    },
+    {
+     "root": "OP:GATE",
+     "share_pct": 6.2
+    }
+   ]
+  },
+  "hold_hist": {
+   "1": 3,
+   "5": 5,
+   "15": 4,
+   "30": 7,
+   "60": 4,
+   "240": 6,
+   "1440": 3
+  }
+ },
+ "compute_seconds": 7.2,
+ "oos_read": false
+}

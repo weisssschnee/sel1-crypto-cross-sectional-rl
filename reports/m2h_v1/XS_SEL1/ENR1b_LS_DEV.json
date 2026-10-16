@@ -1,0 +1,93 @@
+{
+ "schema": "ENR1b_LS_DEV_V1",
+ "frozen_sha16": "232cf015aed57426",
+ "code_sha16": "deb4fd4167a73af4",
+ "dev_grid_sha16": "e299aff48a368d62",
+ "pass_rule": "每格单独判：DEV 上不缩尾 flat6 净值（d=−1 方向，每次事件 log 收益均值）> 0，即方向和 TRAIN 一致",
+ "d": -1,
+ "span": [
+  "2026-01-01 00:00:00",
+  "2026-06-30 21:00:00"
+ ],
+ "results": {
+  "H72": {
+   "n_events": 556,
+   "net_bp": -190.4,
+   "cost0_bp": -166.87,
+   "t_cost0_week_clustered": -2.1,
+   "trimmed_net_bp": -250.73,
+   "trimmed_dropped": 6,
+   "net_bp_winsor_report_only": -66.05,
+   "per_month": {
+    "2026-01": {
+     "n": 63,
+     "net_bp": 246.15
+    },
+    "2026-02": {
+     "n": 38,
+     "net_bp": -573.16
+    },
+    "2026-03": {
+     "n": 72,
+     "net_bp": 92.78
+    },
+    "2026-04": {
+     "n": 91,
+     "net_bp": -347.2
+    },
+    "2026-05": {
+     "n": 161,
+     "net_bp": -121.68
+    },
+    "2026-06": {
+     "n": 131,
+     "net_bp": -420.52
+    }
+   },
+   "nontradable_exit_events": 0,
+   "passed": false
+  },
+  "H168": {
+   "n_events": 310,
+   "net_bp": -314.53,
+   "cost0_bp": -290.86,
+   "t_cost0_week_clustered": -1.42,
+   "trimmed_net_bp": -410.72,
+   "trimmed_dropped": 4,
+   "net_bp_winsor_report_only": -30.8,
+   "per_month": {
+    "2026-01": {
+     "n": 34,
+     "net_bp": 512.48
+    },
+    "2026-02": {
+     "n": 22,
+     "net_bp": -1524.83
+    },
+    "2026-03": {
+     "n": 39,
+     "net_bp": 326.92
+    },
+    "2026-04": {
+     "n": 54,
+     "net_bp": -447.66
+    },
+    "2026-05": {
+     "n": 85,
+     "net_bp": 79.93
+    },
+    "2026-06": {
+     "n": 76,
+     "net_bp": -1009.9
+    }
+   },
+   "nontradable_exit_events": 0,
+   "passed": false
+  }
+ },
+ "weak_evidence": "TRAIN 门槛没过：A 半 t −3.21 / −3.05 < T_null 4.145。这次是单次 DEV 检验，只算弱证据，结果不影响 XS_SEL1 的训练",
+ "dev_read": true,
+ "oos_read": false,
+ "seconds": 10.1,
+ "written": "2026-10-14T21:08:17+0800"
+}

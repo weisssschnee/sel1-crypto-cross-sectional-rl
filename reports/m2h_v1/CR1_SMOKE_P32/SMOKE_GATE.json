@@ -1,0 +1,16 @@
+{
+ "run": "CR1_SMOKE_P32",
+ "ok": true,
+ "bad": [],
+ "mean_seconds": 33.89,
+ "mean_times": {
+  "slices": 0.1,
+  "sample": 0.78,
+  "vm": 31.39,
+  "ruler_wait": 0.57,
+  "update": 1.04,
+  "log": 0.0
+ },
+ "mean_unique": 118.4,
+ "vram_gib": 6.723
+}

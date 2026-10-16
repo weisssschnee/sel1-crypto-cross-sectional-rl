@@ -1,0 +1,847 @@
+{
+ "schema": "B5_ROUND_REPORT_V1",
+ "variant": "BASIN5_PC_ENT",
+ "run": "B5_SMOKE_P8_ENT",
+ "trainer": "m2h_b5_trainer_ent",
+ "mode": "p8",
+ "ended_by": [
+  "TRAIN_RECEIPT_V1.json"
+ ],
+ "last_update": 15,
+ "checkpoint": "checkpoint_0015.pt",
+ "checkpoint_update": 15,
+ "found": false,
+ "t1_batch_corr_max": 0.2291,
+ "frozen_corr_max": 0.0544,
+ "rule": "found = T1 batch mean corr with s > 0.3 at a logged update AND a frozen top-5 corr > 0.7 (ADR-0008); batch mean over grammar-legal valid T1 formulas",
+ "收敛到了什么": {
+  "T1": [],
+  "T2": [
+   {
+    "rank": 1,
+    "expr": "taker_buy_share",
+    "n_tokens": 1,
+    "explain": "每小时按「主动买占比」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 2.845,
+    "corr_s": 0.0249
+   },
+   {
+    "rank": 2,
+    "expr": "TS_SLOPE(CS_DEMEAN(taker_buy_share), w=24)",
+    "n_tokens": 4,
+    "explain": "每小时按「主动买占比减去全池均值的24小时趋势斜率」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 1.613,
+    "corr_s": -0.0097
+   },
+   {
+    "rank": 3,
+    "expr": "ABS(SIGN(NEG(ABS(taker_buy_share))))",
+    "n_tokens": 5,
+    "explain": "每小时按「|负的|主动买占比|的正负号|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -4.588,
+    "corr_s": 0.0
+   },
+   {
+    "rank": 4,
+    "expr": "SUB(TS_MIN(SIGN(TS_STD(taker_buy_share, w=504)), w=72), TS_MIN(global_ls_account_ratio, w=72))",
+    "n_tokens": 10,
+    "explain": "每小时按「（主动买占比的504小时波动的正负号的72小时最低值 − 散户多空账户比的72小时最低值）」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -5.79,
+    "corr_s": 0.0012
+   }
+  ],
+  "T3": [
+   {
+    "rank": 1,
+    "expr": "ABS(CS_RANK(premium_close_bps))",
+    "n_tokens": 3,
+    "explain": "每小时按「|合约溢价的截面排名|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 2.347,
+    "corr_s": 0.0175
+   },
+   {
+    "rank": 2,
+    "expr": "mark_index_basis_bps",
+    "n_tokens": 1,
+    "explain": "每小时按「标记-指数基差」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -0.191,
+    "corr_s": -0.0281
+   },
+   {
+    "rank": 3,
+    "expr": "premium_close_bps",
+    "n_tokens": 1,
+    "explain": "每小时按「合约溢价」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -0.798,
+    "corr_s": -0.0562
+   },
+   {
+    "rank": 4,
+    "expr": "ABS(premium_close_bps)",
+    "n_tokens": 2,
+    "explain": "每小时按「|合约溢价|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -3.546,
+    "corr_s": 0.0544
+   },
+   {
+    "rank": 5,
+    "expr": "ABS(SIGN(NEG(ABS(mark_index_basis_bps))))",
+    "n_tokens": 5,
+    "explain": "每小时按「|负的|标记-指数基差|的正负号|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -3.784,
+    "corr_s": 0.0016
+   }
+  ]
+ },
+ "history_top5_by_train_reward": {
+  "note": "NOT in the verdict; logged gross_t rank, 50-tile rescore",
+  "this": {
+   "T1": {
+    "distinct_valid": 30,
+    "logged_corr_gt07_n": 0,
+    "logged_corr_gt07_ranks": [],
+    "top20_corr50_gt07_n": 0,
+    "top20_corr50_max": 0.4499,
+    "top5": [
+     {
+      "rank": 1,
+      "expr": "CS_DEMEAN(DELTA(log_low, w=168))",
+      "n_seen": 1,
+      "first_update": 15,
+      "last_update": 15,
+      "gross_t_logged": 0.8039,
+      "corr_s_logged": 0.4801,
+      "corr_s_50": 0.4499,
+      "conc_k10_train_net_bpd": 12.17,
+      "explain": "每小时按「最低价过去168小时的变化」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 2,
+      "expr": "TS_ZSCORE(log_close, w=168)",
+      "n_seen": 1,
+      "first_update": 4,
+      "last_update": 4,
+      "gross_t_logged": 0.8007,
+      "corr_s_logged": 0.213,
+      "corr_s_50": 0.2262,
+      "conc_k10_train_net_bpd": 9.275,
+      "explain": "每小时按「收盘价相对自身168小时均值的标准分」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 3,
+      "expr": "DELTA(log_close, w=168)",
+      "n_seen": 1,
+      "first_update": 1,
+      "last_update": 1,
+      "gross_t_logged": 0.7377,
+      "corr_s_logged": 0.4807,
+      "corr_s_50": 0.4454,
+      "conc_k10_train_net_bpd": 14.235,
+      "explain": "每小时按「收盘价过去168小时的变化」排序，做多最高的、做空最低的。"
+     }
+    ]
+   },
+   "T2": {
+    "distinct_valid": 260,
+    "logged_corr_gt07_n": 0,
+    "logged_corr_gt07_ranks": [],
+    "top20_corr50_gt07_n": 0,
+    "top20_corr50_max": 0.1336,
+    "top5": [
+     {
+      "rank": 1,
+      "expr": "CS_ZSCORE(ABS(ABS(taker_buy_share)))",
+      "n_seen": 1,
+      "first_update": 13,
+      "last_update": 13,
+      "gross_t_logged": 0.7575,
+      "corr_s_logged": 0.0475,
+      "corr_s_50": 0.0249,
+      "conc_k10_train_net_bpd": 2.845,
+      "explain": "每小时按「||主动买占比||」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 2,
+      "expr": "CS_RANK(CS_RANK(CS_RANK(taker_buy_share)))",
+      "n_seen": 1,
+      "first_update": 13,
+      "last_update": 13,
+      "gross_t_logged": 0.7575,
+      "corr_s_logged": 0.0475,
+      "corr_s_50": 0.0249,
+      "conc_k10_train_net_bpd": 2.845,
+      "explain": "每小时按「主动买占比」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 3,
+      "expr": "CS_RANK(NEG(NEG(EMA(ADD(CS_RANK(DIV(EMA(ABS(NEG(global_ls_account_ratio)), w=168), CS_ZSCORE(taker_buy_share))), taker_buy_share), w=24))))",
+      "n_seen": 1,
+      "first_update": 11,
+      "last_update": 11,
+      "gross_t_logged": 0.6848,
+      "corr_s_logged": 0.1217,
+      "corr_s_50": 0.1336,
+      "conc_k10_train_net_bpd": 7.033,
+      "explain": "每小时按「（（|负的散户多空账户比|的168小时均线 ÷ 主动买占比的截面标准分）的截面排名 + 主动买占比）的24小时均线」排序，做多最高的、做空最低的。"
+     }
+    ]
+   },
+   "T3": {
+    "distinct_valid": 365,
+    "logged_corr_gt07_n": 0,
+    "logged_corr_gt07_ranks": [],
+    "top20_corr50_gt07_n": 0,
+    "top20_corr50_max": 0.1401,
+    "top5": [
+     {
+      "rank": 1,
+      "expr": "CS_DEMEAN(EMA(NEG(TS_STD(mark_index_basis_bps, w=72)), w=672))",
+      "n_seen": 1,
+      "first_update": 13,
+      "last_update": 13,
+      "gross_t_logged": 0.9139,
+      "corr_s_logged": 0.0632,
+      "corr_s_50": 0.1401,
+      "conc_k10_train_net_bpd": 16.912,
+      "explain": "每小时按「负的标记-指数基差的72小时波动的672小时均线」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 2,
+      "expr": "TS_MIN(premium_close_bps, w=168)",
+      "n_seen": 1,
+      "first_update": 13,
+      "last_update": 13,
+      "gross_t_logged": 0.8225,
+      "corr_s_logged": -0.1389,
+      "corr_s_50": -0.0685,
+      "conc_k10_train_net_bpd": 5.346,
+      "explain": "每小时按「合约溢价的168小时最低值」排序，做多最高的、做空最低的。"
+     },
+     {
+      "rank": 3,
+      "expr": "CS_RANK(TS_SLOPE(NEG(mark_index_basis_bps), w=504))",
+      "n_seen": 1,
+      "first_update": 9,
+      "last_update": 9,
+      "gross_t_logged": 0.6876,
+      "corr_s_logged": 0.0891,
+      "corr_s_50": 0.128,
+      "conc_k10_train_net_bpd": 6.851,
+      "explain": "每小时按「负的标记-指数基差的504小时趋势斜率」排序，做多最高的、做空最低的。"
+     }
+    ]
+   }
+  },
+  "ref": "B5_PC_P8",
+  "ref_run": null
+ },
+ "ent_blocks": [
+  {
+   "block": 0,
+   "updates": [
+    0,
+    15
+   ],
+   "skipped": 0,
+   "T1": {
+    "H": 5.5795,
+    "alpha_end": 0.093465,
+    "corr_s": 0.0835,
+    "gross_bpd": 3.9699,
+    "ic": 0.0219,
+    "n_valid": 30,
+    "rejected": 653
+   },
+   "T2": {
+    "H": 5.1474,
+    "alpha_end": 0.132063,
+    "corr_s": -0.0033,
+    "gross_bpd": 1.6932,
+    "ic": 0.0147,
+    "n_valid": 457,
+    "rejected": 180
+   },
+   "T3": {
+    "H": 5.7082,
+    "alpha_end": 0.084318,
+    "corr_s": -0.0133,
+    "gross_bpd": -1.2779,
+    "ic": -0.0154,
+    "n_valid": 509,
+    "rejected": 120
+   }
+  }
+ ],
+ "progress_16": [
+  {
+   "update": 15,
+   "entropy_all": 5.121392250061035,
+   "gradient_norm": 1.9624061584472656,
+   "n_valid": 73,
+   "families": {
+    "T1": {
+     "n_valid": 2,
+     "grammar_reject": 41,
+     "entropy": 5.6329,
+     "ent_alpha": 0.08729,
+     "ent_alpha_next": 0.093465,
+     "corr_s": 0.2326,
+     "gross_t": 0.3941,
+     "gross_bpd": 8.849,
+     "net_bpd": 7.856,
+     "ic": 0.05074,
+     "top": {
+      "expr": "CS_DEMEAN(DELTA(log_low, w=168))",
+      "n_tokens": 4,
+      "reward": 0.80394,
+      "corr_s": 0.4801,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "log_low",
+      "n_tokens": 1,
+      "share": 0.1163,
+      "level_flag": false,
+      "grammar_blocks": true,
+      "grammar_reason": "LEVEL_AT_ROOT"
+     }
+    },
+    "T2": {
+     "n_valid": 33,
+     "grammar_reject": 7,
+     "entropy": 4.4045,
+     "ent_alpha": 0.11599,
+     "ent_alpha_next": 0.132063,
+     "corr_s": 0.0229,
+     "gross_t": 0.0432,
+     "gross_bpd": 0.262,
+     "net_bpd": -0.635,
+     "ic": 0.00758,
+     "top": {
+      "expr": "TS_MAX(TS_SLOPE(taker_buy_share, w=168), w=168)",
+      "n_tokens": 5,
+      "reward": 0.42244,
+      "corr_s": 0.285,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.3023,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 38,
+     "grammar_reject": 3,
+     "entropy": 5.3317,
+     "ent_alpha": 0.07757,
+     "ent_alpha_next": 0.084318,
+     "corr_s": -0.031,
+     "gross_t": -0.064,
+     "gross_bpd": -1.32,
+     "net_bpd": -2.175,
+     "ic": -0.01055,
+     "top": {
+      "expr": "TS_MIN(mark_index_basis_bps, w=168)",
+      "n_tokens": 3,
+      "reward": 0.56769,
+      "corr_s": -0.1599,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "mark_index_basis_bps",
+      "n_tokens": 1,
+      "share": 0.1667,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-12T22:49:07+0800"
+  }
+ ],
+ "prereg": {
+  "run_T1_H": {
+   "rule": "T1: every 16-update block mean of H for updates >= 128 is >= H* - 0.5 = 1.5",
+   "block_min": null,
+   "update_min": null,
+   "passed": false
+  },
+  "run_alpha_not_pinned": {
+   "rule": "alpha not stuck at 1.0: for every family the longest run of updates with alpha_next = 1.0 is < 64 (a quarter of the run)",
+   "per_family": {
+    "T1": {
+     "updates_at_max": 0,
+     "longest_run": 0
+    },
+    "T2": {
+     "updates_at_max": 0,
+     "longest_run": 0
+    },
+    "T3": {
+     "updates_at_max": 0,
+     "longest_run": 0
+    }
+   },
+   "passed": true
+  },
+  "learn_T1_corr": {
+   "rule": "T1 batch mean corr max > 0.3 (curve)",
+   "value": 0.2291,
+   "passed": false
+  },
+  "learn_T1_distinct": {
+   "rule": "T1 distinct (body, hold) in the frozen 256 >= 28 (4x the old 7)",
+   "value": 7,
+   "ref": 7,
+   "passed": false
+  },
+  "verdict_prediction": {
+   "predict": "没找到",
+   "confidence": 0.6,
+   "why": "the entropy floor should fix diversity (T1 distinct >> 7, H ~2 after u150), and T1 batch corr should still pass 0.3. But found also needs a frozen top-5 corr > 0.7, and the top 5 are ranked by conc K10 TRAIN net, not corr. In B5_PC_P8's own history the corr>0.7 T1 formulas rank 10th/16th/19th/40th of 757 by logged reward, and the near relative ranks 69th of 1261 by gross in the RGP P8 log; a more diverse frozen pool will mostly put moderate-corr volume formulas (corr ~0.4-0.6) on top. 40% for found: with H held at 2 the u80/u236 kind (EMA/TS_RANK of log_quote_volume at 168-336, corr ~0.8) stays in the sampled mass and one may make the top 5",
+   "would_change_my_mind": "history column top-20 contains several corr50 > 0.7 formulas with conc net in the frozen top-5 range"
+  }
+ },
+ "step3": {
+  "question": "how grammar-rejected samples enter the gradient",
+  "answer": "m2h_b5_grammar.check runs before scoring; a reject raises CandidateLocalInvalid, so the formula keeps REWARD_FLOOR and valid_mask False. select full: adv = zfam(rewards, valid, counts) = within-family z over the VALID formulas only (mean/sd exclude rejects; one valid formula -> z 0), clipped +-3; then adv[rejected] = -1.0. dense_update runs on all 128 rows: pg_loss = mean over 128 of adv*neglogp, so rejects ARE in the loss denominator and each pushes its own tokens down with weight 1; the entropy term also averages over all 128. The whole step is skipped if batch n_valid < 20",
+  "consequence": "early T1 (u15: 3 valid, 40 rejected) gets ~40 rows of -1 vs ~3 rows of z in [-3, 3] whose mean is 0: the T1 gradient is mostly 'move away from rejected shapes', which favours short legal formulas (order's hypothesis; consistent with the T1 collapse onto 2-3 token log_quote_volume formulas)",
+  "this_round": "reported only, not changed (one variable per round)"
+ },
+ "config_diff": {
+  "args": {
+   "ent_alpha_max": [
+    null,
+    1.0
+   ],
+   "ent_eta": [
+    null,
+    0.05
+   ],
+   "ent_target": [
+    null,
+    7.0
+   ],
+   "max_hours": [
+    10.0,
+    1.5
+   ],
+   "out_name": [
+    "B5_PC_P8",
+    "B5_SMOKE_P8_ENT"
+   ],
+   "updates": [
+    256,
+    16
+   ]
+  },
+  "modules": {
+   "trainer": [
+    "fa34d41b41ea",
+    "be18eafe1b04"
+   ]
+  },
+  "vocab_size": [
+   49,
+   49
+  ],
+  "model_params": [
+   101498,
+   101498
+  ],
+  "code_diff_changed_lines": 75,
+  "code_diff": [
+   "--- m2h_b5_trainer.py",
+   "+++ m2h_b5_trainer_ent.py",
+   "@@ -1 +1,14 @@",
+   "-\"\"\"BASIN5 trainer (BASIN5_ORDER s1/s2/s6, 2026-10-12). Copy of m2h_dense_trainer_v2.py (sha12 in",
+   "+\"\"\"BASIN5_PC_ENT trainer (BASIN5_PC_ENT_ORDER, 2026-10-12). Copy of m2h_b5_trainer.py (sha12",
+   "+fa34d41b41ea, NOT modified) with one change, the entropy weight:",
+   "+",
+   "+  ent         the fixed -0.03 * mean(entropy) becomes -mean(alpha_f(i) * entropy_i), one alpha per",
+   "+              family. alpha_f starts at --ent-coef (0.03); after every parameter step",
+   "+              log alpha_f += --ent-eta * (--ent-target - H_f), clipped to [--ent-coef, --ent-alpha-max].",
+   "+              H_f = the family's mean of sequence_neglogp_entropy's entropy (gamma-0.7 decayed sum",
+   "+              over the token steps, nats) over the rows that entered the gradient = BATCH_LOG /",
+   "+              PROGRESS_16 families.<f>.entropy. A skipped step leaves alpha unchanged. alpha is in",
+   "+              the checkpoint. At alpha_f == 0.03 for every family the loss is m2h_b5_trainer's.",
+   "+",
+   "+m2h_b5_trainer header follows.",
+   "+",
+   "+BASIN5 trainer (BASIN5_ORDER s1/s2/s6, 2026-10-12). Copy of m2h_dense_trainer_v2.py (sha12 in",
+   "@@ -341 +354 @@",
+   "-def dense_update(model, optimizer, batch, idx_np, adv_np, groups, device, ent_coef=0.03):",
+   "+def dense_update(model, optimizer, batch, idx_np, adv_np, groups, device, ent_alpha):",
+   "@@ -343 +356 @@",
+   "-    (novelty weights 1, gamma-0.7 entropy at ent_coef, clip 5.0), on an explicit index set and",
+   "+    (novelty weights 1, gamma-0.7 entropy, clip 5.0), on an explicit index set and",
+   "@@ -344,0 +358 @@",
+   "+    ent: each row's entropy is weighted by its family's alpha (ent_alpha[k]).",
+   "@@ -345,0 +360,2 @@",
+   "+    fam_all = np.concatenate([[k] * int(n) for k, (_, n) in enumerate(groups)])",
+   "+    fam_of = fam_all[np.asarray(idx_np)]",
+   "@@ -354 +370,3 @@",
+   "-    entropy_loss = -ent_coef * torch.mean(entropy)",
+   "+    alpha_rows = torch.as_tensor([float(ent_alpha[k]) for k in fam_of], dtype=torch.float32,",
+   "+                                 device=device)",
+   "+    entropy_loss = -torch.mean(alpha_rows * entropy)",
+   "@@ -367,2 +384,0 @@",
+   "-    fam_all = np.concatenate([[k] * int(n) for k, (_, n) in enumerate(groups)])",
+   "-    fam_of = fam_all[np.asarray(idx_np)]",
+   "@@ -464,0 +481,6 @@",
+   "+    ap.add_argument(\"--ent-target\", type=float, default=2.0,",
+   "+                    help=\"ent: per-family entropy floor H* (nats, gamma-0.7 sequence entropy)\")",
+   "+    ap.add_argument(\"--ent-eta\", type=float, default=0.05,",
+   "+                    help=\"ent: log alpha_f += eta * (H* - H_f) after every parameter step\")",
+   "+    ap.add_argument(\"--ent-alpha-max\", type=float, default=1.0,",
+   "+                    help=\"ent: alpha_f upper clip; the lower clip is --ent-coef\")",
+   "@@ -575,0 +598,11 @@",
+   "+    manifest[\"ent\"] = dict(",
+   "+        order=\"BASIN5_PC_ENT_ORDER\", copied_from=\"m2h_b5_trainer.py\",",
+   "+        alpha_init=args.ent_coef, alpha_min=args.ent_coef, alpha_max=args.ent_alpha_max,",
+   "+        eta=args.ent_eta, target=args.ent_target,",
+   "+        rule=\"after every parameter step: log a_f += eta*(H* - H_f), clip [alpha_min, alpha_max]; \"",
+   "+             \"skipped step -> a_f unchanged; loss entropy term = -mean_i(a_f(i) * H_i)\",",
+   "+        entropy_def=\"sequence_neglogp_entropy(gamma 0.7): per formula, sum over token steps \"",
+   "+                    \"t < MAX_PROGRAM_LEN of gamma^t * H(softmax(effective_logits_t)), nats; \"",
+   "+                    \"post-END steps are one-hot (H 0). H_f = family mean over rows in the gradient\",",
+   "+        vocab_size=fvocab.size, log_vocab=round(math.log(fvocab.size), 4),",
+   "+        per_step_max_sum=round(math.log(fvocab.size) / (1 - 0.7), 4))",
+   "@@ -579,0 +613,4 @@",
+   "+    if not 0.0 < args.ent_coef <= args.ent_alpha_max or args.ent_eta < 0.0:",
+   "+        raise SystemExit(\"ent: need 0 < --ent-coef <= --ent-alpha-max and --ent-eta >= 0\")",
+   "+    if args.select == \"famq95\":",
+   "+        raise SystemExit(\"ent: famq95 goes through basin_risk_update's fixed 0.03; not wired\")",
+   "@@ -607,0 +645 @@",
+   "+    ent_alpha = [float(args.ent_coef)] * len(groups)          # ent: one alpha per family",
+   "@@ -608,0 +647 @@",
+   "+        ent_alpha = [float(x) for x in ck[\"ent_alpha\"]]",
+   "@@ -761 +800 @@",
+   "-                                        groups, device, ent_coef=args.ent_coef)",
+   "+                                        groups, device, ent_alpha)",
+   "@@ -775 +814 @@",
+   "-                                            groups, device, ent_coef=args.ent_coef)",
+   "+                                            groups, device, ent_alpha)",
+   "@@ -776,0 +816,7 @@",
+   "+        # ent: the alpha used by this step is logged; the step then moves alpha towards H*",
+   "+        alpha_used = list(ent_alpha)",
+   "+        if skip_reason is None and not upd.get(\"skipped_nonfinite_update\"):",
+   "+            for k in range(len(groups)):",
+   "+                if fam_ent[k] is not None:",
+   "+                    a_ = math.exp(math.log(ent_alpha[k]) + args.ent_eta * (args.ent_target - fam_ent[k]))",
+   "+                    ent_alpha[k] = min(max(a_, args.ent_coef), args.ent_alpha_max)",
+   "@@ -789,0 +836,2 @@",
+   "+            p[\"ent_alpha\"] = round(alpha_used[k], 6)              # ent: alpha this step used",
+   "+            p[\"ent_alpha_next\"] = round(ent_alpha[k], 6)",
+   "@@ -864 +912,2 @@",
+   "-                            \"n_valid\", \"grammar_reject\", \"entropy\", \"corr_s\", \"gross_t\",",
+   "+                            \"n_valid\", \"grammar_reject\", \"entropy\", \"ent_alpha\", \"ent_alpha_next\",",
+   "+                            \"corr_s\", \"gross_t\",",
+   "@@ -871,2 +920,3 @@",
+   "-                print(\"P16 u%d %s ent %s corr %s rej %s | top[%s tok lf%d] %s | mode[%.2f %s tok blk%d] %s\"",
+   "-                      % (update, p[\"basin\"], p.get(\"entropy\"), p.get(\"corr_s\"), p.get(\"grammar_reject\"),",
+   "+                print(\"P16 u%d %s ent %s a %s corr %s rej %s | top[%s tok lf%d] %s | mode[%.2f %s tok blk%d] %s\"",
+   "+                      % (update, p[\"basin\"], p.get(\"entropy\"), p.get(\"ent_alpha\"), p.get(\"corr_s\"),",
+   "+                         p.get(\"grammar_reject\"),",
+   "@@ -898 +948 @@",
+   "-                             elapsed_s=time.time() - t0)",
+   "+                             elapsed_s=time.time() - t0, ent_alpha=list(ent_alpha))",
+   "@@ -918,0 +969 @@",
+   "+                   ent=dict(manifest[\"ent\"], alpha_final=list(ent_alpha)),"
+  ]
+ },
+ "curve": [
+  {
+   "update": 0,
+   "n": 3,
+   "corr_mean": -0.1252,
+   "corr_max": 0.0052,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 15,
+   "n": 2,
+   "corr_mean": 0.2291,
+   "corr_max": 0.4496,
+   "frac_gt_07": 0.0
+  }
+ ],
+ "curve_tiles": [
+  672,
+  4704,
+  9072,
+  13104
+ ],
+ "blocks": [
+  {
+   "block": 0,
+   "updates": [
+    0,
+    15
+   ],
+   "gnorm": 2.2119,
+   "clip_pct": 0.0,
+   "seconds": 27.3881,
+   "T1": {
+    "gross_bpd": 2.4947,
+    "ic": 0.0143,
+    "turnover": 0.1501,
+    "entropy": 5.5795,
+    "n_valid": 30
+   },
+   "T2": {
+    "gross_bpd": 2.1223,
+    "ic": 0.0143,
+    "turnover": 0.1437,
+    "entropy": 5.1474,
+    "n_valid": 457
+   },
+   "T3": {
+    "gross_bpd": 0.1136,
+    "ic": -0.0156,
+    "turnover": 0.1413,
+    "entropy": 5.7082,
+    "n_valid": 509
+   }
+  }
+ ],
+ "frozen": {
+  "T1": [],
+  "T2": [
+   {
+    "rank": 1,
+    "body": [
+     7,
+     41
+    ],
+    "hold": 168,
+    "expr": "taker_buy_share",
+    "n_tokens": 1,
+    "level_flag": false,
+    "explain": "每小时按「主动买占比」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 2.845,
+    "conc_k10_train_gross_bpd": 4.016,
+    "conc_k10_turnover_per_day": 0.195,
+    "full_train_net_bpd": 3.241,
+    "full_train_gross_bpd": 4.248,
+    "corr_s": 0.0249
+   },
+   {
+    "rank": 2,
+    "body": [
+     7,
+     31,
+     35,
+     28,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_SLOPE(CS_DEMEAN(taker_buy_share), w=24)",
+    "n_tokens": 4,
+    "level_flag": false,
+    "explain": "每小时按「主动买占比减去全池均值的24小时趋势斜率」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 1.613,
+    "conc_k10_train_gross_bpd": 2.768,
+    "conc_k10_turnover_per_day": 0.192,
+    "full_train_net_bpd": -1.264,
+    "full_train_gross_bpd": -0.25,
+    "corr_s": -0.0097
+   },
+   {
+    "rank": 3,
+    "body": [
+     7,
+     16,
+     15,
+     17,
+     16,
+     41
+    ],
+    "hold": 168,
+    "expr": "ABS(SIGN(NEG(ABS(taker_buy_share))))",
+    "n_tokens": 5,
+    "level_flag": false,
+    "explain": "每小时按「|负的|主动买占比|的正负号|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -4.588,
+    "conc_k10_train_gross_bpd": -4.131,
+    "conc_k10_turnover_per_day": 0.076,
+    "full_train_net_bpd": 0.0,
+    "full_train_gross_bpd": 0.0,
+    "corr_s": 0.0
+   },
+   {
+    "rank": 4,
+    "body": [
+     7,
+     39,
+     23,
+     17,
+     36,
+     25,
+     6,
+     36,
+     25,
+     12,
+     41
+    ],
+    "hold": 168,
+    "expr": "SUB(TS_MIN(SIGN(TS_STD(taker_buy_share, w=504)), w=72), TS_MIN(global_ls_account_ratio, w=72))",
+    "n_tokens": 10,
+    "level_flag": false,
+    "explain": "每小时按「（主动买占比的504小时波动的正负号的72小时最低值 − 散户多空账户比的72小时最低值）」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -5.79,
+    "conc_k10_train_gross_bpd": -5.125,
+    "conc_k10_turnover_per_day": 0.111,
+    "full_train_net_bpd": -3.681,
+    "full_train_gross_bpd": -3.123,
+    "corr_s": 0.0012
+   }
+  ],
+  "T3": [
+   {
+    "rank": 1,
+    "body": [
+     8,
+     33,
+     16,
+     41
+    ],
+    "hold": 168,
+    "expr": "ABS(CS_RANK(premium_close_bps))",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「|合约溢价的截面排名|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 2.347,
+    "conc_k10_train_gross_bpd": 3.454,
+    "conc_k10_turnover_per_day": 0.184,
+    "full_train_net_bpd": -3.852,
+    "full_train_gross_bpd": -2.888,
+    "corr_s": 0.0175
+   },
+   {
+    "rank": 2,
+    "body": [
+     9,
+     41
+    ],
+    "hold": 168,
+    "expr": "mark_index_basis_bps",
+    "n_tokens": 1,
+    "level_flag": false,
+    "explain": "每小时按「标记-指数基差」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -0.191,
+    "conc_k10_train_gross_bpd": 0.84,
+    "conc_k10_turnover_per_day": 0.172,
+    "full_train_net_bpd": -0.025,
+    "full_train_gross_bpd": 0.901,
+    "corr_s": -0.0281
+   },
+   {
+    "rank": 3,
+    "body": [
+     8,
+     41
+    ],
+    "hold": 168,
+    "expr": "premium_close_bps",
+    "n_tokens": 1,
+    "level_flag": false,
+    "explain": "每小时按「合约溢价」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -0.798,
+    "conc_k10_train_gross_bpd": 0.275,
+    "conc_k10_turnover_per_day": 0.179,
+    "full_train_net_bpd": -2.329,
+    "full_train_gross_bpd": -1.381,
+    "corr_s": -0.0562
+   },
+   {
+    "rank": 4,
+    "body": [
+     8,
+     16,
+     41
+    ],
+    "hold": 168,
+    "expr": "ABS(premium_close_bps)",
+    "n_tokens": 2,
+    "level_flag": false,
+    "explain": "每小时按「|合约溢价|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -3.546,
+    "conc_k10_train_gross_bpd": -2.439,
+    "conc_k10_turnover_per_day": 0.184,
+    "full_train_net_bpd": -2.194,
+    "full_train_gross_bpd": -1.21,
+    "corr_s": 0.0544
+   },
+   {
+    "rank": 5,
+    "body": [
+     9,
+     16,
+     15,
+     17,
+     16,
+     41
+    ],
+    "hold": 168,
+    "expr": "ABS(SIGN(NEG(ABS(mark_index_basis_bps))))",
+    "n_tokens": 5,
+    "level_flag": false,
+    "explain": "每小时按「|负的|标记-指数基差|的正负号|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -3.784,
+    "conc_k10_train_gross_bpd": -3.232,
+    "conc_k10_turnover_per_day": 0.092,
+    "full_train_net_bpd": -16.402,
+    "full_train_gross_bpd": -15.322,
+    "corr_s": 0.0016
+   }
+  ]
+ },
+ "frozen_sha256": "18e41fbcd6b7073b0dcf441da32dd74f589bf5de5a7584632ed564999e7b7548",
+ "freeze_stats": {
+  "T1": {
+   "sampled": 8,
+   "distinct": 7,
+   "grammar_illegal": 7,
+   "valid": 0,
+   "seconds": 0.0
+  },
+  "T2": {
+   "sampled": 8,
+   "distinct": 6,
+   "grammar_illegal": 2,
+   "valid": 4,
+   "seconds": 71.6
+  },
+  "T3": {
+   "sampled": 8,
+   "distinct": 8,
+   "grammar_illegal": 0,
+   "valid": 8,
+   "seconds": 156.7
+  }
+ },
+ "freeze_rule": {
+  "seed": 20261108,
+  "per_family": 8,
+  "mode": "train",
+  "tiles": 50,
+  "grammar": "m2h_b5_grammar.check, illegal dropped",
+  "rank": "conc book K=10 flat6 TRAIN net, H168",
+  "dedup": "identical 50-tile conc net vector",
+  "world": "p8",
+  "conc_pool": 205
+ },
+ "seconds": 311.4,
+ "written": "2026-10-12T23:04:07+0800",
+ "dev_read": false,
+ "oos_read": false
+}

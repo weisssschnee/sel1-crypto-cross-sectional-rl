@@ -1,0 +1,30 @@
+{
+ "schema": "S1_FINAL_BATCH_V1",
+ "run": "S1_RESUME2_A",
+ "checkpoint": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\artifacts\\m2_v1\\S1_RESUME2_A\\checkpoint_0003.pt",
+ "checkpoint_sha256": "a247b52e850c1aad1f870e243ebd6e8bdcc53453b5e8a53b98a3da0dba62b10c",
+ "checkpoint_update": 3,
+ "seed": 20261108,
+ "n": 64,
+ "n_distinct_tokens": 64,
+ "hold_hist": {
+  "1": 2,
+  "5": 4,
+  "15": 8,
+  "30": 6,
+  "60": 3,
+  "240": 7,
+  "1440": 9,
+  "2880": 19,
+  "10080": 6
+ },
+ "model_mode": "train (as the trainer; dropout on)",
+ "modules": {
+  "m1_ruler": "acba81d92c64",
+  "m1_common": "e5257afa5cba",
+  "m1_sample": "4e91fb4d929b",
+  "stateful_action_policy": "91245359f3ab"
+ },
+ "written": "2026-10-08T12:51:07+0800",
+ "oos_read": false
+}

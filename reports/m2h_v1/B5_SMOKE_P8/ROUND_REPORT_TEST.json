@@ -1,0 +1,589 @@
+{
+ "schema": "B5_ROUND_REPORT_V1",
+ "run": "B5_SMOKE_P8",
+ "trainer": "m2h_b5_trainer",
+ "mode": "p8",
+ "ended_by": [
+  "TRAIN_RECEIPT_V1.json"
+ ],
+ "last_update": 15,
+ "checkpoint": "checkpoint_0015.pt",
+ "checkpoint_update": 15,
+ "found": false,
+ "t1_batch_corr_max": -0.0125,
+ "frozen_corr_max": 0.1822,
+ "rule": "found = T1 batch mean corr with s > 0.3 at a logged update AND a frozen top-5 corr > 0.7 (ADR-0008); batch mean over grammar-legal valid T1 formulas",
+ "收敛到了什么": {
+  "T1": [
+   {
+    "rank": 1,
+    "expr": "NEG(TS_MAX(ABS(CS_RANK(CS_RANK(TS_SLOPE(NEG(TS_ZSCORE(log_high, w=24)), w=168)))), w=336))",
+    "n_tokens": 12,
+    "explain": "每小时按「|负的最高价相对自身24小时均值的标准分的168小时趋势斜率的截面排名的截面排名|的336小时最高值」排序，做多最低的、做空最高的。",
+    "conc_k10_train_net_bpd": 2.141,
+    "corr_s": 0.075
+   },
+   {
+    "rank": 2,
+    "expr": "ABS(TS_RANK(MUL(log_low, SUB(log_low, log_high)), w=6))",
+    "n_tokens": 8,
+    "explain": "每小时按「|（最低价 × （最低价 − 最高价））在自身过去6小时里的分位|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -4.149,
+    "corr_s": -0.0227
+   }
+  ],
+  "T2": [
+   {
+    "rank": 1,
+    "expr": "CS_DEMEAN(EMA(EMA(taker_buy_share, w=24), w=24))",
+    "n_tokens": 6,
+    "explain": "每小时按「主动买占比的24小时均线的24小时均线」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 5.612,
+    "corr_s": 0.1822
+   },
+   {
+    "rank": 2,
+    "expr": "global_ls_account_ratio",
+    "n_tokens": 1,
+    "explain": "每小时按「散户多空账户比」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 3.97,
+    "corr_s": 0.0644
+   },
+   {
+    "rank": 3,
+    "expr": "ABS(NEG(taker_buy_share))",
+    "n_tokens": 3,
+    "explain": "每小时按「|负的主动买占比|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 2.845,
+    "corr_s": 0.0249
+   },
+   {
+    "rank": 4,
+    "expr": "CS_DEMEAN(TS_RANK(taker_buy_share, w=168))",
+    "n_tokens": 4,
+    "explain": "每小时按「主动买占比在自身过去168小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 0.972,
+    "corr_s": -0.0124
+   },
+   {
+    "rank": 5,
+    "expr": "TS_STD(TS_MIN(taker_buy_share, w=72), w=72)",
+    "n_tokens": 5,
+    "explain": "每小时按「主动买占比的72小时最低值的72小时波动」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -1.952,
+    "corr_s": 0.0216
+   }
+  ],
+  "T3": [
+   {
+    "rank": 1,
+    "expr": "CS_ZSCORE(EMA(EMA(mark_index_basis_bps, w=24), w=24))",
+    "n_tokens": 6,
+    "explain": "每小时按「标记-指数基差的24小时均线的24小时均线」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 2.116,
+    "corr_s": -0.0381
+   },
+   {
+    "rank": 2,
+    "expr": "ADD(SUB(premium_close_bps, TS_MAX(CS_ZSCORE(ABS(premium_close_bps)), w=72)), mark_index_basis_bps)",
+    "n_tokens": 9,
+    "explain": "每小时按「（（合约溢价 − |合约溢价|的截面标准分的72小时最高值） + 标记-指数基差）」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 0.27,
+    "corr_s": -0.0586
+   },
+   {
+    "rank": 3,
+    "expr": "CS_ZSCORE(CS_ZSCORE(mark_index_basis_bps))",
+    "n_tokens": 3,
+    "explain": "每小时按「标记-指数基差」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -0.191,
+    "corr_s": -0.0281
+   },
+   {
+    "rank": 4,
+    "expr": "ABS(CS_RANK(CS_RANK(TS_ZSCORE(NEG(TS_STD(mark_index_basis_bps, w=24)), w=168))))",
+    "n_tokens": 9,
+    "explain": "每小时按「|负的标记-指数基差的24小时波动相对自身168小时均值的标准分的截面排名的截面排名|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -0.932,
+    "corr_s": -0.0114
+   },
+   {
+    "rank": 5,
+    "expr": "CS_DEMEAN(NEG(ABS(NEG(SUB(CS_DEMEAN(premium_close_bps), premium_high)))))",
+    "n_tokens": 8,
+    "explain": "每小时按「|负的（合约溢价减去全池均值 − 小时内最高溢价）|」排序，做多最低的、做空最高的。",
+    "conc_k10_train_net_bpd": -2.318,
+    "corr_s": -0.0041
+   }
+  ]
+ },
+ "progress_16": [
+  {
+   "update": 15,
+   "entropy_all": 4.983262062072754,
+   "gradient_norm": 2.0326240062713623,
+   "n_valid": 71,
+   "families": {
+    "T1": {
+     "n_valid": 3,
+     "grammar_reject": 40,
+     "entropy": 5.3802,
+     "corr_s": -0.0277,
+     "gross_t": -0.2309,
+     "gross_bpd": -3.156,
+     "net_bpd": -4.002,
+     "ic": 0.00245,
+     "top": {
+      "expr": "EMA(TS_RANK(log_quote_volume, w=336), w=336)",
+      "n_tokens": 5,
+      "reward": 0.52442,
+      "corr_s": 0.4991,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "log_high",
+      "n_tokens": 1,
+      "share": 0.093,
+      "level_flag": false,
+      "grammar_blocks": true,
+      "grammar_reason": "LEVEL_AT_ROOT"
+     }
+    },
+    "T2": {
+     "n_valid": 36,
+     "grammar_reject": 3,
+     "entropy": 4.1969,
+     "corr_s": 0.0178,
+     "gross_t": 0.04,
+     "gross_bpd": 0.828,
+     "net_bpd": -0.008,
+     "ic": 0.01017,
+     "top": {
+      "expr": "TS_MAX(ABS(taker_buy_share), w=336)",
+      "n_tokens": 4,
+      "reward": 0.41281,
+      "corr_s": 0.0584,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "taker_buy_share",
+      "n_tokens": 1,
+      "share": 0.2326,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    },
+    "T3": {
+     "n_valid": 32,
+     "grammar_reject": 8,
+     "entropy": 5.3819,
+     "corr_s": -0.0256,
+     "gross_t": 0.0864,
+     "gross_bpd": 1.698,
+     "net_bpd": 0.82,
+     "ic": 0.00734,
+     "top": {
+      "expr": "TS_MIN(mark_index_basis_bps, w=336)",
+      "n_tokens": 3,
+      "reward": 0.59275,
+      "corr_s": -0.0023,
+      "level_flag": false,
+      "grammar_blocks": false
+     },
+     "mode": {
+      "expr": "premium_close_bps",
+      "n_tokens": 1,
+      "share": 0.0952,
+      "level_flag": false,
+      "grammar_blocks": false,
+      "grammar_reason": null
+     }
+    }
+   },
+   "written": "2026-10-12T13:12:26+0800"
+  }
+ ],
+ "curve": [
+  {
+   "update": 0,
+   "n": 3,
+   "corr_mean": -0.1252,
+   "corr_max": 0.0052,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 15,
+   "n": 3,
+   "corr_mean": -0.0125,
+   "corr_max": 0.5198,
+   "frac_gt_07": 0.0
+  }
+ ],
+ "curve_tiles": [
+  672,
+  4704,
+  9072,
+  13104
+ ],
+ "blocks": [
+  {
+   "block": 0,
+   "updates": [
+    0,
+    15
+   ],
+   "gnorm": 2.2297,
+   "clip_pct": 0.0,
+   "seconds": 27.945,
+   "T1": {
+    "gross_bpd": 1.6704,
+    "ic": 0.0108,
+    "turnover": 0.1482,
+    "entropy": 5.5613,
+    "n_valid": 31
+   },
+   "T2": {
+    "gross_bpd": 2.1452,
+    "ic": 0.0144,
+    "turnover": 0.143,
+    "entropy": 5.1244,
+    "n_valid": 461
+   },
+   "T3": {
+    "gross_bpd": 0.3349,
+    "ic": -0.0146,
+    "turnover": 0.1416,
+    "entropy": 5.71,
+    "n_valid": 502
+   }
+  }
+ ],
+ "frozen": {
+  "T1": [
+   {
+    "rank": 1,
+    "body": [
+     1,
+     35,
+     26,
+     15,
+     37,
+     28,
+     33,
+     33,
+     16,
+     38,
+     24,
+     15,
+     41
+    ],
+    "hold": 168,
+    "expr": "NEG(TS_MAX(ABS(CS_RANK(CS_RANK(TS_SLOPE(NEG(TS_ZSCORE(log_high, w=24)), w=168)))), w=336))",
+    "n_tokens": 12,
+    "level_flag": false,
+    "explain": "每小时按「|负的最高价相对自身24小时均值的标准分的168小时趋势斜率的截面排名的截面排名|的336小时最高值」排序，做多最低的、做空最高的。",
+    "conc_k10_train_net_bpd": 2.141,
+    "conc_k10_train_gross_bpd": 2.936,
+    "conc_k10_turnover_per_day": 0.133,
+    "full_train_net_bpd": 6.8,
+    "full_train_gross_bpd": 7.39,
+    "corr_s": 0.075
+   },
+   {
+    "rank": 2,
+    "body": [
+     2,
+     2,
+     1,
+     12,
+     13,
+     34,
+     27,
+     16,
+     41
+    ],
+    "hold": 168,
+    "expr": "ABS(TS_RANK(MUL(log_low, SUB(log_low, log_high)), w=6))",
+    "n_tokens": 8,
+    "level_flag": false,
+    "explain": "每小时按「|（最低价 × （最低价 − 最高价））在自身过去6小时里的分位|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -4.149,
+    "conc_k10_train_gross_bpd": -3.067,
+    "conc_k10_turnover_per_day": 0.18,
+    "full_train_net_bpd": -5.264,
+    "full_train_gross_bpd": -4.311,
+    "corr_s": -0.0227
+   }
+  ],
+  "T2": [
+   {
+    "rank": 1,
+    "body": [
+     7,
+     35,
+     29,
+     35,
+     29,
+     31,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_DEMEAN(EMA(EMA(taker_buy_share, w=24), w=24))",
+    "n_tokens": 6,
+    "level_flag": false,
+    "explain": "每小时按「主动买占比的24小时均线的24小时均线」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 5.612,
+    "conc_k10_train_gross_bpd": 6.629,
+    "conc_k10_turnover_per_day": 0.169,
+    "full_train_net_bpd": 7.0,
+    "full_train_gross_bpd": 7.762,
+    "corr_s": 0.1822
+   },
+   {
+    "rank": 2,
+    "body": [
+     6,
+     41
+    ],
+    "hold": 168,
+    "expr": "global_ls_account_ratio",
+    "n_tokens": 1,
+    "level_flag": false,
+    "explain": "每小时按「散户多空账户比」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 3.97,
+    "conc_k10_train_gross_bpd": 4.631,
+    "conc_k10_turnover_per_day": 0.11,
+    "full_train_net_bpd": 2.604,
+    "full_train_gross_bpd": 3.163,
+    "corr_s": 0.0644
+   },
+   {
+    "rank": 3,
+    "body": [
+     7,
+     15,
+     16,
+     41
+    ],
+    "hold": 168,
+    "expr": "ABS(NEG(taker_buy_share))",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「|负的主动买占比|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 2.845,
+    "conc_k10_train_gross_bpd": 4.016,
+    "conc_k10_turnover_per_day": 0.195,
+    "full_train_net_bpd": 3.241,
+    "full_train_gross_bpd": 4.248,
+    "corr_s": 0.0249
+   },
+   {
+    "rank": 4,
+    "body": [
+     7,
+     37,
+     27,
+     31,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_DEMEAN(TS_RANK(taker_buy_share, w=168))",
+    "n_tokens": 4,
+    "level_flag": false,
+    "explain": "每小时按「主动买占比在自身过去168小时里的分位」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 0.972,
+    "conc_k10_train_gross_bpd": 2.137,
+    "conc_k10_turnover_per_day": 0.194,
+    "full_train_net_bpd": 1.235,
+    "full_train_gross_bpd": 2.249,
+    "corr_s": -0.0124
+   },
+   {
+    "rank": 5,
+    "body": [
+     7,
+     36,
+     25,
+     36,
+     23,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_STD(TS_MIN(taker_buy_share, w=72), w=72)",
+    "n_tokens": 5,
+    "level_flag": false,
+    "explain": "每小时按「主动买占比的72小时最低值的72小时波动」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -1.952,
+    "conc_k10_train_gross_bpd": -0.797,
+    "conc_k10_turnover_per_day": 0.192,
+    "full_train_net_bpd": -2.05,
+    "full_train_gross_bpd": -1.045,
+    "corr_s": 0.0216
+   }
+  ],
+  "T3": [
+   {
+    "rank": 1,
+    "body": [
+     9,
+     35,
+     29,
+     35,
+     29,
+     32,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_ZSCORE(EMA(EMA(mark_index_basis_bps, w=24), w=24))",
+    "n_tokens": 6,
+    "level_flag": false,
+    "explain": "每小时按「标记-指数基差的24小时均线的24小时均线」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 2.116,
+    "conc_k10_train_gross_bpd": 2.822,
+    "conc_k10_turnover_per_day": 0.118,
+    "full_train_net_bpd": 1.09,
+    "full_train_gross_bpd": 1.698,
+    "corr_s": -0.0381
+   },
+   {
+    "rank": 2,
+    "body": [
+     8,
+     8,
+     16,
+     32,
+     36,
+     24,
+     12,
+     9,
+     11,
+     41
+    ],
+    "hold": 168,
+    "expr": "ADD(SUB(premium_close_bps, TS_MAX(CS_ZSCORE(ABS(premium_close_bps)), w=72)), mark_index_basis_bps)",
+    "n_tokens": 9,
+    "level_flag": false,
+    "explain": "每小时按「（（合约溢价 − |合约溢价|的截面标准分的72小时最高值） + 标记-指数基差）」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": 0.27,
+    "conc_k10_train_gross_bpd": 1.319,
+    "conc_k10_turnover_per_day": 0.175,
+    "full_train_net_bpd": 1.043,
+    "full_train_gross_bpd": 1.99,
+    "corr_s": -0.0586
+   },
+   {
+    "rank": 3,
+    "body": [
+     9,
+     32,
+     32,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_ZSCORE(CS_ZSCORE(mark_index_basis_bps))",
+    "n_tokens": 3,
+    "level_flag": false,
+    "explain": "每小时按「标记-指数基差」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -0.191,
+    "conc_k10_train_gross_bpd": 0.84,
+    "conc_k10_turnover_per_day": 0.172,
+    "full_train_net_bpd": -0.025,
+    "full_train_gross_bpd": 0.901,
+    "corr_s": -0.0281
+   },
+   {
+    "rank": 4,
+    "body": [
+     9,
+     35,
+     23,
+     15,
+     37,
+     26,
+     33,
+     33,
+     16,
+     41
+    ],
+    "hold": 168,
+    "expr": "ABS(CS_RANK(CS_RANK(TS_ZSCORE(NEG(TS_STD(mark_index_basis_bps, w=24)), w=168))))",
+    "n_tokens": 9,
+    "level_flag": false,
+    "explain": "每小时按「|负的标记-指数基差的24小时波动相对自身168小时均值的标准分的截面排名的截面排名|」排序，做多最高的、做空最低的。",
+    "conc_k10_train_net_bpd": -0.932,
+    "conc_k10_train_gross_bpd": 0.241,
+    "conc_k10_turnover_per_day": 0.195,
+    "full_train_net_bpd": -4.255,
+    "full_train_gross_bpd": -3.224,
+    "corr_s": -0.0114
+   },
+   {
+    "rank": 5,
+    "body": [
+     8,
+     31,
+     10,
+     12,
+     15,
+     16,
+     15,
+     31,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_DEMEAN(NEG(ABS(NEG(SUB(CS_DEMEAN(premium_close_bps), premium_high)))))",
+    "n_tokens": 8,
+    "level_flag": false,
+    "explain": "每小时按「|负的（合约溢价减去全池均值 − 小时内最高溢价）|」排序，做多最低的、做空最高的。",
+    "conc_k10_train_net_bpd": -2.318,
+    "conc_k10_train_gross_bpd": -1.205,
+    "conc_k10_turnover_per_day": 0.185,
+    "full_train_net_bpd": 3.28,
+    "full_train_gross_bpd": 4.229,
+    "corr_s": -0.0041
+   }
+  ]
+ },
+ "frozen_sha256": "0c8c6f49da9c20ea273ef4fde3fd26413c023bfb23387725968637c511f86dea",
+ "freeze_stats": {
+  "T1": {
+   "sampled": 16,
+   "distinct": 15,
+   "grammar_illegal": 12,
+   "valid": 2,
+   "seconds": 68.8
+  },
+  "T2": {
+   "sampled": 16,
+   "distinct": 12,
+   "grammar_illegal": 2,
+   "valid": 10,
+   "seconds": 171.0
+  },
+  "T3": {
+   "sampled": 16,
+   "distinct": 16,
+   "grammar_illegal": 2,
+   "valid": 14,
+   "seconds": 75.0
+  }
+ },
+ "freeze_rule": {
+  "seed": 20261108,
+  "per_family": 16,
+  "mode": "train",
+  "tiles": 50,
+  "grammar": "m2h_b5_grammar.check, illegal dropped",
+  "rank": "conc book K=10 flat6 TRAIN net, H168",
+  "dedup": "identical 50-tile conc net vector",
+  "world": "p8",
+  "conc_pool": 205
+ },
+ "seconds": 327.7,
+ "written": "2026-10-12T14:14:30+0800",
+ "dev_read": false,
+ "oos_read": false
+}

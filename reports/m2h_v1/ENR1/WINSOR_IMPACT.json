@@ -1,0 +1,72 @@
+{
+ "schema": "WINSOR_IMPACT_V1",
+ "unit": "bp/day net flat6, COMBO_V1 tiles 2022-01..2025-12 (104 x 336 h)",
+ "code_sha16": "d05cea6819c61afc",
+ "grid_sha16": "8f39608e6951572a",
+ "results": {
+  "winsor1": {
+   "combo": {
+    "conc_k10": -3.0945,
+    "full": 0.431
+   },
+   "mom1w": {
+    "conc_k10": 1.7745,
+    "full": 0.0837
+   },
+   "combo_k10_by_year": {
+    "2022": 6.1124,
+    "2023": 7.5457,
+    "2024": 2.4589,
+    "2025": -29.8793
+   },
+   "mom1w_k10_by_year": {
+    "2022": -8.7657,
+    "2023": -9.741,
+    "2024": -0.9274,
+    "2025": 27.9442
+   },
+   "turn_k10": 0.182,
+   "gate_passed": false
+  },
+  "winsor0": {
+   "combo": {
+    "conc_k10": -9.5274,
+    "full": -3.4237
+   },
+   "mom1w": {
+    "conc_k10": 5.8998,
+    "full": 2.2918
+   },
+   "combo_k10_by_year": {
+    "2022": 5.2772,
+    "2023": 1.9716,
+    "2024": -4.6782,
+    "2025": -42.5186
+   },
+   "mom1w_k10_by_year": {
+    "2022": 0.6671,
+    "2023": -4.0467,
+    "2024": 2.9417,
+    "2025": 24.9719
+   },
+   "turn_k10": 0.182,
+   "gate_passed": false
+  }
+ },
+ "diff_winsor0_minus_winsor1": {
+  "combo": {
+   "conc_k10": -6.433,
+   "full": -3.855
+  },
+  "mom1w": {
+   "conc_k10": 4.125,
+   "full": 2.208
+  }
+ },
+ "frozen_h2": "没做：gbm_xs_h1 只存了汇总 JSON，没有 DEV 仓位或打分；重建要跑 alpha311 环境里的 LightGBM，红线不碰",
+ "notes": "Ruler winsor impact (QuantMind 10-14 message, part 2; report only, CPU, V4 TRAIN, no DEV, no OOS).\nSame V4 TRAIN world, same signals and the same COMBO_V1 walk-forward signs (combo_v1.stage1, unmodified); only the\nsettlement grid differs:\n  winsor 1  world()'s fwd_wx (m1_ruler.prepare_shard winsor_pct=1 + delisting layer) -- every earlier receipt\n  winsor 0  m1_ruler.prepare_shard(winsor_pct=0) + v4_world.install_layer, asserted == world()'s fwd_x\nThe IC used to fit COMBO_V1's yearly signs stays on the winsorised forward returns in both runs (it is part of the\nmodel, not of the settlement), so the difference is settlement only. No conclusion file is touched.\nFROZEN_H2: not done -- gbm_xs_h1 stores only summary JSON (no DEV positions or scores); rebuilding the DEV signal\nneeds the LightGBM model in the alpha311 env, which is off limits.\n",
+ "dev_read": false,
+ "oos_read": false,
+ "seconds": 131.7,
+ "written": "2026-10-14T19:35:36+0800"
+}

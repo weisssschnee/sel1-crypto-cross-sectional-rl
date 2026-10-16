@@ -1,0 +1,53 @@
+{
+ "schema": "M2H_TRAIN_RECEIPT_V1",
+ "run": "TV1_R4_DENSE_NULL",
+ "created": "2026-10-10T22:00:48+0800",
+ "config": {
+  "out_name": "TV1_R4_DENSE_NULL",
+  "panel": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\train2024_2025_panel_v1\\TRAIN2024JAN_2025DEC_HOURLY54_TARGET_LONG_V1.parquet",
+  "updates": 256,
+  "batch": 128,
+  "reward": "ic",
+  "select": "full",
+  "seed": 20261009,
+  "tiles": 16,
+  "device": "cuda",
+  "persist": 1,
+  "cost": "flat6",
+  "band": 0.5,
+  "nav_usd": 100000.0,
+  "checkpoint_every": 16,
+  "vm_block_elems": 33554432,
+  "ema_cache_max": 1,
+  "resume": null,
+  "max_hours": 7.0,
+  "manifest_only": false
+ },
+ "n_tiles": 50,
+ "invalid_reasons": {
+  "ZERO": 841
+ },
+ "elite_pool_final_size": 200,
+ "trained_policy_final": {
+  "hold_hist": {
+   "4": 0,
+   "24": 0,
+   "72": 0,
+   "168": 128
+  },
+  "exprs": [
+   "MUL(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(MUL(SIGN(TS_ZSCORE(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(log_quote_volume))))))))))))), w=24)), SIGN(log_quote_volume)))))))))))))))))))))))), SIGN(CS_RANK(SIGN(log_close))))",
+   "DIV(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(MUL(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(log_close))))))))))))))))))))), SIGN(TS_RANK(CS_RANK(CS_RANK(SIGN(log_close))), w=168))))))))))))))), SIGN(SIGN(SIGN(log_high))))",
+   "CS_RANK(SIGN(SIGN(SIGN(CS_DEMEAN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(CS_RANK(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(CS_DEMEAN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(log_close))))))))))))))))))))))))))))))))))))))))))))))",
+   "GATE(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(SIGN(TS_STD(ABS(SIGN(SIGN(SIGN(CS_DEMEAN(SIGN(SIGN(log_close))))))), w=168))))))))))))))))))))))))))))), SIGN(log_low), SIGN(SIGN(SIGN(SIGN(SIGN(log_close))))))",
+   "PER_ASSET_THRESH(CS_RANK(SIGN(SIGN(CS_RANK(SIGN(CS_RANK(SIGN(SIGN(SIGN(CS_RANK(SIGN(MUL(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(log_close))))))))))), SIGN(log_quote_volume))))))))))))), SIGN(CS_DEMEAN(SIGN(SIGN(CS_DEMEAN(SIGN(NEG(SIGN(SIGN(CS_RANK(log_close)))))))))), MUL(SIGN(SIGN(SIGN(SIGN(log_low)))), SIGN(SIGN(log_quote_volume))))",
+   "SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(SIGN(CS_DEMEAN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(SIGN(CS_RANK(SIGN(MUL(SIGN(SIGN(log_close)), SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(SIGN(CS_RANK(SIGN(SIGN(SIGN(SIGN(log_quote_volume)))))))))))))))))))))))))))))))))))))))))))",
+   "log_low",
+   "SIGN(SIGN(SIGN(CS_RANK(CS_RANK(SIGN(SIGN(TS_MEAN(SIGN(ABS(SIGN(SIGN(SIGN(log_quote_volume))))), w=168))))))))"
+  ]
+ },
+ "peak_vram_alloc_gib": 6.615,
+ "compute_seconds": 13316.4,
+ "oos_read": false,
+ "dev_read": false
+}

@@ -1,0 +1,21 @@
+{
+ "schema": "M1_CANDIDATES_RECEIPT_V1",
+ "created": 1791049685.3360178,
+ "seed": 20261007,
+ "checkpoint_update": 127,
+ "formulas_rows": 32768,
+ "elite_rule": {
+  "last_updates": 32,
+  "frac": 0.05,
+  "distinct": 412,
+  "dropped_in_sampled": 7
+ },
+ "counts": {
+  "trained_sampled": 1024,
+  "trained_elite": 405,
+  "uniform": 1024,
+  "handwritten_baseline": 1
+ },
+ "sha256": "ecf07788c01fae9c385c274e6c16eb7f904d53e16081b59932b041acf93e8ba3",
+ "oos_read": false
+}

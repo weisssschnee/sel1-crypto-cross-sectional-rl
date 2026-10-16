@@ -1,0 +1,132 @@
+{
+ "schema": "M2H_TRAIN_LAUNCH_MANIFEST_V1",
+ "run": "BASIN3_H1_20261009",
+ "python": "D:\\ChengboRemote\\venvs\\m1cu128\\Scripts\\python.exe",
+ "entry": "D:\\ChengboRemote\\runtime\\basin3_h1\\m2h_trainer.py",
+ "args": {
+  "out_name": "BASIN3_H1_20261009",
+  "panel": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\train2024_2025_panel_v1\\TRAIN2024JAN_2025DEC_HOURLY54_TARGET_LONG_V1.parquet",
+  "updates": 128,
+  "batch": 256,
+  "seed": 20261009,
+  "tiles": 4,
+  "device": "cuda",
+  "persist": 1,
+  "cost": "flat6",
+  "band": 0.5,
+  "nav_usd": 100000.0,
+  "checkpoint_every": 16,
+  "vm_block_elems": 33554432,
+  "ema_cache_max": 1,
+  "resume": null,
+  "max_hours": 9.0,
+  "manifest_only": false
+ },
+ "modules": {
+  "m1_ruler": "acba81d92c64",
+  "m1_common": "e5257afa5cba",
+  "m2h_common": "cbc2ab8b98df",
+  "stateful_action_policy": "91245359f3ab",
+  "trainer": "6969196607bb"
+ },
+ "panel": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\train2024_2025_panel_v1\\TRAIN2024JAN_2025DEC_HOURLY54_TARGET_LONG_V1.parquet",
+ "symbols": 489,
+ "hours": 17544,
+ "n_tiles": 50,
+ "tiles_per_update": 4,
+ "vocab_size": 49,
+ "holds": [
+  4,
+  24,
+  72,
+  168
+ ],
+ "windows": [
+  6,
+  24,
+  72,
+  168,
+  336,
+  504,
+  672
+ ],
+ "basins": {
+  "T1": {
+   "terminals": [
+    "log_close",
+    "log_high",
+    "log_low",
+    "log_quote_volume"
+   ],
+   "quota": 86
+  },
+  "T2": {
+   "terminals": [
+    "funding_level",
+    "log_oi_value",
+    "global_ls_account_ratio",
+    "taker_buy_share"
+   ],
+   "quota": 85
+  },
+  "T3": {
+   "terminals": [
+    "premium_close_bps",
+    "mark_index_basis_bps",
+    "premium_high",
+    "funding_level"
+   ],
+   "quota": 85
+  }
+ },
+ "grid": {
+  "step_hours": 1,
+  "lag_rows": 1,
+  "episode_h": 336,
+  "lookback_h": 672,
+  "notes": "m1_ruler.LAG is 2 minutes and is sha-pinned; m2h_common reads the episode columns at offset 1"
+ },
+ "universe": {
+  "top_n": 100,
+  "window_h": 720,
+  "min_h": 360,
+  "rank_method": "first",
+  "applied_to": "formula output at the signal row"
+ },
+ "ruler": {
+  "module": "m1_ruler",
+  "functions": [
+   "score_window",
+   "held_path",
+   "settle_multi",
+   "rank_weights",
+   "prepare_shard"
+  ],
+  "winsor_pct": 1.0,
+  "band": 0.5,
+  "positions": "C.rank_weights, sum w = 0, sum|w| = 1"
+ },
+ "reward": {
+  "aggregate": "mean",
+  "floor": -2.0,
+  "cost": "flat6",
+  "definition": "mean over 4 drawn disjoint 336 h tiles of net log NAV (flat6, funding charged, lag 1, per-formula HOLD)",
+  "declared_choice": "the handoff says 'draw 4 tiles, take the mean'; no SELECT/HOLDOUT split, so all drawn tiles enter the gradient",
+  "banned_aggregates": [
+   "second_best",
+   "max",
+   "median"
+  ]
+ },
+ "elite": {
+  "epsilon": 0.05,
+  "per_family": true,
+  "rule": "select_risk_elite called once per family (v4 unmodified); elite sets concatenated into one update; each family keeps its own baseline"
+ },
+ "model_params": 101498,
+ "checkpoint": {
+  "every": 16,
+  "max_hours": 9.0
+ },
+ "written_at": "2026-10-09T20:06:51+0800"
+}

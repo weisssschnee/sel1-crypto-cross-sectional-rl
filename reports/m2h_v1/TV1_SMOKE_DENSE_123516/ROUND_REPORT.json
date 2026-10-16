@@ -1,0 +1,389 @@
+{
+ "schema": "TV1_ROUND_REPORT_V1",
+ "run": "TV1_SMOKE_DENSE_123516",
+ "trainer": "dense",
+ "mode": "p8",
+ "ended_by": [
+  "TRAIN_RECEIPT_V1.json"
+ ],
+ "last_update": 1,
+ "checkpoint": "checkpoint_0001.pt",
+ "checkpoint_update": 1,
+ "found": false,
+ "t1_batch_corr_max": 0.0781,
+ "frozen_corr_max": 0.3213,
+ "rule": "found = T1 batch mean corr with s > 0.3 at a logged update AND a frozen top-5 corr > 0.7",
+ "curve": [
+  {
+   "update": 0,
+   "n": 11,
+   "corr_mean": 0.0781,
+   "corr_max": 0.3306,
+   "frac_gt_07": 0.0
+  },
+  {
+   "update": 1,
+   "n": 10,
+   "corr_mean": 0.0477,
+   "corr_max": 0.3306,
+   "frac_gt_07": 0.0
+  }
+ ],
+ "curve_tiles": [
+  672,
+  4704,
+  9072,
+  13104
+ ],
+ "blocks": [
+  {
+   "block": 0,
+   "updates": [
+    0,
+    15
+   ],
+   "gnorm": 5.2208,
+   "clip_pct": 50.0,
+   "seconds": 15.79,
+   "T1": {
+    "gross_bpd": 2.2252,
+    "ic": 0.0406,
+    "turnover": 0.088,
+    "entropy": 5.2829,
+    "n_valid": 21
+   },
+   "T2": {
+    "gross_bpd": 6.1371,
+    "ic": 0.0405,
+    "turnover": 0.1172,
+    "entropy": 5.3842,
+    "n_valid": 20
+   },
+   "T3": {
+    "gross_bpd": 0.8862,
+    "ic": -0.0177,
+    "turnover": 0.1236,
+    "entropy": 6.2052,
+    "n_valid": 18
+   }
+  }
+ ],
+ "frozen": {
+  "T1": [
+   {
+    "rank": 1,
+    "body": [
+     0,
+     41
+    ],
+    "hold": 168,
+    "expr": "log_close",
+    "train50_net_bpd": 9.926,
+    "train50_gross_bpd": 10.362,
+    "corr_s": 0.1028,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "body": [
+     2,
+     41
+    ],
+    "hold": 168,
+    "expr": "log_low",
+    "train50_net_bpd": 9.881,
+    "train50_gross_bpd": 10.316,
+    "corr_s": 0.1025,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "body": [
+     1,
+     41
+    ],
+    "hold": 168,
+    "expr": "log_high",
+    "train50_net_bpd": 9.816,
+    "train50_gross_bpd": 10.252,
+    "corr_s": 0.1032,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "body": [
+     1,
+     34,
+     20,
+     41
+    ],
+    "hold": 168,
+    "expr": "LAG(log_high, w=6)",
+    "train50_net_bpd": 9.686,
+    "train50_gross_bpd": 10.121,
+    "corr_s": 0.1031,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "body": [
+     3,
+     41
+    ],
+    "hold": 168,
+    "expr": "log_quote_volume",
+    "train50_net_bpd": 6.111,
+    "train50_gross_bpd": 6.686,
+    "corr_s": 0.3213,
+    "level_flag": false
+   }
+  ],
+  "T2": [
+   {
+    "rank": 1,
+    "body": [
+     5,
+     41
+    ],
+    "hold": 168,
+    "expr": "log_oi_value",
+    "train50_net_bpd": 13.096,
+    "train50_gross_bpd": 13.615,
+    "corr_s": 0.229,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "body": [
+     6,
+     16,
+     4,
+     11,
+     33,
+     17,
+     33,
+     32,
+     33,
+     33,
+     15,
+     31,
+     15,
+     31,
+     34,
+     28,
+     41
+    ],
+    "hold": 168,
+    "expr": "TS_SLOPE(CS_DEMEAN(NEG(CS_DEMEAN(NEG(CS_RANK(CS_RANK(CS_ZSCORE(CS_RANK(SIGN(CS_RANK(ADD(ABS(global_ls_account_ratio), funding_level))))))))))), w=6)",
+    "train50_net_bpd": 4.277,
+    "train50_gross_bpd": 5.268,
+    "corr_s": 0.0006,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "body": [
+     4,
+     7,
+     11,
+     41
+    ],
+    "hold": 168,
+    "expr": "ADD(funding_level, taker_buy_share)",
+    "train50_net_bpd": 3.116,
+    "train50_gross_bpd": 4.124,
+    "corr_s": 0.0241,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "body": [
+     6,
+     41
+    ],
+    "hold": 168,
+    "expr": "global_ls_account_ratio",
+    "train50_net_bpd": 2.604,
+    "train50_gross_bpd": 3.163,
+    "corr_s": 0.0644,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "body": [
+     4,
+     17,
+     41
+    ],
+    "hold": 168,
+    "expr": "SIGN(funding_level)",
+    "train50_net_bpd": 1.36,
+    "train50_gross_bpd": 2.13,
+    "corr_s": -0.0597,
+    "level_flag": true
+   }
+  ],
+  "T3": [
+   {
+    "rank": 1,
+    "body": [
+     9,
+     34,
+     20,
+     4,
+     8,
+     31,
+     32,
+     16,
+     33,
+     32,
+     12,
+     17,
+     15,
+     12,
+     31,
+     33,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_RANK(CS_DEMEAN(SUB(LAG(mark_index_basis_bps, w=6), NEG(SIGN(SUB(funding_level, CS_ZSCORE(CS_RANK(ABS(CS_ZSCORE(CS_DEMEAN(premium_close_bps)))))))))))",
+    "train50_net_bpd": 3.069,
+    "train50_gross_bpd": 3.997,
+    "corr_s": -0.0207,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "body": [
+     8,
+     15,
+     17,
+     40,
+     22,
+     32,
+     33,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_RANK(CS_ZSCORE(TS_MEAN(SIGN(NEG(premium_close_bps)), w=672)))",
+    "train50_net_bpd": 2.756,
+    "train50_gross_bpd": 3.257,
+    "corr_s": 0.0595,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "body": [
+     8,
+     15,
+     17,
+     38,
+     28,
+     32,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_ZSCORE(TS_SLOPE(SIGN(NEG(premium_close_bps)), w=336))",
+    "train50_net_bpd": 0.544,
+    "train50_gross_bpd": 1.577,
+    "corr_s": 0.0883,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "body": [
+     8,
+     4,
+     10,
+     14,
+     11,
+     32,
+     38,
+     28,
+     10,
+     38,
+     22,
+     33,
+     31,
+     40,
+     24,
+     12,
+     36,
+     23,
+     16,
+     33,
+     41
+    ],
+    "hold": 168,
+    "expr": "CS_RANK(ABS(TS_STD(SUB(TS_SLOPE(CS_ZSCORE(ADD(premium_close_bps, DIV(funding_level, premium_high))), w=336), TS_MAX(CS_DEMEAN(CS_RANK(TS_MEAN(premium_high, w=336))), w=672)), w=72)))",
+    "train50_net_bpd": 0.219,
+    "train50_gross_bpd": 1.232,
+    "corr_s": 0.1365,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "body": [
+     9,
+     8,
+     36,
+     25,
+     12,
+     32,
+     16,
+     32,
+     32,
+     16,
+     17,
+     37,
+     21,
+     16,
+     41
+    ],
+    "hold": 168,
+    "expr": "ABS(DELTA(SIGN(ABS(CS_ZSCORE(CS_ZSCORE(ABS(CS_ZSCORE(SUB(mark_index_basis_bps, TS_MIN(premium_close_bps, w=72)))))))), w=168))",
+    "train50_net_bpd": 0.0,
+    "train50_gross_bpd": 0.0,
+    "corr_s": 0.0,
+    "level_flag": false
+   }
+  ]
+ },
+ "frozen_sha256": "28ba6d07d5b3de11d57f0b4736f94fbe1079d10a76a6b7c3c422de02d41e5995",
+ "freeze_stats": {
+  "T1": {
+   "sampled": 16,
+   "distinct": 14,
+   "valid": 13,
+   "pool_mean_net_bpd": 0.199,
+   "seconds": 23.2
+  },
+  "T2": {
+   "sampled": 16,
+   "distinct": 15,
+   "valid": 11,
+   "pool_mean_net_bpd": 0.551,
+   "seconds": 13.1
+  },
+  "T3": {
+   "sampled": 16,
+   "distinct": 14,
+   "valid": 11,
+   "pool_mean_net_bpd": -0.716,
+   "seconds": 17.9
+  }
+ },
+ "freeze_rule": {
+  "seed": 20261108,
+  "per_family": 16,
+  "mode": "train",
+  "tiles": 50,
+  "rank": "flat6 net at own hold",
+  "dedup": "identical 50-tile net vector",
+  "world": "p8"
+ },
+ "seconds": 59.5,
+ "written": "2026-10-10T13:12:23+0800",
+ "dev_read": false,
+ "oos_read": false
+}

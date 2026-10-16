@@ -1,0 +1,10 @@
+{
+ "proceed": true,
+ "plant": "p32",
+ "alpha": 0.00023030008582251718,
+ "hof_rank": "conc_k10_net",
+ "reason": "G0 pass; G1 pass at p32; G2 pass (conc)",
+ "schema": "B5_GATE1_DECISION_V1",
+ "limit": 0,
+ "written": "2026-10-13T05:49:37+0800"
+}

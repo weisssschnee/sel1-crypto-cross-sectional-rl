@@ -1,0 +1,75 @@
+{
+ "schema": "SEL1_GA_SELFTEST_V1",
+ "islands": {
+  "T1": {
+   "u0_sampler_legal": 256,
+   "u0_legal": 256,
+   "u0_n": 256,
+   "children": 2000,
+   "illegal_children": 0,
+   "illegal_examples": [],
+   "kinds": {
+    "rgp": 615,
+    "cx": 916,
+    "point": 261,
+    "subtree": 208
+   },
+   "raw_legal_rate": {
+    "cx": 0.6982,
+    "point": 0.7861,
+    "subtree": 0.64,
+    "rgp": 0.9193
+   },
+   "mined": 51,
+   "distinct_children": null
+  },
+  "T2": {
+   "u0_sampler_legal": 256,
+   "u0_legal": 256,
+   "u0_n": 256,
+   "children": 2000,
+   "illegal_children": 0,
+   "illegal_examples": [],
+   "kinds": {
+    "point": 255,
+    "rgp": 636,
+    "cx": 897,
+    "subtree": 212
+   },
+   "raw_legal_rate": {
+    "cx": 0.7182,
+    "point": 0.8306,
+    "subtree": 0.6688,
+    "rgp": 0.9244
+   },
+   "mined": 123,
+   "distinct_children": null
+  },
+  "T3": {
+   "u0_sampler_legal": 256,
+   "u0_legal": 256,
+   "u0_n": 256,
+   "children": 2000,
+   "illegal_children": 0,
+   "illegal_examples": [],
+   "kinds": {
+    "cx": 958,
+    "point": 241,
+    "subtree": 224,
+    "rgp": 577
+   },
+   "raw_legal_rate": {
+    "cx": 0.8374,
+    "point": 0.8169,
+    "subtree": 0.7517,
+    "rgp": 0.9601
+   },
+   "mined": 114,
+   "distinct_children": null
+  }
+ },
+ "n_child": 2000,
+ "operators_ok": true,
+ "passed": true,
+ "written": "2026-10-15T20:41:14+0800"
+}

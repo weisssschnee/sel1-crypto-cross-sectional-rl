@@ -1,0 +1,23 @@
+{
+ "a": "SEL1_SPEED_V0",
+ "b": "SEL1_SPEED_V5",
+ "from_update": 3,
+ "files": {
+  "BATCH_LOG.jsonl": {
+   "n_a": 3,
+   "n_b": 3,
+   "n_diff": 1,
+   "first": [
+    "{\"ent_coef_used\": 0.03, \"ent_floor\": 2.3059841871261595, \"entropy_loss\": -0.19401952624320984, \"families\": {\"T1\": {\"entropy\": 6.6873, \"n_valid\": 32, \"reward_bpd",
+    "{\"ent_coef_used\": 0.03, \"ent_floor\": 2.3059841871261595, \"entropy_loss\": -0.19401952624320984, \"families\": {\"T1\": {\"entropy\": 6.6873, \"n_valid\": 32, \"reward_bpd"
+   ]
+  },
+  "FORMULAS.jsonl": {
+   "n_a": 384,
+   "n_b": 384,
+   "n_diff": 0,
+   "first": null
+  }
+ },
+ "zero_diff": false
+}

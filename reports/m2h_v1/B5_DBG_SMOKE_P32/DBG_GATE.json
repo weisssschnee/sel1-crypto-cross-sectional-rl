@@ -1,0 +1,19 @@
+{
+ "schema": "B5_DBG_GATE_V1",
+ "run": "B5_DBG_SMOKE_P32",
+ "passed": true,
+ "fails": [],
+ "grammar_reject": {
+  "T1": 0,
+  "T2": 0,
+  "T3": 0
+ },
+ "valid_frac": {
+  "T1": 0.541,
+  "T2": 0.762,
+  "T3": 0.844
+ },
+ "peak_vram_alloc_gib": 6.625,
+ "sec_per_update": 107.9,
+ "written": "2026-10-13T05:30:31+0800"
+}

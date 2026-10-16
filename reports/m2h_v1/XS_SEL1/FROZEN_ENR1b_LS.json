@@ -1,0 +1,21 @@
+{
+ "schema": "FROZEN_ENR1b_LS_V1",
+ "order": "XS_SEL1 〇（QuantMind 10-14 晚下发）",
+ "frozen": "2026-10-14 (77o)，在读 DEV 之前写盘",
+ "source": "ENR1b_TABLE.json sha16 f3a7f4b697805db1；定义照 ENR1_PREREG 1db50993ce274590 + ENR1b_PREREG a312ab8c9f674dd4（不缩尾 fwd_x、β 对冲、flat6、资金费、滞后 1 根、Rule 0、V4 下架层、逐币贪心去重、事件留在触发月内）",
+ "weak_evidence": "TRAIN 门槛没过：A 半 t −3.21 / −3.05 < T_null 4.145。这次是单次 DEV 检验，只算弱证据，结果不影响 XS_SEL1 的训练",
+ "cells": [
+  {"cell": "T2_neg_retail_LS_24h|TS_lo|all|H72", "signal": "T2_neg_retail_LS_24h = −roll_mean24(global_long_short_account_ratio_last)", "condition": "TS_lo：本币过去 2160h（含当前）平均秩分位 ≤ 0.05，≥1080 个有效值；当小时在 TOP100", "state": "all", "hold_h": 72, "d": -1,
+   "train": {"A": {"n": 2589, "t": -3.21, "net_bp": 31.89}, "B": {"n": 2972, "t": -4.58, "net_bp": 78.4}, "trimmed_net_bp": {"A": 0.52, "B": 51.13}}},
+  {"cell": "T2_neg_retail_LS_24h|TS_lo|all|H168", "signal": "同上", "condition": "同上", "state": "all", "hold_h": 168, "d": -1,
+   "train": {"A": {"n": 1439, "t": -3.05, "net_bp": 65.09}, "B": {"n": 1699, "t": -4.69, "net_bp": 180.22}, "trimmed_net_bp": {"A": 17.27, "B": 134.36}}}
+ ],
+ "plain": "散户多空比（账户数）处在本币近 90 天的高位时，β 对冲做空该币，持有 72h / 168h",
+ "dev": {
+  "data": "V4_DEV2026_HOURLY_PANEL.npz（sha16 e299aff48a368d62），触发小时 2026-01-01 .. 2026-06-30，持有期和平仓行留在触发月内；回看用 grid 里 2026 之前的小时",
+  "pass_rule": "每格单独判：DEV 上不缩尾 flat6 净值（d=−1 方向，每次事件 log 收益均值）> 0，即方向和 TRAIN 一致",
+  "report": "事件数、净值 bp/事件、cost0 bp/事件、按周聚类的 t（d 方向 cost0）、去掉最有利 1% 事件（至少 1 个）后的净值、按月分布；缩尾版只报告",
+  "read_once": "DEV 只读这一次"
+ },
+ "oos_read": false
+}

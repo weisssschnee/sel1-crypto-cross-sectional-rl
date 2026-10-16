@@ -1,0 +1,51 @@
+{
+ "schema": "M2H_TRAIN_RECEIPT_V1",
+ "run": "BASIN3_H1_20261009",
+ "created": "2026-10-11T00:11:57+0800",
+ "config": {
+  "out_name": "TV1_R3_OLD_P8",
+  "panel": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\train2024_2025_panel_v1\\TRAIN2024JAN_2025DEC_HOURLY54_TARGET_LONG_V1.parquet",
+  "updates": 256,
+  "batch": 256,
+  "seed": 20261009,
+  "tiles": 4,
+  "device": "cuda",
+  "persist": 1,
+  "cost": "flat6",
+  "band": 0.5,
+  "nav_usd": 100000.0,
+  "checkpoint_every": 16,
+  "vm_block_elems": 33554432,
+  "ema_cache_max": 1,
+  "resume": null,
+  "max_hours": 3.5,
+  "manifest_only": false
+ },
+ "n_tiles": 50,
+ "invalid_reasons": {
+  "ZERO": 5396
+ },
+ "elite_pool_final_size": 200,
+ "trained_policy_final": {
+  "hold_hist": {
+   "4": 0,
+   "24": 1,
+   "72": 2,
+   "168": 253
+  },
+  "exprs": [
+   "SIGN(ABS(CS_RANK(NEG(CS_DEMEAN(CS_RANK(TS_MIN(log_low, w=72)))))))",
+   "SIGN(SIGN(NEG(DELTA(ABS(CS_RANK(CS_RANK(log_close))), w=24))))",
+   "SIGN(ABS(CS_RANK(log_high)))",
+   "SIGN(TS_MAX(CS_DEMEAN(CS_DEMEAN(NEG(SIGN(SIGN(ABS(CS_RANK(DELTA(CS_RANK(log_close), w=672)))))))), w=336))",
+   "SIGN(ABS(CS_RANK(CS_RANK(ABS(DELTA(SIGN(log_close), w=672))))))",
+   "CS_ZSCORE(log_low)",
+   "SIGN(SIGN(ABS(ABS(CS_RANK(EMA(log_high, w=24))))))",
+   "SIGN(ABS(CS_RANK(NEG(log_close))))"
+  ]
+ },
+ "peak_vram_alloc_gib": 12.162,
+ "compute_seconds": 6888.4,
+ "oos_read": false,
+ "dev_read": false
+}

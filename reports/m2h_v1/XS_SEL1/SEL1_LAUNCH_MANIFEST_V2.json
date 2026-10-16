@@ -1,0 +1,171 @@
+{
+ "schema": "SEL1_LAUNCH_MANIFEST_V2",
+ "order": "XS_SEL1 supplement 10-15 morning (combo sweep)",
+ "ruling": "QuantMind 10-15: the policy samples formula tokens only; each formula takes the A-half best t_dd of all 60 combos (the plant check's rule); hall / B-half / T_null / gates use that A-half combo",
+ "combo_sweep": {
+  "flag": "--combo-sweep",
+  "module": "sel1_sweep.py",
+  "check_file": "SEL1_SWEEPCHECK.json",
+  "check": {
+   "bodies": 60,
+   "max_abs_diff": 0.0,
+   "checks": {
+    "n_bodies": true,
+    "max_abs_diff": true,
+    "nan_pattern": true,
+    "pick_same": true,
+    "rescore_exact": true,
+    "plant_combo": true,
+    "plant_t_A": true
+   },
+   "plant": {
+    "combo": [
+     4,
+     0,
+     0
+    ],
+    "t_A": 5.883011980727551,
+    "nullplant_t_A": 5.883011980727551
+   },
+   "seconds_per_body": {
+    "old_60_score_sel": 5.113,
+    "sweep": 2.809
+   }
+  },
+  "not_a_leg_decomposition": "the stateful controller's L1 band acts on the whole book and the state gate zeroes desired weights before it, so combos are settled, not mixed from legs (sel1_sweep docstring); cost0-only pass + one controller call per (hold, state)"
+ },
+ "v1_manifest": {
+  "file": "SEL1_LAUNCH_MANIFEST.json",
+  "sha16": "39628fd28c5689a7",
+  "old_pc": "SEL1_PC_V1_COMBOTOKEN (renamed, kept)"
+ },
+ "plant_check": {
+  "file": "SEL1_NULLPLANT.json",
+  "chosen": {
+   "strength_bpd": 20.0,
+   "K": 5,
+   "alpha": 6.908190339580098e-05,
+   "plant_t_B": 3.5893571235869417,
+   "plant_rank": 2,
+   "pool": 139,
+   "combo": "4/all/both",
+   "fixed_72_all_long_t_B": -0.03645522853376021
+  },
+  "table": [
+   {
+    "strength_bpd": 20.0,
+    "K": 5,
+    "t_B": 3.5893571235869417,
+    "rank": 2,
+    "passed": true
+   },
+   {
+    "strength_bpd": 20.0,
+    "K": 10,
+    "t_B": 5.134170450842013,
+    "rank": 1,
+    "passed": true
+   },
+   {
+    "strength_bpd": 20.0,
+    "K": 20,
+    "t_B": 6.110625053997218,
+    "rank": 1,
+    "passed": true
+   },
+   {
+    "strength_bpd": 40.0,
+    "K": 5,
+    "t_B": 8.2947892350524,
+    "rank": 1,
+    "passed": true
+   },
+   {
+    "strength_bpd": 40.0,
+    "K": 10,
+    "t_B": 10.016058834871135,
+    "rank": 1,
+    "passed": true
+   },
+   {
+    "strength_bpd": 40.0,
+    "K": 20,
+    "t_B": 9.807596522748609,
+    "rank": 1,
+    "passed": true
+   }
+  ]
+ },
+ "reward": {
+  "kind": "t_dd",
+  "rule_file": "SEL1_REWARD_RULE.json",
+  "t": "A half, 30 odd months: mean / (sd ddof 1 / sqrt 30) of the monthly cost0 beta-hedged log NAV; a month holding nothing is 0 and counts; sd 0 -> 0 (S.reward 't')",
+  "dd": "A-half max drawdown: the 30 A months' cost0 log NAV joined in order, cumulative from 0, marked at month ends, largest fall from the running peak (S.max_dd)",
+  "dd_max": {
+   "5": 2.283547812033886,
+   "10": 2.155393246755923,
+   "20": 2.163250079756716
+  },
+  "dd_max_used": 2.283547812033886
+ },
+ "detectable": "this training can only find signals of >= 20 bp/day (cost0, A-half gain of the plant book at K 5; the smallest passing strength)",
+ "worlds": {
+  "PC": "NULL world + plant (pcnull, the plant check's world), alpha 6.908190339580098e-05",
+  "NULL": "NULL world (per-coin circular roll, NULL_SEED 20261015), no plant",
+  "REAL": "V4 TRAIN 2021..2025, real"
+ },
+ "smoke": {
+  "run": "SEL1_SMOKE_V2",
+  "updates": 8,
+  "mean_update_seconds": 49.18
+ },
+ "budget": {
+  "rule": "ETA <= 96 h -> 125k/500k/500k; else NULL = REAL scaled to 96 h, PC = REAL/4",
+  "scaled": true,
+  "updates": {
+   "PC": 780,
+   "NULL": 3122,
+   "REAL": 3122
+  },
+  "evals": {
+   "PC": 99840,
+   "NULL": 399616,
+   "REAL": 399616
+  },
+  "eta_hours": 96.0,
+  "workers": 16
+ },
+ "runs": {
+  "PC": {
+   "run": "SEL1_PC",
+   "flags": "--mode pcnull --alpha 6.908190339580098e-05 --updates 780 --k 5 --reward t_dd --dd-max 2.283547812033886 --batch 128 --workers 16 --gpu-workers 0 --memo global --fastts --gpu-select --combo-sweep --checkpoint-every 16"
+  },
+  "NULL": {
+   "run": "SEL1_NULL",
+   "flags": "--mode null --updates 3122 --k 5 --reward t_dd --dd-max 2.283547812033886 --batch 128 --workers 16 --gpu-workers 0 --memo global --fastts --gpu-select --combo-sweep --checkpoint-every 16"
+  },
+  "REAL": {
+   "run": "SEL1_REAL",
+   "flags": "--mode real --updates 3122 --k 5 --reward t_dd --dd-max 2.283547812033886 --batch 128 --workers 16 --gpu-workers 0 --memo global --fastts --gpu-select --combo-sweep --checkpoint-every 16"
+  }
+ },
+ "code_sha16": {
+  "sel1_trainer.py": "89b4e4ac2abddc00",
+  "sel1_sweep.py": "eb2872ddd9969575",
+  "sel1_common.py": "7f5e326f37f715d0",
+  "sel1_fastts.py": "9889ef397bbfe09c",
+  "sel1_cse.py": "3a5a0c077cfe5556",
+  "sel1_round.py": "71c007cbfb7274f0",
+  "sel1_sweepcheck.py": "854ae3d6d7201e85",
+  "sel1_launch_manifest_v2.py": "d023bdd3f6a4a22a"
+ },
+ "rounds": {
+  "pc": "sel1_round --mode pc: found_corr = a hall entry with |corr| > 0.7 to the plant, else stop",
+  "null": "sel1_round --mode null: T_null = max B-half t of the NULL hall; PC found = corr hit with t_B > T_null, else stop",
+  "real": "sel1_round --mode real: gates 1-4 of order s2 + behaviour dedup"
+ },
+ "one_gpu_run": true,
+ "dev_read": false,
+ "oos_read": false,
+ "written": "2026-10-15T10:26:04+0800"
+}

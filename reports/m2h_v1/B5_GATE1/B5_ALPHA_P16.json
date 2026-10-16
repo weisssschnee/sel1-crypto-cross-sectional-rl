@@ -1,0 +1,31 @@
+{
+ "p16": {
+  "alpha": 0.00011515004291125859,
+  "target_bpd": 16.0,
+  "lift_bpd": 15.9999,
+  "iterations": 1,
+  "history": [
+   [
+    0.00011515004291125859,
+    15.9999
+   ]
+  ],
+  "s_sha16": "fe33fa1b7d5c80e0",
+  "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)"
+ },
+ "base_gross_bpd": 8.6765,
+ "check_tv1": {
+  "p8": {
+   "alpha": 5.7575021455629296e-05,
+   "tv1_lift": 8.0,
+   "lift_here": 8.0
+  },
+  "p32": {
+   "alpha": 0.00023030008582251718,
+   "tv1_lift": 31.999,
+   "lift_here": 31.999
+  }
+ },
+ "ok": true,
+ "written": "2026-10-13T04:46:16+0800"
+}

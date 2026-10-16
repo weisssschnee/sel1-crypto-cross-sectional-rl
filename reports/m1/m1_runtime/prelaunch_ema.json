@@ -1,0 +1,37 @@
+{
+ "formula": "SUB(EMA(close_to_open_bps, w=5), EMA(quantity, w=1440))",
+ "slice_shape": [
+  92,
+  17,
+  11580
+ ],
+ "cached_kernels_cap64": 2,
+ "cached_kernels_cap1": 1,
+ "signal_bit_equal": true,
+ "signal_max_abs_diff": 0.0,
+ "repeat_pass_equal_cap64": true,
+ "repeat_pass_equal_cap1": true,
+ "reward_bit_equal": true,
+ "rewards_cap64": {
+  "60": [
+   -0.010172123029804006,
+   -0.024981908669891667
+  ],
+  "1440": [
+   -0.010172123029804006,
+   -0.024981908669891667
+  ]
+ },
+ "rewards_cap1": {
+  "60": [
+   -0.010172123029804006,
+   -0.024981908669891667
+  ],
+  "1440": [
+   -0.010172123029804006,
+   -0.024981908669891667
+  ]
+ },
+ "n_finite": 1014558,
+ "n_total": 1065360
+}

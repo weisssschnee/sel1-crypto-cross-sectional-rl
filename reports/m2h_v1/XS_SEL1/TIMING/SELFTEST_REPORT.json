@@ -1,0 +1,151 @@
+{
+ "schema": "SEL1_TIMING_SELFTEST_V1",
+ "ok": true,
+ "parts": [
+  {
+   "part": "events_from_rows",
+   "ok": true,
+   "got": [
+    [
+     "AAA",
+     "2024-03-05 04:00:00",
+     3,
+     1,
+     100.0
+    ],
+    [
+     "AAA",
+     "2024-03-05 07:00:00",
+     2,
+     -1,
+     103.0
+    ],
+    [
+     "BBB",
+     "2024-03-05 10:00:00",
+     3,
+     1,
+     906.0
+    ]
+   ]
+  },
+  {
+   "part": "synth",
+   "drops": {
+    "NO_COIN": 1,
+    "NO_LOOKBACK": 1,
+    "NO_EXIT": 1
+   },
+   "drops_ok": true,
+   "windows_ok": true,
+   "bit_equal": true,
+   "rows": "all 12 equal",
+   "reward_ok": true,
+   "reward": -2268.8783186386645,
+   "always_in_reward": -2633.372386250013,
+   "lag_ok": true,
+   "gate_causal_ok": true,
+   "cap_ok": true,
+   "vm_signal_equal": true,
+   "vm_reward": -2268.8783186386645,
+   "vm_ok": true,
+   "ok": true
+  },
+  {
+   "part": "real",
+   "overlap": {
+    "v4_coins": 632,
+    "shard_coins": 100,
+    "both": 100,
+    "shard_not_v4": [],
+    "per_month_shard": [
+     59,
+     60,
+     63,
+     66,
+     68,
+     69,
+     70,
+     71,
+     73,
+     75,
+     76,
+     81,
+     84,
+     87,
+     88,
+     89,
+     90,
+     92,
+     92,
+     94,
+     96,
+     99,
+     100,
+     100
+    ]
+   },
+   "alignment": {
+    "2024-03_k0": {
+     "n": 46062,
+     "exact": 0.0046,
+     "within_1bp": 0.0104
+    },
+    "2024-03_k59": {
+     "n": 46065,
+     "exact": 1.0,
+     "within_1bp": 1.0
+    },
+    "2024-03_k60": {
+     "n": 46002,
+     "exact": 0.027,
+     "within_1bp": 0.0593
+    },
+    "2025-08_k0": {
+     "n": 68885,
+     "exact": 0.0107,
+     "within_1bp": 0.0177
+    },
+    "2025-08_k59": {
+     "n": 68853,
+     "exact": 1.0,
+     "within_1bp": 1.0
+    },
+    "2025-08_k60": {
+     "n": 68793,
+     "exact": 0.0653,
+     "within_1bp": 0.104
+    }
+   },
+   "alignment_best_k": 59,
+   "alignment_ok": true,
+   "plumbing": {
+    "events": 48,
+    "kept": 48,
+    "drops": {},
+    "events_csv": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\artifacts\\m2h_v1\\XS_SEL1\\TIMING\\SELFTEST_EVENTS_REAL.csv",
+    "timed": {
+     "events": 48,
+     "reward": -501.6523,
+     "flat6_bpd": -102.539,
+     "cost0_bpd": -35.9135,
+     "dd_mean": 0.044651,
+     "in_frac": 0.4755,
+     "turn_per_event": 12.4167
+    },
+    "always_in": {
+     "events": 48,
+     "reward": -583.2643,
+     "flat6_bpd": -36.6055,
+     "cost0_bpd": -15.1387,
+     "dd_mean": 0.061157,
+     "in_frac": 1.0,
+     "turn_per_event": 4.0
+    },
+    "resume_turn_share_max": 0.0
+   },
+   "ok": true
+  }
+ ],
+ "written": "2026-10-15T09:19:06.529518"
+}

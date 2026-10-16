@@ -1,0 +1,23 @@
+{
+ "schema": "SEL1_POWER_RULE_V1",
+ "grid": {
+  "K": [
+   5,
+   10,
+   20
+  ],
+  "t": [
+   "monthly",
+   "weekly_nw1"
+  ]
+ },
+ "plant": "SEL1_ALPHA.json alpha and plant body unchanged; visible book = plant formula, H72, state all, long only",
+ "visible": "plant book B-half t (cell measure) >= 2 in the pc world",
+ "rankable": "pool = sel1_calib's (CR1_PC_P8 HOF top 50 + B5_DBG_REAL HOF_RANKED, dedup, V4-invalid dropped) + plant; each takes its best A-half cost0 combo of 60 at that K; plant B-half t (cell measure) rank <= 10",
+ "t_monthly": "per B month cost0 bp/day; mean / (sd ddof 1 / sqrt n)",
+ "t_weekly_nw1": "each B month cut into consecutive 168 h blocks from its first row, a tail under 84 h joins the previous block; per block cost0 bp/day (log1p of hourly cost0 net, as m1_ruler.settle_multi); mean / sqrt((g0 + g1) / n), g_k = sum(d_t d_t-k) / n (Newey-West, Bartlett weight, lag 1)",
+ "select": "among cells passing both checks the smallest K; same K: monthly first. T_null = the NULL training run at the chosen configuration",
+ "none_pass": "no cell passes -> hand back: the data does not carry sparse selection at this plant strength",
+ "excluded": "real-pool B-top TS_RANK(EMA(log_close,72),72) h4 both (B t 4.2) used its B half already: reported, never nominated",
+ "written": "2026-10-15T01:22:00+0800"
+}

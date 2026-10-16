@@ -1,0 +1,53 @@
+{
+ "schema": "M2H_TRAIN_RECEIPT_V1",
+ "run": "TV1_R5_DENSE_P8_T50",
+ "created": "2026-10-11T13:26:17+0800",
+ "config": {
+  "out_name": "TV1_R5_DENSE_P8_T50",
+  "panel": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\train2024_2025_panel_v1\\TRAIN2024JAN_2025DEC_HOURLY54_TARGET_LONG_V1.parquet",
+  "updates": 256,
+  "batch": 128,
+  "reward": "ic",
+  "select": "full",
+  "seed": 20261009,
+  "tiles": 50,
+  "device": "cuda",
+  "persist": 1,
+  "cost": "flat6",
+  "band": 0.5,
+  "nav_usd": 100000.0,
+  "checkpoint_every": 16,
+  "vm_block_elems": 33554432,
+  "ema_cache_max": 1,
+  "resume": null,
+  "max_hours": 12.0,
+  "manifest_only": false
+ },
+ "n_tiles": 50,
+ "invalid_reasons": {
+  "ZERO": 121
+ },
+ "elite_pool_final_size": 200,
+ "trained_policy_final": {
+  "hold_hist": {
+   "4": 0,
+   "24": 0,
+   "72": 0,
+   "168": 128
+  },
+  "exprs": [
+   "log_low",
+   "log_low",
+   "log_low",
+   "log_low",
+   "log_low",
+   "log_low",
+   "log_low",
+   "log_low"
+  ]
+ },
+ "peak_vram_alloc_gib": 5.317,
+ "compute_seconds": 32033.2,
+ "oos_read": false,
+ "dev_read": false
+}

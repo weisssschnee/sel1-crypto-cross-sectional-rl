@@ -1,0 +1,126 @@
+=== SEL1 ARMS PAUSE CHECK RANK (try 2) 2026/10/16 周五  4:00:09.70 
+pause: waiting for a checkpoint after checkpoint_0511.pt
+pause: bat stopped after checkpoint_0527.pt
+pause: SEL1_NULL stopped, resume point checkpoint_0527.pt
+=== paused 2026/10/16 周五  4:18:35.95 
+=== THREE GPU 0-diff CHECKS (fork from PC ckpt 0015, PC world = V2 PC flags, no plant2) 
+SEL1 world pcnull: 632 coins x 45288 h, 60 months, 94 delistings, alpha 6.908190339580098e-05, 9s
+resumed from update 16
+upd   16  64.2s {'sample': 1.94, 'vm': 18.52, 'book': 41.72, 'update': 1.98, 'log': 0.01} valid 114 uniq 107 vm 121 book 107 | T1 r8.0299 e6.8153 T2 r7.5359 e6.3448 T3 r8.79 e6.0653 | ent 6.411 coef 0.030 eta 0:02:08
+upd   17  62.0s {'sample': 0.84, 'vm': 17.55, 'book': 41.91, 'update': 1.71, 'log': 0.01} valid 109 uniq 108 vm 125 book 106 | T1 r9.3312 e6.8481 T2 r9.401 e6.6191 T3 r8.4865 e6.8225 | ent 6.763 coef 0.030 eta 0:01:03
+upd   18  59.3s {'sample': 0.8, 'vm': 14.2, 'book': 42.87, 'update': 1.46, 'log': 0.01} valid 115 uniq 110 vm 120 book 107 | T1 r9.0773 e6.897 T2 r6.928 e6.5704 T3 r8.4296 e5.845 | ent 6.442 coef 0.030 eta 0:00:00
+done updates 19 n_eval 2432 seconds 1110
+dedup_off zero_diff True | BATCH 0 FORMU 0
+SEL1 world pcnull: 632 coins x 45288 h, 60 months, 94 delistings, alpha 6.908190339580098e-05, 9s
+resumed from update 16
+upd   16  63.3s {'sample': 1.9, 'vm': 18.49, 'book': 41.48, 'update': 1.47, 'log': 0.0} valid 114 uniq 107 vm 121 book 107 | T1 r8.0299 e6.8153 T2 r7.5359 e6.3448 T3 r8.79 e6.0653 | ent 6.411 coef 0.030 eta 0:02:06
+upd   17  61.4s {'sample': 0.82, 'vm': 17.49, 'book': 41.98, 'update': 1.14, 'log': 0.01} valid 109 uniq 108 vm 125 book 106 | T1 r9.3312 e6.8481 T2 r9.401 e6.6191 T3 r8.4865 e6.8225 | ent 6.763 coef 0.030 eta 0:01:02
+upd   18  59.2s {'sample': 0.8, 'vm': 14.18, 'book': 43.04, 'update': 1.21, 'log': 0.0} valid 115 uniq 110 vm 120 book 107 | T1 r9.0773 e6.897 T2 r6.928 e6.5704 T3 r8.4296 e5.845 | ent 6.442 coef 0.030 eta 0:00:00
+done updates 19 n_eval 2432 seconds 1108
+pool0 zero_diff True | BATCH 0 FORMU 0
+SEL1 world pcnull: 632 coins x 45288 h, 60 months, 94 delistings, alpha 6.908190339580098e-05, 9s
+resumed from update 16
+upd   16 108.5s {'sample': 2.01, 'vm': 19.83, 'book': 41.59, 'pool': 43.58, 'update': 45.09, 'log': 0.01} valid 114 uniq 107 vm 121 book 107 | T1 r8.0299 e6.8153 T2 r7.5359 e6.3448 T3 r8.79 e6.0653 | ent 6.411 coef 0.030 eta 0:00:00
+done updates 17 n_eval 2176 seconds 1033
+pool20 zero_diff True | BATCH 0 FORMU 0 gain_ 0
+=== GPU 0-diff checks PASSED 2026/10/16 周五  4:27:24.47 
+=== SIX ARMS x 3 h 
+SEL1 world pcnull: 632 coins x 45288 h, 60 months, 94 delistings, alpha 6.908190339580098e-05, 9s
+SEL1 world + P2 CS_DEMEAN(TS_MEAN(NEG(TS_MEAN(CS_RANK(ABS(TS_STD(CS_RANK(CS_DEMEAN(CS_ZSCORE(premium_high))), w=24))), w=504)), w=6)) alpha2 5.6456e-05
+upd    0  62.7s {'sample': 1.72, 'vm': 17.78, 'book': 41.82, 'update': 1.34, 'log': 0.01} valid 108 uniq 106 vm 126 book 106 | T1 r6.0742 e6.5904 T2 r7.4505 e6.2381 T3 r6.1624 e6.405 | ent 6.411 coef 0.030 eta 54:19:22
+upd    1  56.4s {'sample': 0.8, 'vm': 15.91, 'book': 38.42, 'update': 1.32, 'log': 0.01} valid 112 uniq 105 vm 117 book 101 | T1 r6.4504 e6.6221 T2 r7.4351 e6.2781 T3 r8.2196 e5.8651 | ent 6.258 coef 0.030 eta 51:36:50
+upd    2  51.0s {'sample': 0.8, 'vm': 14.66, 'book': 34.39, 'update': 1.12, 'log': 0.0} valid 101 uniq 95 vm 115 book 88 | T1 r6.7066 e6.6695 T2 r6.6763 e6.3664 T3 r7.3924 e5.6073 | ent 6.219 coef 0.030 eta 49:07:25
+upd    3  58.9s {'sample': 0.88, 'vm': 15.24, 'book': 41.35, 'update': 1.46, 'log': 0.01} valid 111 uniq 109 vm 122 book 105 | T1 r6.6193 e6.6473 T2 r7.922 e6.2675 T3 r6.3675 e6.5225 | ent 6.479 coef 0.030 eta 49:35:45
+upd   15  56.5s {'sample': 1.0, 'vm': 12.72, 'book': 41.21, 'update': 1.59, 'log': 0.0} valid 121 uniq 111 vm 107 book 100 | T1 r6.2103 e6.7791 T2 r7.5062 e5.4265 T3 r8.6025 e5.9545 | ent 6.054 coef 0.030 eta 46:26:35
+upd   31  43.1s {'sample': 0.55, 'vm': 9.48, 'book': 32.34, 'update': 0.76, 'log': 0.0} valid 126 uniq 103 vm 77 book 75 | T1 r7.1975 e6.7874 T2 r7.9432 e4.1897 T3 r7.976 e4.3635 | ent 5.119 coef 0.030 eta 43:30:48
+upd   47  60.0s {'sample': 0.75, 'vm': 9.7, 'book': 48.34, 'update': 1.17, 'log': 0.01} valid 123 uniq 92 vm 78 book 73 | T1 r7.1596 e6.7633 T2 r9.5367 e3.8065 T3 r9.1903 e4.0394 | ent 4.876 coef 0.030 eta 41:57:48
+upd   63  60.8s {'sample': 1.04, 'vm': 8.34, 'book': 49.75, 'update': 1.63, 'log': 0.0} valid 123 uniq 91 vm 74 book 69 | T1 r8.0282 e6.6209 T2 r8.5142 e4.0457 T3 r8.9033 e3.2767 | ent 4.658 coef 0.030 eta 44:13:22
+  [64] distinct 0.695 body 0.695 | T1 0.00 DELTA(log_low, w=24) H72 up_lowvol both | T2 0.19 taker_buy_share H72 up_lowvol short | T3 0.21 mark_index_basis_bps H24 up_lowvol short | hof100 {'24/up_lowvol/short': 20, '4/up_lowvol/short': 15, '4/all/both': 11, '72/up_lowvol/short': 11, '24/all/both': 9, '168/up_lowvol/short': 8, '72/all/both': 6, '168/all/both': 5}
+upd   79  69.1s {'sample': 1.58, 'vm': 8.46, 'book': 56.56, 'update': 2.51, 'log': 0.01} valid 127 uniq 83 vm 64 book 63 | T1 r7.7671 e6.6047 T2 r8.9024 e3.416 T3 r8.9218 e2.3793 | ent 4.147 coef 0.030 eta 45:47:35
+upd   95  64.0s {'sample': 1.76, 'vm': 6.05, 'book': 53.57, 'update': 2.6, 'log': 0.01} valid 127 uniq 79 vm 57 book 56 | T1 r8.2283 e6.3249 T2 r9.2005 e2.6585 T3 r9.1751 e2.0177 | ent 3.68 coef 0.030 eta 46:20:07
+upd  111  60.9s {'sample': 2.24, 'vm': 6.28, 'book': 50.53, 'update': 1.85, 'log': 0.01} valid 128 uniq 78 vm 54 book 54 | T1 r7.8794 e6.3477 T2 r10.1085 e2.0535 T3 r8.4294 e2.4475 | ent 3.625 coef 0.030 eta 46:21:58
+upd  127  39.5s {'sample': 0.72, 'vm': 3.99, 'book': 34.04, 'update': 0.7, 'log': 0.0} valid 128 uniq 56 vm 33 book 33 | T1 r8.8623 e5.454 T2 r10.4454 e1.3221 T3 r8.6182 e1.3404 | ent 2.716 coef 0.030 eta 45:44:15
+  [64] distinct 0.462 body 0.462 | T1 0.02 DELTA(log_quote_volume, w=336) H24 down_highvol both | T2 0.31 CS_RANK(taker_buy_share) H72 up_lowvol short | T3 0.37 mark_index_basis_bps H24 up_lowvol short | hof100 {'24/all/both': 23, '4/all/both': 22, '72/all/both': 17, '24/up_lowvol/short': 9, '4/up_lowvol/short': 7, '168/all/both': 5, '72/up_lowvol/short': 5, '168/up_highvol/both': 3}
+upd  143  42.7s {'sample': 0.77, 'vm': 3.9, 'book': 37.06, 'update': 1.01, 'log': 0.0} valid 127 uniq 49 vm 38 book 37 | T1 r10.022 e4.6297 T2 r10.6903 e0.8264 T3 r8.484 e0.691 | ent 2.06 coef 0.207 eta 44:03:09
+upd  159  32.9s {'sample': 0.93, 'vm': 2.67, 'book': 28.12, 'update': 1.18, 'log': 0.0} valid 127 uniq 46 vm 28 book 27 | T1 r13.098 e3.7616 T2 r10.6309 e0.7418 T3 r8.4503 e0.9163 | ent 1.814 coef 0.300 eta 42:10:39
+upd  175  26.0s {'sample': 0.82, 'vm': 1.93, 'book': 22.41, 'update': 0.82, 'log': 0.0} valid 126 uniq 35 vm 21 book 19 | T1 r15.4387 e3.0543 T2 r10.9966 e0.6124 T3 r8.3338 e0.5602 | ent 1.416 coef 0.300 eta 40:24:13
+upd  191  30.3s {'sample': 0.79, 'vm': 2.18, 'book': 26.46, 'update': 0.92, 'log': 0.0} valid 127 uniq 41 vm 22 book 22 | T1 r15.2506 e3.0477 T2 r10.7989 e0.6961 T3 r8.6419 e0.5765 | ent 1.447 coef 0.300 eta 38:34:39
+  [64] distinct 0.246 body 0.246 | T1 0.16 CS_ZSCORE(DELTA(log_quote_volume, w=336)) H72 all both | T2 0.83 CS_ZSCORE(taker_buy_share) H72 up_lowvol short | T3 0.85 NEG(mark_index_basis_bps) H24 up_lowvol short | hof100 {'72/all/both': 40, '4/all/both': 38, '24/all/both': 20, '168/all/both': 1, '24/up_lowvol/short': 1}
+upd  207  31.4s {'sample': 0.74, 'vm': 2.13, 'book': 27.97, 'update': 0.6, 'log': 0.0} valid 127 uniq 46 vm 24 book 24 | T1 r16.2037 e2.8023 T2 r10.7604 e1.2386 T3 r8.5412 e0.8154 | ent 1.625 coef 0.300 eta 37:20:29
+upd  223  41.8s {'sample': 1.29, 'vm': 3.6, 'book': 35.74, 'update': 1.12, 'log': 0.0} valid 128 uniq 62 vm 35 book 35 | T1 r15.3468 e3.2299 T2 r14.9566 e2.7454 T3 r8.564 e1.1805 | ent 2.395 coef 0.273 eta 36:24:26
+upd  239  30.5s {'sample': 1.35, 'vm': 2.1, 'book': 26.07, 'update': 0.96, 'log': 0.01} valid 128 uniq 62 vm 29 book 29 | T1 r18.0268 e2.573 T2 r16.3416 e1.9543 T3 r9.3443 e1.5305 | ent 2.023 coef 0.267 eta 35:46:16
+max_hours reached after update 242; checkpointed, stopping
+done updates 3122 n_eval 31104 seconds 10837
+=== RL rc=0 2026/10/16 周五  7:28:27.65 
+SEL1 world pcnull: 632 coins x 45288 h, 60 months, 94 delistings, alpha 6.908190339580098e-05, 31s
+SEL1 world + P2 CS_DEMEAN(TS_MEAN(NEG(TS_MEAN(CS_RANK(ABS(TS_STD(CS_RANK(CS_DEMEAN(CS_ZSCORE(premium_high))), w=24))), w=504)), w=6)) alpha2 5.6456e-05
+upd    0 113.3s {'sample': 4.61, 'vm': 23.7, 'book': 81.93, 'update': 3.07, 'log': 0.01} valid 105 uniq 105 vm 126 book 105 | T1 r6.0742 e6.5904 T2 r7.3862 e6.2381 T3 r6.1933 e6.405 | ent 6.411 coef 0.030 eta 98:15:59
+upd    1  95.3s {'sample': 1.57, 'vm': 17.76, 'book': 74.17, 'update': 1.84, 'log': 0.01} valid 100 uniq 100 vm 117 book 100 | T1 r6.6501 e6.622 T2 r7.4193 e6.2843 T3 r8.2527 e5.8648 | ent 6.26 coef 0.030 eta 90:26:09
+upd    2  92.4s {'sample': 2.35, 'vm': 17.33, 'book': 70.1, 'update': 2.57, 'log': 0.01} valid 90 uniq 90 vm 115 book 90 | T1 r7.2322 e6.6886 T2 r6.3091 e6.3927 T3 r6.9981 e5.6698 | ent 6.255 coef 0.030 eta 86:56:41
+upd    3 107.9s {'sample': 2.92, 'vm': 17.69, 'book': 84.68, 'update': 2.57, 'log': 0.01} valid 104 uniq 104 vm 122 book 104 | T1 r7.0489 e6.6604 T2 r7.5652 e6.3202 T3 r6.4805 e6.5554 | ent 6.512 coef 0.030 eta 88:32:42
+upd   15 106.7s {'sample': 2.12, 'vm': 22.1, 'book': 80.74, 'update': 1.75, 'log': 0.03} valid 96 uniq 96 vm 116 book 96 | T1 r6.807 e6.8606 T2 r7.2001 e6.5395 T3 r6.8849 e6.3856 | ent 6.597 coef 0.030 eta 87:23:33
+upd   31 112.1s {'sample': 1.51, 'vm': 22.63, 'book': 84.78, 'update': 3.13, 'log': 0.01} valid 103 uniq 103 vm 117 book 103 | T1 r6.295 e6.8094 T2 r6.9451 e6.5613 T3 r7.0949 e6.6124 | ent 6.661 coef 0.030 eta 92:16:25
+upd   47 118.6s {'sample': 1.88, 'vm': 20.51, 'book': 92.57, 'update': 3.66, 'log': 0.01} valid 111 uniq 111 vm 117 book 111 | T1 r7.4212 e6.9067 T2 r7.1705 e6.4452 T3 r8.0414 e6.6938 | ent 6.682 coef 0.030 eta 95:47:20
+upd   63 123.3s {'sample': 2.45, 'vm': 20.26, 'book': 97.9, 'update': 2.61, 'log': 0.02} valid 116 uniq 116 vm 121 book 116 | T1 r7.8607 e6.7988 T2 r6.9428 e6.584 T3 r7.2875 e6.5841 | ent 6.656 coef 0.030 eta 97:18:35
+  [64] distinct 0.941 body 0.930 | T1 0.00 DELTA(log_low, w=336) HNone None None | T2 0.04 taker_buy_share HNone None None | T3 0.03 mark_index_basis_bps HNone None None | hof100 {'24/up_lowvol/short': 23, '4/up_lowvol/short': 16, '4/all/both': 11, '72/up_lowvol/short': 11, '72/all/both': 9, '24/all/both': 8, '168/up_lowvol/short': 6, '72/down_highvol/both': 5}
+upd   79 116.8s {'sample': 1.81, 'vm': 16.35, 'book': 96.69, 'update': 1.87, 'log': 0.01} valid 113 uniq 113 vm 117 book 113 | T1 r7.5453 e6.8895 T2 r7.4329 e6.1089 T3 r7.7149 e6.1947 | ent 6.399 coef 0.030 eta 97:50:18
+upd   95  79.2s {'sample': 1.05, 'vm': 15.16, 'book': 61.71, 'update': 1.24, 'log': 0.01} valid 113 uniq 113 vm 121 book 113 | T1 r7.8052 e6.5735 T2 r7.0829 e6.3027 T3 r7.9372 e6.2464 | ent 6.375 coef 0.030 eta 93:02:18
+max_hours reached after update 98; checkpointed, stopping
+done updates 3122 n_eval 12672 seconds 10869
+=== DEDUP rc=0 2026/10/16 周五 10:30:47.74 
+SEL1 world pcnull: 632 coins x 45288 h, 60 months, 94 delistings, alpha 6.908190339580098e-05, 14s
+SEL1 world + P2 CS_DEMEAN(TS_MEAN(NEG(TS_MEAN(CS_RANK(ABS(TS_STD(CS_RANK(CS_DEMEAN(CS_ZSCORE(premium_high))), w=24))), w=504)), w=6)) alpha2 5.6456e-05
+GFN effective BETA 4 (--gfn x BETA_MULT 4), LR_LOGZ 0.1, log Z init 56.263886 (first batch)
+upd    0  75.9s {'sample': 2.43, 'vm': 18.9, 'book': 53.04, 'update': 1.5, 'log': 0.01} valid 108 uniq 106 vm 126 book 106 | T1 r6.0742 e6.5904 T2 r7.4505 e6.2381 T3 r6.1624 e6.405 | ent 6.411 coef 0.030 eta 65:47:04
+upd    1  68.8s {'sample': 1.02, 'vm': 16.98, 'book': 49.48, 'update': 1.36, 'log': 0.0} valid 112 uniq 105 vm 117 book 101 | T1 r5.7965 e6.5969 T2 r7.5395 e6.3723 T3 r8.0526 e5.8927 | ent 6.29 coef 0.030 eta 62:42:46
+upd    2  65.6s {'sample': 0.88, 'vm': 16.27, 'book': 47.17, 'update': 1.25, 'log': 0.01} valid 104 uniq 98 vm 115 book 91 | T1 r6.4464 e6.6055 T2 r6.5467 e6.3915 T3 r7.1633 e5.7394 | ent 6.249 coef 0.030 eta 60:44:02
+upd    3  73.4s {'sample': 1.02, 'vm': 18.1, 'book': 53.0, 'update': 1.3, 'log': 0.01} valid 108 uniq 107 vm 123 book 103 | T1 r6.8431 e6.5366 T2 r6.8385 e6.3531 T3 r6.8071 e6.5576 | ent 6.482 coef 0.030 eta 61:26:08
+upd   15  79.2s {'sample': 1.0, 'vm': 28.32, 'book': 48.57, 'update': 1.31, 'log': 0.01} valid 104 uniq 104 vm 124 book 100 | T1 r5.9365 e6.8028 T2 r6.3206 e6.6053 T3 r6.6311 e6.5337 | ent 6.648 coef 0.030 eta 63:12:23
+upd   31  87.0s {'sample': 1.09, 'vm': 31.78, 'book': 52.7, 'update': 1.39, 'log': 0.01} valid 105 uniq 105 vm 127 book 104 | T1 r6.5423 e6.9333 T2 r7.3471 e6.4793 T3 r7.1909 e6.36 | ent 6.593 coef 0.030 eta 66:48:59
+upd   47 105.3s {'sample': 1.39, 'vm': 34.76, 'book': 67.4, 'update': 1.72, 'log': 0.01} valid 113 uniq 113 vm 127 book 112 | T1 r6.6481 e7.0756 T2 r6.1222 e6.7728 T3 r6.6967 e6.3221 | ent 6.727 coef 0.030 eta 73:24:39
+upd   63  98.1s {'sample': 1.04, 'vm': 33.88, 'book': 61.86, 'update': 1.35, 'log': 0.0} valid 112 uniq 112 vm 128 book 112 | T1 r6.3154 e7.1059 T2 r7.0579 e6.868 T3 r6.5631 e6.5159 | ent 6.832 coef 0.030 eta 75:41:13
+  [64] distinct 0.983 body 0.983 | T1 0.00 DELTA(log_high, w=336) H4 up_lowvol short | T2 0.01 global_ls_account_ratio H168 up_lowvol both | T3 0.01 premium_close_bps H4 up_lowvol short | hof100 {'4/up_lowvol/short': 24, '24/up_lowvol/short': 22, '24/all/both': 9, '168/up_lowvol/short': 8, '72/up_lowvol/short': 7, '72/all/both': 6, '168/down_highvol/both': 4, '4/all/both': 3}
+upd   79 118.4s {'sample': 1.11, 'vm': 39.77, 'book': 76.32, 'update': 1.2, 'log': 0.01} valid 117 uniq 117 vm 128 book 117 | T1 r6.0896 e7.1845 T2 r7.2889 e6.939 T3 r7.3695 e6.756 | ent 6.961 coef 0.030 eta 77:11:37
+upd   95 111.9s {'sample': 1.1, 'vm': 36.69, 'book': 72.72, 'update': 1.38, 'log': 0.01} valid 120 uniq 120 vm 128 book 120 | T1 r7.7694 e7.2148 T2 r7.106 e6.8178 T3 r7.3418 e6.6821 | ent 6.907 coef 0.030 eta 78:48:49
+upd  111 106.8s {'sample': 1.46, 'vm': 34.2, 'book': 69.69, 'update': 1.42, 'log': 0.01} valid 113 uniq 113 vm 128 book 113 | T1 r7.4589 e7.3127 T2 r6.6696 e6.9625 T3 r7.9886 e6.713 | ent 6.998 coef 0.030 eta 79:43:50
+max_hours reached after update 113; checkpointed, stopping
+done updates 3122 n_eval 14592 seconds 10900
+=== GFN rc=0 2026/10/16 周五 13:33:02.50 
+SEL1 world pcnull: 632 coins x 45288 h, 60 months, 94 delistings, alpha 6.908190339580098e-05, 17s
+SEL1 world + P2 CS_DEMEAN(TS_MEAN(NEG(TS_MEAN(CS_RANK(ABS(TS_STD(CS_RANK(CS_DEMEAN(CS_ZSCORE(premium_high))), w=24))), w=504)), w=6)) alpha2 5.6456e-05
+gen 2 u 21 elapsed 0:36:06 behav 2891 hof 2891 best {'T1': 5.155294809403242, 'T2': 4.346062134503806, 'T3': 4.167180322912063}
+gen 3 u 30 elapsed 0:53:09 behav 4284 hof 4284 best {'T1': 5.155294809403242, 'T2': 4.346062134503806, 'T3': 4.377275069467363}
+gen 4 u 40 elapsed 1:09:28 behav 5675 hof 5675 best {'T1': 5.259169432106088, 'T2': 4.346062134503806, 'T3': 4.377275069467363}
+gen 5 u 50 elapsed 1:26:25 behav 7064 hof 7064 best {'T1': 5.457982828901305, 'T2': 4.939726202450135, 'T3': 4.377275069467363}
+gen 6 u 59 elapsed 1:43:04 behav 8453 hof 5025 best {'T1': 6.636062540170817, 'T2': 5.051798347316093, 'T3': 5.153234319026188}
+gen 7 u 69 elapsed 1:59:57 behav 9840 hof 6412 best {'T1': 7.035711665098028, 'T2': 5.051798347316093, 'T3': 5.153234319026188}
+gen 8 u 79 elapsed 2:54:22 behav 11227 hof 7799 best {'T1': 7.050051963956322, 'T2': 5.051798347316093, 'T3': 5.153234319026188}
+gen 8 u 82 elapsed 3:01:03 behav 11690 hof 5050 best {'T1': 7.050051963956322, 'T2': 5.051798347316093, 'T3': 5.153234319026188}
+done gens 8 updates 82 n_eval 13345 behav 11690 seconds 10866 (max_hours)
+=== GA rc=0 2026/10/16 周五 16:34:48.05 
+SEL1 world pcnull: 632 coins x 45288 h, 60 months, 94 delistings, alpha 6.908190339580098e-05, 16s
+SEL1 world + P2 CS_DEMEAN(TS_MEAN(NEG(TS_MEAN(CS_RANK(ABS(TS_STD(CS_RANK(CS_DEMEAN(CS_ZSCORE(premium_high))), w=24))), w=504)), w=6)) alpha2 5.6456e-05
+upd    0  81.1s {'sample': 2.46, 'vm': 19.66, 'book': 59.02, 'update': 0.0, 'log': 0.01} valid 108 uniq 106 vm 126 book 106 | T1 r6.0742 eNone T2 r7.4505 eNone T3 r6.1624 eNone | ent None coef 0.030 eta 70:20:55
+upd    1 250.8s {'sample': 1.81, 'vm': 194.42, 'book': 54.52, 'update': 0.0, 'log': 0.02} valid 112 uniq 105 vm 117 book 101 | T1 r6.6048 eNone T2 r6.9572 eNone T3 r7.8805 eNone | ent None coef 0.030 eta 143:50:02
+upd    2 264.9s {'sample': 1.63, 'vm': 213.26, 'book': 49.96, 'update': 0.0, 'log': 0.0} valid 105 uniq 99 vm 115 book 92 | T1 r6.2625 eNone T2 r6.4747 eNone T3 r6.9266 eNone | ent None coef 0.030 eta 172:21:08
+upd    3 815.3s {'sample': 1.87, 'vm': 753.31, 'book': 60.07, 'update': 0.0, 'log': 0.01} valid 110 uniq 109 vm 123 book 105 | T1 r6.481 eNone T2 r7.1279 eNone T3 r6.9659 eNone | ent None coef 0.030 eta 305:45:01
+upd   15 350.5s {'sample': 1.2, 'vm': 316.11, 'book': 33.18, 'update': 0.0, 'log': 0.01} valid 101 uniq 96 vm 112 book 85 | T1 r6.4807 eNone T2 r6.5376 eNone T3 r7.3469 eNone | ent None coef 0.030 eta 393:16:41
+max_hours reached after update 26; checkpointed, stopping
+done updates 3122 n_eval 3456 seconds 11077
+=== FROZEN rc=0 2026/10/16 周五 19:40:05.92 
+SEL1 world pcnull: 632 coins x 45288 h, 60 months, 94 delistings, alpha 6.908190339580098e-05, 9s
+SEL1 world + P2 CS_DEMEAN(TS_MEAN(NEG(TS_MEAN(CS_RANK(ABS(TS_STD(CS_RANK(CS_DEMEAN(CS_ZSCORE(premium_high))), w=24))), w=504)), w=6)) alpha2 5.6456e-05
+upd    0 114.4s {'sample': 1.92, 'vm': 19.12, 'book': 45.27, 'pool': 46.5, 'update': 48.03, 'log': 0.01} valid 108 uniq 106 vm 126 book 106 | T1 r6.0742 e6.5904 T2 r7.4505 e6.2381 T3 r6.1624 e6.405 | ent 6.411 coef 0.030 eta 99:08:44
+upd    1  99.7s {'sample': 0.8, 'vm': 17.39, 'book': 40.61, 'pool': 39.67, 'update': 40.93, 'log': 0.01} valid 110 uniq 103 vm 117 book 99 | T1 r6.516 e6.6049 T2 r7.6852 e6.2736 T3 r7.7288 e5.8843 | ent 6.257 coef 0.030 eta 92:46:30
+upd    2 103.3s {'sample': 0.87, 'vm': 15.25, 'book': 38.82, 'pool': 47.27, 'update': 48.4, 'log': 0.0} valid 107 uniq 99 vm 113 book 92 | T1 r6.4552 e6.6107 T2 r6.0716 e6.1194 T3 r7.2812 e5.6706 | ent 6.137 coef 0.030 eta 91:40:36
+upd    3 111.2s {'sample': 0.8, 'vm': 15.96, 'book': 44.46, 'pool': 48.8, 'update': 49.95, 'log': 0.01} valid 107 uniq 106 vm 123 book 102 | T1 r6.3881 e6.5571 T2 r7.568 e6.2575 T3 r7.1541 e6.506 | ent 6.44 coef 0.030 eta 92:48:35
+upd   15  91.4s {'sample': 0.79, 'vm': 15.81, 'book': 31.94, 'pool': 41.77, 'update': 42.87, 'log': 0.01} valid 94 uniq 90 vm 115 book 81 | T1 r6.1731 e6.48 T2 r6.5211 e6.1049 T3 r6.9722 e5.847 | ent 6.146 coef 0.030 eta 88:02:33
+upd   31  89.9s {'sample': 0.83, 'vm': 17.04, 'book': 28.11, 'pool': 42.67, 'update': 43.9, 'log': 0.01} valid 87 uniq 81 vm 113 book 72 | T1 r6.1974 e6.241 T2 r6.6422 e5.5986 T3 r6.5205 e5.5315 | ent 5.792 coef 0.030 eta 84:22:33
+upd   47  69.5s {'sample': 0.81, 'vm': 15.54, 'book': 22.8, 'pool': 29.22, 'update': 30.32, 'log': 0.0} valid 65 uniq 60 vm 118 book 56 | T1 r5.6343 e6.2206 T2 r6.0857 e5.5231 T3 r6.962 e5.793 | ent 5.846 coef 0.030 eta 78:11:20
+upd   63  44.8s {'sample': 0.98, 'vm': 16.36, 'book': 11.63, 'pool': 14.64, 'update': 15.78, 'log': 0.01} valid 32 uniq 31 vm 124 book 28 | T1 r7.1668 e6.0858 T2 r6.7016 e5.2605 T3 r7.5783 e6.1814 | ent 5.84 coef 0.030 eta 70:07:57
+  [64] distinct 0.911 body 0.911 | T1 0.00 DELTA(log_close, w=504) H4 up_lowvol short | T2 0.02 taker_buy_share H72 up_lowvol short | T3 0.08 premium_close_bps H4 up_lowvol short | hof100 {'24/up_lowvol/short': 19, '4/up_lowvol/short': 15, '72/up_lowvol/short': 13, '4/all/both': 10, '168/up_lowvol/short': 9, '24/all/both': 5, '72/all/both': 4, '4/down_highvol/both': 4}
+upd   79  46.5s {'sample': 1.41, 'vm': 26.96, 'book': 6.3, 'pool': 11.81, 'update': 11.81, 'log': 0.01} valid 19 uniq 19 vm 125 book 16 | T1 r6.0803 eNone T2 r7.7595 eNone T3 r5.6415 eNone | ent None coef 0.030 eta 63:06:23
+upd   95  33.5s {'sample': 0.82, 'vm': 19.81, 'book': 6.07, 'pool': 6.83, 'update': 6.83, 'log': 0.01} valid 13 uniq 13 vm 128 book 13 | T1 r6.7911 eNone T2 r4.7106 eNone T3 r10.7034 eNone | ent None coef 0.030 eta 57:45:34
+upd  111  45.4s {'sample': 1.31, 'vm': 31.5, 'book': 5.94, 'pool': 6.61, 'update': 6.61, 'log': 0.01} valid 11 uniq 11 vm 127 book 10 | T1 r13.847 eNone T2 r8.0065 eNone T3 r8.5003 eNone | ent None coef 0.030 eta 54:28:31
+upd  127  42.8s {'sample': 1.31, 'vm': 27.63, 'book': 6.32, 'pool': 7.56, 'update': 7.56, 'log': 0.0} valid 15 uniq 15 vm 127 book 14 | T1 r6.956 eNone T2 r8.9845 eNone T3 r5.5257 eNone | ent None coef 0.030 eta 52:00:24
+  [64] distinct 0.990 body 0.990 | T1 0.00 TS_ZSCORE(log_low, w=168) H168 up_highvol both | T2 0.00 taker_buy_share H72 up_lowvol short | T3 0.01 premium_close_bps H4 up_lowvol short | hof100 {'24/up_lowvol/short': 18, '4/up_lowvol/short': 14, '72/up_lowvol/short': 13, '4/all/both': 11, '168/up_lowvol/short': 8, '72/all/both': 6, '24/all/both': 6, '4/down_highvol/both': 4}

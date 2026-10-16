@@ -1,0 +1,20 @@
+{
+ "schema": "TV1_PLANT_MANIFEST_V1",
+ "mode": "p32",
+ "out_name": "B5_DBG_SMOKE_P32",
+ "wrapper": "m2h_b5_plant_dbg",
+ "trainer": "m2h_b5_trainer_dbg.py",
+ "shape": [
+  489,
+  17544
+ ],
+ "train_only": true,
+ "dev_read": false,
+ "oos_read": false,
+ "alpha": 0.00023030008582251718,
+ "target_bpd": 32.0,
+ "lift_bpd": 31.999,
+ "s_sha16": "fe33fa1b7d5c80e0",
+ "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)",
+ "written": "2026-10-13T05:01:41+0800"
+}

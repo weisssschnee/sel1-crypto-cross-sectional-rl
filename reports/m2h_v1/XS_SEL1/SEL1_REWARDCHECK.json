@@ -1,0 +1,63 @@
+{
+ "schema": "SEL1_REWARDCHECK_V1",
+ "rule": "XS_SEL1 补充 10-15 夜 prep 1: --reward t / t_dd against a hand calculation on 3 formulas, production path.\nCandidates: 3 from the hall of SEL1_SPEED_V4 checkpoint_0005 (null world, K 5), distinct bodies, at least one with a\nstate filter (months that hold nothing). Rows from the trainer's own Scorer (--fastts --gpu-select, 4 CPU score\nworkers) and, as a cross-check, in-process S.score_sel. Hand: plain Python over the 30 monthly cost0 log NAVs,\nt = mean / (sd ddof 1 / sqrt n), max drawdown by a running peak from 0; t_dd line = the middle of the 3 drawdowns\n(so one is kept at the boundary, one is zeroed). mean: S.reward(rows, \"mean\") == S.bpd(rows) (the old reward).\nNo returns beyond the A half of the null world. -> SEL1_REWARDCHECK.json, one line.\n    python -I sel1_rewardcheck.py\n",
+ "dd_line_used": 0.7396800506744156,
+ "scorer_rows_eq_inprocess": true,
+ "candidates": [
+  {
+   "expr": "SIGN(CS_RANK(NEG(CS_DEMEAN(NEG(TS_RANK(ABS(NEG(SUB(ADD(TS_RANK(NEG(NEG(NEG(NEG(ABS(SIGN(NEG(NEG(NEG(log_low))))))))), w=672), log_quote_volume), ABS(TS_SLOPE(log_high, w=168))))), w=672))))))",
+   "h": 4,
+   "state": "all",
+   "dir": "long",
+   "months": 30,
+   "months_flat": 0,
+   "t_prod": 0.7209479124771846,
+   "t_hand": 0.7209479124771846,
+   "dd_prod": 1.0428388345558695,
+   "dd_hand": 1.0428388345558695,
+   "t_dd_prod": 0.0,
+   "t_dd_hand": 0.0,
+   "mean_prod": 11.463536526243125,
+   "bpd": 11.463536526243125,
+   "ok": true
+  },
+  {
+   "expr": "CS_DEMEAN(NEG(CS_RANK(ABS(TS_STD(TS_ZSCORE(NEG(NEG(log_close)), w=336), w=72)))))",
+   "h": 24,
+   "state": "down_highvol",
+   "dir": "long",
+   "months": 30,
+   "months_flat": 10,
+   "t_prod": 0.27351022666354213,
+   "t_hand": 0.2735102266635421,
+   "dd_prod": 0.7396800506744156,
+   "dd_hand": 0.7396800506744156,
+   "t_dd_prod": 0.27351022666354213,
+   "t_dd_hand": 0.2735102266635421,
+   "mean_prod": 2.572012939103948,
+   "bpd": 2.572012939103948,
+   "ok": true
+  },
+  {
+   "expr": "DELTA(DIV(NEG(SIGN(NEG(SIGN(NEG(ABS(log_quote_volume)))))), log_low), w=504)",
+   "h": 4,
+   "state": "down_lowvol",
+   "dir": "short",
+   "months": 30,
+   "months_flat": 15,
+   "t_prod": -0.8166397413232949,
+   "t_hand": -0.8166397413232948,
+   "dd_prod": 0.31311630932032375,
+   "dd_hand": 0.31311630932032375,
+   "t_dd_prod": -0.8166397413232949,
+   "t_dd_hand": -0.8166397413232948,
+   "mean_prod": -2.967687277654085,
+   "bpd": -2.967687277654085,
+   "ok": true
+  }
+ ],
+ "zeroed_by_line": 1,
+ "passed": true,
+ "dev_read": false,
+ "oos_read": false
+}

@@ -1,0 +1,5624 @@
+{
+ "schema": "CR1_HOF_V1",
+ "run": "CR1_PC_P8",
+ "mode": "p8",
+ "rule": "mean marginal full-book net over the updates a body was sampled in (A tiles only); top 300",
+ "entries": [
+  {
+   "body": [
+    0,
+    0,
+    11,
+    37,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(ADD(log_close, log_close), w=168)",
+   "n": 1,
+   "mean_bpd": 6.5026,
+   "best_bpd": 6.5026,
+   "corr_s": 0.3037
+  },
+  {
+   "body": [
+    2,
+    37,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(log_low, w=168)",
+   "n": 2,
+   "mean_bpd": 6.3819,
+   "best_bpd": 7.4241,
+   "corr_s": 0.342
+  },
+  {
+   "body": [
+    10,
+    15,
+    16,
+    15,
+    31,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_DEMEAN(NEG(ABS(NEG(premium_high))))",
+   "n": 1,
+   "mean_bpd": 6.2759,
+   "best_bpd": 6.2759,
+   "corr_s": 0.1719
+  },
+  {
+   "body": [
+    10,
+    10,
+    15,
+    12,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(SUB(premium_high, NEG(premium_high)))",
+   "n": 1,
+   "mean_bpd": 6.1699,
+   "best_bpd": 6.1699,
+   "corr_s": 0.1761
+  },
+  {
+   "body": [
+    10,
+    32,
+    33,
+    39,
+    24,
+    32,
+    31,
+    33,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_RANK(CS_DEMEAN(CS_ZSCORE(TS_MAX(CS_RANK(CS_ZSCORE(premium_high)), w=504)))))",
+   "n": 1,
+   "mean_bpd": 6.0405,
+   "best_bpd": 6.0405,
+   "corr_s": 0.0623
+  },
+  {
+   "body": [
+    8,
+    32,
+    15,
+    31,
+    33,
+    15,
+    15,
+    17,
+    37,
+    22,
+    32,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_ZSCORE(TS_MEAN(SIGN(NEG(NEG(CS_RANK(CS_DEMEAN(NEG(CS_ZSCORE(premium_close_bps))))))), w=168))",
+   "n": 1,
+   "mean_bpd": 5.9878,
+   "best_bpd": 5.9878,
+   "corr_s": 0.0724
+  },
+  {
+   "body": [
+    0,
+    36,
+    29,
+    37,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(EMA(log_close, w=72), w=168)",
+   "n": 1,
+   "mean_bpd": 5.9483,
+   "best_bpd": 5.9483,
+   "corr_s": 0.3381
+  },
+  {
+   "body": [
+    2,
+    40,
+    26,
+    40,
+    28,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_SLOPE(TS_ZSCORE(log_low, w=672), w=672)",
+   "n": 1,
+   "mean_bpd": 5.9301,
+   "best_bpd": 5.9301,
+   "corr_s": 0.218
+  },
+  {
+   "body": [
+    0,
+    39,
+    27,
+    31,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(CS_DEMEAN(TS_RANK(log_close, w=504)))",
+   "n": 1,
+   "mean_bpd": 5.8308,
+   "best_bpd": 5.8308,
+   "corr_s": 0.1937
+  },
+  {
+   "body": [
+    0,
+    2,
+    11,
+    37,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(ADD(log_close, log_low), w=168)",
+   "n": 1,
+   "mean_bpd": 5.8221,
+   "best_bpd": 5.8221,
+   "corr_s": 0.3061
+  },
+  {
+   "body": [
+    0,
+    39,
+    26,
+    33,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_RANK(TS_ZSCORE(log_close, w=504))",
+   "n": 1,
+   "mean_bpd": 5.7484,
+   "best_bpd": 5.7484,
+   "corr_s": 0.2469
+  },
+  {
+   "body": [
+    9,
+    17,
+    32,
+    37,
+    29,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(EMA(CS_ZSCORE(SIGN(mark_index_basis_bps)), w=168))",
+   "n": 1,
+   "mean_bpd": 5.7068,
+   "best_bpd": 5.7068,
+   "corr_s": 0.0986
+  },
+  {
+   "body": [
+    0,
+    16,
+    16,
+    16,
+    0,
+    13,
+    15,
+    1,
+    14,
+    0,
+    17,
+    11,
+    40,
+    27,
+    2,
+    0,
+    18,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(GATE(TS_RANK(ADD(DIV(NEG(MUL(ABS(ABS(ABS(log_close))), log_close)), log_high), SIGN(log_close)), w=672), log_low, log_close), w=504)",
+   "n": 1,
+   "mean_bpd": 5.6863,
+   "best_bpd": 5.6863,
+   "corr_s": 0.1963
+  },
+  {
+   "body": [
+    8,
+    39,
+    24,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(TS_MAX(premium_close_bps, w=504))",
+   "n": 2,
+   "mean_bpd": 5.6575,
+   "best_bpd": 5.8176,
+   "corr_s": 0.1255
+  },
+  {
+   "body": [
+    8,
+    15,
+    32,
+    31,
+    31,
+    34,
+    25,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_MIN(CS_DEMEAN(CS_DEMEAN(CS_ZSCORE(NEG(premium_close_bps)))), w=6)",
+   "n": 1,
+   "mean_bpd": 5.6558,
+   "best_bpd": 5.6558,
+   "corr_s": 0.1758
+  },
+  {
+   "body": [
+    3,
+    37,
+    23,
+    34,
+    20,
+    1,
+    2,
+    18,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(GATE(LAG(TS_STD(log_quote_volume, w=168), w=6), log_high, log_low), w=504)",
+   "n": 1,
+   "mean_bpd": 5.5876,
+   "best_bpd": 5.5876,
+   "corr_s": 0.2273
+  },
+  {
+   "body": [
+    10,
+    33,
+    31,
+    33,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_RANK(CS_DEMEAN(CS_RANK(premium_high))))",
+   "n": 1,
+   "mean_bpd": 5.5559,
+   "best_bpd": 5.5559,
+   "corr_s": 0.1725
+  },
+  {
+   "body": [
+    9,
+    34,
+    24,
+    32,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_ZSCORE(TS_MAX(mark_index_basis_bps, w=6)))",
+   "n": 1,
+   "mean_bpd": 5.5231,
+   "best_bpd": 5.5231,
+   "corr_s": 0.1783
+  },
+  {
+   "body": [
+    0,
+    15,
+    17,
+    15,
+    15,
+    17,
+    15,
+    34,
+    25,
+    34,
+    23,
+    34,
+    22,
+    16,
+    2,
+    12,
+    37,
+    23,
+    17,
+    16,
+    34,
+    25,
+    37,
+    23,
+    35,
+    28,
+    15,
+    35,
+    22,
+    15,
+    16,
+    0,
+    11,
+    39,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(ADD(ABS(NEG(TS_MEAN(NEG(TS_SLOPE(TS_STD(TS_MIN(ABS(SIGN(TS_STD(SUB(ABS(TS_MEAN(TS_STD(TS_MIN(NEG(SIGN(NEG(NEG(SIGN(NEG(log_close)))))), w=6), w=6), w=6)), log_low), w=168))), w=6), w=168), w=24)), w=24))), log_close), w=504)",
+   "n": 1,
+   "mean_bpd": 5.4688,
+   "best_bpd": 5.4688,
+   "corr_s": 0.2312
+  },
+  {
+   "body": [
+    0,
+    34,
+    21,
+    37,
+    25,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_MIN(DELTA(log_close, w=6), w=168)",
+   "n": 1,
+   "mean_bpd": 5.4128,
+   "best_bpd": 5.4128,
+   "corr_s": -0.1315
+  },
+  {
+   "body": [
+    10,
+    34,
+    24,
+    33,
+    32,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_ZSCORE(CS_RANK(TS_MAX(premium_high, w=6))))",
+   "n": 1,
+   "mean_bpd": 5.3487,
+   "best_bpd": 5.3487,
+   "corr_s": 0.1174
+  },
+  {
+   "body": [
+    0,
+    17,
+    35,
+    29,
+    0,
+    14,
+    17,
+    0,
+    1,
+    18,
+    40,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(GATE(SIGN(DIV(EMA(SIGN(log_close), w=24), log_close)), log_close, log_high), w=672)",
+   "n": 1,
+   "mean_bpd": 5.3028,
+   "best_bpd": 5.3028,
+   "corr_s": 0.1484
+  },
+  {
+   "body": [
+    10,
+    15,
+    40,
+    29,
+    41
+   ],
+   "basin": "T3",
+   "expr": "EMA(NEG(premium_high), w=672)",
+   "n": 1,
+   "mean_bpd": 5.2602,
+   "best_bpd": 5.2602,
+   "corr_s": 0.0989
+  },
+  {
+   "body": [
+    2,
+    39,
+    27,
+    31,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(CS_DEMEAN(TS_RANK(log_low, w=504)))",
+   "n": 1,
+   "mean_bpd": 5.2418,
+   "best_bpd": 5.2418,
+   "corr_s": 0.214
+  },
+  {
+   "body": [
+    10,
+    38,
+    29,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(EMA(premium_high, w=336))",
+   "n": 1,
+   "mean_bpd": 5.087,
+   "best_bpd": 5.087,
+   "corr_s": 0.1278
+  },
+  {
+   "body": [
+    0,
+    3,
+    14,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(DIV(log_close, log_quote_volume), w=504)",
+   "n": 2,
+   "mean_bpd": 5.0772,
+   "best_bpd": 5.2663,
+   "corr_s": 0.1138
+  },
+  {
+   "body": [
+    2,
+    15,
+    38,
+    27,
+    15,
+    41
+   ],
+   "basin": "T1",
+   "expr": "NEG(TS_RANK(NEG(log_low), w=336))",
+   "n": 1,
+   "mean_bpd": 5.067,
+   "best_bpd": 5.067,
+   "corr_s": 0.2255
+  },
+  {
+   "body": [
+    4,
+    10,
+    15,
+    13,
+    16,
+    15,
+    8,
+    11,
+    15,
+    37,
+    29,
+    37,
+    27,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_RANK(EMA(NEG(ADD(NEG(ABS(MUL(funding_level, NEG(premium_high)))), premium_close_bps)), w=168), w=168)",
+   "n": 1,
+   "mean_bpd": 5.0643,
+   "best_bpd": 5.0643,
+   "corr_s": 0.1713
+  },
+  {
+   "body": [
+    10,
+    34,
+    29,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(EMA(premium_high, w=6))",
+   "n": 1,
+   "mean_bpd": 5.0315,
+   "best_bpd": 5.0315,
+   "corr_s": 0.0935
+  },
+  {
+   "body": [
+    0,
+    37,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(log_close, w=168)",
+   "n": 6,
+   "mean_bpd": 5.0108,
+   "best_bpd": 8.2948,
+   "corr_s": 0.2662
+  },
+  {
+   "body": [
+    10,
+    31,
+    32,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_ZSCORE(CS_DEMEAN(premium_high)))",
+   "n": 1,
+   "mean_bpd": 4.9754,
+   "best_bpd": 4.9754,
+   "corr_s": 0.1424
+  },
+  {
+   "body": [
+    1,
+    2,
+    11,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ADD(log_high, log_low), w=504)",
+   "n": 1,
+   "mean_bpd": 4.9707,
+   "best_bpd": 4.9707,
+   "corr_s": 0.2367
+  },
+  {
+   "body": [
+    1,
+    2,
+    17,
+    12,
+    37,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(SUB(log_high, SIGN(log_low)), w=168)",
+   "n": 1,
+   "mean_bpd": 4.9213,
+   "best_bpd": 4.9213,
+   "corr_s": 0.2539
+  },
+  {
+   "body": [
+    1,
+    35,
+    29,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(EMA(log_high, w=24), w=504)",
+   "n": 1,
+   "mean_bpd": 4.9047,
+   "best_bpd": 4.9047,
+   "corr_s": 0.2834
+  },
+  {
+   "body": [
+    8,
+    40,
+    25,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_MIN(premium_close_bps, w=672)",
+   "n": 1,
+   "mean_bpd": 4.82,
+   "best_bpd": 4.82,
+   "corr_s": 0.0629
+  },
+  {
+   "body": [
+    2,
+    37,
+    27,
+    38,
+    29,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(EMA(TS_RANK(log_low, w=168), w=336))",
+   "n": 1,
+   "mean_bpd": 4.8132,
+   "best_bpd": 4.8132,
+   "corr_s": 0.277
+  },
+  {
+   "body": [
+    0,
+    35,
+    29,
+    40,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(EMA(log_close, w=24), w=672)",
+   "n": 1,
+   "mean_bpd": 4.801,
+   "best_bpd": 4.801,
+   "corr_s": 0.1995
+  },
+  {
+   "body": [
+    10,
+    10,
+    15,
+    13,
+    32,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_ZSCORE(MUL(premium_high, NEG(premium_high)))",
+   "n": 1,
+   "mean_bpd": 4.7918,
+   "best_bpd": 4.7918,
+   "corr_s": 0.1402
+  },
+  {
+   "body": [
+    10,
+    33,
+    40,
+    24,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(TS_MAX(CS_RANK(premium_high), w=672))",
+   "n": 1,
+   "mean_bpd": 4.7702,
+   "best_bpd": 4.7702,
+   "corr_s": 0.1173
+  },
+  {
+   "body": [
+    10,
+    16,
+    16,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(ABS(ABS(premium_high)))",
+   "n": 1,
+   "mean_bpd": 4.7438,
+   "best_bpd": 4.7438,
+   "corr_s": 0.1538
+  },
+  {
+   "body": [
+    8,
+    15,
+    16,
+    15,
+    39,
+    25,
+    32,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_ZSCORE(TS_MIN(NEG(ABS(NEG(premium_close_bps))), w=504))",
+   "n": 1,
+   "mean_bpd": 4.737,
+   "best_bpd": 4.737,
+   "corr_s": 0.0511
+  },
+  {
+   "body": [
+    0,
+    2,
+    11,
+    36,
+    21,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(DELTA(ADD(log_close, log_low), w=72))",
+   "n": 1,
+   "mean_bpd": 4.7075,
+   "best_bpd": 4.7075,
+   "corr_s": -0.0069
+  },
+  {
+   "body": [
+    8,
+    32,
+    8,
+    31,
+    11,
+    15,
+    33,
+    9,
+    32,
+    11,
+    8,
+    17,
+    15,
+    15,
+    15,
+    11,
+    33,
+    40,
+    22,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_MEAN(CS_RANK(ADD(ADD(CS_RANK(NEG(ADD(CS_ZSCORE(premium_close_bps), CS_DEMEAN(premium_close_bps)))), CS_ZSCORE(mark_index_basis_bps)), NEG(NEG(NEG(SIGN(premium_close_bps)))))), w=672)",
+   "n": 1,
+   "mean_bpd": 4.7013,
+   "best_bpd": 4.7013,
+   "corr_s": 0.0432
+  },
+  {
+   "body": [
+    10,
+    10,
+    15,
+    12,
+    31,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_DEMEAN(SUB(premium_high, NEG(premium_high))))",
+   "n": 1,
+   "mean_bpd": 4.6913,
+   "best_bpd": 4.6913,
+   "corr_s": 0.1813
+  },
+  {
+   "body": [
+    0,
+    0,
+    11,
+    39,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(ADD(log_close, log_close), w=504)",
+   "n": 1,
+   "mean_bpd": 4.6819,
+   "best_bpd": 4.6819,
+   "corr_s": 0.2469
+  },
+  {
+   "body": [
+    10,
+    31,
+    31,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_DEMEAN(CS_DEMEAN(premium_high)))",
+   "n": 1,
+   "mean_bpd": 4.6574,
+   "best_bpd": 4.6574,
+   "corr_s": 0.1412
+  },
+  {
+   "body": [
+    2,
+    35,
+    24,
+    36,
+    29,
+    35,
+    21,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(DELTA(EMA(TS_MAX(log_low, w=24), w=72), w=24))",
+   "n": 1,
+   "mean_bpd": 4.6573,
+   "best_bpd": 4.6573,
+   "corr_s": 0.233
+  },
+  {
+   "body": [
+    0,
+    16,
+    0,
+    0,
+    18,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(GATE(ABS(log_close), log_close, log_close), w=504)",
+   "n": 1,
+   "mean_bpd": 4.644,
+   "best_bpd": 4.644,
+   "corr_s": 0.1424
+  },
+  {
+   "body": [
+    10,
+    36,
+    20,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(LAG(premium_high, w=72))",
+   "n": 1,
+   "mean_bpd": 4.636,
+   "best_bpd": 4.636,
+   "corr_s": -0.0201
+  },
+  {
+   "body": [
+    0,
+    38,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(log_close, w=336)",
+   "n": 2,
+   "mean_bpd": 4.6198,
+   "best_bpd": 5.5588,
+   "corr_s": 0.2563
+  },
+  {
+   "body": [
+    3,
+    16,
+    37,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(ABS(log_quote_volume), w=168)",
+   "n": 1,
+   "mean_bpd": 4.608,
+   "best_bpd": 4.608,
+   "corr_s": 0.1534
+  },
+  {
+   "body": [
+    7,
+    7,
+    31,
+    7,
+    38,
+    30,
+    16,
+    13,
+    41
+   ],
+   "basin": "T2",
+   "expr": "MUL(taker_buy_share, ABS(TS_CORR(CS_DEMEAN(taker_buy_share), taker_buy_share, w=336)))",
+   "n": 1,
+   "mean_bpd": 4.598,
+   "best_bpd": 4.598,
+   "corr_s": 0.0642
+  },
+  {
+   "body": [
+    3,
+    2,
+    11,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ADD(log_quote_volume, log_low), w=504)",
+   "n": 2,
+   "mean_bpd": 4.583,
+   "best_bpd": 4.7693,
+   "corr_s": 0.3041
+  },
+  {
+   "body": [
+    2,
+    3,
+    11,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ADD(log_low, log_quote_volume), w=504)",
+   "n": 1,
+   "mean_bpd": 4.5652,
+   "best_bpd": 4.5652,
+   "corr_s": 0.2996
+  },
+  {
+   "body": [
+    3,
+    17,
+    0,
+    0,
+    39,
+    28,
+    17,
+    18,
+    40,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(GATE(SIGN(log_quote_volume), log_close, SIGN(TS_SLOPE(log_close, w=504))), w=672)",
+   "n": 1,
+   "mean_bpd": 4.5607,
+   "best_bpd": 4.5607,
+   "corr_s": 0.2061
+  },
+  {
+   "body": [
+    2,
+    39,
+    28,
+    38,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(TS_SLOPE(log_low, w=504), w=336)",
+   "n": 1,
+   "mean_bpd": 4.545,
+   "best_bpd": 4.545,
+   "corr_s": 0.3813
+  },
+  {
+   "body": [
+    0,
+    39,
+    28,
+    34,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(TS_SLOPE(log_close, w=504), w=6)",
+   "n": 1,
+   "mean_bpd": 4.5425,
+   "best_bpd": 4.5425,
+   "corr_s": 0.3266
+  },
+  {
+   "body": [
+    8,
+    17,
+    15,
+    36,
+    29,
+    41
+   ],
+   "basin": "T3",
+   "expr": "EMA(NEG(SIGN(premium_close_bps)), w=72)",
+   "n": 1,
+   "mean_bpd": 4.5334,
+   "best_bpd": 4.5334,
+   "corr_s": 0.0853
+  },
+  {
+   "body": [
+    0,
+    15,
+    0,
+    36,
+    23,
+    12,
+    15,
+    1,
+    12,
+    0,
+    11,
+    15,
+    35,
+    24,
+    3,
+    0,
+    13,
+    13,
+    1,
+    16,
+    13,
+    1,
+    12,
+    15,
+    2,
+    13,
+    40,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(MUL(NEG(SUB(MUL(MUL(TS_MAX(NEG(ADD(SUB(NEG(SUB(NEG(log_close), TS_STD(log_close, w=72))), log_high), log_close)), w=24), MUL(log_quote_volume, log_close)), ABS(log_high)), log_high)), log_low), w=672)",
+   "n": 1,
+   "mean_bpd": 4.5292,
+   "best_bpd": 4.5292,
+   "corr_s": 0.1686
+  },
+  {
+   "body": [
+    10,
+    38,
+    20,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(LAG(premium_high, w=336))",
+   "n": 2,
+   "mean_bpd": 4.523,
+   "best_bpd": 4.8847,
+   "corr_s": 0.1567
+  },
+  {
+   "body": [
+    10,
+    38,
+    23,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(TS_STD(premium_high, w=336))",
+   "n": 3,
+   "mean_bpd": 4.4875,
+   "best_bpd": 5.1529,
+   "corr_s": 0.0292
+  },
+  {
+   "body": [
+    9,
+    37,
+    23,
+    10,
+    15,
+    13,
+    41
+   ],
+   "basin": "T3",
+   "expr": "MUL(TS_STD(mark_index_basis_bps, w=168), NEG(premium_high))",
+   "n": 1,
+   "mean_bpd": 4.4838,
+   "best_bpd": 4.4838,
+   "corr_s": 0.1096
+  },
+  {
+   "body": [
+    8,
+    40,
+    25,
+    31,
+    34,
+    29,
+    41
+   ],
+   "basin": "T3",
+   "expr": "EMA(CS_DEMEAN(TS_MIN(premium_close_bps, w=672)), w=6)",
+   "n": 1,
+   "mean_bpd": 4.4831,
+   "best_bpd": 4.4831,
+   "corr_s": 0.0657
+  },
+  {
+   "body": [
+    9,
+    38,
+    25,
+    32,
+    9,
+    8,
+    8,
+    13,
+    12,
+    11,
+    39,
+    22,
+    31,
+    31,
+    33,
+    17,
+    41
+   ],
+   "basin": "T3",
+   "expr": "SIGN(CS_RANK(CS_DEMEAN(CS_DEMEAN(TS_MEAN(ADD(CS_ZSCORE(TS_MIN(mark_index_basis_bps, w=336)), SUB(mark_index_basis_bps, MUL(premium_close_bps, premium_close_bps))), w=504)))))",
+   "n": 1,
+   "mean_bpd": 4.4553,
+   "best_bpd": 4.4553,
+   "corr_s": 0.1058
+  },
+  {
+   "body": [
+    8,
+    17,
+    39,
+    20,
+    9,
+    34,
+    27,
+    9,
+    18,
+    17,
+    36,
+    29,
+    31,
+    32,
+    15,
+    35,
+    25,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_MIN(NEG(CS_ZSCORE(CS_DEMEAN(EMA(SIGN(GATE(LAG(SIGN(premium_close_bps), w=504), TS_RANK(mark_index_basis_bps, w=6), mark_index_basis_bps)), w=72)))), w=24)",
+   "n": 1,
+   "mean_bpd": 4.4379,
+   "best_bpd": 4.4379,
+   "corr_s": 0.1007
+  },
+  {
+   "body": [
+    8,
+    15,
+    32,
+    8,
+    8,
+    17,
+    31,
+    11,
+    12,
+    31,
+    31,
+    35,
+    29,
+    41
+   ],
+   "basin": "T3",
+   "expr": "EMA(CS_DEMEAN(CS_DEMEAN(SUB(CS_ZSCORE(NEG(premium_close_bps)), ADD(premium_close_bps, CS_DEMEAN(SIGN(premium_close_bps)))))), w=24)",
+   "n": 1,
+   "mean_bpd": 4.4027,
+   "best_bpd": 4.4027,
+   "corr_s": 0.1312
+  },
+  {
+   "body": [
+    0,
+    38,
+    27,
+    31,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(CS_DEMEAN(TS_RANK(log_close, w=336)))",
+   "n": 1,
+   "mean_bpd": 4.3917,
+   "best_bpd": 4.3917,
+   "corr_s": 0.2683
+  },
+  {
+   "body": [
+    2,
+    15,
+    39,
+    23,
+    38,
+    25,
+    3,
+    14,
+    3,
+    13,
+    3,
+    11,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ADD(MUL(DIV(TS_MIN(TS_STD(NEG(log_low), w=504), w=336), log_quote_volume), log_quote_volume), log_quote_volume), w=504)",
+   "n": 1,
+   "mean_bpd": 4.3632,
+   "best_bpd": 4.3632,
+   "corr_s": 0.2665
+  },
+  {
+   "body": [
+    0,
+    1,
+    0,
+    18,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(GATE(log_close, log_high, log_close), w=504)",
+   "n": 1,
+   "mean_bpd": 4.3591,
+   "best_bpd": 4.3591,
+   "corr_s": 0.216
+  },
+  {
+   "body": [
+    0,
+    39,
+    26,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(TS_ZSCORE(log_close, w=504))",
+   "n": 3,
+   "mean_bpd": 4.3375,
+   "best_bpd": 5.7484,
+   "corr_s": 0.2157
+  },
+  {
+   "body": [
+    0,
+    34,
+    27,
+    37,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(TS_RANK(log_close, w=6), w=168)",
+   "n": 1,
+   "mean_bpd": 4.3081,
+   "best_bpd": 4.3081,
+   "corr_s": -0.0332
+  },
+  {
+   "body": [
+    10,
+    38,
+    24,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(TS_MAX(premium_high, w=336))",
+   "n": 1,
+   "mean_bpd": 4.3035,
+   "best_bpd": 4.3035,
+   "corr_s": -0.0013
+  },
+  {
+   "body": [
+    8,
+    31,
+    34,
+    29,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(EMA(CS_DEMEAN(premium_close_bps), w=6))",
+   "n": 1,
+   "mean_bpd": 4.291,
+   "best_bpd": 4.291,
+   "corr_s": 0.2281
+  },
+  {
+   "body": [
+    7,
+    36,
+    22,
+    16,
+    33,
+    41
+   ],
+   "basin": "T2",
+   "expr": "CS_RANK(ABS(TS_MEAN(taker_buy_share, w=72)))",
+   "n": 1,
+   "mean_bpd": 4.2727,
+   "best_bpd": 4.2727,
+   "corr_s": 0.1204
+  },
+  {
+   "body": [
+    8,
+    36,
+    22,
+    33,
+    17,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(SIGN(CS_RANK(TS_MEAN(premium_close_bps, w=72))))",
+   "n": 1,
+   "mean_bpd": 4.2589,
+   "best_bpd": 4.2589,
+   "corr_s": 0.0865
+  },
+  {
+   "body": [
+    8,
+    15,
+    15,
+    15,
+    31,
+    15,
+    15,
+    33,
+    34,
+    25,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_MIN(CS_RANK(NEG(NEG(CS_DEMEAN(NEG(NEG(NEG(premium_close_bps))))))), w=6)",
+   "n": 1,
+   "mean_bpd": 4.2439,
+   "best_bpd": 4.2439,
+   "corr_s": 0.1571
+  },
+  {
+   "body": [
+    10,
+    15,
+    10,
+    15,
+    11,
+    41
+   ],
+   "basin": "T3",
+   "expr": "ADD(NEG(premium_high), NEG(premium_high))",
+   "n": 1,
+   "mean_bpd": 4.2275,
+   "best_bpd": 4.2275,
+   "corr_s": 0.1403
+  },
+  {
+   "body": [
+    9,
+    31,
+    8,
+    15,
+    37,
+    30,
+    31,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_DEMEAN(TS_CORR(CS_DEMEAN(mark_index_basis_bps), NEG(premium_close_bps), w=168))",
+   "n": 1,
+   "mean_bpd": 4.2098,
+   "best_bpd": 4.2098,
+   "corr_s": -0.0857
+  },
+  {
+   "body": [
+    8,
+    32,
+    15,
+    39,
+    25,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_MIN(NEG(CS_ZSCORE(premium_close_bps)), w=504)",
+   "n": 1,
+   "mean_bpd": 4.2095,
+   "best_bpd": 4.2095,
+   "corr_s": 0.1018
+  },
+  {
+   "body": [
+    10,
+    10,
+    11,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(ADD(premium_high, premium_high))",
+   "n": 2,
+   "mean_bpd": 4.182,
+   "best_bpd": 4.8567,
+   "corr_s": 0.1347
+  },
+  {
+   "body": [
+    8,
+    15,
+    17,
+    31,
+    39,
+    22,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_MEAN(CS_DEMEAN(SIGN(NEG(premium_close_bps))), w=504)",
+   "n": 1,
+   "mean_bpd": 4.1757,
+   "best_bpd": 4.1757,
+   "corr_s": 0.112
+  },
+  {
+   "body": [
+    10,
+    32,
+    9,
+    38,
+    23,
+    33,
+    15,
+    17,
+    12,
+    17,
+    8,
+    13,
+    41
+   ],
+   "basin": "T3",
+   "expr": "MUL(SIGN(SUB(CS_ZSCORE(premium_high), SIGN(NEG(CS_RANK(TS_STD(mark_index_basis_bps, w=336)))))), premium_close_bps)",
+   "n": 1,
+   "mean_bpd": 4.1754,
+   "best_bpd": 4.1754,
+   "corr_s": -0.0565
+  },
+  {
+   "body": [
+    1,
+    3,
+    11,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ADD(log_high, log_quote_volume), w=504)",
+   "n": 1,
+   "mean_bpd": 4.1639,
+   "best_bpd": 4.1639,
+   "corr_s": 0.3182
+  },
+  {
+   "body": [
+    0,
+    2,
+    37,
+    24,
+    0,
+    18,
+    40,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(GATE(log_close, TS_MAX(log_low, w=168), log_close), w=672)",
+   "n": 1,
+   "mean_bpd": 4.1622,
+   "best_bpd": 4.1622,
+   "corr_s": 0.262
+  },
+  {
+   "body": [
+    10,
+    33,
+    33,
+    31,
+    17,
+    10,
+    15,
+    17,
+    13,
+    41
+   ],
+   "basin": "T3",
+   "expr": "MUL(SIGN(CS_DEMEAN(CS_RANK(CS_RANK(premium_high)))), SIGN(NEG(premium_high)))",
+   "n": 1,
+   "mean_bpd": 4.1574,
+   "best_bpd": 4.1574,
+   "corr_s": 0.1227
+  },
+  {
+   "body": [
+    0,
+    0,
+    0,
+    12,
+    40,
+    29,
+    12,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(SUB(log_close, EMA(SUB(log_close, log_close), w=672)), w=504)",
+   "n": 1,
+   "mean_bpd": 4.1339,
+   "best_bpd": 4.1339,
+   "corr_s": 0.1803
+  },
+  {
+   "body": [
+    7,
+    33,
+    31,
+    33,
+    41
+   ],
+   "basin": "T2",
+   "expr": "CS_RANK(CS_DEMEAN(CS_RANK(taker_buy_share)))",
+   "n": 1,
+   "mean_bpd": 4.1318,
+   "best_bpd": 4.1318,
+   "corr_s": 0.0094
+  },
+  {
+   "body": [
+    7,
+    7,
+    39,
+    27,
+    32,
+    39,
+    27,
+    11,
+    41
+   ],
+   "basin": "T2",
+   "expr": "ADD(taker_buy_share, TS_RANK(CS_ZSCORE(TS_RANK(taker_buy_share, w=504)), w=504))",
+   "n": 1,
+   "mean_bpd": 4.123,
+   "best_bpd": 4.123,
+   "corr_s": 0.0039
+  },
+  {
+   "body": [
+    7,
+    39,
+    27,
+    7,
+    14,
+    31,
+    41
+   ],
+   "basin": "T2",
+   "expr": "CS_DEMEAN(DIV(TS_RANK(taker_buy_share, w=504), taker_buy_share))",
+   "n": 1,
+   "mean_bpd": 4.1085,
+   "best_bpd": 4.1085,
+   "corr_s": 0.0114
+  },
+  {
+   "body": [
+    7,
+    16,
+    35,
+    29,
+    7,
+    11,
+    41
+   ],
+   "basin": "T2",
+   "expr": "ADD(EMA(ABS(taker_buy_share), w=24), taker_buy_share)",
+   "n": 1,
+   "mean_bpd": 4.0934,
+   "best_bpd": 4.0934,
+   "corr_s": 0.0402
+  },
+  {
+   "body": [
+    10,
+    31,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_DEMEAN(premium_high))",
+   "n": 18,
+   "mean_bpd": 4.0929,
+   "best_bpd": 5.4332,
+   "corr_s": 0.1479
+  },
+  {
+   "body": [
+    2,
+    17,
+    17,
+    0,
+    12,
+    15,
+    36,
+    21,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(DELTA(NEG(SUB(SIGN(SIGN(log_low)), log_close)), w=72))",
+   "n": 1,
+   "mean_bpd": 4.088,
+   "best_bpd": 4.088,
+   "corr_s": -0.029
+  },
+  {
+   "body": [
+    10,
+    33,
+    31,
+    15,
+    15,
+    17,
+    33,
+    15,
+    31,
+    32,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_ZSCORE(CS_DEMEAN(NEG(CS_RANK(SIGN(NEG(NEG(CS_DEMEAN(CS_RANK(premium_high)))))))))",
+   "n": 1,
+   "mean_bpd": 4.0685,
+   "best_bpd": 4.0685,
+   "corr_s": 0.1229
+  },
+  {
+   "body": [
+    2,
+    39,
+    21,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(DELTA(log_low, w=504))",
+   "n": 1,
+   "mean_bpd": 4.0596,
+   "best_bpd": 4.0596,
+   "corr_s": 0.0987
+  },
+  {
+   "body": [
+    10,
+    10,
+    15,
+    32,
+    13,
+    41
+   ],
+   "basin": "T3",
+   "expr": "MUL(premium_high, CS_ZSCORE(NEG(premium_high)))",
+   "n": 1,
+   "mean_bpd": 4.0581,
+   "best_bpd": 4.0581,
+   "corr_s": 0.1023
+  },
+  {
+   "body": [
+    8,
+    8,
+    13,
+    32,
+    31,
+    31,
+    37,
+    23,
+    35,
+    24,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(TS_MAX(TS_STD(CS_DEMEAN(CS_DEMEAN(CS_ZSCORE(MUL(premium_close_bps, premium_close_bps)))), w=168), w=24))",
+   "n": 1,
+   "mean_bpd": 4.0427,
+   "best_bpd": 4.0427,
+   "corr_s": -0.0499
+  },
+  {
+   "body": [
+    2,
+    40,
+    26,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(TS_ZSCORE(log_low, w=672))",
+   "n": 1,
+   "mean_bpd": 4.0243,
+   "best_bpd": 4.0243,
+   "corr_s": 0.2175
+  },
+  {
+   "body": [
+    4,
+    15,
+    8,
+    13,
+    17,
+    15,
+    40,
+    27,
+    15,
+    8,
+    13,
+    32,
+    31,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_DEMEAN(CS_ZSCORE(MUL(NEG(TS_RANK(NEG(SIGN(MUL(NEG(funding_level), premium_close_bps))), w=672)), premium_close_bps)))",
+   "n": 1,
+   "mean_bpd": 4.014,
+   "best_bpd": 4.014,
+   "corr_s": 0.1354
+  },
+  {
+   "body": [
+    7,
+    40,
+    29,
+    41
+   ],
+   "basin": "T2",
+   "expr": "EMA(taker_buy_share, w=672)",
+   "n": 1,
+   "mean_bpd": 4.0087,
+   "best_bpd": 4.0087,
+   "corr_s": 0.0861
+  },
+  {
+   "body": [
+    10,
+    32,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_ZSCORE(premium_high))",
+   "n": 49,
+   "mean_bpd": 3.9994,
+   "best_bpd": 6.4236,
+   "corr_s": 0.1609
+  },
+  {
+   "body": [
+    0,
+    17,
+    0,
+    11,
+    35,
+    29,
+    36,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(EMA(ADD(SIGN(log_close), log_close), w=24), w=72)",
+   "n": 1,
+   "mean_bpd": 3.9969,
+   "best_bpd": 3.9969,
+   "corr_s": 0.1655
+  },
+  {
+   "body": [
+    0,
+    39,
+    26,
+    32,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(CS_ZSCORE(TS_ZSCORE(log_close, w=504)))",
+   "n": 1,
+   "mean_bpd": 3.9743,
+   "best_bpd": 3.9743,
+   "corr_s": 0.2542
+  },
+  {
+   "body": [
+    8,
+    40,
+    26,
+    16,
+    41
+   ],
+   "basin": "T3",
+   "expr": "ABS(TS_ZSCORE(premium_close_bps, w=672))",
+   "n": 2,
+   "mean_bpd": 3.9733,
+   "best_bpd": 4.4691,
+   "corr_s": 0.0203
+  },
+  {
+   "body": [
+    10,
+    15,
+    16,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(ABS(NEG(premium_high)))",
+   "n": 11,
+   "mean_bpd": 3.9393,
+   "best_bpd": 5.7477,
+   "corr_s": 0.1532
+  },
+  {
+   "body": [
+    10,
+    32,
+    15,
+    33,
+    38,
+    25,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_MIN(CS_RANK(NEG(CS_ZSCORE(premium_high))), w=336)",
+   "n": 1,
+   "mean_bpd": 3.9358,
+   "best_bpd": 3.9358,
+   "corr_s": 0.0195
+  },
+  {
+   "body": [
+    8,
+    10,
+    33,
+    37,
+    25,
+    15,
+    12,
+    32,
+    9,
+    12,
+    41
+   ],
+   "basin": "T3",
+   "expr": "SUB(CS_ZSCORE(SUB(premium_close_bps, NEG(TS_MIN(CS_RANK(premium_high), w=168)))), mark_index_basis_bps)",
+   "n": 1,
+   "mean_bpd": 3.9307,
+   "best_bpd": 3.9307,
+   "corr_s": 0.1521
+  },
+  {
+   "body": [
+    10,
+    10,
+    15,
+    13,
+    41
+   ],
+   "basin": "T3",
+   "expr": "MUL(premium_high, NEG(premium_high))",
+   "n": 8,
+   "mean_bpd": 3.9108,
+   "best_bpd": 5.1423,
+   "corr_s": 0.1602
+  },
+  {
+   "body": [
+    7,
+    31,
+    7,
+    11,
+    41
+   ],
+   "basin": "T2",
+   "expr": "ADD(CS_DEMEAN(taker_buy_share), taker_buy_share)",
+   "n": 1,
+   "mean_bpd": 3.908,
+   "best_bpd": 3.908,
+   "corr_s": 0.0071
+  },
+  {
+   "body": [
+    8,
+    33,
+    32,
+    31,
+    16,
+    10,
+    15,
+    13,
+    10,
+    33,
+    32,
+    13,
+    33,
+    33,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_RANK(CS_RANK(MUL(MUL(ABS(CS_DEMEAN(CS_ZSCORE(CS_RANK(premium_close_bps)))), NEG(premium_high)), CS_ZSCORE(CS_RANK(premium_high)))))",
+   "n": 1,
+   "mean_bpd": 3.8991,
+   "best_bpd": 3.8991,
+   "corr_s": 0.1365
+  },
+  {
+   "body": [
+    7,
+    7,
+    31,
+    13,
+    32,
+    41
+   ],
+   "basin": "T2",
+   "expr": "CS_ZSCORE(MUL(taker_buy_share, CS_DEMEAN(taker_buy_share)))",
+   "n": 1,
+   "mean_bpd": 3.8969,
+   "best_bpd": 3.8969,
+   "corr_s": 0.0071
+  },
+  {
+   "body": [
+    10,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(premium_high)",
+   "n": 197,
+   "mean_bpd": 3.8895,
+   "best_bpd": 6.8337,
+   "corr_s": 0.1403
+  },
+  {
+   "body": [
+    1,
+    38,
+    21,
+    32,
+    33,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_RANK(CS_ZSCORE(DELTA(log_high, w=336)))",
+   "n": 1,
+   "mean_bpd": 3.882,
+   "best_bpd": 3.882,
+   "corr_s": 0.1844
+  },
+  {
+   "body": [
+    2,
+    37,
+    21,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(DELTA(log_low, w=168))",
+   "n": 1,
+   "mean_bpd": 3.8746,
+   "best_bpd": 3.8746,
+   "corr_s": 0.3504
+  },
+  {
+   "body": [
+    8,
+    15,
+    31,
+    34,
+    20,
+    37,
+    22,
+    32,
+    31,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_DEMEAN(CS_ZSCORE(TS_MEAN(LAG(CS_DEMEAN(NEG(premium_close_bps)), w=6), w=168)))",
+   "n": 1,
+   "mean_bpd": 3.8524,
+   "best_bpd": 3.8524,
+   "corr_s": 0.0842
+  },
+  {
+   "body": [
+    0,
+    39,
+    23,
+    38,
+    29,
+    0,
+    36,
+    21,
+    11,
+    34,
+    27,
+    37,
+    27,
+    0,
+    35,
+    26,
+    34,
+    21,
+    33,
+    38,
+    27,
+    3,
+    11,
+    11,
+    16,
+    15,
+    16,
+    0,
+    11,
+    37,
+    29,
+    16,
+    34,
+    25,
+    16,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ABS(TS_MIN(ABS(EMA(ADD(ABS(NEG(ABS(ADD(TS_RANK(TS_RANK(ADD(EMA(TS_STD(log_close, w=504), w=336), DELTA(log_close, w=72)), w=6), w=168), ADD(TS_RANK(CS_RANK(DELTA(TS_ZSCORE(log_close, w=24), w=6)), w=336), log_quote_volume))))), log_close), w=168)), w=6)), w=504)",
+   "n": 1,
+   "mean_bpd": 3.8522,
+   "best_bpd": 3.8522,
+   "corr_s": 0.4454
+  },
+  {
+   "body": [
+    3,
+    1,
+    39,
+    27,
+    13,
+    0,
+    39,
+    27,
+    11,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ADD(MUL(log_quote_volume, TS_RANK(log_high, w=504)), TS_RANK(log_close, w=504)), w=504)",
+   "n": 1,
+   "mean_bpd": 3.8495,
+   "best_bpd": 3.8495,
+   "corr_s": 0.1836
+  },
+  {
+   "body": [
+    7,
+    32,
+    15,
+    16,
+    39,
+    23,
+    41
+   ],
+   "basin": "T2",
+   "expr": "TS_STD(ABS(NEG(CS_ZSCORE(taker_buy_share))), w=504)",
+   "n": 1,
+   "mean_bpd": 3.8349,
+   "best_bpd": 3.8349,
+   "corr_s": 0.0929
+  },
+  {
+   "body": [
+    10,
+    32,
+    17,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(SIGN(CS_ZSCORE(premium_high)))",
+   "n": 1,
+   "mean_bpd": 3.8195,
+   "best_bpd": 3.8195,
+   "corr_s": 0.1005
+  },
+  {
+   "body": [
+    10,
+    32,
+    32,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_ZSCORE(CS_ZSCORE(premium_high)))",
+   "n": 2,
+   "mean_bpd": 3.8157,
+   "best_bpd": 4.4212,
+   "corr_s": 0.1346
+  },
+  {
+   "body": [
+    3,
+    16,
+    2,
+    13,
+    34,
+    29,
+    36,
+    29,
+    36,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(EMA(EMA(MUL(ABS(log_quote_volume), log_low), w=6), w=72), w=72)",
+   "n": 1,
+   "mean_bpd": 3.8103,
+   "best_bpd": 3.8103,
+   "corr_s": 0.0936
+  },
+  {
+   "body": [
+    0,
+    39,
+    26,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(TS_ZSCORE(log_close, w=504))",
+   "n": 1,
+   "mean_bpd": 3.8095,
+   "best_bpd": 3.8095,
+   "corr_s": 0.2084
+  },
+  {
+   "body": [
+    9,
+    31,
+    17,
+    15,
+    33,
+    9,
+    4,
+    35,
+    29,
+    39,
+    27,
+    16,
+    19,
+    39,
+    29,
+    16,
+    31,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_DEMEAN(ABS(EMA(PER_ASSET_THRESH(CS_RANK(NEG(SIGN(CS_DEMEAN(mark_index_basis_bps)))), mark_index_basis_bps, ABS(TS_RANK(EMA(funding_level, w=24), w=504))), w=504)))",
+   "n": 1,
+   "mean_bpd": 3.8018,
+   "best_bpd": 3.8018,
+   "corr_s": 0.0952
+  },
+  {
+   "body": [
+    7,
+    7,
+    31,
+    7,
+    39,
+    27,
+    4,
+    12,
+    7,
+    11,
+    39,
+    27,
+    18,
+    41
+   ],
+   "basin": "T2",
+   "expr": "GATE(taker_buy_share, CS_DEMEAN(taker_buy_share), TS_RANK(ADD(SUB(TS_RANK(taker_buy_share, w=504), funding_level), taker_buy_share), w=504))",
+   "n": 1,
+   "mean_bpd": 3.7893,
+   "best_bpd": 3.7893,
+   "corr_s": 0.0115
+  },
+  {
+   "body": [
+    2,
+    35,
+    28,
+    2,
+    12,
+    15,
+    36,
+    24,
+    37,
+    27,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(TS_RANK(TS_MAX(NEG(SUB(TS_SLOPE(log_low, w=24), log_low)), w=72), w=168))",
+   "n": 1,
+   "mean_bpd": 3.7841,
+   "best_bpd": 3.7841,
+   "corr_s": 0.1997
+  },
+  {
+   "body": [
+    10,
+    33,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_RANK(premium_high))",
+   "n": 62,
+   "mean_bpd": 3.7814,
+   "best_bpd": 6.8296,
+   "corr_s": 0.1437
+  },
+  {
+   "body": [
+    1,
+    0,
+    16,
+    13,
+    40,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(MUL(log_high, ABS(log_close)), w=672)",
+   "n": 1,
+   "mean_bpd": 3.7772,
+   "best_bpd": 3.7772,
+   "corr_s": 0.176
+  },
+  {
+   "body": [
+    10,
+    15,
+    32,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_ZSCORE(NEG(premium_high))",
+   "n": 20,
+   "mean_bpd": 3.7726,
+   "best_bpd": 5.9117,
+   "corr_s": 0.1613
+  },
+  {
+   "body": [
+    10,
+    15,
+    33,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_RANK(NEG(premium_high))",
+   "n": 10,
+   "mean_bpd": 3.7676,
+   "best_bpd": 5.4428,
+   "corr_s": 0.1567
+  },
+  {
+   "body": [
+    0,
+    0,
+    16,
+    37,
+    22,
+    15,
+    12,
+    16,
+    40,
+    22,
+    37,
+    28,
+    16,
+    16,
+    35,
+    21,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(DELTA(ABS(ABS(TS_SLOPE(TS_MEAN(ABS(SUB(log_close, NEG(TS_MEAN(ABS(log_close), w=168)))), w=672), w=168))), w=24))",
+   "n": 1,
+   "mean_bpd": 3.7664,
+   "best_bpd": 3.7664,
+   "corr_s": 0.1466
+  },
+  {
+   "body": [
+    3,
+    2,
+    14,
+    15,
+    39,
+    24,
+    15,
+    36,
+    27,
+    16,
+    34,
+    21,
+    2,
+    14,
+    34,
+    22,
+    3,
+    12,
+    16,
+    2,
+    13,
+    34,
+    25,
+    17,
+    17,
+    3,
+    16,
+    40,
+    27,
+    12,
+    38,
+    28,
+    3,
+    14,
+    15,
+    35,
+    28,
+    36,
+    28,
+    17,
+    3,
+    14,
+    0,
+    14,
+    35,
+    21,
+    33,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_RANK(DELTA(DIV(DIV(SIGN(TS_SLOPE(TS_SLOPE(NEG(DIV(TS_SLOPE(SUB(SIGN(SIGN(TS_MIN(MUL(ABS(SUB(TS_MEAN(DIV(DELTA(ABS(TS_RANK(NEG(TS_MAX(NEG(DIV(log_quote_volume, log_low)), w=504)), w=72)), w=6), log_low), w=6), log_quote_volume)), log_low), w=6))), TS_RANK(ABS(log_quote_volume), w=672)), w=336), log_quote_volume)), w=24), w=72)), log_quote_volume), log_close), w=24))",
+   "n": 1,
+   "mean_bpd": 3.7617,
+   "best_bpd": 3.7617,
+   "corr_s": 0.0052
+  },
+  {
+   "body": [
+    7,
+    37,
+    24,
+    31,
+    41
+   ],
+   "basin": "T2",
+   "expr": "CS_DEMEAN(TS_MAX(taker_buy_share, w=168))",
+   "n": 1,
+   "mean_bpd": 3.7612,
+   "best_bpd": 3.7612,
+   "corr_s": -0.0449
+  },
+  {
+   "body": [
+    4,
+    4,
+    17,
+    16,
+    13,
+    15,
+    15,
+    17,
+    37,
+    23,
+    16,
+    10,
+    15,
+    31,
+    15,
+    31,
+    8,
+    18,
+    15,
+    16,
+    15,
+    16,
+    17,
+    17,
+    17,
+    10,
+    31,
+    16,
+    9,
+    15,
+    18,
+    8,
+    13,
+    37,
+    23,
+    8,
+    32,
+    15,
+    14,
+    16,
+    35,
+    26,
+    17,
+    31,
+    9,
+    12,
+    41
+   ],
+   "basin": "T3",
+   "expr": "SUB(CS_DEMEAN(SIGN(TS_ZSCORE(ABS(DIV(TS_STD(MUL(GATE(SIGN(SIGN(SIGN(ABS(NEG(ABS(NEG(GATE(ABS(TS_STD(SIGN(NEG(NEG(MUL(funding_level, ABS(SIGN(funding_level)))))), w=168)), CS_DEMEAN(NEG(CS_DEMEAN(NEG(premium_high)))), premium_close_bps)))))))), ABS(CS_DEMEAN(premium_high)), NEG(mark_index_basis_bps)), premium_close_bps), w=168), NEG(CS_ZSCORE(premium_close_bps)))), w=24))), mark_index_basis_bps)",
+   "n": 1,
+   "mean_bpd": 3.7593,
+   "best_bpd": 3.7593,
+   "corr_s": 0.151
+  },
+  {
+   "body": [
+    3,
+    15,
+    0,
+    3,
+    18,
+    39,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(GATE(NEG(log_quote_volume), log_close, log_quote_volume), w=504)",
+   "n": 1,
+   "mean_bpd": 3.7587,
+   "best_bpd": 3.7587,
+   "corr_s": 0.3009
+  },
+  {
+   "body": [
+    10,
+    38,
+    21,
+    16,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(ABS(DELTA(premium_high, w=336)))",
+   "n": 1,
+   "mean_bpd": 3.751,
+   "best_bpd": 3.751,
+   "corr_s": 0.0798
+  },
+  {
+   "body": [
+    10,
+    40,
+    22,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(TS_MEAN(premium_high, w=672))",
+   "n": 1,
+   "mean_bpd": 3.747,
+   "best_bpd": 3.747,
+   "corr_s": 0.1638
+  },
+  {
+   "body": [
+    1,
+    38,
+    21,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(DELTA(log_high, w=336))",
+   "n": 1,
+   "mean_bpd": 3.7433,
+   "best_bpd": 3.7433,
+   "corr_s": 0.2501
+  },
+  {
+   "body": [
+    7,
+    39,
+    23,
+    31,
+    41
+   ],
+   "basin": "T2",
+   "expr": "CS_DEMEAN(TS_STD(taker_buy_share, w=504))",
+   "n": 1,
+   "mean_bpd": 3.7317,
+   "best_bpd": 3.7317,
+   "corr_s": 0.0838
+  },
+  {
+   "body": [
+    8,
+    15,
+    39,
+    26,
+    16,
+    16,
+    31,
+    36,
+    29,
+    41
+   ],
+   "basin": "T3",
+   "expr": "EMA(CS_DEMEAN(ABS(ABS(TS_ZSCORE(NEG(premium_close_bps), w=504)))), w=72)",
+   "n": 1,
+   "mean_bpd": 3.727,
+   "best_bpd": 3.727,
+   "corr_s": 0.1659
+  },
+  {
+   "body": [
+    2,
+    15,
+    2,
+    12,
+    2,
+    0,
+    18,
+    38,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(GATE(SUB(NEG(log_low), log_low), log_low, log_close), w=336)",
+   "n": 1,
+   "mean_bpd": 3.7244,
+   "best_bpd": 3.7244,
+   "corr_s": 0.2467
+  },
+  {
+   "body": [
+    0,
+    15,
+    15,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(NEG(NEG(log_close)), w=504)",
+   "n": 1,
+   "mean_bpd": 3.7095,
+   "best_bpd": 3.7095,
+   "corr_s": 0.1745
+  },
+  {
+   "body": [
+    10,
+    15,
+    31,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_DEMEAN(NEG(premium_high))",
+   "n": 26,
+   "mean_bpd": 3.7069,
+   "best_bpd": 5.078,
+   "corr_s": 0.1833
+  },
+  {
+   "body": [
+    9,
+    33,
+    33,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_RANK(CS_RANK(mark_index_basis_bps)))",
+   "n": 1,
+   "mean_bpd": 3.7056,
+   "best_bpd": 3.7056,
+   "corr_s": 0.1624
+  },
+  {
+   "body": [
+    0,
+    16,
+    16,
+    17,
+    15,
+    16,
+    1,
+    15,
+    13,
+    16,
+    17,
+    2,
+    14,
+    15,
+    40,
+    21,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(DELTA(NEG(DIV(SIGN(ABS(MUL(ABS(NEG(SIGN(ABS(ABS(log_close))))), NEG(log_high)))), log_low)), w=672))",
+   "n": 1,
+   "mean_bpd": 3.7035,
+   "best_bpd": 3.7035,
+   "corr_s": 0.0568
+  },
+  {
+   "body": [
+    0,
+    37,
+    28,
+    39,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(TS_SLOPE(log_close, w=168), w=504)",
+   "n": 1,
+   "mean_bpd": 3.6988,
+   "best_bpd": 3.6988,
+   "corr_s": 0.22
+  },
+  {
+   "body": [
+    3,
+    2,
+    14,
+    3,
+    13,
+    1,
+    12,
+    16,
+    2,
+    17,
+    13,
+    15,
+    17,
+    35,
+    25,
+    2,
+    13,
+    16,
+    3,
+    17,
+    15,
+    14,
+    3,
+    11,
+    0,
+    17,
+    13,
+    16,
+    1,
+    12,
+    16,
+    2,
+    13,
+    35,
+    22,
+    40,
+    28,
+    34,
+    27,
+    16,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(ABS(TS_RANK(TS_SLOPE(TS_MEAN(MUL(ABS(SUB(ABS(MUL(ADD(DIV(ABS(MUL(TS_MIN(SIGN(NEG(MUL(ABS(SUB(MUL(DIV(log_quote_volume, log_low), log_quote_volume), log_high)), SIGN(log_low)))), w=24), log_low)), NEG(SIGN(log_quote_volume))), log_quote_volume), SIGN(log_close))), log_high)), log_low), w=24), w=672), w=6)))",
+   "n": 1,
+   "mean_bpd": 3.6953,
+   "best_bpd": 3.6953,
+   "corr_s": 0.1211
+  },
+  {
+   "body": [
+    10,
+    15,
+    31,
+    17,
+    41
+   ],
+   "basin": "T3",
+   "expr": "SIGN(CS_DEMEAN(NEG(premium_high)))",
+   "n": 1,
+   "mean_bpd": 3.6915,
+   "best_bpd": 3.6915,
+   "corr_s": 0.1368
+  },
+  {
+   "body": [
+    0,
+    37,
+    27,
+    36,
+    29,
+    41
+   ],
+   "basin": "T1",
+   "expr": "EMA(TS_RANK(log_close, w=168), w=72)",
+   "n": 1,
+   "mean_bpd": 3.6804,
+   "best_bpd": 3.6804,
+   "corr_s": 0.3807
+  },
+  {
+   "body": [
+    10,
+    15,
+    15,
+    8,
+    17,
+    31,
+    17,
+    40,
+    30,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_CORR(NEG(NEG(premium_high)), SIGN(CS_DEMEAN(SIGN(premium_close_bps))), w=672)",
+   "n": 1,
+   "mean_bpd": 3.676,
+   "best_bpd": 3.676,
+   "corr_s": 0.0175
+  },
+  {
+   "body": [
+    10,
+    32,
+    31,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_DEMEAN(CS_ZSCORE(premium_high)))",
+   "n": 1,
+   "mean_bpd": 3.6644,
+   "best_bpd": 3.6644,
+   "corr_s": 0.1403
+  },
+  {
+   "body": [
+    0,
+    40,
+    23,
+    35,
+    27,
+    17,
+    41
+   ],
+   "basin": "T1",
+   "expr": "SIGN(TS_RANK(TS_STD(log_close, w=672), w=24))",
+   "n": 1,
+   "mean_bpd": 3.6572,
+   "best_bpd": 3.6572,
+   "corr_s": 0.0608
+  },
+  {
+   "body": [
+    10,
+    33,
+    10,
+    15,
+    13,
+    41
+   ],
+   "basin": "T3",
+   "expr": "MUL(CS_RANK(premium_high), NEG(premium_high))",
+   "n": 1,
+   "mean_bpd": 3.6499,
+   "best_bpd": 3.6499,
+   "corr_s": 0.1118
+  },
+  {
+   "body": [
+    0,
+    39,
+    27,
+    38,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(TS_RANK(log_close, w=504), w=336)",
+   "n": 1,
+   "mean_bpd": 3.6442,
+   "best_bpd": 3.6442,
+   "corr_s": 0.1918
+  },
+  {
+   "body": [
+    2,
+    15,
+    1,
+    17,
+    12,
+    0,
+    35,
+    26,
+    1,
+    12,
+    12,
+    39,
+    27,
+    2,
+    14,
+    15,
+    16,
+    35,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(ABS(NEG(DIV(TS_RANK(SUB(SUB(NEG(log_low), SIGN(log_high)), SUB(TS_ZSCORE(log_close, w=24), log_high)), w=504), log_low))), w=24)",
+   "n": 1,
+   "mean_bpd": 3.6337,
+   "best_bpd": 3.6337,
+   "corr_s": 0.028
+  },
+  {
+   "body": [
+    1,
+    39,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(log_high, w=504)",
+   "n": 7,
+   "mean_bpd": 3.6277,
+   "best_bpd": 5.7029,
+   "corr_s": 0.2439
+  },
+  {
+   "body": [
+    0,
+    39,
+    26,
+    34,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(TS_ZSCORE(log_close, w=504), w=6)",
+   "n": 1,
+   "mean_bpd": 3.6241,
+   "best_bpd": 3.6241,
+   "corr_s": -0.035
+  },
+  {
+   "body": [
+    3,
+    16,
+    39,
+    27,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(TS_RANK(ABS(log_quote_volume), w=504), w=504)",
+   "n": 1,
+   "mean_bpd": 3.621,
+   "best_bpd": 3.621,
+   "corr_s": 0.1777
+  },
+  {
+   "body": [
+    9,
+    31,
+    36,
+    22,
+    31,
+    36,
+    28,
+    9,
+    33,
+    33,
+    10,
+    13,
+    40,
+    24,
+    13,
+    33,
+    38,
+    25,
+    31,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_DEMEAN(TS_MIN(CS_RANK(MUL(TS_SLOPE(CS_DEMEAN(TS_MEAN(CS_DEMEAN(mark_index_basis_bps), w=72)), w=72), TS_MAX(MUL(CS_RANK(CS_RANK(mark_index_basis_bps)), premium_high), w=672))), w=336))",
+   "n": 1,
+   "mean_bpd": 3.6156,
+   "best_bpd": 3.6156,
+   "corr_s": 0.0376
+  },
+  {
+   "body": [
+    0,
+    39,
+    27,
+    17,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(SIGN(TS_RANK(log_close, w=504)), w=504)",
+   "n": 1,
+   "mean_bpd": 3.6127,
+   "best_bpd": 3.6127,
+   "corr_s": 0.2269
+  },
+  {
+   "body": [
+    1,
+    39,
+    27,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(TS_RANK(log_high, w=504))",
+   "n": 2,
+   "mean_bpd": 3.594,
+   "best_bpd": 3.8562,
+   "corr_s": 0.1626
+  },
+  {
+   "body": [
+    7,
+    40,
+    27,
+    32,
+    32,
+    41
+   ],
+   "basin": "T2",
+   "expr": "CS_ZSCORE(CS_ZSCORE(TS_RANK(taker_buy_share, w=672)))",
+   "n": 1,
+   "mean_bpd": 3.5794,
+   "best_bpd": 3.5794,
+   "corr_s": 0.0091
+  },
+  {
+   "body": [
+    10,
+    15,
+    40,
+    25,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_MIN(NEG(premium_high), w=672)",
+   "n": 1,
+   "mean_bpd": 3.5793,
+   "best_bpd": 3.5793,
+   "corr_s": 0.0411
+  },
+  {
+   "body": [
+    8,
+    16,
+    10,
+    15,
+    13,
+    39,
+    29,
+    41
+   ],
+   "basin": "T3",
+   "expr": "EMA(MUL(ABS(premium_close_bps), NEG(premium_high)), w=504)",
+   "n": 1,
+   "mean_bpd": 3.5738,
+   "best_bpd": 3.5738,
+   "corr_s": 0.0702
+  },
+  {
+   "body": [
+    3,
+    17,
+    17,
+    3,
+    11,
+    15,
+    17,
+    35,
+    20,
+    34,
+    25,
+    16,
+    16,
+    1,
+    11,
+    15,
+    3,
+    13,
+    15,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(NEG(MUL(NEG(ADD(ABS(ABS(TS_MIN(LAG(SIGN(NEG(ADD(SIGN(SIGN(log_quote_volume)), log_quote_volume))), w=24), w=6))), log_high)), log_quote_volume)), w=504)",
+   "n": 1,
+   "mean_bpd": 3.569,
+   "best_bpd": 3.569,
+   "corr_s": 0.1614
+  },
+  {
+   "body": [
+    2,
+    40,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(log_low, w=672)",
+   "n": 1,
+   "mean_bpd": 3.5623,
+   "best_bpd": 3.5623,
+   "corr_s": 0.1756
+  },
+  {
+   "body": [
+    9,
+    16,
+    33,
+    9,
+    13,
+    17,
+    8,
+    11,
+    31,
+    31,
+    32,
+    33,
+    17,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(SIGN(CS_RANK(CS_ZSCORE(CS_DEMEAN(CS_DEMEAN(ADD(SIGN(MUL(CS_RANK(ABS(mark_index_basis_bps)), mark_index_basis_bps)), premium_close_bps)))))))",
+   "n": 1,
+   "mean_bpd": 3.561,
+   "best_bpd": 3.561,
+   "corr_s": 0.1296
+  },
+  {
+   "body": [
+    0,
+    35,
+    20,
+    37,
+    26,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(TS_ZSCORE(LAG(log_close, w=24), w=168))",
+   "n": 1,
+   "mean_bpd": 3.5577,
+   "best_bpd": 3.5577,
+   "corr_s": 0.2571
+  },
+  {
+   "body": [
+    8,
+    33,
+    39,
+    24,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(TS_MAX(CS_RANK(premium_close_bps), w=504))",
+   "n": 1,
+   "mean_bpd": 3.5531,
+   "best_bpd": 3.5531,
+   "corr_s": 0.133
+  },
+  {
+   "body": [
+    10,
+    16,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(ABS(premium_high))",
+   "n": 16,
+   "mean_bpd": 3.5505,
+   "best_bpd": 5.1216,
+   "corr_s": 0.1639
+  },
+  {
+   "body": [
+    10,
+    15,
+    32,
+    17,
+    41
+   ],
+   "basin": "T3",
+   "expr": "SIGN(CS_ZSCORE(NEG(premium_high)))",
+   "n": 1,
+   "mean_bpd": 3.5505,
+   "best_bpd": 3.5505,
+   "corr_s": 0.119
+  },
+  {
+   "body": [
+    8,
+    39,
+    26,
+    16,
+    41
+   ],
+   "basin": "T3",
+   "expr": "ABS(TS_ZSCORE(premium_close_bps, w=504))",
+   "n": 1,
+   "mean_bpd": 3.5416,
+   "best_bpd": 3.5416,
+   "corr_s": 0.0576
+  },
+  {
+   "body": [
+    7,
+    33,
+    31,
+    33,
+    39,
+    27,
+    41
+   ],
+   "basin": "T2",
+   "expr": "TS_RANK(CS_RANK(CS_DEMEAN(CS_RANK(taker_buy_share))), w=504)",
+   "n": 1,
+   "mean_bpd": 3.5339,
+   "best_bpd": 3.5339,
+   "corr_s": 0.0132
+  },
+  {
+   "body": [
+    0,
+    16,
+    3,
+    14,
+    3,
+    0,
+    38,
+    23,
+    12,
+    12,
+    0,
+    12,
+    16,
+    38,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ABS(SUB(SUB(DIV(ABS(log_close), log_quote_volume), SUB(log_quote_volume, TS_STD(log_close, w=336))), log_close)), w=336)",
+   "n": 1,
+   "mean_bpd": 3.5256,
+   "best_bpd": 3.5256,
+   "corr_s": 0.2401
+  },
+  {
+   "body": [
+    2,
+    16,
+    39,
+    29,
+    3,
+    12,
+    16,
+    37,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(ABS(SUB(EMA(ABS(log_low), w=504), log_quote_volume)), w=168)",
+   "n": 1,
+   "mean_bpd": 3.5242,
+   "best_bpd": 3.5242,
+   "corr_s": 0.1584
+  },
+  {
+   "body": [
+    0,
+    40,
+    28,
+    37,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(TS_SLOPE(log_close, w=672), w=168)",
+   "n": 1,
+   "mean_bpd": 3.5231,
+   "best_bpd": 3.5231,
+   "corr_s": 0.3209
+  },
+  {
+   "body": [
+    10,
+    32,
+    15,
+    17,
+    41
+   ],
+   "basin": "T3",
+   "expr": "SIGN(NEG(CS_ZSCORE(premium_high)))",
+   "n": 1,
+   "mean_bpd": 3.5137,
+   "best_bpd": 3.5137,
+   "corr_s": 0.1204
+  },
+  {
+   "body": [
+    3,
+    17,
+    0,
+    12,
+    2,
+    14,
+    15,
+    3,
+    17,
+    13,
+    17,
+    17,
+    17,
+    17,
+    15,
+    36,
+    29,
+    17,
+    3,
+    35,
+    25,
+    12,
+    16,
+    16,
+    3,
+    14,
+    1,
+    16,
+    39,
+    30,
+    17,
+    38,
+    25,
+    16,
+    39,
+    29,
+    2,
+    16,
+    11,
+    16,
+    3,
+    38,
+    22,
+    3,
+    18,
+    36,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(GATE(ABS(ADD(EMA(ABS(TS_MIN(SIGN(TS_CORR(DIV(ABS(ABS(SUB(SIGN(EMA(NEG(SIGN(SIGN(SIGN(SIGN(MUL(NEG(DIV(SUB(SIGN(log_quote_volume), log_close), log_low)), SIGN(log_quote_volume))))))), w=72)), TS_MIN(log_quote_volume, w=24)))), log_quote_volume), ABS(log_high), w=504)), w=336)), w=504), ABS(log_low))), TS_MEAN(log_quote_volume, w=336), log_quote_volume), w=72)",
+   "n": 1,
+   "mean_bpd": 3.5089,
+   "best_bpd": 3.5089,
+   "corr_s": 0.5028
+  },
+  {
+   "body": [
+    0,
+    3,
+    39,
+    27,
+    11,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ADD(log_close, TS_RANK(log_quote_volume, w=504)), w=504)",
+   "n": 1,
+   "mean_bpd": 3.5022,
+   "best_bpd": 3.5022,
+   "corr_s": 0.2353
+  },
+  {
+   "body": [
+    7,
+    38,
+    26,
+    41
+   ],
+   "basin": "T2",
+   "expr": "TS_ZSCORE(taker_buy_share, w=336)",
+   "n": 1,
+   "mean_bpd": 3.4953,
+   "best_bpd": 3.4953,
+   "corr_s": -0.0028
+  },
+  {
+   "body": [
+    10,
+    33,
+    33,
+    10,
+    16,
+    13,
+    33,
+    33,
+    10,
+    34,
+    25,
+    11,
+    32,
+    32,
+    17,
+    31,
+    15,
+    17,
+    41
+   ],
+   "basin": "T3",
+   "expr": "SIGN(NEG(CS_DEMEAN(SIGN(CS_ZSCORE(CS_ZSCORE(ADD(CS_RANK(CS_RANK(MUL(CS_RANK(CS_RANK(premium_high)), ABS(premium_high)))), TS_MIN(premium_high, w=6))))))))",
+   "n": 1,
+   "mean_bpd": 3.4934,
+   "best_bpd": 3.4934,
+   "corr_s": 0.1125
+  },
+  {
+   "body": [
+    9,
+    39,
+    25,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_MIN(mark_index_basis_bps, w=504)",
+   "n": 1,
+   "mean_bpd": 3.4924,
+   "best_bpd": 3.4924,
+   "corr_s": -0.0341
+  },
+  {
+   "body": [
+    4,
+    9,
+    15,
+    33,
+    12,
+    17,
+    40,
+    27,
+    33,
+    17,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(SIGN(CS_RANK(TS_RANK(SIGN(SUB(funding_level, CS_RANK(NEG(mark_index_basis_bps)))), w=672))))",
+   "n": 1,
+   "mean_bpd": 3.4893,
+   "best_bpd": 3.4893,
+   "corr_s": 0.1381
+  },
+  {
+   "body": [
+    9,
+    33,
+    15,
+    31,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_DEMEAN(NEG(CS_RANK(mark_index_basis_bps)))",
+   "n": 1,
+   "mean_bpd": 3.4868,
+   "best_bpd": 3.4868,
+   "corr_s": 0.1293
+  },
+  {
+   "body": [
+    10,
+    32,
+    33,
+    33,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_RANK(CS_RANK(CS_ZSCORE(premium_high))))",
+   "n": 2,
+   "mean_bpd": 3.4834,
+   "best_bpd": 3.9979,
+   "corr_s": 0.159
+  },
+  {
+   "body": [
+    8,
+    15,
+    15,
+    31,
+    10,
+    33,
+    32,
+    15,
+    12,
+    15,
+    32,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_ZSCORE(NEG(SUB(CS_DEMEAN(NEG(NEG(premium_close_bps))), NEG(CS_ZSCORE(CS_RANK(premium_high))))))",
+   "n": 1,
+   "mean_bpd": 3.4653,
+   "best_bpd": 3.4653,
+   "corr_s": 0.1543
+  },
+  {
+   "body": [
+    0,
+    39,
+    27,
+    34,
+    29,
+    41
+   ],
+   "basin": "T1",
+   "expr": "EMA(TS_RANK(log_close, w=504), w=6)",
+   "n": 1,
+   "mean_bpd": 3.4648,
+   "best_bpd": 3.4648,
+   "corr_s": 0.2146
+  },
+  {
+   "body": [
+    4,
+    15,
+    35,
+    23,
+    34,
+    23,
+    8,
+    15,
+    4,
+    12,
+    11,
+    39,
+    29,
+    34,
+    27,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_RANK(EMA(ADD(TS_STD(TS_STD(NEG(funding_level), w=24), w=6), SUB(NEG(premium_close_bps), funding_level)), w=504), w=6)",
+   "n": 1,
+   "mean_bpd": 3.4562,
+   "best_bpd": 3.4562,
+   "corr_s": 0.1359
+  },
+  {
+   "body": [
+    0,
+    0,
+    17,
+    11,
+    38,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ADD(log_close, SIGN(log_close)), w=336)",
+   "n": 1,
+   "mean_bpd": 3.4535,
+   "best_bpd": 3.4535,
+   "corr_s": 0.1261
+  },
+  {
+   "body": [
+    0,
+    39,
+    29,
+    37,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(EMA(log_close, w=504), w=168)",
+   "n": 1,
+   "mean_bpd": 3.4505,
+   "best_bpd": 3.4505,
+   "corr_s": 0.1603
+  },
+  {
+   "body": [
+    7,
+    38,
+    23,
+    41
+   ],
+   "basin": "T2",
+   "expr": "TS_STD(taker_buy_share, w=336)",
+   "n": 2,
+   "mean_bpd": 3.4466,
+   "best_bpd": 3.8973,
+   "corr_s": 0.0714
+  },
+  {
+   "body": [
+    10,
+    17,
+    33,
+    32,
+    32,
+    10,
+    13,
+    16,
+    15,
+    31,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_DEMEAN(NEG(ABS(MUL(CS_ZSCORE(CS_ZSCORE(CS_RANK(SIGN(premium_high)))), premium_high))))",
+   "n": 1,
+   "mean_bpd": 3.4448,
+   "best_bpd": 3.4448,
+   "corr_s": 0.0949
+  },
+  {
+   "body": [
+    10,
+    15,
+    34,
+    25,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_MIN(NEG(premium_high), w=6)",
+   "n": 1,
+   "mean_bpd": 3.4413,
+   "best_bpd": 3.4413,
+   "corr_s": 0.0928
+  },
+  {
+   "body": [
+    2,
+    3,
+    14,
+    3,
+    14,
+    1,
+    11,
+    37,
+    26,
+    32,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(CS_ZSCORE(TS_ZSCORE(ADD(DIV(DIV(log_low, log_quote_volume), log_quote_volume), log_high), w=168)))",
+   "n": 1,
+   "mean_bpd": 3.4268,
+   "best_bpd": 3.4268,
+   "corr_s": 0.0742
+  },
+  {
+   "body": [
+    10,
+    37,
+    29,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(EMA(premium_high, w=168))",
+   "n": 1,
+   "mean_bpd": 3.425,
+   "best_bpd": 3.425,
+   "corr_s": 0.0543
+  },
+  {
+   "body": [
+    0,
+    34,
+    28,
+    36,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(TS_SLOPE(log_close, w=6), w=72)",
+   "n": 2,
+   "mean_bpd": 3.4143,
+   "best_bpd": 3.5682,
+   "corr_s": -0.0128
+  },
+  {
+   "body": [
+    7,
+    37,
+    27,
+    33,
+    41
+   ],
+   "basin": "T2",
+   "expr": "CS_RANK(TS_RANK(taker_buy_share, w=168))",
+   "n": 1,
+   "mean_bpd": 3.4132,
+   "best_bpd": 3.4132,
+   "corr_s": -0.0281
+  },
+  {
+   "body": [
+    0,
+    39,
+    28,
+    37,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(TS_SLOPE(log_close, w=504), w=168)",
+   "n": 1,
+   "mean_bpd": 3.4092,
+   "best_bpd": 3.4092,
+   "corr_s": 0.3612
+  },
+  {
+   "body": [
+    8,
+    15,
+    4,
+    9,
+    37,
+    21,
+    18,
+    36,
+    23,
+    16,
+    36,
+    25,
+    8,
+    14,
+    15,
+    35,
+    23,
+    8,
+    35,
+    27,
+    8,
+    39,
+    20,
+    37,
+    23,
+    13,
+    13,
+    16,
+    8,
+    13,
+    35,
+    21,
+    41
+   ],
+   "basin": "T3",
+   "expr": "DELTA(MUL(ABS(MUL(TS_STD(NEG(DIV(TS_MIN(ABS(TS_STD(GATE(NEG(premium_close_bps), funding_level, DELTA(mark_index_basis_bps, w=168)), w=72)), w=72), premium_close_bps)), w=24), MUL(TS_RANK(premium_close_bps, w=24), TS_STD(LAG(premium_close_bps, w=504), w=168)))), premium_close_bps), w=24)",
+   "n": 1,
+   "mean_bpd": 3.4079,
+   "best_bpd": 3.4079,
+   "corr_s": 0.0019
+  },
+  {
+   "body": [
+    2,
+    39,
+    23,
+    37,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(TS_STD(log_low, w=504), w=168)",
+   "n": 1,
+   "mean_bpd": 3.4074,
+   "best_bpd": 3.4074,
+   "corr_s": 0.284
+  },
+  {
+   "body": [
+    2,
+    39,
+    27,
+    39,
+    28,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_SLOPE(TS_RANK(log_low, w=504), w=504)",
+   "n": 1,
+   "mean_bpd": 3.4028,
+   "best_bpd": 3.4028,
+   "corr_s": 0.2637
+  },
+  {
+   "body": [
+    7,
+    16,
+    7,
+    31,
+    17,
+    7,
+    12,
+    14,
+    41
+   ],
+   "basin": "T2",
+   "expr": "DIV(ABS(taker_buy_share), SUB(SIGN(CS_DEMEAN(taker_buy_share)), taker_buy_share))",
+   "n": 1,
+   "mean_bpd": 3.3998,
+   "best_bpd": 3.3998,
+   "corr_s": 0.0135
+  },
+  {
+   "body": [
+    0,
+    0,
+    11,
+    1,
+    12,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(SUB(ADD(log_close, log_close), log_high), w=504)",
+   "n": 1,
+   "mean_bpd": 3.3991,
+   "best_bpd": 3.3991,
+   "corr_s": 0.153
+  },
+  {
+   "body": [
+    7,
+    34,
+    23,
+    31,
+    33,
+    41
+   ],
+   "basin": "T2",
+   "expr": "CS_RANK(CS_DEMEAN(TS_STD(taker_buy_share, w=6)))",
+   "n": 1,
+   "mean_bpd": 3.3981,
+   "best_bpd": 3.3981,
+   "corr_s": -0.0613
+  },
+  {
+   "body": [
+    7,
+    16,
+    34,
+    23,
+    41
+   ],
+   "basin": "T2",
+   "expr": "TS_STD(ABS(taker_buy_share), w=6)",
+   "n": 1,
+   "mean_bpd": 3.3981,
+   "best_bpd": 3.3981,
+   "corr_s": -0.0613
+  },
+  {
+   "body": [
+    2,
+    37,
+    24,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(TS_MAX(log_low, w=168), w=504)",
+   "n": 1,
+   "mean_bpd": 3.397,
+   "best_bpd": 3.397,
+   "corr_s": 0.363
+  },
+  {
+   "body": [
+    3,
+    34,
+    21,
+    0,
+    16,
+    13,
+    15,
+    2,
+    11,
+    34,
+    22,
+    17,
+    17,
+    15,
+    16,
+    16,
+    2,
+    14,
+    1,
+    16,
+    11,
+    36,
+    29,
+    39,
+    22,
+    37,
+    24,
+    17,
+    17,
+    17,
+    16,
+    17,
+    15,
+    15,
+    17,
+    15,
+    17,
+    1,
+    16,
+    17,
+    1,
+    18,
+    37,
+    21,
+    31,
+    17,
+    41
+   ],
+   "basin": "T1",
+   "expr": "SIGN(CS_DEMEAN(DELTA(GATE(SIGN(NEG(SIGN(NEG(NEG(SIGN(ABS(SIGN(SIGN(SIGN(TS_MAX(TS_MEAN(EMA(ADD(DIV(ABS(ABS(NEG(SIGN(SIGN(TS_MEAN(ADD(NEG(MUL(DELTA(log_quote_volume, w=6), ABS(log_close))), log_low), w=6)))))), log_low), ABS(log_high)), w=72), w=504), w=168))))))))))), SIGN(ABS(log_high)), log_high), w=168)))",
+   "n": 1,
+   "mean_bpd": 3.3956,
+   "best_bpd": 3.3956,
+   "corr_s": 0.2345
+  },
+  {
+   "body": [
+    0,
+    39,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(log_close, w=504)",
+   "n": 49,
+   "mean_bpd": 3.3849,
+   "best_bpd": 6.2288,
+   "corr_s": 0.1437
+  },
+  {
+   "body": [
+    8,
+    4,
+    12,
+    17,
+    40,
+    26,
+    39,
+    25,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_MIN(TS_ZSCORE(SIGN(SUB(premium_close_bps, funding_level)), w=672), w=504)",
+   "n": 1,
+   "mean_bpd": 3.3833,
+   "best_bpd": 3.3833,
+   "corr_s": -0.0324
+  },
+  {
+   "body": [
+    8,
+    34,
+    22,
+    33,
+    10,
+    31,
+    17,
+    15,
+    11,
+    17,
+    41
+   ],
+   "basin": "T3",
+   "expr": "SIGN(ADD(CS_RANK(TS_MEAN(premium_close_bps, w=6)), NEG(SIGN(CS_DEMEAN(premium_high)))))",
+   "n": 1,
+   "mean_bpd": 3.3832,
+   "best_bpd": 3.3832,
+   "corr_s": 0.1085
+  },
+  {
+   "body": [
+    7,
+    7,
+    7,
+    18,
+    41
+   ],
+   "basin": "T2",
+   "expr": "GATE(taker_buy_share, taker_buy_share, taker_buy_share)",
+   "n": 1,
+   "mean_bpd": 3.3817,
+   "best_bpd": 3.3817,
+   "corr_s": 0.0187
+  },
+  {
+   "body": [
+    10,
+    37,
+    22,
+    33,
+    15,
+    32,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_ZSCORE(NEG(CS_RANK(TS_MEAN(premium_high, w=168))))",
+   "n": 1,
+   "mean_bpd": 3.3813,
+   "best_bpd": 3.3813,
+   "corr_s": 0.0236
+  },
+  {
+   "body": [
+    10,
+    31,
+    17,
+    33,
+    15,
+    33,
+    32,
+    34,
+    25,
+    32,
+    17,
+    41
+   ],
+   "basin": "T3",
+   "expr": "SIGN(CS_ZSCORE(TS_MIN(CS_ZSCORE(CS_RANK(NEG(CS_RANK(SIGN(CS_DEMEAN(premium_high)))))), w=6)))",
+   "n": 1,
+   "mean_bpd": 3.3811,
+   "best_bpd": 3.3811,
+   "corr_s": 0.0786
+  },
+  {
+   "body": [
+    7,
+    31,
+    33,
+    17,
+    41
+   ],
+   "basin": "T2",
+   "expr": "SIGN(CS_RANK(CS_DEMEAN(taker_buy_share)))",
+   "n": 1,
+   "mean_bpd": 3.3645,
+   "best_bpd": 3.3645,
+   "corr_s": 0.0061
+  },
+  {
+   "body": [
+    7,
+    31,
+    39,
+    27,
+    31,
+    41
+   ],
+   "basin": "T2",
+   "expr": "CS_DEMEAN(TS_RANK(CS_DEMEAN(taker_buy_share), w=504))",
+   "n": 1,
+   "mean_bpd": 3.3614,
+   "best_bpd": 3.3614,
+   "corr_s": -0.005
+  },
+  {
+   "body": [
+    10,
+    33,
+    32,
+    17,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(SIGN(CS_ZSCORE(CS_RANK(premium_high))))",
+   "n": 1,
+   "mean_bpd": 3.3598,
+   "best_bpd": 3.3598,
+   "corr_s": 0.1322
+  },
+  {
+   "body": [
+    0,
+    39,
+    24,
+    39,
+    26,
+    15,
+    41
+   ],
+   "basin": "T1",
+   "expr": "NEG(TS_ZSCORE(TS_MAX(log_close, w=504), w=504))",
+   "n": 1,
+   "mean_bpd": 3.3596,
+   "best_bpd": 3.3596,
+   "corr_s": -0.1575
+  },
+  {
+   "body": [
+    7,
+    39,
+    29,
+    41
+   ],
+   "basin": "T2",
+   "expr": "EMA(taker_buy_share, w=504)",
+   "n": 1,
+   "mean_bpd": 3.3588,
+   "best_bpd": 3.3588,
+   "corr_s": 0.1036
+  },
+  {
+   "body": [
+    2,
+    0,
+    15,
+    13,
+    39,
+    23,
+    34,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(TS_STD(MUL(log_low, NEG(log_close)), w=504), w=6)",
+   "n": 1,
+   "mean_bpd": 3.3578,
+   "best_bpd": 3.3578,
+   "corr_s": 0.1721
+  },
+  {
+   "body": [
+    10,
+    32,
+    33,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_RANK(CS_ZSCORE(premium_high)))",
+   "n": 1,
+   "mean_bpd": 3.3526,
+   "best_bpd": 3.3526,
+   "corr_s": 0.1593
+  },
+  {
+   "body": [
+    0,
+    34,
+    26,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(TS_ZSCORE(log_close, w=6))",
+   "n": 1,
+   "mean_bpd": 3.3474,
+   "best_bpd": 3.3474,
+   "corr_s": -0.0289
+  },
+  {
+   "body": [
+    3,
+    15,
+    0,
+    12,
+    16,
+    3,
+    17,
+    14,
+    16,
+    40,
+    27,
+    15,
+    15,
+    33,
+    33,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_RANK(CS_RANK(NEG(NEG(TS_RANK(ABS(DIV(ABS(SUB(NEG(log_quote_volume), log_close)), SIGN(log_quote_volume))), w=672)))))",
+   "n": 1,
+   "mean_bpd": 3.3464,
+   "best_bpd": 3.3464,
+   "corr_s": 0.2968
+  },
+  {
+   "body": [
+    0,
+    16,
+    0,
+    13,
+    37,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(MUL(ABS(log_close), log_close), w=168)",
+   "n": 1,
+   "mean_bpd": 3.3445,
+   "best_bpd": 3.3445,
+   "corr_s": 0.1164
+  },
+  {
+   "body": [
+    10,
+    32,
+    17,
+    15,
+    31,
+    16,
+    15,
+    33,
+    17,
+    34,
+    29,
+    41
+   ],
+   "basin": "T3",
+   "expr": "EMA(SIGN(CS_RANK(NEG(ABS(CS_DEMEAN(NEG(SIGN(CS_ZSCORE(premium_high)))))))), w=6)",
+   "n": 1,
+   "mean_bpd": 3.3386,
+   "best_bpd": 3.3386,
+   "corr_s": 0.0239
+  },
+  {
+   "body": [
+    0,
+    36,
+    21,
+    15,
+    15,
+    41
+   ],
+   "basin": "T1",
+   "expr": "NEG(NEG(DELTA(log_close, w=72)))",
+   "n": 1,
+   "mean_bpd": 3.3287,
+   "best_bpd": 3.3287,
+   "corr_s": -0.0541
+  },
+  {
+   "body": [
+    7,
+    39,
+    27,
+    32,
+    39,
+    27,
+    41
+   ],
+   "basin": "T2",
+   "expr": "TS_RANK(CS_ZSCORE(TS_RANK(taker_buy_share, w=504)), w=504)",
+   "n": 1,
+   "mean_bpd": 3.3238,
+   "best_bpd": 3.3238,
+   "corr_s": -0.0014
+  },
+  {
+   "body": [
+    0,
+    3,
+    11,
+    38,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ADD(log_close, log_quote_volume), w=336)",
+   "n": 1,
+   "mean_bpd": 3.32,
+   "best_bpd": 3.32,
+   "corr_s": 0.22
+  },
+  {
+   "body": [
+    0,
+    40,
+    26,
+    17,
+    17,
+    41
+   ],
+   "basin": "T1",
+   "expr": "SIGN(SIGN(TS_ZSCORE(log_close, w=672)))",
+   "n": 1,
+   "mean_bpd": 3.318,
+   "best_bpd": 3.318,
+   "corr_s": 0.1552
+  },
+  {
+   "body": [
+    0,
+    34,
+    29,
+    16,
+    39,
+    28,
+    16,
+    37,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(ABS(TS_SLOPE(ABS(EMA(log_close, w=6)), w=504)), w=168)",
+   "n": 1,
+   "mean_bpd": 3.3154,
+   "best_bpd": 3.3154,
+   "corr_s": 0.2427
+  },
+  {
+   "body": [
+    0,
+    37,
+    22,
+    36,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(TS_MEAN(log_close, w=168), w=72)",
+   "n": 1,
+   "mean_bpd": 3.3107,
+   "best_bpd": 3.3107,
+   "corr_s": 0.4362
+  },
+  {
+   "body": [
+    10,
+    40,
+    29,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(EMA(premium_high, w=672))",
+   "n": 2,
+   "mean_bpd": 3.3089,
+   "best_bpd": 4.0431,
+   "corr_s": 0.0856
+  },
+  {
+   "body": [
+    0,
+    40,
+    27,
+    33,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_RANK(TS_RANK(log_close, w=672))",
+   "n": 2,
+   "mean_bpd": 3.2974,
+   "best_bpd": 4.4385,
+   "corr_s": 0.2046
+  },
+  {
+   "body": [
+    0,
+    0,
+    13,
+    0,
+    14,
+    40,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(DIV(MUL(log_close, log_close), log_close), w=672)",
+   "n": 1,
+   "mean_bpd": 3.2972,
+   "best_bpd": 3.2972,
+   "corr_s": 0.1539
+  },
+  {
+   "body": [
+    0,
+    40,
+    27,
+    31,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(CS_DEMEAN(TS_RANK(log_close, w=672)))",
+   "n": 1,
+   "mean_bpd": 3.2939,
+   "best_bpd": 3.2939,
+   "corr_s": 0.154
+  },
+  {
+   "body": [
+    0,
+    2,
+    12,
+    16,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ABS(SUB(log_close, log_low)), w=504)",
+   "n": 1,
+   "mean_bpd": 3.2896,
+   "best_bpd": 3.2896,
+   "corr_s": 0.0618
+  },
+  {
+   "body": [
+    2,
+    16,
+    0,
+    16,
+    12,
+    16,
+    38,
+    27,
+    39,
+    23,
+    16,
+    41
+   ],
+   "basin": "T1",
+   "expr": "ABS(TS_STD(TS_RANK(ABS(SUB(ABS(log_low), ABS(log_close))), w=336), w=504))",
+   "n": 1,
+   "mean_bpd": 3.2821,
+   "best_bpd": 3.2821,
+   "corr_s": 0.2035
+  },
+  {
+   "body": [
+    2,
+    38,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(log_low, w=336)",
+   "n": 2,
+   "mean_bpd": 3.2794,
+   "best_bpd": 4.671,
+   "corr_s": 0.2773
+  },
+  {
+   "body": [
+    7,
+    33,
+    33,
+    17,
+    17,
+    32,
+    41
+   ],
+   "basin": "T2",
+   "expr": "CS_ZSCORE(SIGN(SIGN(CS_RANK(CS_RANK(taker_buy_share)))))",
+   "n": 1,
+   "mean_bpd": 3.2673,
+   "best_bpd": 3.2673,
+   "corr_s": -0.0053
+  },
+  {
+   "body": [
+    0,
+    16,
+    0,
+    13,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(MUL(ABS(log_close), log_close), w=504)",
+   "n": 1,
+   "mean_bpd": 3.2492,
+   "best_bpd": 3.2492,
+   "corr_s": 0.2041
+  },
+  {
+   "body": [
+    10,
+    31,
+    31,
+    32,
+    15,
+    31,
+    31,
+    33,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_RANK(CS_DEMEAN(CS_DEMEAN(NEG(CS_ZSCORE(CS_DEMEAN(CS_DEMEAN(premium_high)))))))",
+   "n": 1,
+   "mean_bpd": 3.2491,
+   "best_bpd": 3.2491,
+   "corr_s": 0.1421
+  },
+  {
+   "body": [
+    2,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(log_low, w=504)",
+   "n": 131,
+   "mean_bpd": 3.2462,
+   "best_bpd": 6.1547,
+   "corr_s": 0.2373
+  },
+  {
+   "body": [
+    0,
+    36,
+    21,
+    31,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(CS_DEMEAN(DELTA(log_close, w=72)))",
+   "n": 2,
+   "mean_bpd": 3.2418,
+   "best_bpd": 3.3223,
+   "corr_s": -0.0015
+  },
+  {
+   "body": [
+    10,
+    36,
+    21,
+    16,
+    32,
+    17,
+    15,
+    40,
+    27,
+    41
+   ],
+   "basin": "T3",
+   "expr": "TS_RANK(NEG(SIGN(CS_ZSCORE(ABS(DELTA(premium_high, w=72))))), w=672)",
+   "n": 1,
+   "mean_bpd": 3.2361,
+   "best_bpd": 3.2361,
+   "corr_s": -0.0308
+  },
+  {
+   "body": [
+    9,
+    16,
+    9,
+    31,
+    16,
+    33,
+    15,
+    33,
+    15,
+    33,
+    33,
+    11,
+    15,
+    8,
+    13,
+    41
+   ],
+   "basin": "T3",
+   "expr": "MUL(NEG(ADD(ABS(mark_index_basis_bps), CS_RANK(CS_RANK(NEG(CS_RANK(NEG(CS_RANK(ABS(CS_DEMEAN(mark_index_basis_bps)))))))))), premium_close_bps)",
+   "n": 1,
+   "mean_bpd": 3.2359,
+   "best_bpd": 3.2359,
+   "corr_s": 0.1377
+  },
+  {
+   "body": [
+    7,
+    34,
+    29,
+    32,
+    34,
+    29,
+    41
+   ],
+   "basin": "T2",
+   "expr": "EMA(CS_ZSCORE(EMA(taker_buy_share, w=6)), w=6)",
+   "n": 1,
+   "mean_bpd": 3.2331,
+   "best_bpd": 3.2331,
+   "corr_s": 0.0558
+  },
+  {
+   "body": [
+    7,
+    7,
+    31,
+    11,
+    41
+   ],
+   "basin": "T2",
+   "expr": "ADD(taker_buy_share, CS_DEMEAN(taker_buy_share))",
+   "n": 1,
+   "mean_bpd": 3.2143,
+   "best_bpd": 3.2143,
+   "corr_s": 0.0118
+  },
+  {
+   "body": [
+    0,
+    17,
+    3,
+    12,
+    16,
+    16,
+    16,
+    2,
+    13,
+    16,
+    3,
+    11,
+    15,
+    40,
+    24,
+    17,
+    0,
+    15,
+    14,
+    15,
+    15,
+    2,
+    15,
+    11,
+    15,
+    15,
+    15,
+    36,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(NEG(NEG(NEG(ADD(NEG(NEG(DIV(SIGN(TS_MAX(NEG(ADD(ABS(MUL(ABS(ABS(ABS(SUB(SIGN(log_close), log_quote_volume)))), log_low)), log_quote_volume)), w=672)), NEG(log_close)))), NEG(log_low))))), w=72)",
+   "n": 1,
+   "mean_bpd": 3.2082,
+   "best_bpd": 3.2082,
+   "corr_s": 0.0174
+  },
+  {
+   "body": [
+    0,
+    35,
+    29,
+    38,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(EMA(log_close, w=24), w=336)",
+   "n": 1,
+   "mean_bpd": 3.2075,
+   "best_bpd": 3.2075,
+   "corr_s": 0.2891
+  },
+  {
+   "body": [
+    3,
+    16,
+    35,
+    20,
+    37,
+    21,
+    17,
+    41
+   ],
+   "basin": "T1",
+   "expr": "SIGN(DELTA(LAG(ABS(log_quote_volume), w=24), w=168))",
+   "n": 1,
+   "mean_bpd": 3.2069,
+   "best_bpd": 3.2069,
+   "corr_s": 0.3028
+  },
+  {
+   "body": [
+    0,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(log_close, w=504)",
+   "n": 189,
+   "mean_bpd": 3.1989,
+   "best_bpd": 6.2561,
+   "corr_s": 0.1181
+  },
+  {
+   "body": [
+    7,
+    7,
+    39,
+    27,
+    13,
+    41
+   ],
+   "basin": "T2",
+   "expr": "MUL(taker_buy_share, TS_RANK(taker_buy_share, w=504))",
+   "n": 2,
+   "mean_bpd": 3.1959,
+   "best_bpd": 3.424,
+   "corr_s": 0.0316
+  },
+  {
+   "body": [
+    2,
+    39,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(log_low, w=504)",
+   "n": 8,
+   "mean_bpd": 3.1947,
+   "best_bpd": 4.47,
+   "corr_s": 0.2374
+  },
+  {
+   "body": [
+    0,
+    39,
+    27,
+    32,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(CS_ZSCORE(TS_RANK(log_close, w=504)), w=504)",
+   "n": 1,
+   "mean_bpd": 3.1932,
+   "best_bpd": 3.1932,
+   "corr_s": 0.2324
+  },
+  {
+   "body": [
+    3,
+    38,
+    27,
+    33,
+    31,
+    39,
+    22,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_MEAN(CS_DEMEAN(CS_RANK(TS_RANK(log_quote_volume, w=336))), w=504)",
+   "n": 1,
+   "mean_bpd": 3.1918,
+   "best_bpd": 3.1918,
+   "corr_s": 0.2578
+  },
+  {
+   "body": [
+    1,
+    16,
+    15,
+    34,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(NEG(ABS(log_high)), w=6)",
+   "n": 1,
+   "mean_bpd": 3.1912,
+   "best_bpd": 3.1912,
+   "corr_s": -0.0256
+  },
+  {
+   "body": [
+    0,
+    16,
+    3,
+    0,
+    11,
+    13,
+    16,
+    40,
+    29,
+    16,
+    17,
+    1,
+    13,
+    36,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(MUL(SIGN(ABS(EMA(ABS(MUL(ABS(log_close), ADD(log_quote_volume, log_close))), w=672))), log_high), w=72)",
+   "n": 1,
+   "mean_bpd": 3.1866,
+   "best_bpd": 3.1866,
+   "corr_s": -0.014
+  },
+  {
+   "body": [
+    10,
+    16,
+    38,
+    24,
+    33,
+    17,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(SIGN(CS_RANK(TS_MAX(ABS(premium_high), w=336))))",
+   "n": 1,
+   "mean_bpd": 3.1839,
+   "best_bpd": 3.1839,
+   "corr_s": 0.0397
+  },
+  {
+   "body": [
+    7,
+    16,
+    36,
+    27,
+    41
+   ],
+   "basin": "T2",
+   "expr": "TS_RANK(ABS(taker_buy_share), w=72)",
+   "n": 1,
+   "mean_bpd": 3.1835,
+   "best_bpd": 3.1835,
+   "corr_s": -0.0261
+  },
+  {
+   "body": [
+    7,
+    35,
+    29,
+    41
+   ],
+   "basin": "T2",
+   "expr": "EMA(taker_buy_share, w=24)",
+   "n": 3,
+   "mean_bpd": 3.1807,
+   "best_bpd": 4.0748,
+   "corr_s": 0.0849
+  },
+  {
+   "body": [
+    10,
+    31,
+    32,
+    15,
+    32,
+    32,
+    41
+   ],
+   "basin": "T3",
+   "expr": "CS_ZSCORE(CS_ZSCORE(NEG(CS_ZSCORE(CS_DEMEAN(premium_high)))))",
+   "n": 1,
+   "mean_bpd": 3.1682,
+   "best_bpd": 3.1682,
+   "corr_s": 0.1388
+  },
+  {
+   "body": [
+    1,
+    39,
+    27,
+    33,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_RANK(TS_RANK(log_high, w=504))",
+   "n": 1,
+   "mean_bpd": 3.1679,
+   "best_bpd": 3.1679,
+   "corr_s": 0.2096
+  },
+  {
+   "body": [
+    2,
+    36,
+    24,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(TS_MAX(log_low, w=72), w=504)",
+   "n": 1,
+   "mean_bpd": 3.1672,
+   "best_bpd": 3.1672,
+   "corr_s": 0.3184
+  },
+  {
+   "body": [
+    1,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(log_high, w=504)",
+   "n": 104,
+   "mean_bpd": 3.1663,
+   "best_bpd": 6.2465,
+   "corr_s": 0.2183
+  },
+  {
+   "body": [
+    7,
+    39,
+    28,
+    39,
+    27,
+    41
+   ],
+   "basin": "T2",
+   "expr": "TS_RANK(TS_SLOPE(taker_buy_share, w=504), w=504)",
+   "n": 1,
+   "mean_bpd": 3.1636,
+   "best_bpd": 3.1636,
+   "corr_s": 0.1032
+  },
+  {
+   "body": [
+    3,
+    2,
+    13,
+    39,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(MUL(log_quote_volume, log_low), w=504)",
+   "n": 1,
+   "mean_bpd": 3.1635,
+   "best_bpd": 3.1635,
+   "corr_s": 0.1869
+  },
+  {
+   "body": [
+    0,
+    38,
+    28,
+    37,
+    27,
+    33,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_RANK(TS_RANK(TS_SLOPE(log_close, w=336), w=168))",
+   "n": 1,
+   "mean_bpd": 3.1599,
+   "best_bpd": 3.1599,
+   "corr_s": 0.3804
+  },
+  {
+   "body": [
+    0,
+    0,
+    13,
+    15,
+    34,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(NEG(MUL(log_close, log_close)), w=6)",
+   "n": 1,
+   "mean_bpd": 3.1593,
+   "best_bpd": 3.1593,
+   "corr_s": 0.01
+  },
+  {
+   "body": [
+    0,
+    39,
+    26,
+    17,
+    41
+   ],
+   "basin": "T1",
+   "expr": "SIGN(TS_ZSCORE(log_close, w=504))",
+   "n": 1,
+   "mean_bpd": 3.1517,
+   "best_bpd": 3.1517,
+   "corr_s": 0.1498
+  },
+  {
+   "body": [
+    7,
+    39,
+    29,
+    7,
+    11,
+    41
+   ],
+   "basin": "T2",
+   "expr": "ADD(EMA(taker_buy_share, w=504), taker_buy_share)",
+   "n": 1,
+   "mean_bpd": 3.1421,
+   "best_bpd": 3.1421,
+   "corr_s": 0.0132
+  },
+  {
+   "body": [
+    2,
+    16,
+    39,
+    23,
+    15,
+    16,
+    40,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ABS(NEG(TS_STD(ABS(log_low), w=504))), w=672)",
+   "n": 1,
+   "mean_bpd": 3.1375,
+   "best_bpd": 3.1375,
+   "corr_s": 0.1804
+  },
+  {
+   "body": [
+    3,
+    0,
+    15,
+    15,
+    14,
+    15,
+    35,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(NEG(DIV(log_quote_volume, NEG(NEG(log_close)))), w=24)",
+   "n": 1,
+   "mean_bpd": 3.1343,
+   "best_bpd": 3.1343,
+   "corr_s": -0.0326
+  },
+  {
+   "body": [
+    0,
+    17,
+    36,
+    23,
+    0,
+    16,
+    2,
+    13,
+    14,
+    16,
+    15,
+    17,
+    0,
+    11,
+    15,
+    3,
+    11,
+    15,
+    17,
+    2,
+    14,
+    3,
+    14,
+    35,
+    21,
+    40,
+    25,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_MIN(DELTA(DIV(DIV(SIGN(NEG(ADD(NEG(ADD(SIGN(NEG(ABS(DIV(TS_STD(SIGN(log_close), w=72), MUL(ABS(log_close), log_low))))), log_close)), log_quote_volume))), log_low), log_quote_volume), w=24), w=672)",
+   "n": 1,
+   "mean_bpd": 3.131,
+   "best_bpd": 3.131,
+   "corr_s": -0.0173
+  },
+  {
+   "body": [
+    8,
+    15,
+    35,
+    25,
+    16,
+    31,
+    17,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(SIGN(CS_DEMEAN(ABS(TS_MIN(NEG(premium_close_bps), w=24)))))",
+   "n": 1,
+   "mean_bpd": 3.1271,
+   "best_bpd": 3.1271,
+   "corr_s": 0.088
+  },
+  {
+   "body": [
+    8,
+    32,
+    15,
+    39,
+    24,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(TS_MAX(NEG(CS_ZSCORE(premium_close_bps)), w=504))",
+   "n": 1,
+   "mean_bpd": 3.127,
+   "best_bpd": 3.127,
+   "corr_s": 0.1035
+  },
+  {
+   "body": [
+    10,
+    15,
+    33,
+    15,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(NEG(CS_RANK(NEG(premium_high))))",
+   "n": 1,
+   "mean_bpd": 3.126,
+   "best_bpd": 3.126,
+   "corr_s": 0.1386
+  },
+  {
+   "body": [
+    0,
+    0,
+    39,
+    27,
+    0,
+    18,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(GATE(log_close, TS_RANK(log_close, w=504), log_close), w=504)",
+   "n": 1,
+   "mean_bpd": 3.1249,
+   "best_bpd": 3.1249,
+   "corr_s": 0.1945
+  },
+  {
+   "body": [
+    0,
+    2,
+    37,
+    27,
+    11,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ADD(log_close, TS_RANK(log_low, w=168)), w=504)",
+   "n": 1,
+   "mean_bpd": 3.124,
+   "best_bpd": 3.124,
+   "corr_s": 0.1221
+  },
+  {
+   "body": [
+    2,
+    39,
+    20,
+    37,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(LAG(log_low, w=504), w=168)",
+   "n": 1,
+   "mean_bpd": 3.1233,
+   "best_bpd": 3.1233,
+   "corr_s": 0.0094
+  },
+  {
+   "body": [
+    7,
+    39,
+    27,
+    33,
+    41
+   ],
+   "basin": "T2",
+   "expr": "CS_RANK(TS_RANK(taker_buy_share, w=504))",
+   "n": 1,
+   "mean_bpd": 3.1172,
+   "best_bpd": 3.1172,
+   "corr_s": 0.0348
+  },
+  {
+   "body": [
+    0,
+    39,
+    27,
+    0,
+    39,
+    27,
+    39,
+    27,
+    14,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DIV(TS_RANK(log_close, w=504), TS_RANK(TS_RANK(log_close, w=504), w=504))",
+   "n": 1,
+   "mean_bpd": 3.112,
+   "best_bpd": 3.112,
+   "corr_s": 0.0658
+  },
+  {
+   "body": [
+    3,
+    38,
+    22,
+    16,
+    0,
+    15,
+    16,
+    13,
+    39,
+    26,
+    16,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(ABS(TS_ZSCORE(MUL(ABS(TS_MEAN(log_quote_volume, w=336)), ABS(NEG(log_close))), w=504)))",
+   "n": 1,
+   "mean_bpd": 3.1109,
+   "best_bpd": 3.1109,
+   "corr_s": 0.1543
+  },
+  {
+   "body": [
+    0,
+    37,
+    24,
+    16,
+    2,
+    13,
+    16,
+    17,
+    2,
+    13,
+    40,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(MUL(SIGN(ABS(MUL(ABS(TS_MAX(log_close, w=168)), log_low))), log_low), w=672)",
+   "n": 1,
+   "mean_bpd": 3.1001,
+   "best_bpd": 3.1001,
+   "corr_s": 0.1624
+  },
+  {
+   "body": [
+    0,
+    0,
+    13,
+    16,
+    38,
+    22,
+    37,
+    20,
+    17,
+    16,
+    17,
+    3,
+    12,
+    39,
+    27,
+    40,
+    23,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_STD(TS_RANK(SUB(SIGN(ABS(SIGN(LAG(TS_MEAN(ABS(MUL(log_close, log_close)), w=336), w=168)))), log_quote_volume), w=504), w=672)",
+   "n": 1,
+   "mean_bpd": 3.0988,
+   "best_bpd": 3.0988,
+   "corr_s": 0.1715
+  },
+  {
+   "body": [
+    7,
+    38,
+    28,
+    7,
+    17,
+    31,
+    11,
+    41
+   ],
+   "basin": "T2",
+   "expr": "ADD(TS_SLOPE(taker_buy_share, w=336), CS_DEMEAN(SIGN(taker_buy_share)))",
+   "n": 1,
+   "mean_bpd": 3.0973,
+   "best_bpd": 3.0973,
+   "corr_s": 0.2259
+  },
+  {
+   "body": [
+    0,
+    38,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(log_close, w=336)",
+   "n": 2,
+   "mean_bpd": 3.0925,
+   "best_bpd": 3.6131,
+   "corr_s": 0.2515
+  },
+  {
+   "body": [
+    10,
+    31,
+    17,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(SIGN(CS_DEMEAN(premium_high)))",
+   "n": 1,
+   "mean_bpd": 3.0869,
+   "best_bpd": 3.0869,
+   "corr_s": 0.1471
+  },
+  {
+   "body": [
+    0,
+    17,
+    15,
+    2,
+    13,
+    35,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(MUL(NEG(SIGN(log_close)), log_low), w=24)",
+   "n": 1,
+   "mean_bpd": 3.0866,
+   "best_bpd": 3.0866,
+   "corr_s": 0.0081
+  },
+  {
+   "body": [
+    3,
+    16,
+    0,
+    13,
+    37,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(MUL(ABS(log_quote_volume), log_close), w=168)",
+   "n": 1,
+   "mean_bpd": 3.0856,
+   "best_bpd": 3.0856,
+   "corr_s": 0.1964
+  },
+  {
+   "body": [
+    10,
+    33,
+    32,
+    15,
+    41
+   ],
+   "basin": "T3",
+   "expr": "NEG(CS_ZSCORE(CS_RANK(premium_high)))",
+   "n": 2,
+   "mean_bpd": 3.0816,
+   "best_bpd": 3.3526,
+   "corr_s": 0.1593
+  },
+  {
+   "body": [
+    0,
+    39,
+    28,
+    37,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(TS_SLOPE(log_close, w=504), w=168)",
+   "n": 2,
+   "mean_bpd": 3.0804,
+   "best_bpd": 3.3279,
+   "corr_s": 0.2969
+  },
+  {
+   "body": [
+    0,
+    35,
+    28,
+    2,
+    11,
+    15,
+    15,
+    40,
+    29,
+    35,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(EMA(NEG(NEG(ADD(TS_SLOPE(log_close, w=24), log_low))), w=672), w=24)",
+   "n": 1,
+   "mean_bpd": 3.0719,
+   "best_bpd": 3.0719,
+   "corr_s": 0.1011
+  },
+  {
+   "body": [
+    0,
+    39,
+    27,
+    31,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_DEMEAN(TS_RANK(log_close, w=504))",
+   "n": 13,
+   "mean_bpd": 3.0696,
+   "best_bpd": 5.3505,
+   "corr_s": 0.1181
+  },
+  {
+   "body": [
+    10,
+    15,
+    32,
+    17,
+    17,
+    41
+   ],
+   "basin": "T3",
+   "expr": "SIGN(SIGN(CS_ZSCORE(NEG(premium_high))))",
+   "n": 1,
+   "mean_bpd": 3.0692,
+   "best_bpd": 3.0692,
+   "corr_s": 0.1222
+  },
+  {
+   "body": [
+    0,
+    16,
+    35,
+    29,
+    0,
+    11,
+    39,
+    26,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_ZSCORE(ADD(EMA(ABS(log_close), w=24), log_close), w=504)",
+   "n": 1,
+   "mean_bpd": 3.0663,
+   "best_bpd": 3.0663,
+   "corr_s": 0.1503
+  },
+  {
+   "body": [
+    2,
+    2,
+    14,
+    39,
+    22,
+    0,
+    13,
+    35,
+    24,
+    3,
+    14,
+    34,
+    27,
+    17,
+    41
+   ],
+   "basin": "T1",
+   "expr": "SIGN(TS_RANK(DIV(TS_MAX(MUL(TS_MEAN(DIV(log_low, log_low), w=504), log_close), w=24), log_quote_volume), w=6))",
+   "n": 1,
+   "mean_bpd": 3.0662,
+   "best_bpd": 3.0662,
+   "corr_s": -0.0277
+  },
+  {
+   "body": [
+    2,
+    35,
+    21,
+    31,
+    35,
+    29,
+    31,
+    33,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_RANK(CS_DEMEAN(EMA(CS_DEMEAN(DELTA(log_low, w=24)), w=24)))",
+   "n": 1,
+   "mean_bpd": 3.0622,
+   "best_bpd": 3.0622,
+   "corr_s": 0.0636
+  },
+  {
+   "body": [
+    0,
+    39,
+    28,
+    36,
+    27,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(TS_RANK(TS_SLOPE(log_close, w=504), w=72), w=504)",
+   "n": 1,
+   "mean_bpd": 3.0585,
+   "best_bpd": 3.0585,
+   "corr_s": 0.2328
+  },
+  {
+   "body": [
+    0,
+    16,
+    0,
+    13,
+    37,
+    21,
+    41
+   ],
+   "basin": "T1",
+   "expr": "DELTA(MUL(ABS(log_close), log_close), w=168)",
+   "n": 1,
+   "mean_bpd": 3.0582,
+   "best_bpd": 3.0582,
+   "corr_s": 0.2286
+  },
+  {
+   "body": [
+    0,
+    0,
+    11,
+    39,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(ADD(log_close, log_close), w=504)",
+   "n": 3,
+   "mean_bpd": 3.0563,
+   "best_bpd": 3.5111,
+   "corr_s": 0.2182
+  },
+  {
+   "body": [
+    2,
+    40,
+    27,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(TS_RANK(log_low, w=672))",
+   "n": 1,
+   "mean_bpd": 3.0562,
+   "best_bpd": 3.0562,
+   "corr_s": 0.1794
+  },
+  {
+   "body": [
+    0,
+    36,
+    22,
+    37,
+    27,
+    41
+   ],
+   "basin": "T1",
+   "expr": "TS_RANK(TS_MEAN(log_close, w=72), w=168)",
+   "n": 1,
+   "mean_bpd": 3.0434,
+   "best_bpd": 3.0434,
+   "corr_s": 0.251
+  },
+  {
+   "body": [
+    2,
+    38,
+    21,
+    32,
+    41
+   ],
+   "basin": "T1",
+   "expr": "CS_ZSCORE(DELTA(log_low, w=336))",
+   "n": 1,
+   "mean_bpd": 3.0414,
+   "best_bpd": 3.0414,
+   "corr_s": 0.2446
+  }
+ ]
+}

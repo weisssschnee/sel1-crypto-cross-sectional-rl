@@ -1,0 +1,24 @@
+{
+ "schema": "B5_RUN_CONFIG_V1",
+ "run": "B5_DBG_PC_P32",
+ "plan": "merged plan 2026-10-13, user approved (\"都批 让他执行快点进入正式训练\", relayed by session QuantMind 训练特征构筑); debug round, NOT evidence",
+ "written_before_launch": "2026-10-13 ~05:10 (77o), before the smoke; G1 known (p8/p16 fail, p32 pass), G2 still running",
+ "trainer": "m2h_b5_trainer_dbg.py (copy of m2h_b5_trainer.py sha12 fa34d41b41ea, original untouched) + m2h_b5_plant_dbg.py",
+ "command": "m2h_b5_plant_dbg.py --mode p32 -- B5_DBG_PC_P32 --updates 256 --max-hours 10 --batch 128 --tiles 16 --seed 20261009 --reward gross_t --select full",
+ "changes_vs_B5_PC_P8": [
+  "gmask: B5 grammar applied in the sampler (illegal continuations get -inf); post-hoc check kept, must be 0",
+  "entropy: fixed 0.03 (= B5_PC_P8; the PC_ENT controller is dropped)",
+  "plant strength p32 (alpha 2.303e-4, +32 bp/day H168 gross lift), from G1: p8 and p16 fail the paired t>2 test against 1-week momentum DELTA(log_close,168) (p16 t 1.24), p32 passes all 7 attractors (min t 2.44)",
+  "freeze: hall of fame = every logged valid formula, top 200 per family by logged reward + the final-policy 256 pool, re-scored on the 50 fixed TRAIN tiles, ranked by the G2 ruler (b5_round_dbg.py)"
+ ],
+ "sensitivity_floor": "p32 = +32 bp/day, about 4x the 1-week momentum handwritten baseline gross (~7.9 bp/day); every report from this line must say so",
+ "found_rule": "T1 batch mean corr with s > 0.3 at a logged update (4 curve tiles, as before) AND a hall-of-fame top-5 formula (any family) with 50-tile corr > 0.7 (ADR-0009)",
+ "branches": "found -> real-data formal round B5_DBG_REAL (3 families, 960 updates, seed 20261010, <=24 h, same trainer) -> b5_round_dbg --mode real -> b5_verdict_dbg (HoF TRAIN freeze, DEV K10 paired verdict, K5/K20, full, OKX). not found -> stop, report to the user, no second debug round",
+ "prereg": {
+  "gmask": "grammar rejects 0 in every update; T1 valid >= 40/43 from u0",
+  "learn": "T1 batch corr > 0.3 by u128",
+  "verdict_prediction": {"predict": "找到", "confidence": 0.65,
+   "why": "at p32 s beats every attractor on the training ruler (G1), the mask removes the -1 push toward short formulas, and the HoF keeps any corr>0.7 formula the run ever samples (PC_ENT sampled 8 at p8). Risk: entropy still collapses onto 1-week momentum, which is the closest attractor at p32 (paired t 2.44)"}
+ },
+ "red_lines": "TRAIN only in this round; no DEV / OOS; m1cu128; schtasks /run; 77o own processes only"
+}

@@ -1,0 +1,49 @@
+{
+ "schema": "M2H_TRAIN_RECEIPT_V1",
+ "run": "BASIN3_H1_20261009",
+ "created": "2026-10-09T17:26:37+0800",
+ "config": {
+  "out_name": "SMOKE_BASIN3",
+  "panel": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\train2024_2025_panel_v1\\TRAIN2024JAN_2025DEC_HOURLY54_TARGET_LONG_V1.parquet",
+  "updates": 2,
+  "batch": 32,
+  "seed": 20261009,
+  "tiles": 4,
+  "device": "cuda",
+  "persist": 1,
+  "cost": "flat6",
+  "band": 0.5,
+  "nav_usd": 100000.0,
+  "checkpoint_every": 1,
+  "resume": null,
+  "max_hours": 0.0,
+  "manifest_only": false
+ },
+ "n_tiles": 50,
+ "invalid_reasons": {
+  "ZERO": 9
+ },
+ "elite_pool_final_size": 53,
+ "trained_policy_final": {
+  "hold_hist": {
+   "4": 9,
+   "24": 12,
+   "72": 6,
+   "168": 5
+  },
+  "exprs": [
+   "log_low",
+   "DELTA(log_close, w=672)",
+   "TS_MEAN(NEG(ABS(CS_RANK(ADD(TS_STD(NEG(NEG(NEG(CS_DEMEAN(LAG(CS_DEMEAN(TS_MEAN(CS_RANK(log_low), w=672)), w=672))))), w=72), LAG(log_high, w=672))))), w=336)",
+   "TS_MEAN(SIGN(EMA(ABS(CS_RANK(log_low)), w=672)), w=6)",
+   "CS_RANK(CS_RANK(ABS(CS_ZSCORE(ABS(LAG(SIGN(CS_ZSCORE(CS_ZSCORE(CS_RANK(ABS(ABS(CS_RANK(SIGN(ABS(CS_RANK(CS_DEMEAN(SUB(PER_ASSET_THRESH(CS_ZSCORE(NEG(log_quote_volume)), SIGN(ABS(log_quote_volume)), CS_RANK(NEG(log_high))), CS_ZSCORE(CS_RANK(log_quote_volume)))))))))))))), w=6))))))",
+   "log_low",
+   "TS_SLOPE(CS_DEMEAN(CS_RANK(TS_MEAN(CS_RANK(log_high), w=24))), w=672)",
+   "log_quote_volume"
+  ]
+ },
+ "peak_vram_alloc_gib": 5.028,
+ "compute_seconds": 8.9,
+ "oos_read": false,
+ "dev_read": false
+}

@@ -1,0 +1,102 @@
+{
+ "schema": "SEL1_GA_SELFTEST_V1",
+ "islands": {
+  "T1": {
+   "u0_sampler_legal": 256,
+   "u0_legal": 256,
+   "u0_n": 256,
+   "children": 2000,
+   "illegal_children": 0,
+   "illegal_examples": [],
+   "kinds": {
+    "subtree": 226,
+    "win": 242,
+    "cx": 995,
+    "point": 295,
+    "shrink": 192,
+    "hoist": 50
+   },
+   "raw_legal_rate": {
+    "cx": 0.681,
+    "point": 0.7867,
+    "subtree": 0.6331,
+    "hoist": 0.2119,
+    "shrink": 0.8205,
+    "win": 0.8432
+   },
+   "mined": 0,
+   "distinct_children": null
+  },
+  "T2": {
+   "u0_sampler_legal": 256,
+   "u0_legal": 256,
+   "u0_n": 256,
+   "children": 2000,
+   "illegal_children": 0,
+   "illegal_examples": [],
+   "kinds": {
+    "win": 200,
+    "cx": 1022,
+    "shrink": 170,
+    "point": 275,
+    "subtree": 247,
+    "hoist": 86
+   },
+   "raw_legal_rate": {
+    "cx": 0.7197,
+    "point": 0.8088,
+    "subtree": 0.6919,
+    "hoist": 0.43,
+    "shrink": 0.7944,
+    "win": 0.6969
+   },
+   "mined": 0,
+   "distinct_children": null
+  },
+  "T3": {
+   "u0_sampler_legal": 256,
+   "u0_legal": 256,
+   "u0_n": 256,
+   "children": 2000,
+   "illegal_children": 0,
+   "illegal_examples": [],
+   "kinds": {
+    "hoist": 126,
+    "cx": 1031,
+    "shrink": 173,
+    "point": 303,
+    "subtree": 245,
+    "win": 122
+   },
+   "raw_legal_rate": {
+    "cx": 0.8528,
+    "point": 0.8808,
+    "subtree": 0.747,
+    "hoist": 0.6597,
+    "shrink": 0.8918,
+    "win": 0.5
+   },
+   "mined": 0,
+   "distinct_children": null
+  }
+ },
+ "n_child": 2000,
+ "operators_ok": true,
+ "plant": {
+  "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)",
+  "h": 4,
+  "state": "all",
+  "dir": "both",
+  "score_A": 5.8818006095071755,
+  "sweep_score": 5.8818006095071755,
+  "t_A": 5.8818006095071755,
+  "bpd_A": 28.160263241801875,
+  "seconds": {
+   "vm": 58.2475266456604,
+   "book": 3.676124334335327
+  }
+ },
+ "plant_ok": true,
+ "passed": true,
+ "written": "2026-10-16T12:40:43+0800"
+}

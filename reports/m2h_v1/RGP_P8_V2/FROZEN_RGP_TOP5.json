@@ -1,0 +1,478 @@
+{
+ "schema": "TV1_RGP_FROZEN_V1",
+ "run": "RGP_P8_V2",
+ "mode": "p8",
+ "rounds": 10,
+ "pop": 512,
+ "keep": 96,
+ "seed": 20261011,
+ "total_evaluated": 5837,
+ "seed_run": "none",
+ "sha256": "e50e6f05acb6d3f69fce8313cf8e18328e81d75e3e67d87a5fa829561de917b4",
+ "max_net_corr_s": 0.2801,
+ "families": {
+  "T1": [
+   {
+    "rank": 1,
+    "names": [
+     "log_close",
+     "CS_DEMEAN",
+     "CS_ZSCORE",
+     "W6",
+     "TS_RANK",
+     "CS_ZSCORE",
+     "CS_DEMEAN",
+     "W504",
+     "EMA"
+    ],
+    "body": [
+     0,
+     31,
+     32,
+     34,
+     27,
+     32,
+     31,
+     39,
+     29
+    ],
+    "hold": 168,
+    "expr": "EMA(CS_DEMEAN(CS_ZSCORE(TS_RANK(CS_ZSCORE(CS_DEMEAN(log_close)), w=6))), w=504)",
+    "train50_gross_bpd": 20.712,
+    "train50_net_bpd": 20.151,
+    "ic": 0.17038,
+    "n_tokens": 9,
+    "corr_s": 0.2338,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "names": [
+     "log_high",
+     "W6",
+     "TS_RANK",
+     "W336",
+     "EMA"
+    ],
+    "body": [
+     1,
+     34,
+     27,
+     38,
+     29
+    ],
+    "hold": 168,
+    "expr": "EMA(TS_RANK(log_high, w=6), w=336)",
+    "train50_gross_bpd": 20.452,
+    "train50_net_bpd": 19.881,
+    "ic": 0.16431,
+    "n_tokens": 5,
+    "corr_s": 0.2801,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "names": [
+     "log_close",
+     "CS_DEMEAN",
+     "CS_ZSCORE",
+     "W6",
+     "TS_RANK",
+     "SIGN",
+     "CS_DEMEAN",
+     "CS_ZSCORE",
+     "CS_DEMEAN",
+     "W504",
+     "EMA"
+    ],
+    "body": [
+     0,
+     31,
+     32,
+     34,
+     27,
+     17,
+     31,
+     32,
+     31,
+     39,
+     29
+    ],
+    "hold": 168,
+    "expr": "EMA(CS_DEMEAN(CS_ZSCORE(CS_DEMEAN(SIGN(TS_RANK(CS_ZSCORE(CS_DEMEAN(log_close)), w=6))))), w=504)",
+    "train50_gross_bpd": 20.42,
+    "train50_net_bpd": 19.858,
+    "ic": 0.1722,
+    "n_tokens": 11,
+    "corr_s": 0.2337,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "names": [
+     "log_close",
+     "W6",
+     "TS_RANK",
+     "W504",
+     "EMA"
+    ],
+    "body": [
+     0,
+     34,
+     27,
+     39,
+     29
+    ],
+    "hold": 168,
+    "expr": "EMA(TS_RANK(log_close, w=6), w=504)",
+    "train50_gross_bpd": 20.299,
+    "train50_net_bpd": 19.739,
+    "ic": 0.16051,
+    "n_tokens": 5,
+    "corr_s": 0.2532,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "names": [
+     "log_high",
+     "W6",
+     "TS_RANK",
+     "W504",
+     "EMA"
+    ],
+    "body": [
+     1,
+     34,
+     27,
+     39,
+     29
+    ],
+    "hold": 168,
+    "expr": "EMA(TS_RANK(log_high, w=6), w=504)",
+    "train50_gross_bpd": 20.129,
+    "train50_net_bpd": 19.572,
+    "ic": 0.16574,
+    "n_tokens": 5,
+    "corr_s": 0.2651,
+    "level_flag": false
+   }
+  ],
+  "T2": [
+   {
+    "rank": 1,
+    "names": [
+     "log_oi_value",
+     "funding_level",
+     "CS_RANK",
+     "SIGN",
+     "CS_DEMEAN",
+     "W24",
+     "EMA",
+     "ADD"
+    ],
+    "body": [
+     5,
+     4,
+     33,
+     17,
+     31,
+     35,
+     29,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(log_oi_value, EMA(CS_DEMEAN(SIGN(CS_RANK(funding_level))), w=24))",
+    "train50_gross_bpd": 17.066,
+    "train50_net_bpd": 16.516,
+    "ic": 0.18455,
+    "n_tokens": 8,
+    "corr_s": 0.1739,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "names": [
+     "log_oi_value",
+     "funding_level",
+     "CS_RANK",
+     "CS_RANK",
+     "W72",
+     "EMA",
+     "ADD"
+    ],
+    "body": [
+     5,
+     4,
+     33,
+     33,
+     36,
+     29,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(log_oi_value, EMA(CS_RANK(CS_RANK(funding_level)), w=72))",
+    "train50_gross_bpd": 16.949,
+    "train50_net_bpd": 16.435,
+    "ic": 0.19175,
+    "n_tokens": 7,
+    "corr_s": 0.2058,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "names": [
+     "log_oi_value",
+     "CS_RANK",
+     "CS_ZSCORE",
+     "funding_level",
+     "CS_RANK",
+     "CS_RANK",
+     "W504",
+     "EMA",
+     "ADD"
+    ],
+    "body": [
+     5,
+     33,
+     32,
+     4,
+     33,
+     33,
+     39,
+     29,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(CS_ZSCORE(CS_RANK(log_oi_value)), EMA(CS_RANK(CS_RANK(funding_level)), w=504))",
+    "train50_gross_bpd": 16.948,
+    "train50_net_bpd": 16.428,
+    "ic": 0.18119,
+    "n_tokens": 9,
+    "corr_s": 0.213,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "names": [
+     "log_oi_value",
+     "CS_ZSCORE",
+     "CS_DEMEAN",
+     "funding_level",
+     "CS_RANK",
+     "CS_RANK",
+     "CS_RANK",
+     "CS_RANK",
+     "W24",
+     "EMA",
+     "ADD"
+    ],
+    "body": [
+     5,
+     32,
+     31,
+     4,
+     33,
+     33,
+     33,
+     33,
+     35,
+     29,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(CS_DEMEAN(CS_ZSCORE(log_oi_value)), EMA(CS_RANK(CS_RANK(CS_RANK(CS_RANK(funding_level)))), w=24))",
+    "train50_gross_bpd": 16.771,
+    "train50_net_bpd": 16.231,
+    "ic": 0.18915,
+    "n_tokens": 11,
+    "corr_s": 0.1807,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "names": [
+     "log_oi_value",
+     "funding_level",
+     "CS_RANK",
+     "CS_DEMEAN",
+     "CS_RANK",
+     "CS_ZSCORE",
+     "W24",
+     "EMA",
+     "ADD"
+    ],
+    "body": [
+     5,
+     4,
+     33,
+     31,
+     33,
+     32,
+     35,
+     29,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(log_oi_value, EMA(CS_ZSCORE(CS_RANK(CS_DEMEAN(CS_RANK(funding_level)))), w=24))",
+    "train50_gross_bpd": 16.69,
+    "train50_net_bpd": 16.145,
+    "ic": 0.18656,
+    "n_tokens": 9,
+    "corr_s": 0.1634,
+    "level_flag": false
+   }
+  ],
+  "T3": [
+   {
+    "rank": 1,
+    "names": [
+     "premium_close_bps",
+     "NEG",
+     "NEG",
+     "ABS",
+     "SIGN",
+     "W672",
+     "TS_MIN"
+    ],
+    "body": [
+     8,
+     15,
+     15,
+     16,
+     17,
+     40,
+     25
+    ],
+    "hold": 168,
+    "expr": "TS_MIN(SIGN(ABS(NEG(NEG(premium_close_bps)))), w=672)",
+    "train50_gross_bpd": 18.322,
+    "train50_net_bpd": 17.879,
+    "ic": 0.06868,
+    "n_tokens": 7,
+    "corr_s": 0.0352,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "names": [
+     "premium_close_bps",
+     "ABS",
+     "ABS",
+     "W672",
+     "TS_MIN"
+    ],
+    "body": [
+     8,
+     16,
+     16,
+     40,
+     25
+    ],
+    "hold": 168,
+    "expr": "TS_MIN(ABS(ABS(premium_close_bps)), w=672)",
+    "train50_gross_bpd": 18.263,
+    "train50_net_bpd": 17.819,
+    "ic": 0.06864,
+    "n_tokens": 5,
+    "corr_s": 0.0352,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "names": [
+     "premium_close_bps",
+     "CS_DEMEAN",
+     "funding_level",
+     "ABS",
+     "SIGN",
+     "SUB",
+     "W504",
+     "TS_MIN"
+    ],
+    "body": [
+     8,
+     31,
+     4,
+     16,
+     17,
+     12,
+     39,
+     25
+    ],
+    "hold": 168,
+    "expr": "TS_MIN(SUB(CS_DEMEAN(premium_close_bps), SIGN(ABS(funding_level))), w=504)",
+    "train50_gross_bpd": 16.787,
+    "train50_net_bpd": 16.239,
+    "ic": 0.21939,
+    "n_tokens": 8,
+    "corr_s": 0.1092,
+    "level_flag": true
+   },
+   {
+    "rank": 4,
+    "names": [
+     "premium_close_bps",
+     "CS_DEMEAN",
+     "funding_level",
+     "SUB",
+     "W504",
+     "TS_MIN"
+    ],
+    "body": [
+     8,
+     31,
+     4,
+     12,
+     39,
+     25
+    ],
+    "hold": 168,
+    "expr": "TS_MIN(SUB(CS_DEMEAN(premium_close_bps), funding_level), w=504)",
+    "train50_gross_bpd": 16.783,
+    "train50_net_bpd": 16.235,
+    "ic": 0.21948,
+    "n_tokens": 6,
+    "corr_s": 0.1092,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "names": [
+     "premium_close_bps",
+     "CS_RANK",
+     "premium_close_bps",
+     "ADD",
+     "CS_DEMEAN",
+     "funding_level",
+     "SUB",
+     "W504",
+     "TS_MIN"
+    ],
+    "body": [
+     8,
+     33,
+     8,
+     11,
+     31,
+     4,
+     12,
+     39,
+     25
+    ],
+    "hold": 168,
+    "expr": "TS_MIN(SUB(CS_DEMEAN(ADD(CS_RANK(premium_close_bps), premium_close_bps)), funding_level), w=504)",
+    "train50_gross_bpd": 16.759,
+    "train50_net_bpd": 16.211,
+    "ic": 0.21945,
+    "n_tokens": 9,
+    "corr_s": 0.1092,
+    "level_flag": false
+   }
+  ]
+ },
+ "seconds": 9765.6,
+ "written": "2026-10-11T22:36:13+0800",
+ "dev_read": false,
+ "oos_read": false
+}

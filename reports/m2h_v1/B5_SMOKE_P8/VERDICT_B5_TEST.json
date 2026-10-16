@@ -1,0 +1,1187 @@
+{
+ "schema": "B5_VERDICT_V1",
+ "run": "B5_SMOKE_P8",
+ "test": true,
+ "frozen_sha256": "2493ed7193aa69876c46ff1413394fe92366306ada9b6f2ec0bc1e0815789cc1",
+ "checkpoint": "checkpoint_0015.pt",
+ "checkpoint_update": 15,
+ "final_seed": 20261108,
+ "dev_tiles": 12,
+ "dev_span": [
+  "2026-01-01 00:00:00",
+  "2026-02-11 23:00:00"
+ ],
+ "primary_book": "conc_k10",
+ "sensitivity_books": [
+  "conc_k5",
+  "conc_k20"
+ ],
+ "conc_pool_dev": 205,
+ "top100_pool_live_mean": 65.4,
+ "top100_pool_live_min": 60,
+ "okx": {
+  "okx_symbols": 205,
+  "mapped": 205,
+  "okx_hours": [
+   "2025-12-31 16:00:00",
+   "2026-06-30 23:00:00"
+  ]
+ },
+ "port_check": {
+  "T1_mom_168h": {
+   "mine": 7.86333991,
+   "h1": 7.86333991,
+   "d": 0.0
+  },
+  "CTREND_lite_17": {
+   "mine": 6.73423385,
+   "h1": 6.73423385,
+   "d": 0.0
+  },
+  "T2_neg_funding_7d": {
+   "mine": -7.43404379,
+   "h1": -7.43404379,
+   "d": 0.0
+  },
+  "T3_neg_premium_24h": {
+   "mine": 1.96716209,
+   "h1": 1.96716209,
+   "d": 0.0
+  }
+ },
+ "baselines_dev": {
+  "T1_mom_168h": {
+   "conc_k10": {
+    "net": 29.7332,
+    "gross": 30.7772,
+    "turn": 0.1738,
+    "beta": -0.0364,
+    "long": -28.4184,
+    "short": 40.2271,
+    "gexp": 0.997,
+    "nexp": -0.0
+   },
+   "full": {
+    "net": 22.3943,
+    "gross": 23.3774,
+    "turn": 0.1638,
+    "beta": -0.0642,
+    "long": -30.4275,
+    "short": 41.2481,
+    "gexp": 0.997,
+    "nexp": -0.0
+   }
+  },
+  "CTREND_lite_17": {
+   "conc_k10": {
+    "net": -2.9731,
+    "gross": -1.9299,
+    "turn": 0.1738,
+    "beta": -0.0724,
+    "long": -42.9005,
+    "short": 19.418,
+    "gexp": 0.997,
+    "nexp": 0.0
+   },
+   "full": {
+    "net": -3.5097,
+    "gross": -2.6565,
+    "turn": 0.1422,
+    "beta": -0.052,
+    "long": -37.9409,
+    "short": 26.1681,
+    "gexp": 0.9751,
+    "nexp": 0.0
+   }
+  },
+  "T2_neg_funding_7d": {
+   "conc_k10": {
+    "net": 43.62,
+    "gross": 44.233,
+    "turn": 0.1024,
+    "beta": -0.0714,
+    "long": -31.3101,
+    "short": 32.4918,
+    "gexp": 0.9888,
+    "nexp": 0.0
+   },
+   "full": {
+    "net": -13.1495,
+    "gross": -12.5611,
+    "turn": 0.0981,
+    "beta": -0.0036,
+    "long": -51.9301,
+    "short": 15.3972,
+    "gexp": 0.9511,
+    "nexp": 0.0
+   }
+  },
+  "T2_neg_retail_LS_24h": {
+   "conc_k10": {
+    "net": 49.4637,
+    "gross": 50.0498,
+    "turn": 0.0976,
+    "beta": -0.0889,
+    "long": -6.3239,
+    "short": 32.1315,
+    "gexp": 0.997,
+    "nexp": -0.0
+   },
+   "full": {
+    "net": 29.7782,
+    "gross": 30.3531,
+    "turn": 0.0958,
+    "beta": -0.0577,
+    "long": -25.2494,
+    "short": 37.942,
+    "gexp": 0.9694,
+    "nexp": -0.0
+   }
+  },
+  "T2_neg_dlogOI_7d": {
+   "conc_k10": {
+    "net": -40.7662,
+    "gross": -39.6384,
+    "turn": 0.1881,
+    "beta": -0.0103,
+    "long": -42.9555,
+    "short": 24.2448,
+    "gexp": 0.997,
+    "nexp": 0.0
+   },
+   "full": {
+    "net": -29.5136,
+    "gross": -28.5143,
+    "turn": 0.1665,
+    "beta": 0.0175,
+    "long": -44.0224,
+    "short": 27.8911,
+    "gexp": 0.997,
+    "nexp": -0.0
+   }
+  },
+  "T3_neg_premium_24h": {
+   "conc_k10": {
+    "net": 20.6798,
+    "gross": 21.401,
+    "turn": 0.1202,
+    "beta": -0.0811,
+    "long": -46.6651,
+    "short": 25.6001,
+    "gexp": 0.9806,
+    "nexp": -0.0
+   },
+   "full": {
+    "net": -8.5442,
+    "gross": -7.9068,
+    "turn": 0.1061,
+    "beta": 0.0132,
+    "long": -50.3008,
+    "short": 16.8225,
+    "gexp": 0.9002,
+    "nexp": 0.0
+   }
+  },
+  "T3_neg_mark_index_24h": {
+   "conc_k10": {
+    "net": 18.0635,
+    "gross": 18.8341,
+    "turn": 0.1286,
+    "beta": -0.0399,
+    "long": -40.3863,
+    "short": 15.0036,
+    "gexp": 0.997,
+    "nexp": -0.0
+   },
+   "full": {
+    "net": -4.4372,
+    "gross": -3.8234,
+    "turn": 0.1022,
+    "beta": 0.0276,
+    "long": -47.4227,
+    "short": 17.6234,
+    "gexp": 0.9271,
+    "nexp": 0.0
+   }
+  },
+  "T3_abs_premium_high_1h": {
+   "conc_k10": {
+    "net": 19.1417,
+    "gross": 20.0425,
+    "turn": 0.15,
+    "beta": -0.0612,
+    "long": -26.3206,
+    "short": 30.3092,
+    "gexp": 0.997,
+    "nexp": -0.0
+   },
+   "full": {
+    "net": 3.3602,
+    "gross": 3.9817,
+    "turn": 0.1036,
+    "beta": -0.0802,
+    "long": -29.4404,
+    "short": 28.0307,
+    "gexp": 0.9371,
+    "nexp": 0.0
+   }
+  }
+ },
+ "families": {
+  "T1": {
+   "paired": {
+    "conc_k10": {
+     "n_initial": 0,
+     "n_initial_invalid": 0,
+     "n_initial_grammar_illegal": 11,
+     "n_final": 0,
+     "n_final_invalid": 0,
+     "n_final_grammar_illegal": 8,
+     "init_net": NaN,
+     "final_net": NaN,
+     "d_net": NaN,
+     "p_net": NaN,
+     "init_gross": NaN,
+     "final_gross": NaN,
+     "d_gross": NaN,
+     "p_gross": NaN,
+     "beta_init": NaN,
+     "beta_final": NaN,
+     "turn_init": NaN,
+     "turn_final": NaN,
+     "tier": "没学到"
+    },
+    "full": {
+     "n_initial": 0,
+     "n_initial_invalid": 0,
+     "n_initial_grammar_illegal": 11,
+     "n_final": 0,
+     "n_final_invalid": 0,
+     "n_final_grammar_illegal": 8,
+     "init_net": NaN,
+     "final_net": NaN,
+     "d_net": NaN,
+     "p_net": NaN,
+     "init_gross": NaN,
+     "final_gross": NaN,
+     "d_gross": NaN,
+     "p_gross": NaN,
+     "beta_init": NaN,
+     "beta_final": NaN,
+     "turn_init": NaN,
+     "turn_final": NaN,
+     "tier": "没学到"
+    },
+    "final_distinct": 8
+   },
+   "top5": [],
+   "gate": {
+    "rule": "conc K10 DEV net beats 1-week momentum and CTREND-lite (same conc book)",
+    "bars": {
+     "T1_mom_168h": 29.7332,
+     "CTREND_lite_17": -2.9731
+    },
+    "pass_rank": []
+   }
+  },
+  "T2": {
+   "paired": {
+    "conc_k10": {
+     "n_initial": 4,
+     "n_initial_invalid": 0,
+     "n_initial_grammar_illegal": 7,
+     "n_final": 7,
+     "n_final_invalid": 1,
+     "n_final_grammar_illegal": 0,
+     "init_net": 1.288,
+     "final_net": 10.038,
+     "d_net": 8.75,
+     "p_net": 0.0541,
+     "init_gross": 2.182,
+     "final_gross": 10.929,
+     "d_gross": 8.747,
+     "p_gross": 0.0546,
+     "beta_init": 0.027,
+     "beta_final": -0.002,
+     "turn_init": 0.149,
+     "turn_final": 0.148,
+     "tier": "学会少交易"
+    },
+    "full": {
+     "n_initial": 4,
+     "n_initial_invalid": 0,
+     "n_initial_grammar_illegal": 7,
+     "n_final": 7,
+     "n_final_invalid": 1,
+     "n_final_grammar_illegal": 0,
+     "init_net": 4.049,
+     "final_net": 9.534,
+     "d_net": 5.486,
+     "p_net": 0.2416,
+     "init_gross": 4.866,
+     "final_gross": 10.368,
+     "d_gross": 5.502,
+     "p_gross": 0.2416,
+     "beta_init": 0.025,
+     "beta_final": 0.008,
+     "turn_init": 0.136,
+     "turn_final": 0.139,
+     "tier": "没学到"
+    },
+    "final_distinct": 5
+   },
+   "top5": [
+    {
+     "rank": 1,
+     "expr": "TS_MIN(CS_RANK(taker_buy_share), w=72)",
+     "explain": "每小时按「主动买占比的截面排名的72小时最低值」排序，做多最高的、做空最低的。",
+     "n_tokens": 4,
+     "level_flag": false,
+     "flag_A": false,
+     "flag_B": false,
+     "train50_conc_k10_net": 21.1248,
+     "train2024": {
+      "net": 21.1248,
+      "gross": 22.1853,
+      "turn": 0.1768,
+      "beta": 0.0931,
+      "long": 52.486,
+      "short": -28.5415,
+      "gexp": 0.997,
+      "nexp": 0.0
+     },
+     "train2025": {
+      "net": null,
+      "gross": null,
+      "turn": null,
+      "beta": null,
+      "long": null,
+      "short": null,
+      "gexp": null,
+      "nexp": null
+     },
+     "dev": {
+      "conc_k10": {
+       "net": 19.3588,
+       "gross": 20.3607,
+       "turn": 0.1667,
+       "beta": 0.0613,
+       "long": -41.7282,
+       "short": 36.7681,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "conc_k5": {
+       "net": 45.3656,
+       "gross": 46.3672,
+       "turn": 0.1667,
+       "beta": 0.086,
+       "long": -30.5479,
+       "short": 27.0684,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "conc_k20": {
+       "net": 11.2471,
+       "gross": 12.1487,
+       "turn": 0.15,
+       "beta": 0.0379,
+       "long": -35.8129,
+       "short": 35.1299,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "full": {
+       "net": -5.6691,
+       "gross": -4.7533,
+       "turn": 0.1524,
+       "beta": 0.0442,
+       "long": -44.9349,
+       "short": 27.8747,
+       "gexp": 0.997,
+       "nexp": 0.0
+      }
+     },
+     "rho_mom1w_train": 0.263,
+     "rho_mom1w_dev": 0.122,
+     "dev_okx_conc_k10": {
+      "win": {
+       "net": 8.754,
+       "gross": 9.7556
+      },
+      "raw": {
+       "net": -5.3714,
+       "gross": -4.3698
+      }
+     },
+     "binance_resettle_maxdiff_bpd": 0.0,
+     "okx_minus_binance_net_bpd": -10.605,
+     "momentum_variant": false
+    },
+    {
+     "rank": 2,
+     "expr": "global_ls_account_ratio",
+     "explain": "每小时按「散户多空账户比」排序，做多最高的、做空最低的。",
+     "n_tokens": 1,
+     "level_flag": false,
+     "flag_A": false,
+     "flag_B": false,
+     "train50_conc_k10_net": 16.0672,
+     "train2024": {
+      "net": 16.0672,
+      "gross": 16.8285,
+      "turn": 0.1268,
+      "beta": -0.0006,
+      "long": 43.6624,
+      "short": -25.5245,
+      "gexp": 0.997,
+      "nexp": 0.0
+     },
+     "train2025": {
+      "net": null,
+      "gross": null,
+      "turn": null,
+      "beta": null,
+      "long": null,
+      "short": null,
+      "gexp": null,
+      "nexp": null
+     },
+     "dev": {
+      "conc_k10": {
+       "net": -58.7694,
+       "gross": -58.1981,
+       "turn": 0.0952,
+       "beta": 0.0943,
+       "long": -34.4445,
+       "short": 3.8761,
+       "gexp": 0.9888,
+       "nexp": 0.0
+      },
+      "conc_k5": {
+       "net": -75.407,
+       "gross": -74.5203,
+       "turn": 0.1476,
+       "beta": 0.1038,
+       "long": -28.164,
+       "short": -10.3287,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "conc_k20": {
+       "net": -39.5144,
+       "gross": -38.9499,
+       "turn": 0.094,
+       "beta": 0.0379,
+       "long": -44.0561,
+       "short": 19.7525,
+       "gexp": 0.9806,
+       "nexp": 0.0
+      },
+      "full": {
+       "net": -35.4954,
+       "gross": -34.9171,
+       "turn": 0.0963,
+       "beta": 0.0637,
+       "long": -39.2456,
+       "short": 23.01,
+       "gexp": 0.9624,
+       "nexp": 0.0
+      }
+     },
+     "rho_mom1w_train": -0.306,
+     "rho_mom1w_dev": 0.198,
+     "dev_okx_conc_k10": {
+      "win": {
+       "net": -38.9882,
+       "gross": -38.4237
+      },
+      "raw": {
+       "net": -45.6212,
+       "gross": -45.0577
+      }
+     },
+     "binance_resettle_maxdiff_bpd": 0.0,
+     "okx_minus_binance_net_bpd": 19.781,
+     "momentum_variant": false
+    },
+    {
+     "rank": 3,
+     "expr": "taker_buy_share",
+     "explain": "每小时按「主动买占比」排序，做多最高的、做空最低的。",
+     "n_tokens": 1,
+     "level_flag": false,
+     "flag_A": false,
+     "flag_B": false,
+     "train50_conc_k10_net": -7.1175,
+     "train2024": {
+      "net": -7.1175,
+      "gross": -5.9383,
+      "turn": 0.1964,
+      "beta": 0.0232,
+      "long": 34.7126,
+      "short": -40.2193,
+      "gexp": 0.997,
+      "nexp": -0.0
+     },
+     "train2025": {
+      "net": null,
+      "gross": null,
+      "turn": null,
+      "beta": null,
+      "long": null,
+      "short": null,
+      "gexp": null,
+      "nexp": null
+     },
+     "dev": {
+      "conc_k10": {
+       "net": 29.7823,
+       "gross": 30.8419,
+       "turn": 0.1762,
+       "beta": -0.0449,
+       "long": -39.7585,
+       "short": 72.256,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "conc_k5": {
+       "net": 33.0665,
+       "gross": 34.2125,
+       "turn": 0.1905,
+       "beta": -0.0639,
+       "long": -33.469,
+       "short": 72.1451,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "conc_k20": {
+       "net": 21.1117,
+       "gross": 22.1273,
+       "turn": 0.169,
+       "beta": -0.0228,
+       "long": -33.551,
+       "short": 50.7783,
+       "gexp": 0.997,
+       "nexp": -0.0
+      },
+      "full": {
+       "net": 23.8162,
+       "gross": 24.7939,
+       "turn": 0.1628,
+       "beta": -0.0124,
+       "long": -30.0478,
+       "short": 53.5369,
+       "gexp": 0.997,
+       "nexp": 0.0
+      }
+     },
+     "rho_mom1w_train": 0.121,
+     "rho_mom1w_dev": 0.087,
+     "dev_okx_conc_k10": {
+      "win": {
+       "net": 30.0986,
+       "gross": 31.158
+      },
+      "raw": {
+       "net": 37.6909,
+       "gross": 38.7504
+      }
+     },
+     "binance_resettle_maxdiff_bpd": 0.0,
+     "okx_minus_binance_net_bpd": 0.316,
+     "momentum_variant": false
+    },
+    {
+     "rank": 4,
+     "expr": "CS_RANK(SIGN(NEG(TS_STD(ABS(taker_buy_share), w=6))))",
+     "explain": "每小时按「负的|主动买占比|的6小时波动的正负号」排序，做多最高的、做空最低的。",
+     "n_tokens": 7,
+     "level_flag": false,
+     "flag_A": false,
+     "flag_B": false,
+     "train50_conc_k10_net": -23.4453,
+     "train2024": {
+      "net": -23.4453,
+      "gross": -23.0163,
+      "turn": 0.0714,
+      "beta": -0.0313,
+      "long": 31.0319,
+      "short": -52.8741,
+      "gexp": 0.997,
+      "nexp": -0.0
+     },
+     "train2025": {
+      "net": null,
+      "gross": null,
+      "turn": null,
+      "beta": null,
+      "long": null,
+      "short": null,
+      "gexp": null,
+      "nexp": null
+     },
+     "dev": {
+      "conc_k10": {
+       "net": -9.4541,
+       "gross": -9.0256,
+       "turn": 0.0714,
+       "beta": 0.007,
+       "long": -39.8046,
+       "short": 34.6914,
+       "gexp": 0.997,
+       "nexp": -0.0
+      },
+      "conc_k5": {
+       "net": -26.9052,
+       "gross": -26.4774,
+       "turn": 0.0714,
+       "beta": -0.0266,
+       "long": -49.1231,
+       "short": 26.8909,
+       "gexp": 0.997,
+       "nexp": -0.0
+      },
+      "conc_k20": {
+       "net": -1.6164,
+       "gross": -1.1873,
+       "turn": 0.0714,
+       "beta": 0.0212,
+       "long": -32.6378,
+       "short": 35.9481,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "full": {
+       "net": 12.6407,
+       "gross": 13.0697,
+       "turn": 0.0714,
+       "beta": -0.0,
+       "long": -29.6352,
+       "short": 38.9561,
+       "gexp": 0.997,
+       "nexp": 0.0
+      }
+     },
+     "rho_mom1w_train": -0.022,
+     "rho_mom1w_dev": 0.007,
+     "dev_okx_conc_k10": {
+      "win": {
+       "net": -10.2272,
+       "gross": -9.7987
+      },
+      "raw": {
+       "net": -10.1507,
+       "gross": -9.7231
+      }
+     },
+     "binance_resettle_maxdiff_bpd": 0.0,
+     "okx_minus_binance_net_bpd": -0.773,
+     "momentum_variant": false
+    }
+   ],
+   "gate": {
+    "rule": "conc K10 DEV net > 0 and > best handwritten cell of the family (conc, H168)",
+    "best_cell": "T2_neg_retail_LS_24h",
+    "bar": 49.4637,
+    "pass_rank": []
+   }
+  },
+  "T3": {
+   "paired": {
+    "conc_k10": {
+     "n_initial": 4,
+     "n_initial_invalid": 0,
+     "n_initial_grammar_illegal": 6,
+     "n_final": 8,
+     "n_final_invalid": 0,
+     "n_final_grammar_illegal": 0,
+     "init_net": -14.679,
+     "final_net": 4.348,
+     "d_net": 19.027,
+     "p_net": 0.0249,
+     "init_gross": -13.851,
+     "final_gross": 5.193,
+     "d_gross": 19.044,
+     "p_gross": 0.0251,
+     "beta_init": 0.047,
+     "beta_final": 0.003,
+     "turn_init": 0.138,
+     "turn_final": 0.141,
+     "tier": "可以推进"
+    },
+    "full": {
+     "n_initial": 4,
+     "n_initial_invalid": 0,
+     "n_initial_grammar_illegal": 6,
+     "n_final": 8,
+     "n_final_invalid": 0,
+     "n_final_grammar_illegal": 0,
+     "init_net": -14.629,
+     "final_net": -2.146,
+     "d_net": 12.483,
+     "p_net": 0.2502,
+     "init_gross": -13.779,
+     "final_gross": -1.406,
+     "d_gross": 12.374,
+     "p_gross": 0.2523,
+     "beta_init": 0.038,
+     "beta_final": -0.003,
+     "turn_init": 0.142,
+     "turn_final": 0.123,
+     "tier": "学会少交易"
+    },
+    "final_distinct": 7
+   },
+   "top5": [
+    {
+     "rank": 1,
+     "expr": "ABS(DELTA(TS_MAX(CS_ZSCORE(CS_ZSCORE(ABS(CS_ZSCORE(SUB(mark_index_basis_bps, TS_MIN(premium_close_bps, w=72)))))), w=168), w=168))",
+     "explain": "每小时按「||（标记-指数基差 − 合约溢价的72小时最低值）的截面标准分|的截面标准分的截面标准分的168小时最高值过去168小时的变化|」排序，做多最高的、做空最低的。",
+     "n_tokens": 14,
+     "level_flag": false,
+     "flag_A": false,
+     "flag_B": false,
+     "train50_conc_k10_net": 9.4502,
+     "train2024": {
+      "net": 9.4502,
+      "gross": 10.5219,
+      "turn": 0.1786,
+      "beta": 0.0651,
+      "long": 45.1079,
+      "short": -32.7009,
+      "gexp": 0.997,
+      "nexp": 0.0
+     },
+     "train2025": {
+      "net": null,
+      "gross": null,
+      "turn": null,
+      "beta": null,
+      "long": null,
+      "short": null,
+      "gexp": null,
+      "nexp": null
+     },
+     "dev": {
+      "conc_k10": {
+       "net": 46.6273,
+       "gross": 47.5978,
+       "turn": 0.1619,
+       "beta": -0.1735,
+       "long": -9.1624,
+       "short": 17.1066,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "conc_k5": {
+       "net": 70.4855,
+       "gross": 71.597,
+       "turn": 0.1857,
+       "beta": -0.153,
+       "long": -11.1616,
+       "short": 41.9663,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "conc_k20": {
+       "net": 10.4342,
+       "gross": 11.2226,
+       "turn": 0.1315,
+       "beta": -0.123,
+       "long": -35.0755,
+       "short": 24.5122,
+       "gexp": 0.9929,
+       "nexp": 0.0
+      },
+      "full": {
+       "net": 7.6397,
+       "gross": 8.2562,
+       "turn": 0.1028,
+       "beta": -0.1181,
+       "long": -37.2419,
+       "short": 25.782,
+       "gexp": 0.9697,
+       "nexp": 0.0
+      }
+     },
+     "rho_mom1w_train": 0.064,
+     "rho_mom1w_dev": -0.058,
+     "dev_okx_conc_k10": {
+      "win": {
+       "net": 29.7822,
+       "gross": 30.753
+      },
+      "raw": {
+       "net": 25.3357,
+       "gross": 26.3071
+      }
+     },
+     "binance_resettle_maxdiff_bpd": 0.0,
+     "okx_minus_binance_net_bpd": -16.845,
+     "momentum_variant": false
+    },
+    {
+     "rank": 2,
+     "expr": "premium_close_bps",
+     "explain": "每小时按「合约溢价」排序，做多最高的、做空最低的。",
+     "n_tokens": 1,
+     "level_flag": false,
+     "flag_A": false,
+     "flag_B": false,
+     "train50_conc_k10_net": 4.0844,
+     "train2024": {
+      "net": 4.0844,
+      "gross": 5.2516,
+      "turn": 0.1946,
+      "beta": 0.0563,
+      "long": 43.6137,
+      "short": -35.7126,
+      "gexp": 0.997,
+      "nexp": -0.0
+     },
+     "train2025": {
+      "net": null,
+      "gross": null,
+      "turn": null,
+      "beta": null,
+      "long": null,
+      "short": null,
+      "gexp": null,
+      "nexp": null
+     },
+     "dev": {
+      "conc_k10": {
+       "net": -34.3247,
+       "gross": -33.353,
+       "turn": 0.1619,
+       "beta": 0.0266,
+       "long": -27.8934,
+       "short": 32.7492,
+       "gexp": 0.997,
+       "nexp": -0.0
+      },
+      "conc_k5": {
+       "net": -69.1239,
+       "gross": -68.153,
+       "turn": 0.1619,
+       "beta": 0.0341,
+       "long": -22.8801,
+       "short": 23.1158,
+       "gexp": 0.997,
+       "nexp": -0.0
+      },
+      "conc_k20": {
+       "net": -37.32,
+       "gross": -36.3553,
+       "turn": 0.1607,
+       "beta": 0.0067,
+       "long": -44.9617,
+       "short": 29.2459,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "full": {
+       "net": -11.3639,
+       "gross": -10.5412,
+       "turn": 0.1372,
+       "beta": -0.0209,
+       "long": -24.6969,
+       "short": 40.6231,
+       "gexp": 0.9712,
+       "nexp": 0.0
+      }
+     },
+     "rho_mom1w_train": -0.03,
+     "rho_mom1w_dev": -0.062,
+     "dev_okx_conc_k10": {
+      "win": {
+       "net": -22.536,
+       "gross": -21.5781
+      },
+      "raw": {
+       "net": -26.7231,
+       "gross": -25.7674
+      }
+     },
+     "binance_resettle_maxdiff_bpd": 0.0,
+     "okx_minus_binance_net_bpd": 11.789,
+     "momentum_variant": false
+    },
+    {
+     "rank": 3,
+     "expr": "CS_ZSCORE(TS_SLOPE(SIGN(NEG(premium_close_bps)), w=336))",
+     "explain": "每小时按「负的合约溢价的正负号的336小时趋势斜率」排序，做多最高的、做空最低的。",
+     "n_tokens": 6,
+     "level_flag": false,
+     "flag_A": false,
+     "flag_B": false,
+     "train50_conc_k10_net": -0.2463,
+     "train2024": {
+      "net": -0.2463,
+      "gross": 0.9022,
+      "turn": 0.1911,
+      "beta": 0.0734,
+      "long": 31.9715,
+      "short": -29.2338,
+      "gexp": 0.997,
+      "nexp": -0.0
+     },
+     "train2025": {
+      "net": null,
+      "gross": null,
+      "turn": null,
+      "beta": null,
+      "long": null,
+      "short": null,
+      "gexp": null,
+      "nexp": null
+     },
+     "dev": {
+      "conc_k10": {
+       "net": 40.6543,
+       "gross": 41.7703,
+       "turn": 0.1857,
+       "beta": 0.0851,
+       "long": 2.421,
+       "short": 25.6784,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "conc_k5": {
+       "net": 64.8977,
+       "gross": 65.9871,
+       "turn": 0.181,
+       "beta": 0.1382,
+       "long": 10.878,
+       "short": 23.9678,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "conc_k20": {
+       "net": 18.109,
+       "gross": 19.1673,
+       "turn": 0.1762,
+       "beta": 0.041,
+       "long": -25.1213,
+       "short": 36.5828,
+       "gexp": 0.997,
+       "nexp": -0.0
+      },
+      "full": {
+       "net": 12.1895,
+       "gross": 13.2231,
+       "turn": 0.1721,
+       "beta": 0.028,
+       "long": -28.8253,
+       "short": 31.1534,
+       "gexp": 0.997,
+       "nexp": -0.0
+      }
+     },
+     "rho_mom1w_train": 0.127,
+     "rho_mom1w_dev": 0.01,
+     "dev_okx_conc_k10": {
+      "win": {
+       "net": 23.6938,
+       "gross": 24.8097
+      },
+      "raw": {
+       "net": 29.8008,
+       "gross": 30.9151
+      }
+     },
+     "binance_resettle_maxdiff_bpd": 0.0,
+     "okx_minus_binance_net_bpd": -16.96,
+     "momentum_variant": false
+    },
+    {
+     "rank": 4,
+     "expr": "CS_RANK(SIGN(CS_RANK(ADD(ABS(premium_high), mark_index_basis_bps))))",
+     "explain": "每小时按「（|小时内最高溢价| + 标记-指数基差）的截面排名的正负号」排序，做多最高的、做空最低的。",
+     "n_tokens": 7,
+     "level_flag": false,
+     "flag_A": false,
+     "flag_B": false,
+     "train50_conc_k10_net": -10.5164,
+     "train2024": {
+      "net": -10.5164,
+      "gross": -9.7773,
+      "turn": 0.1232,
+      "beta": 0.0512,
+      "long": 27.4482,
+      "short": -35.9749,
+      "gexp": 0.997,
+      "nexp": 0.0
+     },
+     "train2025": {
+      "net": null,
+      "gross": null,
+      "turn": null,
+      "beta": null,
+      "long": null,
+      "short": null,
+      "gexp": null,
+      "nexp": null
+     },
+     "dev": {
+      "conc_k10": {
+       "net": 4.0398,
+       "gross": 4.9402,
+       "turn": 0.15,
+       "beta": -0.0127,
+       "long": -33.2296,
+       "short": 53.5696,
+       "gexp": 0.997,
+       "nexp": -0.0
+      },
+      "conc_k5": {
+       "net": 16.4443,
+       "gross": 17.359,
+       "turn": 0.1524,
+       "beta": -0.0013,
+       "long": -24.7048,
+       "short": 53.5897,
+       "gexp": 0.997,
+       "nexp": -0.0
+      },
+      "conc_k20": {
+       "net": -3.9986,
+       "gross": -3.1735,
+       "turn": 0.1375,
+       "beta": 0.0131,
+       "long": -29.8428,
+       "short": 40.2303,
+       "gexp": 0.9641,
+       "nexp": -0.0
+      },
+      "full": {
+       "net": -6.5693,
+       "gross": -5.8528,
+       "turn": 0.1194,
+       "beta": -0.0144,
+       "long": -27.105,
+       "short": 36.9809,
+       "gexp": 0.9504,
+       "nexp": 0.0
+      }
+     },
+     "rho_mom1w_train": -0.035,
+     "rho_mom1w_dev": -0.014,
+     "dev_okx_conc_k10": {
+      "win": {
+       "net": 0.4361,
+       "gross": 1.3366
+      },
+      "raw": {
+       "net": 8.8389,
+       "gross": 9.7382
+      }
+     },
+     "binance_resettle_maxdiff_bpd": 0.0,
+     "okx_minus_binance_net_bpd": -3.604,
+     "momentum_variant": false
+    },
+    {
+     "rank": 5,
+     "expr": "mark_index_basis_bps",
+     "explain": "每小时按「标记-指数基差」排序，做多最高的、做空最低的。",
+     "n_tokens": 1,
+     "level_flag": false,
+     "flag_A": false,
+     "flag_B": false,
+     "train50_conc_k10_net": -11.7573,
+     "train2024": {
+      "net": -11.7573,
+      "gross": -10.6215,
+      "turn": 0.1893,
+      "beta": 0.0658,
+      "long": 31.0672,
+      "short": -39.0887,
+      "gexp": 0.997,
+      "nexp": 0.0
+     },
+     "train2025": {
+      "net": null,
+      "gross": null,
+      "turn": null,
+      "beta": null,
+      "long": null,
+      "short": null,
+      "gexp": null,
+      "nexp": null
+     },
+     "dev": {
+      "conc_k10": {
+       "net": -29.0355,
+       "gross": -28.2282,
+       "turn": 0.1345,
+       "beta": 0.0053,
+       "long": -30.1736,
+       "short": 39.4748,
+       "gexp": 0.997,
+       "nexp": 0.0
+      },
+      "conc_k5": {
+       "net": -49.1617,
+       "gross": -48.1315,
+       "turn": 0.1714,
+       "beta": 0.0116,
+       "long": -18.2267,
+       "short": 33.4601,
+       "gexp": 0.997,
+       "nexp": -0.0
+      },
+      "conc_k20": {
+       "net": -17.0034,
+       "gross": -16.1814,
+       "turn": 0.1369,
+       "beta": 0.0129,
+       "long": -29.0742,
+       "short": 33.4781,
+       "gexp": 0.9723,
+       "nexp": -0.0
+      },
+      "full": {
+       "net": -9.054,
+       "gross": -8.2577,
+       "turn": 0.1328,
+       "beta": -0.029,
+       "long": -20.9774,
+       "short": 41.0007,
+       "gexp": 0.9655,
+       "nexp": -0.0
+      }
+     },
+     "rho_mom1w_train": -0.039,
+     "rho_mom1w_dev": -0.045,
+     "dev_okx_conc_k10": {
+      "win": {
+       "net": -16.504,
+       "gross": -15.7106
+      },
+      "raw": {
+       "net": -13.53,
+       "gross": -12.7386
+      }
+     },
+     "binance_resettle_maxdiff_bpd": 0.0,
+     "okx_minus_binance_net_bpd": 12.531,
+     "momentum_variant": false
+    }
+   ],
+   "gate": {
+    "rule": "conc K10 DEV net > 0 and > best handwritten cell of the family (conc, H168)",
+    "best_cell": "T3_neg_premium_24h",
+    "bar": 20.6798,
+    "pass_rank": [
+     1,
+     3
+    ]
+   }
+  }
+ },
+ "oos_read": false,
+ "seconds": 34.2,
+ "written": "2026-10-12T14:28:58+0800"
+}

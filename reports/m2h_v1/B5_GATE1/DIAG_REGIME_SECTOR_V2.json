@@ -1,0 +1,279 @@
+{
+ "schema": "B5_DIAG_REGIME_SECTOR_V1",
+ "train_only": true,
+ "dev_read": false,
+ "oos_read": false,
+ "regime": {
+  "rule": "BTC 720 h log return > 0 x BTC 720 h realised vol > TRAIN median (0.005196); 168 h forward rank IC every 24 h, TOP100, lag 1; t uses overlapping horizons, so it overstates",
+  "hours_per_regime": {
+   "up_lowvol": 210,
+   "up_highvol": 172,
+   "down_lowvol": 140,
+   "down_highvol": 172
+  },
+  "cells": {
+   "T1_mom_168h": {
+    "all": {
+     "ic": 0.0117,
+     "t": 1.6,
+     "n": 694
+    },
+    "up_lowvol": {
+     "ic": 0.029,
+     "t": 2.33,
+     "n": 210,
+     "sign_flip": false
+    },
+    "up_highvol": {
+     "ic": 0.0091,
+     "t": 0.58,
+     "n": 172,
+     "sign_flip": false
+    },
+    "down_lowvol": {
+     "ic": 0.0374,
+     "t": 2.44,
+     "n": 140,
+     "sign_flip": false
+    },
+    "down_highvol": {
+     "ic": -0.0279,
+     "t": -1.84,
+     "n": 172,
+     "sign_flip": true
+    }
+   },
+   "CTREND_lite_17": {
+    "all": {
+     "ic": 0.0286,
+     "t": 3.8,
+     "n": 694
+    },
+    "up_lowvol": {
+     "ic": 0.0494,
+     "t": 3.75,
+     "n": 210,
+     "sign_flip": false
+    },
+    "up_highvol": {
+     "ic": 0.044,
+     "t": 3.03,
+     "n": 172,
+     "sign_flip": false
+    },
+    "down_lowvol": {
+     "ic": 0.0247,
+     "t": 1.53,
+     "n": 140,
+     "sign_flip": false
+    },
+    "down_highvol": {
+     "ic": -0.0088,
+     "t": -0.53,
+     "n": 172,
+     "sign_flip": true
+    }
+   },
+   "T2_neg_funding_7d": {
+    "all": {
+     "ic": -0.078,
+     "t": -14.21,
+     "n": 694
+    },
+    "up_lowvol": {
+     "ic": -0.1155,
+     "t": -11.95,
+     "n": 210,
+     "sign_flip": false
+    },
+    "up_highvol": {
+     "ic": -0.0045,
+     "t": -0.43,
+     "n": 172,
+     "sign_flip": false
+    },
+    "down_lowvol": {
+     "ic": -0.1092,
+     "t": -8.74,
+     "n": 140,
+     "sign_flip": false
+    },
+    "down_highvol": {
+     "ic": -0.0805,
+     "t": -8.28,
+     "n": 172,
+     "sign_flip": false
+    }
+   },
+   "T2_neg_retail_LS_24h": {
+    "all": {
+     "ic": -0.0826,
+     "t": -12.83,
+     "n": 694
+    },
+    "up_lowvol": {
+     "ic": -0.1068,
+     "t": -7.94,
+     "n": 210,
+     "sign_flip": false
+    },
+    "up_highvol": {
+     "ic": -0.0203,
+     "t": -1.55,
+     "n": 172,
+     "sign_flip": false
+    },
+    "down_lowvol": {
+     "ic": -0.143,
+     "t": -12.84,
+     "n": 140,
+     "sign_flip": false
+    },
+    "down_highvol": {
+     "ic": -0.066,
+     "t": -6.36,
+     "n": 172,
+     "sign_flip": false
+    }
+   },
+   "T2_neg_dlogOI_7d": {
+    "all": {
+     "ic": -0.0147,
+     "t": -2.51,
+     "n": 694
+    },
+    "up_lowvol": {
+     "ic": -0.0392,
+     "t": -3.67,
+     "n": 210,
+     "sign_flip": false
+    },
+    "up_highvol": {
+     "ic": 0.0118,
+     "t": 1.03,
+     "n": 172,
+     "sign_flip": true
+    },
+    "down_lowvol": {
+     "ic": -0.0683,
+     "t": -6.13,
+     "n": 140,
+     "sign_flip": false
+    },
+    "down_highvol": {
+     "ic": 0.0324,
+     "t": 2.71,
+     "n": 172,
+     "sign_flip": true
+    }
+   },
+   "T3_neg_premium_24h": {
+    "all": {
+     "ic": 0.002,
+     "t": 0.35,
+     "n": 694
+    },
+    "up_lowvol": {
+     "ic": 0.0042,
+     "t": 0.46,
+     "n": 210,
+     "sign_flip": false
+    },
+    "up_highvol": {
+     "ic": 0.0399,
+     "t": 2.97,
+     "n": 172,
+     "sign_flip": false
+    },
+    "down_lowvol": {
+     "ic": -0.0364,
+     "t": -2.93,
+     "n": 140,
+     "sign_flip": true
+    },
+    "down_highvol": {
+     "ic": -0.0073,
+     "t": -0.67,
+     "n": 172,
+     "sign_flip": true
+    }
+   },
+   "T3_neg_mark_index_24h": {
+    "all": {
+     "ic": -0.0275,
+     "t": -4.55,
+     "n": 694
+    },
+    "up_lowvol": {
+     "ic": -0.0362,
+     "t": -4.0,
+     "n": 210,
+     "sign_flip": false
+    },
+    "up_highvol": {
+     "ic": 0.0264,
+     "t": 1.85,
+     "n": 172,
+     "sign_flip": true
+    },
+    "down_lowvol": {
+     "ic": -0.0889,
+     "t": -6.87,
+     "n": 140,
+     "sign_flip": false
+    },
+    "down_highvol": {
+     "ic": -0.0209,
+     "t": -1.85,
+     "n": 172,
+     "sign_flip": false
+    }
+   },
+   "T3_abs_premium_high_1h": {
+    "all": {
+     "ic": -0.1222,
+     "t": -16.23,
+     "n": 694
+    },
+    "up_lowvol": {
+     "ic": -0.1494,
+     "t": -11.28,
+     "n": 210,
+     "sign_flip": false
+    },
+    "up_highvol": {
+     "ic": -0.155,
+     "t": -9.92,
+     "n": 172,
+     "sign_flip": false
+    },
+    "down_lowvol": {
+     "ic": -0.0787,
+     "t": -4.79,
+     "n": 140,
+     "sign_flip": false
+    },
+    "down_highvol": {
+     "ic": -0.0915,
+     "t": -6.22,
+     "n": 172,
+     "sign_flip": false
+    }
+   }
+  }
+ },
+ "sector": {
+  "version": "v2 market-residual, maxclust 10",
+  "rule": "720 h rolling return-corr clusters (avg linkage, cut 1-corr 0.5, >= 4 coins), refit every 720 h on past data; laggard catch-up IC (24 h fwd) pooled per hour every 24 h; null = labels shuffled within each refit",
+  "refits": 23,
+  "clusters_per_refit_mean": 5.7,
+  "cluster_size_median": 10,
+  "ic_mean": -0.0169,
+  "ic_t": -2.3,
+  "n_hours": 670,
+  "null_ic_mean": -0.0236,
+  "null_ic_t": -3.08
+ },
+ "seconds": 5.6,
+ "written": "2026-10-13T05:57:55+0800"
+}

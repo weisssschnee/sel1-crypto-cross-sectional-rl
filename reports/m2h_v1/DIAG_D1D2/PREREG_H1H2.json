@@ -1,0 +1,24 @@
+{
+ "source": "QuantMind 训练特征构筑 session 10-14 (D1 revision); fixed before any 2021-23 state number exists",
+ "H1": {
+  "cell": "T2_neg_funding_7d",
+  "state": "up_highvol",
+  "absval": true,
+  "claim": "|mean IC| in up_highvol < |mean IC| of the other three states pooled"
+ },
+ "H2": {
+  "cell": "T1_mom_168h",
+  "state": "down_highvol",
+  "absval": false,
+  "claim": "mean IC in down_highvol < mean IC of the other three states pooled"
+ },
+ "span": "V4 grid (fwd_wx, delisting layer), TOP100, lag 1, signal hours 2021-01-01 00:00 .. t + 168 h < 2024-01-01",
+ "threshold": "0.005196 = V2 TRAIN median, recomputed exactly on the old TRAIN; state rule, window, cells as V2",
+ "test": "one-sided segment block bootstrap, B 10000, seed 20261015: d = f(m_state) - f(m_rest), f = abs for H1, identity for H2; rest = the three other states, each resampled separately then pooled; p = P*(d* >= 0); pass if p < 0.05",
+ "untestable": "any of the four states with < 4 segments in the span -> 测不了, not 没过",
+ "excluded": "OI / LS cells are not tested (2021 about 10 % present)",
+ "disclosure": "COMBO_V1 had already computed 2021-23 per-year cell ICs on V4 (not split by state) before this",
+ "use": "pass -> fixed state switch (state weight x 0) in the V4 weight layer, COMBO_V2 only, nothing tuned; both fail -> regime line closed, only D2 beta neutral kept; no retry with other definitions",
+ "written": "2026-10-14T07:06:27+0800",
+ "code_sha16": "f03d19cea4a2ed74"
+}

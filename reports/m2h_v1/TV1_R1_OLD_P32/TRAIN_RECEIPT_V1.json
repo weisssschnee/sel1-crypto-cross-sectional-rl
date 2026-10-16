@@ -1,0 +1,51 @@
+{
+ "schema": "M2H_TRAIN_RECEIPT_V1",
+ "run": "BASIN3_H1_20261009",
+ "created": "2026-10-10T15:12:49+0800",
+ "config": {
+  "out_name": "TV1_R1_OLD_P32",
+  "panel": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\train2024_2025_panel_v1\\TRAIN2024JAN_2025DEC_HOURLY54_TARGET_LONG_V1.parquet",
+  "updates": 256,
+  "batch": 256,
+  "seed": 20261009,
+  "tiles": 4,
+  "device": "cuda",
+  "persist": 1,
+  "cost": "flat6",
+  "band": 0.5,
+  "nav_usd": 100000.0,
+  "checkpoint_every": 16,
+  "vm_block_elems": 33554432,
+  "ema_cache_max": 1,
+  "resume": null,
+  "max_hours": 3.5,
+  "manifest_only": false
+ },
+ "n_tiles": 50,
+ "invalid_reasons": {
+  "ZERO": 3562
+ },
+ "elite_pool_final_size": 200,
+ "trained_policy_final": {
+  "hold_hist": {
+   "4": 25,
+   "24": 63,
+   "72": 95,
+   "168": 73
+  },
+  "exprs": [
+   "DELTA(SIGN(log_close), w=168)",
+   "DELTA(SIGN(log_high), w=168)",
+   "DELTA(SIGN(CS_RANK(SIGN(log_high))), w=168)",
+   "TS_MIN(SUB(SIGN(CS_RANK(SIGN(TS_RANK(log_quote_volume, w=336)))), NEG(CS_DEMEAN(DELTA(SIGN(CS_RANK(TS_SLOPE(log_close, w=672))), w=168)))), w=336)",
+   "DELTA(SIGN(CS_DEMEAN(log_quote_volume)), w=168)",
+   "DELTA(SIGN(TS_MAX(TS_STD(SIGN(CS_RANK(log_low)), w=168), w=168)), w=168)",
+   "DELTA(SIGN(CS_RANK(log_high)), w=168)",
+   "EMA(SIGN(log_low), w=168)"
+  ]
+ },
+ "peak_vram_alloc_gib": 12.158,
+ "compute_seconds": 6985.2,
+ "oos_read": false,
+ "dev_read": false
+}

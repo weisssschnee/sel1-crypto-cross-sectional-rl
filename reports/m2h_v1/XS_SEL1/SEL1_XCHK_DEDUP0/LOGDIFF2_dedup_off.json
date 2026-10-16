@@ -1,0 +1,40 @@
+{
+ "a": "SEL1_PC",
+ "b": "SEL1_XCHK_DEDUP0",
+ "updates": [
+  16,
+  18
+ ],
+ "drop": [
+  "pg_loss"
+ ],
+ "near": [],
+ "rtol": 1e-06,
+ "files": {
+  "BATCH_LOG.jsonl": {
+   "n_a": 3,
+   "n_b": 3,
+   "n_diff": 3,
+   "near_max_rel": null,
+   "first": [
+    "{\"ent_coef_used\": 0.03, \"ent_floor\": 2.2439175128936766, \"entropy_loss\": -0.1923346072435379, \"families\": {\"T1\": {\"entropy\": 6.8153, \"n_valid\": 40, \"reward_bpd\": 8.0299, \"score\": 1.8329, \"top\": {\"dir\"",
+    "{\"ent_coef_used\": 0.03, \"ent_floor\": 2.2439175128936766, \"entropy_loss\": -0.1923346072435379, \"families\": {\"T1\": {\"entropy\": 6.8153, \"n_valid\": 40, \"reward_bpd\": 6.9137, \"score\": 2.1544, \"top\": {\"dir\"",
+    {},
+    {}
+   ]
+  },
+  "FORMULAS.jsonl": {
+   "n_a": 384,
+   "n_b": 384,
+   "n_diff": 342,
+   "near_max_rel": null,
+   "first": [
+    "{\"basin\": \"T1\", \"dir\": \"both\", \"expr\": \"DELTA(MUL(TS_SLOPE(TS_SLOPE(SIGN(SIGN(ABS(SIGN(TS_MIN(TS_MAX(SIGN(DIV(ADD(TS_MAX(ABS(SIGN(ABS(NEG(log_high)))), w=336), ABS(TS_STD(ABS(SUB(log_quote_volume, NEG",
+    "{\"basin\": \"T1\", \"dir\": \"both\", \"expr\": \"DELTA(MUL(TS_SLOPE(TS_SLOPE(SIGN(SIGN(ABS(SIGN(TS_MIN(TS_MAX(SIGN(DIV(ADD(TS_MAX(ABS(SIGN(ABS(NEG(log_high)))), w=336), ABS(TS_STD(ABS(SUB(log_quote_volume, NEG",
+    {},
+    {}
+   ]
+  }
+ },
+ "zero_diff": false
+}

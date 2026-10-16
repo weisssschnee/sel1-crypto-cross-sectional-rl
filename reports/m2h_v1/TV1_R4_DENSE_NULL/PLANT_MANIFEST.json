@@ -1,0 +1,21 @@
+{
+ "schema": "TV1_PLANT_MANIFEST_V1",
+ "mode": "null",
+ "out_name": "TV1_R4_DENSE_NULL",
+ "trainer": "m2h_dense_trainer.py",
+ "shape": [
+  489,
+  17544
+ ],
+ "train_only": true,
+ "dev_read": false,
+ "oos_read": false,
+ "null_seed": 20261009,
+ "permuted": [
+  "fwd",
+  "eligible",
+  "fi",
+  "fr"
+ ],
+ "written": "2026-10-10T18:18:50+0800"
+}

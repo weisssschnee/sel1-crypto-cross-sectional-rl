@@ -1,0 +1,87 @@
+{
+ "schema": "B5_REWARD_PICK_V1",
+ "runs": {
+  "p8": "RGP_P8_V2",
+  "null": "RGP_NULL_V2"
+ },
+ "table": {
+  "a": {
+   "name": "毛收益均值",
+   "target_rank": 1,
+   "of": 4,
+   "target_score": 16.30271,
+   "null_best": 4.63015,
+   "null_beats_target": false,
+   "null_best_expr": "TS_MEAN(TS_SLOPE(DELTA(SUB(TS_SLOPE(PER_ASSET_THRESH(TS_CORR(CS_ZSCORE(log_close), SUB(log_high, log_close), w=672), ADD(log_high, LAG(log_high, w=72)), EMA(log_quote_volume, w=672)), w=504), log_high), w=72), w=672), w=72)",
+   "p8_top_expr": "CS_RANK(TS_SLOPE(CS_DEMEAN(ABS(ADD(log_quote_volume, log_close))), w=336))"
+  },
+  "b": {
+   "name": "毛收益段间 t",
+   "target_rank": 1,
+   "of": 4,
+   "target_score": 0.83044,
+   "null_best": 0.34109,
+   "null_beats_target": false,
+   "null_best_expr": "TS_MEAN(TS_SLOPE(DELTA(SUB(TS_SLOPE(PER_ASSET_THRESH(TS_CORR(CS_ZSCORE(log_close), SUB(log_high, log_close), w=672), ADD(log_high, LAG(log_high, w=72)), EMA(log_quote_volume, w=672)), w=504), log_high), w=72), w=672), w=72)",
+   "p8_top_expr": "CS_RANK(TS_SLOPE(CS_DEMEAN(ABS(ADD(log_quote_volume, log_close))), w=336))"
+  },
+  "c": {
+   "name": "IC 均值（现行）",
+   "target_rank": 1,
+   "of": 4,
+   "target_score": 0.08431,
+   "null_best": 0.02293,
+   "null_beats_target": false,
+   "null_best_expr": "TS_MEAN(TS_SLOPE(DELTA(SUB(TS_SLOPE(PER_ASSET_THRESH(TS_CORR(CS_ZSCORE(log_close), SUB(log_high, log_close), w=672), ADD(log_high, LAG(log_high, w=72)), EMA(log_quote_volume, w=672)), w=504), log_high), w=72), w=672), w=72)",
+   "p8_top_expr": "CS_RANK(TS_SLOPE(CS_DEMEAN(ABS(ADD(log_quote_volume, log_close))), w=336))"
+  },
+  "d": {
+   "name": "IC 段间 t",
+   "target_rank": 1,
+   "of": 4,
+   "target_score": 0.63004,
+   "null_best": 0.29042,
+   "null_beats_target": false,
+   "null_best_expr": "TS_MEAN(TS_SLOPE(DELTA(SUB(TS_SLOPE(PER_ASSET_THRESH(TS_CORR(CS_ZSCORE(log_close), SUB(log_high, log_close), w=672), ADD(log_high, LAG(log_high, w=72)), EMA(log_quote_volume, w=672)), w=504), log_high), w=72), w=672), w=72)",
+   "p8_top_expr": "CS_RANK(TS_SLOPE(CS_DEMEAN(ABS(ADD(log_quote_volume, log_close))), w=336))"
+  },
+  "e": {
+   "name": "残差 IC 均值",
+   "target_rank": 1,
+   "of": 4,
+   "target_score": 0.02682,
+   "null_best": 0.01522,
+   "null_beats_target": false,
+   "null_best_expr": "TS_MEAN(TS_SLOPE(DELTA(SUB(TS_SLOPE(PER_ASSET_THRESH(TS_CORR(CS_ZSCORE(log_close), SUB(log_high, log_close), w=672), ADD(log_high, LAG(log_high, w=72)), EMA(log_quote_volume, w=672)), w=504), log_high), w=72), w=672), w=72)",
+   "p8_top_expr": "CS_RANK(TS_SLOPE(CS_DEMEAN(ABS(ADD(log_quote_volume, log_close))), w=336))"
+  }
+ },
+ "pick": "a",
+ "reason": "毛收益均值：NULL 第一名 4.63 不高于植入近亲 16.3，近亲排第 1 / 4（符合②的奖励里最好）",
+ "target": {
+  "expr": "CS_RANK(TS_SLOPE(CS_DEMEAN(ABS(ADD(log_quote_volume, log_close))), w=336))",
+  "corr_s": 0.931,
+  "n_tokens": 8,
+  "gross_bpd": 16.303
+ },
+ "pools": {
+  "p8": {
+   "distinct": 4,
+   "scored": 4,
+   "bad_parse": 0,
+   "invalid": 0,
+   "gross_matches_log": 0.75
+  },
+  "null": {
+   "distinct": 4,
+   "scored": 4,
+   "bad_parse": 0,
+   "invalid": 0,
+   "gross_matches_log": 1.0
+  }
+ },
+ "seconds": 466.9,
+ "written": "2026-10-11T23:56:46+0800",
+ "dev_read": false,
+ "oos_read": false
+}

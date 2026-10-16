@@ -1,0 +1,19 @@
+{
+ "schema": "M1_RESCORE24_RECEIPT_V1",
+ "created": "2026-10-04T02:37:01+0800",
+ "episode_minutes": 1440,
+ "episodes_per_month": 8,
+ "seed": 20261004,
+ "months": [
+  "2026-01",
+  "2026-02",
+  "2026-03",
+  "2026-04",
+  "2026-05",
+  "2026-06"
+ ],
+ "n": 365,
+ "elapsed": 680.7,
+ "candidates": "C:\\Temp\\m1_s2_rescore_cands.jsonl",
+ "oos_read": false
+}

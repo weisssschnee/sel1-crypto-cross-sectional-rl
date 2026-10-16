@@ -1,0 +1,502 @@
+{
+ "schema": "TV1_RGP_FROZEN_V1",
+ "run": "RGP_P8_V1",
+ "mode": "p8",
+ "rounds": 10,
+ "pop": 512,
+ "keep": 96,
+ "seed": 20261011,
+ "total_evaluated": 19923,
+ "seed_run": "TV1_R2D_DENSE_P32",
+ "sha256": "571f820be4e31ceb4a8622dce897fa372d08a6f982389344404104d11d9c1a71",
+ "max_net_corr_s": 0.2295,
+ "families": {
+  "T1": [
+   {
+    "rank": 1,
+    "names": [
+     "log_close",
+     "CS_DEMEAN",
+     "ABS",
+     "log_close",
+     "ADD"
+    ],
+    "body": [
+     0,
+     31,
+     16,
+     0,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(ABS(CS_DEMEAN(log_close)), log_close)",
+    "train50_gross_bpd": 11.39,
+    "train50_net_bpd": 10.889,
+    "ic": 0.13341,
+    "n_tokens": 5,
+    "corr_s": 0.1043,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "names": [
+     "log_close",
+     "CS_DEMEAN",
+     "NEG",
+     "NEG",
+     "NEG",
+     "CS_DEMEAN",
+     "ABS",
+     "log_close",
+     "ADD"
+    ],
+    "body": [
+     0,
+     31,
+     15,
+     15,
+     15,
+     31,
+     16,
+     0,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(ABS(CS_DEMEAN(NEG(NEG(NEG(CS_DEMEAN(log_close)))))), log_close)",
+    "train50_gross_bpd": 11.383,
+    "train50_net_bpd": 10.875,
+    "ic": 0.13329,
+    "n_tokens": 9,
+    "corr_s": 0.1038,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "names": [
+     "log_high",
+     "ABS",
+     "CS_ZSCORE",
+     "CS_DEMEAN",
+     "CS_ZSCORE",
+     "SIGN",
+     "CS_ZSCORE",
+     "log_low",
+     "ADD"
+    ],
+    "body": [
+     1,
+     16,
+     32,
+     31,
+     32,
+     17,
+     32,
+     2,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(CS_ZSCORE(SIGN(CS_ZSCORE(CS_DEMEAN(CS_ZSCORE(ABS(log_high)))))), log_low)",
+    "train50_gross_bpd": 11.145,
+    "train50_net_bpd": 10.708,
+    "ic": 0.1299,
+    "n_tokens": 9,
+    "corr_s": 0.0976,
+    "level_flag": true
+   },
+   {
+    "rank": 4,
+    "names": [
+     "log_high",
+     "CS_RANK",
+     "CS_RANK",
+     "NEG",
+     "CS_RANK",
+     "ABS",
+     "CS_ZSCORE",
+     "log_low",
+     "ADD"
+    ],
+    "body": [
+     1,
+     33,
+     33,
+     15,
+     33,
+     16,
+     32,
+     2,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(CS_ZSCORE(ABS(CS_RANK(NEG(CS_RANK(CS_RANK(log_high)))))), log_low)",
+    "train50_gross_bpd": 11.056,
+    "train50_net_bpd": 10.616,
+    "ic": 0.13383,
+    "n_tokens": 9,
+    "corr_s": 0.0977,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "names": [
+     "log_high",
+     "CS_ZSCORE",
+     "CS_RANK",
+     "CS_RANK",
+     "CS_DEMEAN",
+     "ABS",
+     "CS_RANK",
+     "CS_ZSCORE",
+     "CS_ZSCORE",
+     "log_low",
+     "ADD"
+    ],
+    "body": [
+     1,
+     32,
+     33,
+     33,
+     31,
+     16,
+     33,
+     32,
+     32,
+     2,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(CS_ZSCORE(CS_ZSCORE(CS_RANK(ABS(CS_DEMEAN(CS_RANK(CS_RANK(CS_ZSCORE(log_high)))))))), log_low)",
+    "train50_gross_bpd": 11.029,
+    "train50_net_bpd": 10.589,
+    "ic": 0.13375,
+    "n_tokens": 11,
+    "corr_s": 0.0976,
+    "level_flag": false
+   }
+  ],
+  "T2": [
+   {
+    "rank": 1,
+    "names": [
+     "taker_buy_share",
+     "CS_DEMEAN",
+     "CS_RANK",
+     "log_oi_value",
+     "ADD"
+    ],
+    "body": [
+     7,
+     31,
+     33,
+     5,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(CS_RANK(CS_DEMEAN(taker_buy_share)), log_oi_value)",
+    "train50_gross_bpd": 14.5,
+    "train50_net_bpd": 13.917,
+    "ic": 0.15845,
+    "n_tokens": 5,
+    "corr_s": 0.2129,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "names": [
+     "taker_buy_share",
+     "CS_RANK",
+     "CS_DEMEAN",
+     "CS_ZSCORE",
+     "SIGN",
+     "log_oi_value",
+     "ADD"
+    ],
+    "body": [
+     7,
+     33,
+     31,
+     32,
+     17,
+     5,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(SIGN(CS_ZSCORE(CS_DEMEAN(CS_RANK(taker_buy_share)))), log_oi_value)",
+    "train50_gross_bpd": 14.249,
+    "train50_net_bpd": 13.56,
+    "ic": 0.13074,
+    "n_tokens": 7,
+    "corr_s": 0.1775,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "names": [
+     "taker_buy_share",
+     "CS_RANK",
+     "CS_DEMEAN",
+     "SIGN",
+     "SIGN",
+     "CS_DEMEAN",
+     "CS_RANK",
+     "CS_ZSCORE",
+     "SIGN",
+     "log_oi_value",
+     "ADD"
+    ],
+    "body": [
+     7,
+     33,
+     31,
+     17,
+     17,
+     31,
+     33,
+     32,
+     17,
+     5,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(SIGN(CS_ZSCORE(CS_RANK(CS_DEMEAN(SIGN(SIGN(CS_DEMEAN(CS_RANK(taker_buy_share)))))))), log_oi_value)",
+    "train50_gross_bpd": 14.24,
+    "train50_net_bpd": 13.551,
+    "ic": 0.13073,
+    "n_tokens": 11,
+    "corr_s": 0.1774,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "names": [
+     "taker_buy_share",
+     "ABS",
+     "ABS",
+     "ABS",
+     "CS_DEMEAN",
+     "CS_RANK",
+     "CS_ZSCORE",
+     "CS_RANK",
+     "CS_DEMEAN",
+     "SIGN",
+     "CS_ZSCORE",
+     "log_oi_value",
+     "ADD"
+    ],
+    "body": [
+     7,
+     16,
+     16,
+     16,
+     31,
+     33,
+     32,
+     33,
+     31,
+     17,
+     32,
+     5,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(CS_ZSCORE(SIGN(CS_DEMEAN(CS_RANK(CS_ZSCORE(CS_RANK(CS_DEMEAN(ABS(ABS(ABS(taker_buy_share)))))))))), log_oi_value)",
+    "train50_gross_bpd": 14.23,
+    "train50_net_bpd": 13.546,
+    "ic": 0.13081,
+    "n_tokens": 13,
+    "corr_s": 0.1776,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "names": [
+     "log_oi_value",
+     "CS_DEMEAN",
+     "CS_RANK",
+     "taker_buy_share",
+     "ADD"
+    ],
+    "body": [
+     5,
+     31,
+     33,
+     7,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(CS_RANK(CS_DEMEAN(log_oi_value)), taker_buy_share)",
+    "train50_gross_bpd": 14.208,
+    "train50_net_bpd": 13.653,
+    "ic": 0.16946,
+    "n_tokens": 5,
+    "corr_s": 0.2295,
+    "level_flag": false
+   }
+  ],
+  "T3": [
+   {
+    "rank": 1,
+    "names": [
+     "premium_high",
+     "ABS",
+     "CS_RANK",
+     "CS_RANK",
+     "NEG",
+     "SIGN",
+     "funding_level",
+     "ADD"
+    ],
+    "body": [
+     10,
+     16,
+     33,
+     33,
+     15,
+     17,
+     4,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(SIGN(NEG(CS_RANK(CS_RANK(ABS(premium_high))))), funding_level)",
+    "train50_gross_bpd": 9.707,
+    "train50_net_bpd": 8.926,
+    "ic": 0.12498,
+    "n_tokens": 8,
+    "corr_s": -0.0091,
+    "level_flag": false
+   },
+   {
+    "rank": 2,
+    "names": [
+     "premium_high",
+     "CS_RANK",
+     "SIGN",
+     "CS_DEMEAN",
+     "CS_RANK",
+     "CS_ZSCORE",
+     "NEG",
+     "SIGN",
+     "funding_level",
+     "ADD"
+    ],
+    "body": [
+     10,
+     33,
+     17,
+     31,
+     33,
+     32,
+     15,
+     17,
+     4,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(SIGN(NEG(CS_ZSCORE(CS_RANK(CS_DEMEAN(SIGN(CS_RANK(premium_high))))))), funding_level)",
+    "train50_gross_bpd": 9.68,
+    "train50_net_bpd": 8.899,
+    "ic": 0.12104,
+    "n_tokens": 10,
+    "corr_s": -0.0033,
+    "level_flag": false
+   },
+   {
+    "rank": 3,
+    "names": [
+     "premium_high",
+     "ABS",
+     "CS_RANK",
+     "SIGN",
+     "SIGN",
+     "CS_ZSCORE",
+     "NEG",
+     "SIGN",
+     "funding_level",
+     "ADD"
+    ],
+    "body": [
+     10,
+     16,
+     33,
+     17,
+     17,
+     32,
+     15,
+     17,
+     4,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(SIGN(NEG(CS_ZSCORE(SIGN(SIGN(CS_RANK(ABS(premium_high))))))), funding_level)",
+    "train50_gross_bpd": 9.677,
+    "train50_net_bpd": 8.9,
+    "ic": 0.12504,
+    "n_tokens": 10,
+    "corr_s": -0.0093,
+    "level_flag": false
+   },
+   {
+    "rank": 4,
+    "names": [
+     "premium_high",
+     "ABS",
+     "CS_RANK",
+     "CS_ZSCORE",
+     "NEG",
+     "SIGN",
+     "funding_level",
+     "ADD"
+    ],
+    "body": [
+     10,
+     16,
+     33,
+     32,
+     15,
+     17,
+     4,
+     11
+    ],
+    "hold": 168,
+    "expr": "ADD(SIGN(NEG(CS_ZSCORE(CS_RANK(ABS(premium_high))))), funding_level)",
+    "train50_gross_bpd": 9.628,
+    "train50_net_bpd": 8.852,
+    "ic": 0.12498,
+    "n_tokens": 8,
+    "corr_s": -0.0094,
+    "level_flag": false
+   },
+   {
+    "rank": 5,
+    "names": [
+     "premium_close_bps",
+     "CS_ZSCORE",
+     "ABS",
+     "funding_level",
+     "premium_close_bps",
+     "PER_ASSET_THRESH"
+    ],
+    "body": [
+     8,
+     32,
+     16,
+     4,
+     8,
+     19
+    ],
+    "hold": 168,
+    "expr": "PER_ASSET_THRESH(ABS(CS_ZSCORE(premium_close_bps)), funding_level, premium_close_bps)",
+    "train50_gross_bpd": 9.564,
+    "train50_net_bpd": 8.728,
+    "ic": -6e-05,
+    "n_tokens": 6,
+    "corr_s": 0.0002,
+    "level_flag": false
+   }
+  ]
+ },
+ "seconds": 5238.4,
+ "written": "2026-10-11T17:42:18+0800",
+ "dev_read": false,
+ "oos_read": false
+}

@@ -1,0 +1,10 @@
+﻿{
+    "elapsed_min":  64.5,
+    "sec_per_update":  967,
+    "reanchored_at":  "2026-10-03 02:39:01",
+    "projected_total_seconds":  123775,
+    "in_band":  false,
+    "note":  "user requirement 2026-10-03: re-anchor after 3 measured updates, compare honestly in the receipt, no post-hoc acceptance",
+    "sheet_band":  "3000-9000 s",
+    "updates_done":  4
+}

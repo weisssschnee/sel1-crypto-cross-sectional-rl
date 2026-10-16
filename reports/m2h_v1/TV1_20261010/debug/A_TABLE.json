@@ -1,0 +1,393 @@
+{
+ "cells": [
+  {
+   "cell": "net|famq95|4",
+   "diag": false,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "net|globq95|4",
+   "diag": false,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "net|full|4",
+   "diag": false,
+   "corr_gross": [
+    0.2677,
+    0.269
+   ],
+   "corr_cost": [
+    -0.0107,
+    0.2411
+   ],
+   "ceiling_k25": {
+    "gross": 0.7061,
+    "cost": -0.1335
+   }
+  },
+  {
+   "cell": "gross|famq95|4",
+   "diag": false,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "gross|globq95|4",
+   "diag": false,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "gross|full|4",
+   "diag": false,
+   "corr_gross": [
+    0.2648,
+    0.267
+   ],
+   "corr_cost": [
+    0.0088,
+    0.2399
+   ],
+   "ceiling_k25": {
+    "gross": 0.6924,
+    "cost": -0.0825
+   }
+  },
+  {
+   "cell": "ic|famq95|4",
+   "diag": false,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "ic|globq95|4",
+   "diag": false,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "ic|full|4",
+   "diag": false,
+   "corr_gross": [
+    0.5477,
+    0.1263
+   ],
+   "corr_cost": [
+    -0.1233,
+    0.1898
+   ],
+   "ceiling_k25": {
+    "gross": 0.6783,
+    "cost": -0.166
+   }
+  },
+  {
+   "cell": "net|famq95|16",
+   "diag": false,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "net|globq95|16",
+   "diag": false,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "net|full|16",
+   "diag": false,
+   "corr_gross": [
+    0.5355,
+    0.2086
+   ],
+   "corr_cost": [
+    -0.129,
+    0.1796
+   ],
+   "ceiling_k25": {
+    "gross": 0.7061,
+    "cost": -0.1335
+   }
+  },
+  {
+   "cell": "gross|famq95|16",
+   "diag": false,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "gross|globq95|16",
+   "diag": false,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "gross|full|16",
+   "diag": false,
+   "corr_gross": [
+    0.5276,
+    0.2074
+   ],
+   "corr_cost": [
+    -0.0919,
+    0.178
+   ],
+   "ceiling_k25": {
+    "gross": 0.6924,
+    "cost": -0.0825
+   }
+  },
+  {
+   "cell": "ic|famq95|16",
+   "diag": false,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "ic|globq95|16",
+   "diag": false,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "ic|full|16",
+   "diag": false,
+   "corr_gross": [
+    0.6569,
+    0.0458
+   ],
+   "corr_cost": [
+    -0.1724,
+    0.1089
+   ],
+   "ceiling_k25": {
+    "gross": 0.6783,
+    "cost": -0.166
+   }
+  },
+  {
+   "cell": "C1|full|16",
+   "diag": false,
+   "corr_gross": [
+    0.632,
+    0.1319
+   ],
+   "corr_cost": [
+    -0.1293,
+    0.1499
+   ],
+   "ceiling_k25": {
+    "gross": 0.7054,
+    "cost": -0.1229
+   }
+  },
+  {
+   "cell": "C2|full|16",
+   "diag": false,
+   "corr_gross": [
+    0.6365,
+    0.133
+   ],
+   "corr_cost": [
+    -0.1496,
+    0.1509
+   ],
+   "ceiling_k25": {
+    "gross": 0.7121,
+    "cost": -0.1495
+   }
+  },
+  {
+   "cell": "netown|famq95|4",
+   "diag": true,
+   "corr_gross": [
+    0.0,
+    0.0
+   ],
+   "corr_cost": [
+    0.0,
+    0.0
+   ],
+   "ceiling_k25": {
+    "gross": 0.0,
+    "cost": 0.0
+   }
+  },
+  {
+   "cell": "netown|full|16",
+   "diag": true,
+   "corr_gross": [
+    0.7505,
+    0.1003
+   ],
+   "corr_cost": [
+    -0.4089,
+    0.0875
+   ],
+   "ceiling_k25": {
+    "gross": 0.8496,
+    "cost": -0.4341
+   }
+  }
+ ],
+ "groups_valid": [
+  6,
+  6,
+  6
+ ],
+ "n_valid": 18,
+ "c1_vs_ic_full16": [
+  0.9194,
+  0.0418
+ ],
+ "c1_vs_gross_full16": [
+  0.9194,
+  0.0418
+ ],
+ "b_candidates": {
+  "gross|famq95|16": 0.0,
+  "gross|globq95|16": 0.0,
+  "gross|full|16": 0.5276,
+  "ic|famq95|16": 0.0,
+  "ic|globq95|16": 0.0,
+  "ic|full|16": 0.6569,
+  "C1|full|16": 0.632
+ },
+ "b_best": "ic|full|16",
+ "b_choice": "ic|full|16",
+ "b_fallback_used": false,
+ "schema": "TV1_A_TABLE_V1",
+ "source": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\artifacts\\m2h_v1\\BASIN3_H1_20261009\\FORMULAS.jsonl",
+ "n_sim": 50,
+ "sim_seed": 20261010,
+ "split": "even tiles simulate, odd tiles are the truth",
+ "hold": 168,
+ "corr": "Pearson(weight, truth) inside each family, mean over T1/T2/T3",
+ "score_seconds": 52.1,
+ "dev_read": false,
+ "oos_read": false,
+ "written": "2026-10-10T09:37:58+0800"
+}

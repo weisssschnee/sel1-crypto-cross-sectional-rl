@@ -1,0 +1,24 @@
+{
+ "schema": "SEL1_ALPHA_V1",
+ "alpha": 7.979713826139182e-05,
+ "target_bpd": 19.849999999999998,
+ "gain_bpd": 19.85039453754107,
+ "alpha0": 0.0001,
+ "gain0_bpd": 24.8755787895266,
+ "plant_body": [
+  3,
+  37,
+  22,
+  37,
+  21,
+  41
+ ],
+ "plant_combo": {
+  "h": 72,
+  "state": "all",
+  "dir": "long"
+ },
+ "real_plant_book_bpd": 14.475062670949676,
+ "rule": "XS_SEL1 s3.2 plant calibration and the two launch checks (CPU book + GPU VM, V4 TRAIN only, no DEV, no OOS).\n\n  target   the ENR1b retail long/short cell T2_neg_retail_LS_24h|TS_lo|all|H72 (the strength the order names):\n           A-half net +31.89 bp per 72 h event; with the entry/exit cost 12 bp x (1 + |beta|), median beta 1.305\n           (ENR1 world table), its cost0 excess is ~59.6 bp per 72 h event = 0.83 bp per position-hour, i.e.\n           19.9 bp/day for a book at gross exposure 1. The plant book is the plant formula's own sparse book\n           (DELTA(TS_MEAN(log_quote_volume,168),168), hold 72, state all, long top 5 = gross 1).\n  alpha    fwd[i,t] += alpha zp[i,t-1] (sel1_common pc world); gain(alpha) = A-half cost0 of the plant book in the pc\n           world minus in the real world; alpha set by one linear step from alpha0 and checked (|gain-target| <= 10 %).\n  check 1  visible: the plant book's B-half t (monthly cost0) >= 2 in the pc world.\n  check 2  rankable: real candidate pool = CR1_PC_P8 HOF top 50 + B5_DBG_REAL HOF_RANKED (90), deduplicated; every\n           pool body and the plant body get the combo (hold x state x direction, 60) with the best A-half cost0\n           in the pc world, as the trainer's reward would pick; the plant's B-half t must rank <= 10 among them.\n  Either check failing -> no training (rc 7), back to the order issuer; nothing is re-tuned.\n    python -I sel1_calib.py\n",
+ "written": "2026-10-15T00:25:01+0800"
+}

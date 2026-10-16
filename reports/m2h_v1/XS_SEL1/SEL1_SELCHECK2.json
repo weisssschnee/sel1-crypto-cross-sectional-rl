@@ -1,0 +1,13 @@
+{
+ "schema": "SEL1_SELCHECK2_V1",
+ "weights_max_abs_diff": {
+  "v0_v3": 1.4901161193847656e-08,
+  "v0_v4": 9.874214811134152e-06,
+  "v3_v4": 9.874214811134152e-06
+ },
+ "bodies": 602,
+ "candidates": 657,
+ "selections_differ": [],
+ "rewards_differ": [],
+ "identical": true
+}

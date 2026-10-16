@@ -1,0 +1,452 @@
+{
+ "schema": "SEL1_LAUNCH_CHECK_V1",
+ "alpha": 7.979713826139182e-05,
+ "target_bpd": 19.849999999999998,
+ "gain_bpd": 19.85039453754107,
+ "alpha_ok": true,
+ "visible": {
+  "rule": "plant book (plant formula, H72, all, long) B-half monthly cost0 t >= 2 in the pc world",
+  "tB": -0.6639758274880883,
+  "B": {
+   "cost0_bpd": -13.415,
+   "net_bpd": -16.193,
+   "t_cost0": -0.664,
+   "turn_day": 0.4627,
+   "n_pos": 5.531,
+   "months": 30
+  },
+  "passed": false
+ },
+ "rankable": {
+  "rule": "plant (best A combo of 60) B-half t rank <= 10 among the real candidate pool in the pc world",
+  "rank": 64,
+  "pool": 139,
+  "invalid_in_v4": {},
+  "top15": [
+   {
+    "body": [
+     0,
+     36,
+     29,
+     36,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(EMA(log_close, w=72), w=72)",
+    "plant": false,
+    "A_cost0_bpd": 23.599,
+    "h": 4,
+    "state": "all",
+    "dir": "both",
+    "B": {
+     "cost0_bpd": 31.573,
+     "net_bpd": 25.52,
+     "t_cost0": 4.207,
+     "turn_day": 1.0086,
+     "n_pos": 29.188,
+     "months": 30
+    },
+    "tB": 4.20730489789238
+   },
+   {
+    "body": [
+     0,
+     35,
+     24,
+     38,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(TS_MAX(log_close, w=24), w=336)",
+    "plant": false,
+    "A_cost0_bpd": 26.22,
+    "h": 4,
+    "state": "all",
+    "dir": "both",
+    "B": {
+     "cost0_bpd": 39.74,
+     "net_bpd": 24.657,
+     "t_cost0": 4.096,
+     "turn_day": 2.5135,
+     "n_pos": 21.128,
+     "months": 30
+    },
+    "tB": 4.095936783893502
+   },
+   {
+    "body": [
+     7,
+     37,
+     22,
+     41
+    ],
+    "expr": "TS_MEAN(taker_buy_share, w=168)",
+    "plant": false,
+    "A_cost0_bpd": 21.032,
+    "h": 4,
+    "state": "all",
+    "dir": "both",
+    "B": {
+     "cost0_bpd": 33.308,
+     "net_bpd": 29.567,
+     "t_cost0": 4.005,
+     "turn_day": 0.6235,
+     "n_pos": 37.04,
+     "months": 30
+    },
+    "tB": 4.005022974147641
+   },
+   {
+    "body": [
+     7,
+     6,
+     14,
+     32,
+     15,
+     40,
+     26,
+     35,
+     23,
+     41
+    ],
+    "expr": "TS_STD(TS_ZSCORE(NEG(CS_ZSCORE(DIV(taker_buy_share, global_ls_account_ratio))), w=672), w=24)",
+    "plant": false,
+    "A_cost0_bpd": 33.936,
+    "h": 4,
+    "state": "all",
+    "dir": "short",
+    "B": {
+     "cost0_bpd": 34.489,
+     "net_bpd": 27.151,
+     "t_cost0": 2.688,
+     "turn_day": 1.2229,
+     "n_pos": 13.653,
+     "months": 30
+    },
+    "tB": 2.688292757301768
+   },
+   {
+    "body": [
+     5,
+     38,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(log_oi_value, w=336)",
+    "plant": false,
+    "A_cost0_bpd": 24.059,
+    "h": 24,
+    "state": "all",
+    "dir": "short",
+    "B": {
+     "cost0_bpd": 25.856,
+     "net_bpd": 17.964,
+     "t_cost0": 2.481,
+     "turn_day": 1.315,
+     "n_pos": 4.404,
+     "months": 30
+    },
+    "tB": 2.480574742039425
+   },
+   {
+    "body": [
+     4,
+     15,
+     38,
+     21,
+     41
+    ],
+    "expr": "DELTA(NEG(funding_level), w=336)",
+    "plant": false,
+    "A_cost0_bpd": 22.775,
+    "h": 4,
+    "state": "all",
+    "dir": "both",
+    "B": {
+     "cost0_bpd": 24.571,
+     "net_bpd": 1.439,
+     "t_cost0": 2.464,
+     "turn_day": 3.8538,
+     "n_pos": 12.968,
+     "months": 30
+    },
+    "tB": 2.4641073059291125
+   },
+   {
+    "body": [
+     5,
+     7,
+     33,
+     33,
+     33,
+     33,
+     33,
+     14,
+     39,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(DIV(log_oi_value, CS_RANK(CS_RANK(CS_RANK(CS_RANK(CS_RANK(taker_buy_share)))))), w=504)",
+    "plant": false,
+    "A_cost0_bpd": 15.209,
+    "h": 168,
+    "state": "all",
+    "dir": "short",
+    "B": {
+     "cost0_bpd": 26.953,
+     "net_bpd": 25.24,
+     "t_cost0": 2.349,
+     "turn_day": 0.2853,
+     "n_pos": 4.127,
+     "months": 30
+    },
+    "tB": 2.348535585702373
+   },
+   {
+    "body": [
+     2,
+     15,
+     15,
+     37,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(NEG(NEG(log_low)), w=168)",
+    "plant": false,
+    "A_cost0_bpd": 32.962,
+    "h": 4,
+    "state": "all",
+    "dir": "both",
+    "B": {
+     "cost0_bpd": 20.831,
+     "net_bpd": -9.724,
+     "t_cost0": 2.125,
+     "turn_day": 5.0917,
+     "n_pos": 13.47,
+     "months": 30
+    },
+    "tB": 2.1247253859347035
+   },
+   {
+    "body": [
+     10,
+     33,
+     8,
+     33,
+     13,
+     38,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(MUL(CS_RANK(premium_high), CS_RANK(premium_close_bps)), w=336)",
+    "plant": false,
+    "A_cost0_bpd": 10.249,
+    "h": 72,
+    "state": "up_lowvol",
+    "dir": "short",
+    "B": {
+     "cost0_bpd": 20.87,
+     "net_bpd": 19.987,
+     "t_cost0": 2.021,
+     "turn_day": 0.1471,
+     "n_pos": 1.977,
+     "months": 30
+    },
+    "tB": 2.0208356249913018
+   },
+   {
+    "body": [
+     6,
+     32,
+     17,
+     35,
+     21,
+     41
+    ],
+    "expr": "DELTA(SIGN(CS_ZSCORE(global_ls_account_ratio)), w=24)",
+    "plant": false,
+    "A_cost0_bpd": 16.178,
+    "h": 72,
+    "state": "all",
+    "dir": "short",
+    "B": {
+     "cost0_bpd": 16.805,
+     "net_bpd": 13.615,
+     "t_cost0": 1.896,
+     "turn_day": 0.5315,
+     "n_pos": 4.285,
+     "months": 30
+    },
+    "tB": 1.8957653861537431
+   },
+   {
+    "body": [
+     5,
+     7,
+     32,
+     33,
+     33,
+     14,
+     39,
+     22,
+     5,
+     14,
+     34,
+     27,
+     41
+    ],
+    "expr": "TS_RANK(DIV(TS_MEAN(DIV(log_oi_value, CS_RANK(CS_RANK(CS_ZSCORE(taker_buy_share)))), w=504), log_oi_value), w=6)",
+    "plant": false,
+    "A_cost0_bpd": 16.499,
+    "h": 72,
+    "state": "all",
+    "dir": "short",
+    "B": {
+     "cost0_bpd": 19.069,
+     "net_bpd": 15.907,
+     "t_cost0": 1.84,
+     "turn_day": 0.5272,
+     "n_pos": 4.175,
+     "months": 30
+    },
+    "tB": 1.8402330901191424
+   },
+   {
+    "body": [
+     0,
+     34,
+     26,
+     37,
+     22,
+     35,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(TS_MEAN(TS_ZSCORE(log_close, w=6), w=168), w=24)",
+    "plant": false,
+    "A_cost0_bpd": 36.72,
+    "h": 4,
+    "state": "all",
+    "dir": "long",
+    "B": {
+     "cost0_bpd": 33.089,
+     "net_bpd": 26.484,
+     "t_cost0": 1.797,
+     "turn_day": 1.1008,
+     "n_pos": 18.396,
+     "months": 30
+    },
+    "tB": 1.7966748282230125
+   },
+   {
+    "body": [
+     6,
+     39,
+     25,
+     41
+    ],
+    "expr": "TS_MIN(global_ls_account_ratio, w=504)",
+    "plant": false,
+    "A_cost0_bpd": 14.944,
+    "h": 4,
+    "state": "up_lowvol",
+    "dir": "short",
+    "B": {
+     "cost0_bpd": 14.935,
+     "net_bpd": 13.024,
+     "t_cost0": 1.767,
+     "turn_day": 0.3183,
+     "n_pos": 2.064,
+     "months": 30
+    },
+    "tB": 1.7669592786974184
+   },
+   {
+    "body": [
+     10,
+     32,
+     33,
+     39,
+     24,
+     32,
+     31,
+     33,
+     15,
+     41
+    ],
+    "expr": "NEG(CS_RANK(CS_DEMEAN(CS_ZSCORE(TS_MAX(CS_RANK(CS_ZSCORE(premium_high)), w=504)))))",
+    "plant": false,
+    "A_cost0_bpd": 15.061,
+    "h": 72,
+    "state": "all",
+    "dir": "both",
+    "B": {
+     "cost0_bpd": 7.653,
+     "net_bpd": 6.789,
+     "t_cost0": 1.502,
+     "turn_day": 0.144,
+     "n_pos": 16.472,
+     "months": 30
+    },
+    "tB": 1.5024786696090293
+   },
+   {
+    "body": [
+     0,
+     2,
+     11,
+     37,
+     21,
+     41
+    ],
+    "expr": "DELTA(ADD(log_close, log_low), w=168)",
+    "plant": false,
+    "A_cost0_bpd": 50.571,
+    "h": 4,
+    "state": "all",
+    "dir": "long",
+    "B": {
+     "cost0_bpd": 34.699,
+     "net_bpd": 27.84,
+     "t_cost0": 1.398,
+     "turn_day": 1.1431,
+     "n_pos": 21.632,
+     "months": 30
+    },
+    "tB": 1.3984356619220975
+   }
+  ],
+  "plant": {
+   "body": [
+    3,
+    37,
+    22,
+    37,
+    21,
+    41
+   ],
+   "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)",
+   "plant": true,
+   "A_cost0_bpd": 42.307,
+   "h": 24,
+   "state": "all",
+   "dir": "long",
+   "B": {
+    "cost0_bpd": 6.015,
+    "net_bpd": 2.768,
+    "t_cost0": 0.283,
+    "turn_day": 0.5412,
+    "n_pos": 8.388,
+    "months": 30
+   },
+   "tB": 0.2830488810967157
+  },
+  "passed": false
+ },
+ "passed": false,
+ "conventions": "XS_SEL1 s3.2 plant calibration and the two launch checks (CPU book + GPU VM, V4 TRAIN only, no DEV, no OOS).\n\n  target   the ENR1b retail long/short cell T2_neg_retail_LS_24h|TS_lo|all|H72 (the strength the order names):\n           A-half net +31.89 bp per 72 h event; with the entry/exit cost 12 bp x (1 + |beta|), median beta 1.305\n           (ENR1 world table), its cost0 excess is ~59.6 bp per 72 h event = 0.83 bp per position-hour, i.e.\n           19.9 bp/day for a book at gross exposure 1. The plant book is the plant formula's own sparse book\n           (DELTA(TS_MEAN(log_quote_volume,168),168), hold 72, state all, long top 5 = gross 1).\n  alpha    fwd[i,t] += alpha zp[i,t-1] (sel1_common pc world); gain(alpha) = A-half cost0 of the plant book in the pc\n           world minus in the real world; alpha set by one linear step from alpha0 and checked (|gain-target| <= 10 %).\n  check 1  visible: the plant book's B-half t (monthly cost0) >= 2 in the pc world.\n  check 2  rankable: real candidate pool = CR1_PC_P8 HOF top 50 + B5_DBG_REAL HOF_RANKED (90), deduplicated; every\n           pool body and the plant body get the combo (hold x state x direction, 60) with the best A-half cost0\n           in the pc world, as the trainer's reward would pick; the plant's B-half t must rank <= 10 among them.\n  Either check failing -> no training (rc 7), back to the order issuer; nothing is re-tuned.\n    python -I sel1_calib.py\n",
+ "dev_read": false,
+ "oos_read": false,
+ "seconds": 306.0,
+ "written": "2026-10-15T00:29:56+0800"
+}

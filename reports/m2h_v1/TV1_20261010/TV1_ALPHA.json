@@ -1,0 +1,38 @@
+{
+ "p32": {
+  "alpha": 0.00023030008582251718,
+  "target_bpd": 32.0,
+  "lift_bpd": 31.999,
+  "lift_by_hold": {
+   "4": 50.512,
+   "24": 49.69,
+   "72": 40.543,
+   "168": 31.999
+  },
+  "iterations": 2,
+  "s_sha16": "fe33fa1b7d5c80e0",
+  "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)"
+ },
+ "p8": {
+  "alpha": 5.7575021455629296e-05,
+  "target_bpd": 8.0,
+  "lift_bpd": 8.0,
+  "lift_by_hold": {
+   "4": 12.628,
+   "24": 12.423,
+   "72": 10.136,
+   "168": 8.0
+  },
+  "iterations": 2,
+  "s_sha16": "fe33fa1b7d5c80e0",
+  "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)"
+ },
+ "base_gross_bpd": {
+  "4": 8.326,
+  "24": 8.276,
+  "72": 7.388,
+  "168": 8.677
+ },
+ "corr_s_mom168": 0.4455,
+ "written": "2026-10-10T12:35:12+0800"
+}

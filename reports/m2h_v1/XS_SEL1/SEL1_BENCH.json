@@ -1,0 +1,267 @@
+{
+ "schema": "SEL1_BENCH_V1",
+ "build_s": 6.7,
+ "n_bodies": 9,
+ "n_valid": 9,
+ "vm_s": {
+  "mean": 0.9636,
+  "p90": 2.3442,
+  "max": 4.8794
+ },
+ "mask_s": 0.0907,
+ "score_A_s": {
+  "mean": 0.2384,
+  "p90": 0.2955
+ },
+ "vram_gib": 3.58,
+ "test1": {
+  "windows": 720,
+  "max_abs_diff": 0.0,
+  "ok": true
+ },
+ "test2": {
+  "events": [
+   {
+    "coin": "ATAUSDT",
+    "t": "2021-10-15 15:00:00",
+    "h": 168,
+    "d": 1.0,
+    "diff_net": 1.3877787807814457e-17,
+    "diff_cost0": 2.0816681711721685e-17,
+    "net_bp": 334.851
+   },
+   {
+    "coin": "ICPUSDT",
+    "t": "2025-08-16 01:00:00",
+    "h": 168,
+    "d": -1.0,
+    "diff_net": 3.469446951953614e-18,
+    "diff_cost0": 6.938893903907228e-18,
+    "net_bp": -267.139
+   },
+   {
+    "coin": "GALAUSDT",
+    "t": "2023-07-15 20:00:00",
+    "h": 24,
+    "d": 1.0,
+    "diff_net": 0.0,
+    "diff_cost0": 0.0,
+    "net_bp": -216.75
+   },
+   {
+    "coin": "TRXUSDT",
+    "t": "2021-12-17 13:00:00",
+    "h": 168,
+    "d": -1.0,
+    "diff_net": 6.938893903907228e-18,
+    "diff_cost0": 0.0,
+    "net_bp": 479.78
+   },
+   {
+    "coin": "XTZUSDT",
+    "t": "2021-10-08 11:00:00",
+    "h": 72,
+    "d": 1.0,
+    "diff_net": 0.0,
+    "diff_cost0": 0.0,
+    "net_bp": -891.248
+   },
+   {
+    "coin": "WIFUSDT",
+    "t": "2025-05-16 16:00:00",
+    "h": 4,
+    "d": -1.0,
+    "diff_net": 3.469446951953614e-18,
+    "diff_cost0": 6.938893903907228e-18,
+    "net_bp": 236.274
+   },
+   {
+    "coin": "CELOUSDT",
+    "t": "2022-12-10 00:00:00",
+    "h": 72,
+    "d": 1.0,
+    "diff_net": 1.3877787807814457e-17,
+    "diff_cost0": 0.0,
+    "net_bp": -1245.933
+   },
+   {
+    "coin": "GTCUSDT",
+    "t": "2021-10-25 10:00:00",
+    "h": 24,
+    "d": -1.0,
+    "diff_net": 8.673617379884035e-19,
+    "diff_cost0": 1.734723475976807e-18,
+    "net_bp": -69.342
+   },
+   {
+    "coin": "APEUSDT",
+    "t": "2022-07-27 03:00:00",
+    "h": 24,
+    "d": 1.0,
+    "diff_net": 1.3877787807814457e-17,
+    "diff_cost0": 6.938893903907228e-18,
+    "net_bp": 364.302
+   },
+   {
+    "coin": "IDUSDT",
+    "t": "2023-09-10 07:00:00",
+    "h": 24,
+    "d": -1.0,
+    "diff_net": 1.5178830414797062e-18,
+    "diff_cost0": 0.0,
+    "net_bp": 4.511
+   },
+   {
+    "coin": "DASHUSDT",
+    "t": "2022-09-18 13:00:00",
+    "h": 4,
+    "d": 1.0,
+    "diff_net": 0.0,
+    "diff_cost0": 0.0,
+    "net_bp": -95.295
+   },
+   {
+    "coin": "CFXUSDT",
+    "t": "2023-07-23 07:00:00",
+    "h": 4,
+    "d": -1.0,
+    "diff_net": 0.0,
+    "diff_cost0": 0.0,
+    "net_bp": -26.019
+   }
+  ],
+  "max_abs_diff": 2.0816681711721685e-17,
+  "ok": true
+ },
+ "records": [
+  {
+   "expr": "DELTA(ADD(log_close, log_close), w=168)",
+   "h": 168,
+   "st": "down_lowvol",
+   "dr": "short",
+   "A": {
+    "cost0_bpd": 3.154,
+    "net_bpd": 2.447,
+    "t_cost0": 0.558,
+    "turn_day": 0.1178,
+    "n_pos": 1.189,
+    "months": 30
+   }
+  },
+  {
+   "expr": "DELTA(log_low, w=168)",
+   "h": 168,
+   "st": "up_highvol",
+   "dr": "short",
+   "A": {
+    "cost0_bpd": -7.435,
+    "net_bpd": -8.413,
+    "t_cost0": -0.832,
+    "turn_day": 0.1628,
+    "n_pos": 1.839,
+    "months": 30
+   }
+  },
+  {
+   "expr": "CS_DEMEAN(NEG(ABS(NEG(premium_high))))",
+   "h": 168,
+   "st": "up_lowvol",
+   "dr": "both",
+   "A": {
+    "cost0_bpd": -2.724,
+    "net_bpd": -3.246,
+    "t_cost0": -0.672,
+    "turn_day": 0.0868,
+    "n_pos": 3.009,
+    "months": 30
+   }
+  },
+  {
+   "expr": "NEG(SUB(premium_high, NEG(premium_high)))",
+   "h": 24,
+   "st": "up_lowvol",
+   "dr": "short",
+   "A": {
+    "cost0_bpd": -0.646,
+    "net_bpd": -3.294,
+    "t_cost0": -0.086,
+    "turn_day": 0.4407,
+    "n_pos": 1.318,
+    "months": 30
+   }
+  },
+  {
+   "expr": "NEG(CS_RANK(CS_DEMEAN(CS_ZSCORE(TS_MAX(CS_RANK(CS_ZSCORE(premium_high)), w=504)))))",
+   "h": 168,
+   "st": "all",
+   "dr": "long",
+   "A": {
+    "cost0_bpd": 16.077,
+    "net_bpd": 14.934,
+    "t_cost0": 1.555,
+    "turn_day": 0.1904,
+    "n_pos": 5.872,
+    "months": 30
+   }
+  },
+  {
+   "expr": "CS_ZSCORE(TS_MEAN(SIGN(NEG(NEG(CS_RANK(CS_DEMEAN(NEG(CS_ZSCORE(premium_close_bps))))))), w",
+   "h": 168,
+   "st": "all",
+   "dr": "short",
+   "A": {
+    "cost0_bpd": -16.754,
+    "net_bpd": -18.291,
+    "t_cost0": -1.05,
+    "turn_day": 0.2561,
+    "n_pos": 5.355,
+    "months": 30
+   }
+  },
+  {
+   "expr": "TS_RANK(EMA(log_close, w=72), w=168)",
+   "h": 4,
+   "st": "up_highvol",
+   "dr": "short",
+   "A": {
+    "cost0_bpd": -10.755,
+    "net_bpd": -14.806,
+    "t_cost0": -1.556,
+    "turn_day": 0.6747,
+    "n_pos": 2.78,
+    "months": 30
+   }
+  },
+  {
+   "expr": "TS_SLOPE(TS_ZSCORE(log_low, w=672), w=672)",
+   "h": 24,
+   "st": "up_lowvol",
+   "dr": "both",
+   "A": {
+    "cost0_bpd": 0.709,
+    "net_bpd": -0.083,
+    "t_cost0": 0.285,
+    "turn_day": 0.1319,
+    "n_pos": 5.09,
+    "months": 30
+   }
+  },
+  {
+   "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)",
+   "h": 72,
+   "st": "up_lowvol",
+   "dr": "short",
+   "A": {
+    "cost0_bpd": 2.911,
+    "net_bpd": 1.801,
+    "t_cost0": 0.632,
+    "turn_day": 0.1847,
+    "n_pos": 1.379,
+    "months": 30
+   }
+  }
+ ],
+ "dev_read": false,
+ "oos_read": false,
+ "seconds": 100.7
+}

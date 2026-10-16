@@ -1,0 +1,9 @@
+{
+ "mode": "null",
+ "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)",
+ "gross": -1.441,
+ "net": -2.46,
+ "ic": -0.01007,
+ "corr_s": 1.0,
+ "ok": true
+}

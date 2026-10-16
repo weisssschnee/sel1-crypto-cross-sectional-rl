@@ -1,0 +1,19 @@
+{
+ "schema": "TV1_PLANT_MANIFEST_V1",
+ "mode": "p8",
+ "out_name": "B5_PC_P8",
+ "trainer": "m2h_b5_trainer.py",
+ "shape": [
+  489,
+  17544
+ ],
+ "train_only": true,
+ "dev_read": false,
+ "oos_read": false,
+ "alpha": 5.7575021455629296e-05,
+ "target_bpd": 8.0,
+ "lift_bpd": 8.0,
+ "s_sha16": "fe33fa1b7d5c80e0",
+ "expr": "DELTA(TS_MEAN(log_quote_volume, w=168), w=168)",
+ "written": "2026-10-12T13:32:54+0800"
+}

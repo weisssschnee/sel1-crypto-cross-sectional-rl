@@ -1,0 +1,175 @@
+{
+ "threshold": 0.99,
+ "keep": [
+  "price_std",
+  "price_range_bps",
+  "close_to_open_bps",
+  "quantity",
+  "agg_trade_count",
+  "signed_aggressor_notional",
+  "buy_sell_notional_ratio",
+  "large_notional_ratio_100k_plus",
+  "avg_agg_trade_notional",
+  "max_trade_notional"
+ ],
+ "dropped": [
+  "buy_notional",
+  "close_price",
+  "notional",
+  "sell_notional",
+  "volume_imbalance",
+  "vwap"
+ ],
+ "per_column": {
+  "close_price": {
+   "max_abs_rho": 0.9999999999807956,
+   "v4": "panel:trade_close",
+   "rho": 0.9999999999807956
+  },
+  "log close_price": {
+   "max_abs_rho": 0.9999999996953687,
+   "v4": "term:log_close",
+   "rho": 0.9999999996953687
+  },
+  "vwap": {
+   "max_abs_rho": 0.999999964081588,
+   "v4": "panel:trade_close",
+   "rho": 0.999999964081588
+  },
+  "log vwap": {
+   "max_abs_rho": 0.9999999745847099,
+   "v4": "term:log_close",
+   "rho": 0.9999999745847099
+  },
+  "price_std": {
+   "max_abs_rho": 0.7871831682724519,
+   "v4": "panel:trade_high",
+   "rho": 0.7871831682724519
+  },
+  "log price_std": {
+   "max_abs_rho": 0.9844257453066474,
+   "v4": "term:log_high",
+   "rho": 0.9844257453066474
+  },
+  "price_range_bps": {
+   "max_abs_rho": 0.5910002082379742,
+   "v4": "term:premium_high",
+   "rho": 0.5910002082379742
+  },
+  "log price_range_bps": {
+   "max_abs_rho": 0.38562423100360804,
+   "v4": "term:premium_high",
+   "rho": 0.38562423100360804
+  },
+  "close_to_open_bps": {
+   "max_abs_rho": 0.3713213429938569,
+   "v4": "term:taker_buy_share",
+   "rho": 0.3713213429938569
+  },
+  "notional": {
+   "max_abs_rho": 0.9997759633036968,
+   "v4": "panel:trade_quote_volume",
+   "rho": 0.9997759633036968
+  },
+  "log notional": {
+   "max_abs_rho": 0.9999983384186174,
+   "v4": "term:log_quote_volume",
+   "rho": 0.9999983384186174
+  },
+  "quantity": {
+   "max_abs_rho": 0.22995170571906906,
+   "v4": "term:log_low",
+   "rho": -0.22995170571906906
+  },
+  "log quantity": {
+   "max_abs_rho": 0.8860207071843583,
+   "v4": "term:log_low",
+   "rho": -0.8860207071843583
+  },
+  "agg_trade_count": {
+   "max_abs_rho": 0.5717239583955656,
+   "v4": "panel:trade_quote_volume",
+   "rho": 0.5717239583955656
+  },
+  "log agg_trade_count": {
+   "max_abs_rho": 0.8325802086580731,
+   "v4": "term:log_quote_volume",
+   "rho": 0.8325802086580731
+  },
+  "buy_notional": {
+   "max_abs_rho": 0.9997397220051704,
+   "v4": "panel:taker_buy_quote_volume",
+   "rho": 0.9997397220051704
+  },
+  "log buy_notional": {
+   "max_abs_rho": 0.997814718038673,
+   "v4": "term:log_quote_volume",
+   "rho": 0.997814718038673
+  },
+  "sell_notional": {
+   "max_abs_rho": 0.9967894443539317,
+   "v4": "panel:trade_quote_volume",
+   "rho": 0.9967894443539317
+  },
+  "log sell_notional": {
+   "max_abs_rho": 0.9979924877820922,
+   "v4": "term:log_quote_volume",
+   "rho": 0.9979924877820922
+  },
+  "signed_aggressor_notional": {
+   "max_abs_rho": 0.18124201329485798,
+   "v4": "panel:trade_quote_volume",
+   "rho": -0.18124201329485798
+  },
+  "volume_imbalance": {
+   "max_abs_rho": 0.9999896967098796,
+   "v4": "term:taker_buy_share",
+   "rho": 0.9999896967098796
+  },
+  "buy_sell_notional_ratio": {
+   "max_abs_rho": 0.010453987729254433,
+   "v4": "term:log_high",
+   "rho": -0.010453987729254433
+  },
+  "log buy_sell_notional_ratio": {
+   "max_abs_rho": 0.48555119717281114,
+   "v4": "term:log_quote_volume",
+   "rho": -0.48555119717281114
+  },
+  "large_notional_ratio_100k_plus": {
+   "max_abs_rho": 0.8705740114318781,
+   "v4": "panel:open_interest_value_last",
+   "rho": 0.8705740114318781
+  },
+  "avg_agg_trade_notional": {
+   "max_abs_rho": 0.7306302671627632,
+   "v4": "panel:open_interest_value_last",
+   "rho": 0.7306302671627632
+  },
+  "log avg_agg_trade_notional": {
+   "max_abs_rho": 0.6659323329022734,
+   "v4": "term:log_oi_value",
+   "rho": 0.6659323329022734
+  },
+  "max_trade_notional": {
+   "max_abs_rho": 0.731477292484566,
+   "v4": "panel:open_interest_value_last",
+   "rho": 0.731477292484566
+  },
+  "log max_trade_notional": {
+   "max_abs_rho": 0.8724724043088127,
+   "v4": "term:log_quote_volume",
+   "rho": 0.8724724043088127
+  },
+  "buy_notional/notional": {
+   "max_abs_rho": 0.9999896967096289,
+   "v4": "term:taker_buy_share",
+   "rho": 0.9999896967096289
+  }
+ },
+ "coverage_vs_v4_coin_hours": 0.1375823154517168,
+ "coverage_vs_v4_top100_coin_hours": 0.24703398410170282,
+ "covered_coin_hours": 1401597,
+ "dev_read": false,
+ "oos_read": false
+}

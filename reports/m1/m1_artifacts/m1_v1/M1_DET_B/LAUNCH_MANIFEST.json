@@ -1,0 +1,37 @@
+{
+ "schema": "M1_TRAIN_LAUNCH_MANIFEST_V1",
+ "captured_by": "CHILD_PROCESS",
+ "python": "D:\\ChengboRemote\\venvs\\m1cu128\\Scripts\\python.exe",
+ "cwd": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\m1_staging",
+ "entry": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\m1_staging\\m1_trainer.py",
+ "args": {
+  "out_name": "M1_DET_B",
+  "shard_dir": "D:\\riskpg_stateful_v5s_governor_nextgen_beem\\runtime\\m1_staging\\m1_shards",
+  "updates": 2,
+  "batch": 32,
+  "seed": 20261002,
+  "device": "cuda",
+  "persist": 1,
+  "manifest_only": false
+ },
+ "months": [
+  "2024-01",
+  "2024-02",
+  "2024-03",
+  "2024-04"
+ ],
+ "vocab_size": 53,
+ "model_params": 102534,
+ "cost": {
+  "fee": 0.0005,
+  "slip": 0.0001,
+  "funding": "raw-instant events, floor_to_minute"
+ },
+ "episodes": {
+  "minutes": 360,
+  "count": 8,
+  "lookback": 1440,
+  "lag": 2
+ },
+ "written_at": "2026-10-02T23:09:26+0800"
+}
